@@ -98,6 +98,8 @@ spring:
           #ÔÊÐíÇå³ý¼ÇÂ¼
           reset-enable: false
         aop-patterns: com.wang.jmonkey.modules.*.service.*
+  thymeleaf:
+    prefix: classpath:/templates/
 
 #mybatis
 mybatis-plus:
@@ -132,3 +134,5 @@ jmonkey:
       - /signin
       - /signup
       - /test/list2
+      - /favicon.ico
+      - /page/**
