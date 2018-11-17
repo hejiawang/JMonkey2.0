@@ -6,13 +6,13 @@ spring:
   cache:
     type: redis
     redis:
-      time-to-live: 20000 #»º´æ³¬Ê±Ê±¼äms
-      cache-null-values: false #ÊÇ·ñ»º´æ¿ÕÖµ
+      time-to-live: 20000 #ç¼“å­˜è¶…æ—¶æ—¶é—´ms
+      cache-null-values: false #æ˜¯å¦ç¼“å­˜ç©ºå€¼
   redis:
     host: localhost
     port: 6379
     database: 10
-    timeout: 10000  #redis Á¬½Ó³¬Ê±Ê±¼äms
+    timeout: 10000  #redis è¿æ¥è¶…æ—¶æ—¶é—´ms
     lettuce:
       pool:
         max-active: 8
@@ -60,34 +60,34 @@ spring:
             alter-table-allow: false
             truncate-allow: false
             drop-table-allow: false
-            #ÊÇ·ñÔÊĞí·ÇÒÔÉÏ»ù±¾Óï¾äµÄÆäËûÓï¾ä£¬È±Ê¡¹Ø±Õ£¬Í¨¹ıÕâ¸öÑ¡Ïî¾ÍÄÜ¹»ÆÁ±ÎDDL
+            #æ˜¯å¦å…è®¸éä»¥ä¸ŠåŸºæœ¬è¯­å¥çš„å…¶ä»–è¯­å¥ï¼Œç¼ºçœå…³é—­ï¼Œé€šè¿‡è¿™ä¸ªé€‰é¡¹å°±èƒ½å¤Ÿå±è”½DDL
             none-base-statement-allow: false
-            #¼ì²éUPDATEÓï¾äÊÇ·ñÎŞwhereÌõ¼ş£¬ÕâÊÇÓĞ·çÏÕµÄ£¬µ«²»ÊÇSQL×¢ÈëÀàĞÍµÄ·çÏÕ
+            #æ£€æŸ¥UPDATEè¯­å¥æ˜¯å¦æ— whereæ¡ä»¶ï¼Œè¿™æ˜¯æœ‰é£é™©çš„ï¼Œä½†ä¸æ˜¯SQLæ³¨å…¥ç±»å‹çš„é£é™©
             update-where-none-check: true
-            #SELECT ... INTO OUTFILE ÊÇ·ñÔÊĞí£¬Õâ¸öÊÇmysql×¢Èë¹¥»÷µÄ³£¼ûÊÖ¶Î£¬È±Ê¡ÊÇ½ûÖ¹µÄ
+            #SELECT ... INTO OUTFILE æ˜¯å¦å…è®¸ï¼Œè¿™ä¸ªæ˜¯mysqlæ³¨å…¥æ”»å‡»çš„å¸¸è§æ‰‹æ®µï¼Œç¼ºçœæ˜¯ç¦æ­¢çš„
             select-into-outfile-allow: false
-            #ÊÇ·ñÔÊĞíµ÷ÓÃConnection.getMetadata·½·¨£¬Õâ¸ö·½·¨µ÷ÓÃ»á±©Â¶Êı¾İ¿âµÄ±íĞÅÏ¢
+            #æ˜¯å¦å…è®¸è°ƒç”¨Connection.getMetadataæ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•è°ƒç”¨ä¼šæš´éœ²æ•°æ®åº“çš„è¡¨ä¿¡æ¯
             metadata-allow: true
-            #ÔÊĞí¶àÌõsqlÒ»ÆğÖ´ĞĞ
+            #å…è®¸å¤šæ¡sqlä¸€èµ·æ‰§è¡Œ
             multiStatementAllow: true
-          #¶Ô±»ÈÏÎªÊÇ¹¥»÷µÄSQL½øĞĞLOG.errorÊä³ö
+          #å¯¹è¢«è®¤ä¸ºæ˜¯æ”»å‡»çš„SQLè¿›è¡ŒLOG.errorè¾“å‡º
           log-violation: true
-          #¶Ô±»ÈÏÎªÊÇ¹¥»÷µÄSQLÅ×³öSQLExcepton
+          #å¯¹è¢«è®¤ä¸ºæ˜¯æ”»å‡»çš„SQLæŠ›å‡ºSQLExcepton
           throw-exception: true
           db-type: mysql
         web-stat-filter:
           enabled: true
           url-pattern: /*
           exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-          #Äã¿ÉÒÔÅäÖÃprincipalSessionName£¬Ê¹µÃdruidÄÜ¹»ÖªµÀµ±Ç°µÄcookieµÄÓÃ»§ÊÇË­
+          #ä½ å¯ä»¥é…ç½®principalSessionNameï¼Œä½¿å¾—druidèƒ½å¤ŸçŸ¥é“å½“å‰çš„cookieçš„ç”¨æˆ·æ˜¯è°
           #principal-cookie-name: admin
-          #Äã¿ÉÒÔÅäÖÃprincipalSessionName£¬Ê¹µÃdruidÄÜ¹»ÖªµÀµ±Ç°µÄsessionµÄÓÃ»§ÊÇË­
+          #ä½ å¯ä»¥é…ç½®principalSessionNameï¼Œä½¿å¾—druidèƒ½å¤ŸçŸ¥é“å½“å‰çš„sessionçš„ç”¨æˆ·æ˜¯è°
           #principal-session-name: admin
-          #ÉèÖÃprofileEnableÄÜ¹»¼à¿Øµ¥¸öurlµ÷ÓÃµÄsqlÁĞ±í¡£
+          #è®¾ç½®profileEnableèƒ½å¤Ÿç›‘æ§å•ä¸ªurlè°ƒç”¨çš„sqlåˆ—è¡¨ã€‚
           profile-enable: true
-          #sessionÍ³¼Æ¹¦ÄÜ
+          #sessionç»Ÿè®¡åŠŸèƒ½
           session-stat-enable: false
-          #×î´ósessionÊı
+          #æœ€å¤§sessionæ•°
           session-stat-max-count: 100000
         stat-view-servlet:
           #allow: ${GATEWAY_HOST:172.26.114.241}
@@ -95,26 +95,26 @@ spring:
           login-username: admin
           login-password: 123456
           url-pattern: /druid/*
-          #ÔÊĞíÇå³ı¼ÇÂ¼
+          #å…è®¸æ¸…é™¤è®°å½•
           reset-enable: false
         aop-patterns: com.wang.jmonkey.modules.*.service.*
   thymeleaf:
-    prefix: classpath:/templates/
+    cache: false
 
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
-  typeAliasesPackage: com.wang.jmonkey.modules.*.*.entity #ÊµÌåÉ¨Ãè£¬¶à¸öpackageÓÃ¶ººÅ»òÕß·ÖºÅ·Ö¸ô
+  typeAliasesPackage: com.wang.jmonkey.modules.*.*.entity #å®ä½“æ‰«æï¼Œå¤šä¸ªpackageç”¨é€—å·æˆ–è€…åˆ†å·åˆ†éš”
   global-config:
-    id-type: 3 #Ö÷¼üÀàĞÍ  0:"Êı¾İ¿âID×ÔÔö", 1:"ÓÃ»§ÊäÈëID",2:"È«¾ÖÎ¨Ò»ID (Êı×ÖÀàĞÍÎ¨Ò»ID)", 3:"È«¾ÖÎ¨Ò»ID UUID";
-    field-strategy: 1 #×Ö¶Î²ßÂÔ 0:"ºöÂÔÅĞ¶Ï",1:"·Ç NULL ÅĞ¶Ï"),2:"·Ç¿ÕÅĞ¶Ï"
-    db-column-underline: true #ÍÕ·åÏÂ»®Ïß×ª»»
-    refresh-mapper: true #Ë¢ĞÂmapper µ÷ÊÔÉñÆ÷
-    #capital-mode: true #Êı¾İ¿â´óĞ´ÏÂ»®Ïß×ª»»
-    #key-generator: com.baomidou.springboot.xxx #ĞòÁĞ½Ó¿ÚÊµÏÖÀàÅäÖÃ
-    logic-delete-value: concat('','Delete','')  #Âß¼­É¾³ıÅäÖÃ
+    id-type: 3 #ä¸»é”®ç±»å‹  0:"æ•°æ®åº“IDè‡ªå¢", 1:"ç”¨æˆ·è¾“å…¥ID",2:"å…¨å±€å”¯ä¸€ID (æ•°å­—ç±»å‹å”¯ä¸€ID)", 3:"å…¨å±€å”¯ä¸€ID UUID";
+    field-strategy: 1 #å­—æ®µç­–ç•¥ 0:"å¿½ç•¥åˆ¤æ–­",1:"é NULL åˆ¤æ–­"),2:"éç©ºåˆ¤æ–­"
+    db-column-underline: true #é©¼å³°ä¸‹åˆ’çº¿è½¬æ¢
+    refresh-mapper: true #åˆ·æ–°mapper è°ƒè¯•ç¥å™¨
+    #capital-mode: true #æ•°æ®åº“å¤§å†™ä¸‹åˆ’çº¿è½¬æ¢
+    #key-generator: com.baomidou.springboot.xxx #åºåˆ—æ¥å£å®ç°ç±»é…ç½®
+    logic-delete-value: concat('','Delete','')  #é€»è¾‘åˆ é™¤é…ç½®
     logic-not-delete-value: concat('','Used','')
-    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector #×Ô¶¨ÒåSQL×¢ÈëÆ÷
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector #è‡ªå®šä¹‰SQLæ³¨å…¥å™¨
     metaObjectHandler: com.wang.jmonkey.common.mybatis.handler.DataMetaObjectHandler
   configuration:
     map-underscore-to-camel-case: true
@@ -128,11 +128,15 @@ jmonkey:
     clientSecret: JMonkey_client_secret
     scope: server
   token:
-    expiresIn: 3600 # token¹ıÆÚÊ±¼ä£¬Ä¬ÈÏ10Ğ¡Ê±£¬µ¥Î»Ãë£¬60 * 60£¨Ò»Ğ¡Ê±£©
+    expiresIn: 3600 # tokenè¿‡æœŸæ—¶é—´ï¼Œé»˜è®¤10å°æ—¶ï¼Œå•ä½ç§’ï¼Œ60 * 60ï¼ˆä¸€å°æ—¶ï¼‰
   urls:
     anon:
-      - /signin
-      - /signup
-      - /test/list2
-      - /favicon.ico
-      - /page/**
+    - /signin
+    - /signup
+    - /test/list2
+    - /favicon.ico
+    - /page/**
+    - /css/**
+    - /images/**
+    - /lib/**
+    - /scripts/**
