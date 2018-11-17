@@ -4,16 +4,53 @@
     <meta charset="UTF-8">
     <title>主页</title>
 
-    <script th:src="@{lib/vue/dist/vue.js}"></script>
+    <link rel="stylesheet" th:href="@{/lib/font-awesome/4.7.0/css/font-awesome.min.css}" >
 
-    <link rel="stylesheet" th:href="@{lib/element-ui/lib/theme-chalk/index.css}">
-    <script th:src="@{lib/element-ui/lib/index.js}"></script>
+    <script th:src="@{/lib/vue/dist/vue.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/lib/element-ui/lib/theme-chalk/index.css}">
+    <script th:src="@{/lib/element-ui/lib/index.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/css/panel/index.css}">
 </head>
 <body>
-    <div id="app">
-        <div th:include="include/title :: title" ></div>
+    <el-container id="app">
+        <!-- 头部 start -->
+        <el-header>
+            <div th:include="include/panel/header :: header" ></div>
+        </el-header>
+        <!-- 头部 end -->
 
-    </div>
+        <el-container>
+            <!-- 左侧菜单 start -->
+            <el-aside>Aside</el-aside>
+            <!-- 左侧菜单 end -->
+
+            <el-container>
+                <!-- 导航条 start -->
+                <el-breadcrumb separator-class="fa fa-angle-right">
+                    <el-breadcrumb-item><li class="fa fa-map-marker"></li> </el-breadcrumb-item>
+                    <el-breadcrumb-item>首页</el-breadcrumb-item>
+                </el-breadcrumb>
+                <!-- 导航条 end -->
+
+                <!-- 主体内容 start -->
+                <el-main>
+                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="/guta/a/home" seamless="">
+
+                    </iframe>
+                </el-main>
+                <!-- 主体内容 end -->
+
+                <!-- 页脚 start -->
+                <el-footer>
+                    <div th:include="include/panel/footer :: footer" ></div>
+                </el-footer>
+                <!-- 页脚 end -->
+
+            </el-container>
+        </el-container>
+    </el-container>
 </body>
 <script>
     new Vue({
