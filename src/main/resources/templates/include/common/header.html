@@ -5,12 +5,20 @@
     <title th:replace="${title}"> Title </title>
 
     <link rel="stylesheet" th:href="@{/lib/iview/dist/styles/iview.css}">
+    <link rel="stylesheet" th:href="@{/css/common/common.css}">
 
     <script type="text/javascript" th:src="@{/lib/vue/dist/vue.js}"></script>
     <script type="text/javascript" th:src="@{/lib/iview/dist/iview.min.js}"></script>
 
     <th:block th:replace="${links}" />
     <th:block th:replace="${styles}" />
+
+    <script type="text/javascript">
+        //设置iview默认大小
+        Vue.use(iview, {
+            size: 'large'
+        });
+    </script>
 </head>
 <!--
 
