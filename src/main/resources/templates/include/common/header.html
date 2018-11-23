@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(title,links,styles)">
+    <meta charset="utf-8">
+    <title th:replace="${title}"> Title </title>
+
+    <link rel="stylesheet" th:href="@{/lib/iview/dist/styles/iview.css}">
+
+    <script type="text/javascript" th:src="@{/lib/vue/dist/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/iview/dist/iview.min.js}"></script>
+
+    <th:block th:replace="${links}" />
+    <th:block th:replace="${styles}" />
+</head>
+<!--
+
+使用说明：
+    1.在html页面中：
+        <head th:replace="include/common/header :: common_header(~{},~{},~{})">
+        </head>
+    2.若更换title：
+        <head th:replace="include/common/header :: common_header(~{::title},~{},~{})">
+            <title> 更换的title </title>
+        </head>
+    3.若引入新的css样式
+        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{})">
+            <title> 更换的title </title>
+            <link rel="stylesheet" th:href="@{/css/panel/index.css}">
+        </head>
+    4.若写入新的css
+        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{::style})">
+            <title> 更换的title </title>
+            <link rel="stylesheet" th:href="@{/css/panel/index.css}">
+
+            <style>
+                html{
+                    height: 2px;
+                }
+            </style>
+        </head>
+
+    5.若引入新的js文件，应在<body>标签下方引入js文件
+
+-->

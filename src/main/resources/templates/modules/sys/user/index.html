@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/common/header :: common_header(~{::title},~{},~{})">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{test}}
+    </div>
+</body>
+<script type="text/javascript" th:src="@{/scripts/sys/user/index.js}"></script>
+</html>

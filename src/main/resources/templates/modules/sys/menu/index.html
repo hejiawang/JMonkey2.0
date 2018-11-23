@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/lib/iview/dist/styles/iview.css}">
+
+    <script type="text/javascript" th:src="@{/lib/vue/dist/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/iview/dist/iview.min.js}"></script>
+</head>
+<body>
+    <div id="app">
+        {{test}}
+    </div>
+</body>
+    <script>
+        new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    test: 'menu',
+                }
+            },
+            created() {
+            },
+        })
+    </script>
+</html>

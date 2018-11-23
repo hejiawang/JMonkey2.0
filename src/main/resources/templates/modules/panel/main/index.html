@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>主页</title>
-
-    <link rel="stylesheet" th:href="@{/lib/font-awesome/4.7.0/css/font-awesome.min.css}" >
-
-    <script th:src="@{/lib/vue/dist/vue.js}"></script>
-
-    <link rel="stylesheet" th:href="@{/lib/element-ui/lib/theme-chalk/index.css}">
-    <script th:src="@{/lib/element-ui/lib/index.js}"></script>
+<head th:replace="include/common/header :: common_header(~{::title},~{::link},~{})">
+    <title>Title</title>
 
     <link rel="stylesheet" th:href="@{/css/panel/index.css}">
 </head>
 <body>
-    <el-container id="app">
-        <!-- 头部 start -->
-        <el-header>
-            <div th:include="include/panel/header :: header" ></div>
-        </el-header>
-        <!-- 头部 end -->
+    <div id="app" class="layout">
+        <layout style="height: 100%">
+            <header>
+                <div th:include="include/panel/header :: header" ></div>
+            </header>
 
-        <el-container>
-            <!-- 左侧菜单 start -->
-            <el-aside>Aside</el-aside>
-            <!-- 左侧菜单 end -->
+            <layout>
+                <sider hide-trigger>
+                    <i-menu active-name="http://www.baidu.com" theme="light" width="auto" accordion @on-select="selectMenu">
+                        <menu-item name="http://www.baidu.com">
+                            <icon type="ios-navigate"></icon>
+                            首页
+                        </menu-item>
+                        <submenu name="1">
+                            <template slot="title">
+                                <icon type="ios-navigate"></icon>
+                                系统设置
+                            </template>
+                            <menu-item name="/page/sys/user/index.html" >用户管理</menu-item>
+                            <menu-item name="/page/sys/role/index.html">角色管理</menu-item>
+                            <menu-item name="/page/sys/dept/index.html">部门管理</menu-item>
+                            <menu-item name="/page/sys/menu/index.html">菜单管理</menu-item>
+                        </submenu>
+                    </i-menu>
+                </sider>
 
-            <el-container>
-                <!-- 导航条 start -->
-                <el-breadcrumb separator-class="fa fa-angle-right">
-                    <el-breadcrumb-item><li class="fa fa-map-marker"></li> </el-breadcrumb-item>
-                    <el-breadcrumb-item>首页</el-breadcrumb-item>
-                </el-breadcrumb>
-                <!-- 导航条 end -->
+                <layout :style="{padding: '0 10px 10px'}">
+                    <breadcrumb>
+                        <breadcrumb-item> <icon type="ios-home-outline"></icon> </breadcrumb-item>
+                        <breadcrumb-item>Layout</breadcrumb-item>
+                    </breadcrumb>
+                    <content>
+                        <iframe class="J_iframe" name="iframe" width="100%" height="100%" :src="toMenu" frameborder="0">
 
-                <!-- 主体内容 start -->
-                <el-main>
-                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="/guta/a/home" seamless="">
-
-                    </iframe>
-                </el-main>
-                <!-- 主体内容 end -->
-
-                <!-- 页脚 start -->
-                <el-footer>
-                    <div th:include="include/panel/footer :: footer" ></div>
-                </el-footer>
-                <!-- 页脚 end -->
-
-            </el-container>
-        </el-container>
-    </el-container>
+                        </iframe>
+                    </content>
+                    <footer>
+                        <div th:include="include/panel/footer :: footer" ></div>
+                    </footer>
+                </layout>
+            </layout>
+        </layout>
+    </div>
 </body>
 <script>
     new Vue({
         el: '#app',
         data: function() {
             return {
-
+                toMenu: 'http://www.baidu.com',
             }
         },
         created() {
+
         },
+        methods: {
+            selectMenu(menuName){
+                this.toMenu = menuName;
+            },
+        },
+
     })
 </script>
 </html>
