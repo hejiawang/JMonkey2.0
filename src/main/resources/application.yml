@@ -99,7 +99,7 @@ spring:
           reset-enable: false
         aop-patterns: com.wang.jmonkey.modules.*.service.*
   thymeleaf:
-    cache: false
+    cache: true
 
 #mybatis
 mybatis-plus:

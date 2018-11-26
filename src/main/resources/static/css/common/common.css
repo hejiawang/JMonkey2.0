@@ -3,6 +3,10 @@ html,body{
     height:100%;
 }
 
+.app-layout {
+    height: 100%;
+}
+
 /* iview 表单中的lable文字大小 */
 .ivu-form .ivu-form-item-label{
     font-size: 17px;

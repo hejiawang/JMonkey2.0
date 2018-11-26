@@ -7,13 +7,18 @@
     <link rel="stylesheet" th:href="@{/lib/iview/dist/styles/iview.css}">
     <link rel="stylesheet" th:href="@{/css/common/common.css}">
 
-    <script type="text/javascript" th:src="@{/lib/vue/dist/vue.js}"></script>
-    <script type="text/javascript" th:src="@{/lib/iview/dist/iview.min.js}"></script>
+    <!-- es6 ie 兼容 start -->
+    <script th:src="@{/lib/babel-standalone/babel.min.js}"></script>
+    <script th:src="@{/lib/babel-polyfill/7.0.0-rc.4/polyfill.min.js}"></script>
+    <!-- es6 ie 兼容 end -->
+
+    <script th:src="@{/lib/vue/dist/vue.min.js}"></script>
+    <script th:src="@{/lib/iview/dist/iview.min.js}"></script>
 
     <th:block th:replace="${links}" />
     <th:block th:replace="${styles}" />
 
-    <script type="text/javascript">
+    <script type="text/babel">
         //设置iview默认大小
         Vue.use(iview, {
             size: 'large'

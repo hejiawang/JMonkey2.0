@@ -77,8 +77,9 @@ new Vue({
     },
     mounted() {
         this.userTableHeight = document.body.clientHeight - 110;
+        console.info('mounted');
     },
     created() {
-
+        console.info('create');
     },
 })
