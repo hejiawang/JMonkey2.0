@@ -149,6 +149,7 @@ jmonkey:
     - /test/list2
     - /favicon.ico
     - /page/**
+    resources:
     - /css/**
     - /images/**
     - /lib/**

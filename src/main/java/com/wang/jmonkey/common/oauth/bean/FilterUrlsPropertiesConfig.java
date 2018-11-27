@@ -19,5 +19,14 @@ import java.util.List;
 @ConditionalOnExpression("!'${jmonkey.urls}'.isEmpty()")
 @ConfigurationProperties(prefix = "jmonkey.urls")
 public class FilterUrlsPropertiesConfig {
+
+    /**
+     * 过滤不需要权限的请求
+     */
     private List<String> anon = new ArrayList<>();
+
+    /**
+     * 过滤静态资源
+     */
+    private List<String> resources = new ArrayList<>();
 }
