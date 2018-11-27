@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="common_header(title,links,styles)">
+<head th:fragment="common_header(title,links,script,styles)">
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title th:replace="${title}"> Title </title>
 
     <link th:href="${thymeleaf.staticPath} + 'iview/3.1.4/styles/iview.css'" rel="stylesheet" >
+    <link href="https://cdn.bootcss.com/animate.css/3.7.0/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/common/common.css}">
 
     <!-- es6 ie 兼容 start -->
@@ -29,24 +30,26 @@
             size: 'large'
         });
     </script>
+
+    <th:block th:replace="${script}" />
 </head>
 <!--
 
 使用说明：
     1.在html页面中：
-        <head th:replace="include/common/header :: common_header(~{},~{},~{})">
+        <head th:replace="include/common/header :: common_header(~{},~{},~{},~{})">
         </head>
     2.若更换title：
-        <head th:replace="include/common/header :: common_header(~{::title},~{},~{})">
+        <head th:replace="include/common/header :: common_header(~{::title},~{},~{},~{})">
             <title> 更换的title </title>
         </head>
     3.若引入新的css样式
-        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{})">
+        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{},~{})">
             <title> 更换的title </title>
             <link rel="stylesheet" th:href="@{/css/panel/index.css}">
         </head>
     4.若写入新的css
-        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{::style})">
+        <head th:replace="include/common/header :: common_header(~{::title},~{::link},~{},~{::style})">
             <title> 更换的title </title>
             <link rel="stylesheet" th:href="@{/css/panel/index.css}">
 

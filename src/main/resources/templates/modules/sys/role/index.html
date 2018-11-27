@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="include/common/header :: common_header(~{},~{},~{})">
+<head th:replace="include/common/header :: common_header(~{},~{},~{},~{})">
 </head>
 <body>
-    <div id="app" class="app-layout">
+    <div id="app" class="app-layout animated fadeIn">
         <row>
             <i-col span="8">
                 <i-button type="primary">新增用户</i-button>
@@ -109,10 +109,8 @@
         },
         mounted() {
             this.userTableHeight = document.body.clientHeight - 110;
-            console.info('mounted');
         },
         created() {
-            console.info('create');
         },
     })
 </script>

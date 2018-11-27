@@ -19,61 +19,44 @@ new Vue({
                     render: (h, params) => {
                         return h('div', [
                             h('Button', {
-                                props: {
-                                    type: 'primary',
-                                    ghost: true,
-                                },
-                                style: {
-                                    marginRight: '10px'
-                                },
+                                props: { type: 'primary', ghost: true,  },
+                                style: { marginRight: '10px' },
+                                on: { click: () => { this.editHandle(params.row) } }
                             }, '编辑'),
                             h('Button', {
-                                props: {
-                                    type: 'warning',
-                                    ghost: true,
-                                },
-                                style: {
-                                    marginRight: '10px'
-                                },
+                                props: { type: 'warning', ghost: true, },
+                                style: { marginRight: '10px' },
                             }, '查看'),
                             h('Button', {
-                                props: {
-                                    type: 'error',
-                                    ghost: true,
-                                },
-                                style: {
-                                    marginRight: '10px'
-                                },
+                                props: { type: 'error', ghost: true,  },
+                                style: { marginRight: '10px' },
                             }, '删除'),
                             h('Button', {
-                                props: {
-
-                                },
-                                style: {
-                                    marginRight: '10px'
-                                },
+                                props: { },
+                                style: { marginRight: '10px' },
                             }, '密码重置')
                         ]);
                     }
                 }
             ],
             userTableData: [
-                {name: 'John Brown', age: 18,phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'John Brown', age: 18,phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
-                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
-                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'}
+                {id: 'id1', name: 'John Brown', age: 18,phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'John Brown', age: 18,phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {id: 'id1', name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {id: 'id1', name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'}
             ],
             userTableHeight: 200,
+            isShow: false,
         }
     },
     computed: {
@@ -84,5 +67,12 @@ new Vue({
     },
     created() {
 
+    },
+    methods: {
+        editHandle(params){
+            console.info(params);
+
+            this.isShow = true;
+        },
     },
 })
