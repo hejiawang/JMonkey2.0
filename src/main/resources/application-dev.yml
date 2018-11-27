@@ -1,0 +1,4 @@
+jmonkey:
+  static-locations-file: D:/JMonkeyFile
+  thymeleaf:
+    staticPath: http://localhost:8080/lib/ #https://cdn.bootcss.com/

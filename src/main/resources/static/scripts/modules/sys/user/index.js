@@ -67,6 +67,10 @@ new Vue({
                 {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
                 {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
                 {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
+                {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'},
+                {name: 'Jim Green', age: 24, phone:'13333333333', dept: '研发中心',address: 'London No. 1 Lake Park', date: '2016-10-01'},
                 {name: 'John Brown', age: 18, phone:'13333333333', dept: '研发中心',address: 'New York No. 1 Lake Park', date: '2016-10-03'}
             ],
             userTableHeight: 200,
@@ -77,9 +81,8 @@ new Vue({
     },
     mounted() {
         this.userTableHeight = document.body.clientHeight - 110;
-        console.info('mounted');
     },
     created() {
-        console.info('create');
+
     },
 })

@@ -100,6 +100,19 @@ spring:
         aop-patterns: com.wang.jmonkey.modules.*.service.*
   thymeleaf:
     cache: true
+  devtools:
+    restart:
+      enabled: true
+      exclude: templates/**,static/**,
+  resources:
+    static-locations: file:${jmonkey.static-locations-file},classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+
+server:
+  servlet:
+    context-path: /
+    session:
+      tracking-modes: cookie
 
 #mybatis
 mybatis-plus:
@@ -140,3 +153,4 @@ jmonkey:
     - /images/**
     - /lib/**
     - /scripts/**
+    - /file/**
