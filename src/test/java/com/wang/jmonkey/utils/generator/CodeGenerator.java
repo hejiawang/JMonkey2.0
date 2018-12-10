@@ -15,7 +15,7 @@ public class CodeGenerator {
 
     private String outputDir = "D:/WorkSpace/JMonkey2.0/src/main/java";
     private String author = "HeJiawang";
-    private String tableName = "test_mb";
+    private String tableName = "sys_role";
 
     @Test
     public void codeGeneratorTest(){
@@ -41,7 +41,7 @@ public class CodeGenerator {
                 .setOutputDir(outputDir)
                 .setActiveRecord(true)
                 .setEnableCache(false)
-                .setFileOverride(true);
+                .setFileOverride(false);
 
         return config;
     }
@@ -76,7 +76,7 @@ public class CodeGenerator {
 
     private PackageConfig packageConfig(){
         PackageConfig config = new PackageConfig();
-        config.setParent("com.wang.jmonkey.modules.test")
+        config.setParent("com.wang.jmonkey.modules.sys")
                 .setController("api")
                 .setEntity("model.entity");
         return config;

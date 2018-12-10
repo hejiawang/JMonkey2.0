@@ -36,7 +36,7 @@ spring:
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
-      filters: log4j2
+      filters: stat,wall,log4j2
       filter:
         stat:
           enabled: true
@@ -117,7 +117,7 @@ server:
 #mybatis
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
-  typeAliasesPackage: com.wang.jmonkey.modules.*.*.entity #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.wang.jmonkey.modules.*.model.entity #实体扫描，多个package用逗号或者分号分隔
   global-config:
     id-type: 3 #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     field-strategy: 1 #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
@@ -133,6 +133,12 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     call-setters-on-nulls: true
+
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      wang: debug
 
 jmonkey:
   baseUrl:
