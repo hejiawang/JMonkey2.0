@@ -1,22 +1,21 @@
-package com.wang.jmonkey.common.model.enums;
+package com.wang.jmonkey.modules.sys.model.enums;
 
 import com.baomidou.mybatisplus.enums.IEnum;
 
 /**
- * @Description: 记录状态枚举
+ * @Description: 系统显示方式
  * @Auther: HeJiawang
- * @Date: 2018/6/23
+ * @Date: 2018/12/10
  */
-public enum RecordStatusEnum implements IEnum {
+public enum SystemShowTypeEnums implements IEnum {
 
-    Used("Used", "启用"),
-    Disable("Disable", "禁用"),
-    Delete("Delete", "删除");
+    Tabs("Tabs", "标签页"),
+    Breadcrumb("Breadcrumb", "导航条");
 
     private String value;
     private String desc;
 
-    RecordStatusEnum(final String value, final String desc) {
+    SystemShowTypeEnums(final String value, final String desc) {
         this.value = value;
         this.desc = desc;
     }
@@ -29,5 +28,4 @@ public enum RecordStatusEnum implements IEnum {
     public String getDesc(){
         return this.desc;
     }
-
 }
