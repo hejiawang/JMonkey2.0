@@ -1,7 +1,10 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysSystem;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface SysSystemMapper extends BaseMapper<SysSystem> {
 
+    /**
+     * 获取系统Dto信息
+     * @return
+     */
+    List<SysSystemDto> selectDtoList();
 }

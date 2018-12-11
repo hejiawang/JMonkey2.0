@@ -2,9 +2,10 @@ package com.wang.jmonkey.modules.sys.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
-import com.wang.jmonkey.modules.sys.model.entity.SysSystem;
-import com.wang.jmonkey.modules.sys.service.ISysSystemService;
+import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
+import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
+import com.wang.jmonkey.modules.sys.model.param.SysMenuParam;
+import com.wang.jmonkey.modules.sys.service.ISysMenuService;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -13,34 +14,35 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Description: 系统配置 api
+ * @Description: 菜单权限表 api
  * @Auther: HeJiawang
- * @Date: 2018-12-10
+ * @Date: 2018-12-11
  */
 @RestController
-@RequestMapping("/sys/system")
-public class SysSystemApi extends BaseHttp {
+@RequestMapping("/sys/menu")
+public class SysMenuApi extends BaseHttp {
 
     @Resource
-    private ISysSystemService service;
+    private ISysMenuService service;
 
     /**
-     * 分页查询信息
+     * 菜单树表格
+     * @param systemId 归属系统
      * @return
      */
-    @GetMapping(value = "/list")
-    public HttpResult<List<SysSystemDto>> list() {
-        return new HttpResult<>( service.selectDtoList() );
+    @GetMapping(value = "/treeList")
+    public HttpResult<List<SysMenuTreeDto>> list(String systemId) {
+        return new HttpResult<>( service.treeList(systemId) );
     }
 
     /**
      * 保存实体信息
-     * @param entity 实体信息
+     * @param param 实体信息
      * @return
      */
     @PostMapping(value = "/save")
-    public HttpResult<Boolean> save( @RequestBody SysSystem entity ){
-        return new HttpResult<>(service.insert(entity));
+    public HttpResult<Boolean> save( @RequestBody SysMenuParam param ){
+        return new HttpResult<>(service.insert(param));
     }
 
     /**
@@ -49,7 +51,7 @@ public class SysSystemApi extends BaseHttp {
      * @return
      */
     @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody SysSystem entity ){
+    public HttpResult<Boolean> modify( @RequestBody SysMenu entity ){
         return new HttpResult<>(service.updateById(entity));
     }
 
@@ -69,7 +71,7 @@ public class SysSystemApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/find/{id}")
-    public HttpResult<SysSystem> findById(@PathVariable Serializable id ){
+    public HttpResult<SysMenu> findById(@PathVariable Serializable id ){
         return new HttpResult<>(service.selectById(id));
     }
 

@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysSystem;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -19,5 +20,5 @@ public interface ISysSystemService extends IService<SysSystem> {
      * 获取系统信息列表
      * @return
      */
-    List<SysSystem> selectList();
+    List<SysSystemDto> selectDtoList();
 }
