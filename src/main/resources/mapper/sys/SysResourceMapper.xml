@@ -16,8 +16,47 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto">
+        <result column="id" property="id"/>
+        <result column="parentId" property="parent_id"/>
+        <result column="rId" property="r_id"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
     <update id="deleteResource">
         UPDATE ${tableName} SET delete_flag = 'Delete' WHERE id = #{id}
     </update>
+
+    <select id="selectDtoList" resultMap="DtoResultMap">
+        <if test=" index >= 1">
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, s.name as name
+            FROM sys_resource r
+            INNER JOIN sys_system s ON r.r_id = s.id
+            WHERE r.delete_flag = 'Used'
+            AND s.delete_flag = 'Used'
+            AND r.type = 'System'
+        </if>
+        <if test=" index >= 2">
+            UNION ALL
+
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, m.name as name
+            FROM sys_resource r
+            INNER JOIN sys_menu m ON r.r_id = m.id
+            WHERE r.delete_flag = 'Used'
+            AND m.delete_flag = 'Used'
+            AND r.type = 'Menu'
+        </if>
+        <if test=" index >= 3">
+            UNION ALL
+
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, b.name as name
+            FROM sys_resource r
+            INNER JOIN sys_button b ON r.r_id = b.id
+            WHERE r.delete_flag = 'Used'
+            AND b.delete_flag = 'Used'
+            AND r.type = 'Button'
+        </if>
+    </select>
 
 </mapper>

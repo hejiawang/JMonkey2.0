@@ -1,6 +1,8 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.wang.jmonkey.common.utils.TreeUtil;
+import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysResource;
 import com.wang.jmonkey.modules.sys.mapper.SysResourceMapper;
 import com.wang.jmonkey.modules.sys.model.enums.ResourceTypeEnums;
@@ -62,7 +64,7 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
      * @param resource 资源信息
      * @return
      */
-    public boolean deleteResource(SysResource resource) {
+    private boolean deleteResource(SysResource resource) {
         // 子节点资源信息
         List<SysResource> rChildren = this.selectList(
                 new EntityWrapper<>(
@@ -75,5 +77,24 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
         // 子节点信息删除后，删除自己
         mapper.deleteResource(rMap.get(resource.getType()), resource.getRId());
         return super.deleteById(resource.getId());
+    }
+
+
+    /**
+     * 系统，菜单，构成的树形结果数据
+     * @return
+     */
+    @Override
+    public List<SysResourceTreeDto> smTree() {
+        return  TreeUtil.bulid( mapper.selectDtoList(2), null );
+    }
+
+    /**
+     * 系统，菜单，按钮，构成的树形结果数据
+     * @return
+     */
+    @Override
+    public List<SysResourceTreeDto> smbTree() {
+        return TreeUtil.bulid( mapper.selectDtoList(3), null );
     }
 }

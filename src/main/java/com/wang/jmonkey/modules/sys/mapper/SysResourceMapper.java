@@ -1,8 +1,11 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysResource;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -21,4 +24,11 @@ public interface SysResourceMapper extends BaseMapper<SysResource> {
      * @return
      */
     Integer deleteResource(@Param("tableName") String tableName, @Param("id") String id);
+
+    /**
+     * 获取dto数据
+     * @param index 级别，1只有系统信息，2系统信息加菜单信息，3系统信息菜单信息按钮信息
+     * @return
+     */
+    List<SysResourceTreeDto> selectDtoList(@Param("index")int index);
 }

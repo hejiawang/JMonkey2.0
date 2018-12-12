@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -24,6 +25,9 @@ import java.io.Serializable;
  */
 @Service
 public class SysButtonServiceImpl extends ServiceImpl<SysButtonMapper, SysButton> implements ISysButtonService {
+
+    @Autowired
+    private SysButtonMapper mapper;
 
     @Autowired
     private ISysResourceService resourceService;
@@ -41,6 +45,16 @@ public class SysButtonServiceImpl extends ServiceImpl<SysButtonMapper, SysButton
         return resourceService.insert(
                 new SysResource().setRId(button.getId()).setParentId(param.getParentId()).setType(ResourceTypeEnums.Button)
         );
+    }
+
+    /**
+     * 查询list信息
+     * @param parentId 父资源id
+     * @return
+     */
+    @Override
+    public List<SysButton> selectListByParent(String parentId) {
+        return mapper.selectListByParent(parentId);
     }
 
     /**

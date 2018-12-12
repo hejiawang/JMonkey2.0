@@ -31,6 +31,10 @@ public class SysButton extends BaseEntity<SysButton> {
      */
     private String id;
     /**
+     * 按钮名称
+     */
+    private String name;
+    /**
      * 权限标识
      */
     private String permission;

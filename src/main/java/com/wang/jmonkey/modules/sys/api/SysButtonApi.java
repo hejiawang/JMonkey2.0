@@ -1,9 +1,7 @@
 package com.wang.jmonkey.modules.sys.api;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
-import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.sys.model.entity.SysButton;
 import com.wang.jmonkey.modules.sys.model.param.SysButtonParam;
@@ -29,11 +27,12 @@ public class SysButtonApi extends BaseHttp {
 
     /**
      * 查询list信息
+     * @param parentId 父资源id
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpResult<List<SysButton>> list() {
-        return new HttpResult<>( service.selectList(new EntityWrapper<>()));
+    public HttpResult<List<SysButton>> list(String parentId) {
+        return new HttpResult<>( service.selectListByParent(parentId));
     }
 
     /**

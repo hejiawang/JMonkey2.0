@@ -5,6 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wang.jmonkey.modules.sys.model.entity.SysButton">
         <id column="id" property="id" />
+        <result column="name" property="name" />
         <result column="permission" property="permission" />
         <result column="url" property="url" />
         <result column="method" property="method" />
@@ -15,5 +16,12 @@
         <result column="remark" property="remark" />
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
+
+    <select id="selectListByParent" resultMap="BaseResultMap">
+        SELECT b.*
+        FROM sys_resource r
+        LEFT JOIN sys_button b ON r.r_id = b.id AND b.delete_flag = 'Used'
+        WHERE r.delete_flag = 'Used' AND r.parent_id = #{parentId}
+    </select>
 
 </mapper>

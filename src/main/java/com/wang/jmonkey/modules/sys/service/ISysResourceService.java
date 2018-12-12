@@ -1,9 +1,11 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysResource;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -21,4 +23,16 @@ public interface ISysResourceService extends IService<SysResource> {
      * @return
      */
     boolean deleteByRId(Serializable rId);
+
+    /**
+     * 系统，菜单，构成的树形结果数据
+     * @return
+     */
+    List<SysResourceTreeDto> smTree();
+
+    /**
+     * 系统，菜单，按钮，构成的树形结果数据
+     * @return
+     */
+    List<SysResourceTreeDto> smbTree();
 }
