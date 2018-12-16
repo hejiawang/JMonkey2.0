@@ -27,12 +27,12 @@ public class SysMenuApi extends BaseHttp {
 
     /**
      * 菜单树表格
-     * @param systemId 归属系统
+     * @param rId 归属系统的资源id
      * @return
      */
     @GetMapping(value = "/treeList")
-    public HttpResult<List<SysMenuTreeDto>> list(String systemId) {
-        return new HttpResult<>( service.treeList(systemId) );
+    public HttpResult<List<SysMenuTreeDto>> list(String rId) {
+        return new HttpResult<>( service.treeList(rId) );
     }
 
     /**

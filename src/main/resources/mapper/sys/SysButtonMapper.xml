@@ -20,7 +20,7 @@
     <select id="selectListByParent" resultMap="BaseResultMap">
         SELECT b.*
         FROM sys_resource r
-        LEFT JOIN sys_button b ON r.r_id = b.id AND b.delete_flag = 'Used'
+        INNER JOIN sys_button b ON r.r_id = b.id AND b.delete_flag = 'Used'
         WHERE r.delete_flag = 'Used' AND r.parent_id = #{parentId}
     </select>
 
