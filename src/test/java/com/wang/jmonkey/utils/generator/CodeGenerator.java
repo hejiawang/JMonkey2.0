@@ -15,7 +15,7 @@ public class CodeGenerator {
 
     private String outputDir = "D:/WorkSpace/JMonkey2.0/src/main/java";
     private String author = "HeJiawang";
-    private String tableName = "sys_button";
+    private String tableName = "sys_dict";
 
     @Test
     public void codeGeneratorTest(){
