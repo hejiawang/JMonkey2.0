@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.sys.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.sys.model.dto.SysDictDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysDictTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDict;
 import com.wang.jmonkey.modules.sys.service.ISysDictService;
@@ -69,8 +70,8 @@ public class SysDictApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/find/{id}")
-    public HttpResult<SysDict> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    public HttpResult<SysDictDto> findById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.selectDtoById(id));
     }
 
     /**

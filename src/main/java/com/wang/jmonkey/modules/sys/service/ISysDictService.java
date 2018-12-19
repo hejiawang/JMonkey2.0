@@ -1,9 +1,11 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDictDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysDictTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDict;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -28,4 +30,11 @@ public interface ISysDictService extends IService<SysDict> {
      * @return
      */
     Boolean checkValue(SysDict sysDict);
+
+    /**
+     * 获取字典dto信息
+     * @param id 字典id
+     * @return
+     */
+    SysDictDto selectDtoById(Serializable id);
 }

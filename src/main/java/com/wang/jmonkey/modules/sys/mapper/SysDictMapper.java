@@ -1,9 +1,12 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDictDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysDictTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDict;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -28,4 +31,11 @@ public interface SysDictMapper extends BaseMapper<SysDict> {
      * @return
      */
     int checkValue(SysDict sysDict);
+
+    /**
+     * 获取字典dto信息
+     * @param id 字典id
+     * @return
+     */
+    SysDictDto selectDtoById(@Param("id") Serializable id);
 }

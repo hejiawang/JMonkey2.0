@@ -19,6 +19,10 @@
 
     <resultMap id="TreeDtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDictTreeDto" extends="BaseResultMap"></resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDictDto" extends="BaseResultMap">
+        <result column="parent_lable" property="parentLable" />
+    </resultMap>
+
     <select id="tree" resultMap="TreeDtoResultMap">
         SELECT *
         FROM sys_dict
@@ -33,6 +37,17 @@
         AND value = #{value}
         <if test=" id != '' and id != null">
             AND id != #{id}
+        </if>
+    </select>
+
+    <select id="selectDtoById" resultMap="DtoResultMap">
+        SELECT
+            d.*, p.lable as parent_lable
+        FROM sys_dict d
+        LEFT JOIN sys_dict p ON d.parent_id = p.id AND p.delete_flag = 'Used'
+        WHERE d.delete_flag = 'Used'
+        <if test=" id != '' and id != null">
+            AND d.id = #{id}
         </if>
     </select>
 
