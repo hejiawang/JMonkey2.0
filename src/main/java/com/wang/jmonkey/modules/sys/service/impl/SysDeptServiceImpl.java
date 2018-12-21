@@ -7,6 +7,7 @@ import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.wang.jmonkey.modules.sys.mapper.SysDeptMapper;
 import com.wang.jmonkey.modules.sys.service.ISysDeptService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.wang.jmonkey.modules.sys.service.ISysUserDeptService;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,12 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 
     @Autowired
     private SysDeptMapper mapper;
+
+    /**
+     * 用户部门信息 service
+     */
+    @Autowired
+    private ISysUserDeptService userDeptService;
 
     /**
      * 获取部门树形数据
@@ -64,7 +71,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
             deptChildrens.forEach( sysDept -> this.deleteById(sysDept.getId()) );
         }
 
-        // 删除自身信息
-        return super.deleteById(id);
+        // 删除自身信息, 删除部门用户关联关系
+        return super.deleteById(id) && userDeptService.deleteByDeptId(id);
     }
 }

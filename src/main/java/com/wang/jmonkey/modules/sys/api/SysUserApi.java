@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
+import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
 import com.wang.jmonkey.modules.sys.service.ISysUserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @Description: 用户表 api
@@ -31,34 +32,32 @@ public class SysUserApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
+     * @param userParam 实体信息
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<SysUser> list(Page<SysUser> page, SysUser entity) {
-        log.info("user list request");
-        EntityWrapper wrapper = new EntityWrapper<SysUser>();
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpPageResult<SysUserDto> list(Page<SysUserDto> page, SysUserParam userParam) {
+        return new HttpPageResult<>( service.selectPage( page, userParam ) );
     }
 
     /**
      * 保存实体信息
-     * @param entity 实体信息
+     * @param userParam 实体信息
      * @return
      */
     @PostMapping(value = "/save")
-    public HttpResult<Boolean> save( @RequestBody SysUser entity ){
-        return new HttpResult<>(service.insert(entity));
+    public HttpResult<Boolean> save( @RequestBody SysUserParam userParam ){
+        return new HttpResult<>(service.save(userParam));
     }
 
     /**
      * 修改实体信息
-     * @param entity 实体信息
+     * @param userParam 实体信息
      * @return
      */
     @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody SysUser entity ){
-        return new HttpResult<>(service.updateById(entity));
+    public HttpResult<Boolean> modify( @RequestBody SysUserParam userParam ){
+        return new HttpResult<>(service.modify(userParam));
     }
 
     /**
@@ -76,9 +75,9 @@ public class SysUserApi extends BaseHttp {
      * @param id 实体ID
      * @return
      */
-    @GetMapping(value = "/find/{id}")
-    public HttpResult<SysUser> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    @GetMapping(value = "/findDto/{id}")
+    public HttpResult<SysUserDto> findById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.selectDtoById(id));
     }
 
 }

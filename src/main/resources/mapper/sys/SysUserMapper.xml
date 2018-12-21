@@ -20,4 +20,61 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <!-- Dto查询映射结果 -->
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysUserDto" extends="BaseResultMap">
+        <collection property="deptIds" ofType="java.lang.String">
+            <result column="dept_id" />
+        </collection>
+        <collection property="roleIds" ofType="java.lang.String">
+            <result column="role_id"/>
+        </collection>
+        <collection property="depts" ofType="com.wang.jmonkey.modules.sys.model.entity.SysDept">
+            <id column="deptId" property="id" />
+            <result column="deptName" property="name" />
+            <result column="deptCode" property="code" />
+        </collection>
+        <collection property="roles" ofType="com.wang.jmonkey.modules.sys.model.entity.SysRole">
+            <id column="roleId" property="id" />
+            <result column="roleCode" property="code" />
+            <result column="roleName" property="name" />
+        </collection>
+    </resultMap>
+
+    <select id="selectDtoById" resultMap="DtoResultMap">
+        SELECT
+            u.*,
+            ud.dept_id as dept_id, d.id as deptId, d.name as deptName, d.code as deptCode,
+            ur.role_id as role_id, r.id as roleId, r.code as roleCode, r.name as roleName
+        FROM sys_user u
+        LEFT JOIN sys_user_dept ud ON u.id = ud.user_id and ud.delete_flag = 'Used'
+        LEFT JOIN sys_dept d on ud.dept_id = d.id AND d.delete_flag = 'Used'
+        LEFT JOIN sys_user_role ur ON u.id = ur.user_id AND ur.delete_flag = 'Used'
+        LEFT JOIN sys_role r ON ur.role_id = r.id AND r.delete_flag = 'Used'
+        WHERE u.delete_flag = 'Used'
+        and u.id = #{id}
+    </select>
+
+    <select id="selectDtoPage" resultMap="DtoResultMap">
+        SELECT
+            u.*,
+            ud.dept_id as dept_id, d.id as deptId, d.name as deptName, d.code as deptCode,
+            ur.role_id as role_id, r.id as roleId, r.code as roleCode, r.name as roleName
+        FROM sys_user u
+        LEFT JOIN sys_user_dept ud ON u.id = ud.user_id and ud.delete_flag = 'Used'
+        LEFT JOIN sys_dept d on ud.dept_id = d.id AND d.delete_flag = 'Used'
+        LEFT JOIN sys_user_role ur ON u.id = ur.user_id AND ur.delete_flag = 'Used'
+        LEFT JOIN sys_role r ON ur.role_id = r.id AND r.delete_flag = 'Used'
+        WHERE u.delete_flag = 'Used'
+        order by u.create_date
+        limit 0, 10
+    </select>
+
+    <select id="selectTotal" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM sys_user u
+        LEFT JOIN sys_user_dept ud ON u.id = ud.user_id and ud.delete_flag = 'Used'
+        LEFT JOIN sys_user_role ur ON u.id = ur.user_id AND ur.delete_flag = 'Used'
+        WHERE u.delete_flag = 'Used'
+    </select>
+
 </mapper>

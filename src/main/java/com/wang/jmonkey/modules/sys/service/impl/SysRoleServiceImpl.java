@@ -7,8 +7,11 @@ import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleMapper;
 import com.wang.jmonkey.modules.sys.service.ISysRoleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -23,6 +26,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Autowired
     private SysRoleMapper mapper;
+
+    @Autowired
+    private ISysUserRoleService userRoleService;
 
     /**
      * 获取角色分页数据
@@ -59,5 +65,15 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public Boolean checkName(SysRole sysRole) {
         return mapper.checkName(sysRole) > 0;
+    }
+
+    /**
+     * 删除角色信息，并删除与角色相关的信息
+     * @param id 角色id
+     * @return
+     */
+    @Override
+    public boolean deleteById(Serializable id) {
+        return super.deleteById(id) && userRoleService.deleteByRoleId(id);
     }
 }
