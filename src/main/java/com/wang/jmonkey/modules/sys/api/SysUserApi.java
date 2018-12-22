@@ -1,6 +1,5 @@
 package com.wang.jmonkey.modules.sys.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
@@ -78,6 +77,16 @@ public class SysUserApi extends BaseHttp {
     @GetMapping(value = "/findDto/{id}")
     public HttpResult<SysUserDto> findById(@PathVariable Serializable id ){
         return new HttpResult<>(service.selectDtoById(id));
+    }
+
+    /**
+     * 校验用户登录名是否重复
+     * @param sysUser 用户登录名信息
+     * @return
+     */
+    @PostMapping(value = "/checkUsername")
+    public HttpResult<Boolean> checkUsername( @RequestBody SysUser sysUser){
+        return new HttpResult<>(service.checkUsername(sysUser));
     }
 
 }

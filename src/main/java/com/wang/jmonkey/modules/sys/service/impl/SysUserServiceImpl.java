@@ -106,6 +106,16 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     }
 
     /**
+     * 校验用户登录名是否重复
+     * @param sysUser 用户登录名信息
+     * @return
+     */
+    @Override
+    public Boolean checkUsername(SysUser sysUser) {
+        return  mapper.checkUsername(sysUser) > 0;
+    }
+
+    /**
      * 删除用户信息
      * @param id 用户id
      * @return 是否删除成功

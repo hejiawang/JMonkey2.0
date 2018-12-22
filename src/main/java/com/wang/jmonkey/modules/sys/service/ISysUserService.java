@@ -46,4 +46,11 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     SysUserDto selectDtoById(Serializable id);
+
+    /**
+     * 校验用户登录名是否重复
+     * @param sysUser 用户登录名信息
+     * @return
+     */
+    Boolean checkUsername(SysUser sysUser);
 }

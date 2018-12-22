@@ -39,4 +39,11 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      * @return
      */
     int selectTotal(SysUserParam param);
+
+    /**
+     * 校验用户登录名是否重复
+     * @param sysUser 用户登录名信息
+     * @return
+     */
+    Integer checkUsername(SysUser sysUser);
 }

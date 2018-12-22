@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -65,6 +66,16 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public Boolean checkName(SysRole sysRole) {
         return mapper.checkName(sysRole) > 0;
+    }
+
+    /**
+     * 获取所有角色信息
+     * @return
+     */
+    @Override
+    public List<SysRole> listAll() {
+        EntityWrapper<SysRole> wrapper = new EntityWrapper<>();
+        return super.selectList(wrapper);
     }
 
     /**

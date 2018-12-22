@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Description:  角色信息 api
@@ -23,6 +24,15 @@ public class SysRoleApi extends BaseHttp {
 
     @Resource
     private ISysRoleService service;
+
+    /**
+     * 获取所有角色信息
+     * @return
+     */
+    @GetMapping(value = "/listAll")
+    public HttpResult<List<SysRole>> listAll(){
+        return new HttpResult<>( service.listAll() );
+    }
 
     /**
      * 分页查询信息

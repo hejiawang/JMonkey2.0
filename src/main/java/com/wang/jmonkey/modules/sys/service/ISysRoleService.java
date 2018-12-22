@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  角色 服务类
@@ -35,4 +37,10 @@ public interface ISysRoleService extends IService<SysRole> {
      * @return true 存在
      */
     Boolean checkName(SysRole sysRole);
+
+    /**
+     * 获取所有角色信息
+     * @return
+     */
+    List<SysRole> listAll();
 }
