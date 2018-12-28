@@ -1,11 +1,11 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserRole;
 import com.wang.jmonkey.modules.sys.mapper.SysUserRoleMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -22,6 +22,9 @@ import java.util.List;
 @Service
 public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements ISysUserRoleService {
 
+    @Autowired
+    private SysUserRoleMapper mapper;
+
     /**
      * 根据角色id删除用户角色关联关系
      * @param roleId 角色id
@@ -29,9 +32,7 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Override
     public boolean deleteByRoleId(Serializable roleId) {
-        EntityWrapper<SysUserRole> wrapper = new EntityWrapper<>();
-        wrapper.setEntity( new SysUserRole().setRoleId(String.valueOf(roleId)) );
-        return super.delete(wrapper);
+        return mapper.deleteByRoleId(roleId) >= 0;
     }
 
     /**
@@ -41,9 +42,7 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Override
     public boolean deleteByUserId(Serializable userId) {
-        EntityWrapper<SysUserRole> wrapper = new EntityWrapper<>();
-        wrapper.setEntity( new SysUserRole().setUserId(String.valueOf(userId)) );
-        return super.delete(wrapper);
+        return mapper.deleteByUserId(userId) >= 0;
     }
 
     /**

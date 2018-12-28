@@ -14,4 +14,12 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <delete id="deleteByDeptId">
+        delete from sys_user_dept where dept_id = #{deptId}
+    </delete>
+
+    <delete id="deleteByUserId">
+        delete from sys_user_dept where user_id = #{userId}
+    </delete>
+
 </mapper>

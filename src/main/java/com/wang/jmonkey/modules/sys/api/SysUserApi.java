@@ -108,9 +108,8 @@ public class SysUserApi extends BaseHttp {
 
         try {
             String filePath = userPhotoPath + FileUtil.renderFileName(uploadFile.getOriginalFilename());
-            InputStream is = uploadFile.getInputStream();
 
-            if( FileUtil.uploadFile(filePath, is) ) result.setResult(filePath);
+            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
             else result.setIsSuccess(false);
         } catch (IOException e) {
             log.error("uploadPhoto error : ", e);

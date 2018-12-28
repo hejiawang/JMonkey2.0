@@ -3,6 +3,8 @@ spring:
     name: JMonkey2.0
   profiles:
     active: dev
+  jackson:
+    time-zone: GMT+8
   cache:
     type: redis
     redis:

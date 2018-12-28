@@ -1,11 +1,11 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserDept;
 import com.wang.jmonkey.modules.sys.mapper.SysUserDeptMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserDeptService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -22,6 +22,9 @@ import java.util.List;
 @Service
 public class SysUserDeptServiceImpl extends ServiceImpl<SysUserDeptMapper, SysUserDept> implements ISysUserDeptService {
 
+    @Autowired
+    private SysUserDeptMapper mapper;
+
     /**
      * 根据部门id，删除部门用户关联关系
      * @param deptId 部门id
@@ -29,9 +32,7 @@ public class SysUserDeptServiceImpl extends ServiceImpl<SysUserDeptMapper, SysUs
      */
     @Override
     public boolean deleteByDeptId(Serializable deptId) {
-        EntityWrapper<SysUserDept> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(new SysUserDept().setDeptId(String.valueOf(deptId)));
-        return super.delete(wrapper);
+        return mapper.deleteByDeptId(deptId) >= 0;
     }
 
     /**
@@ -41,9 +42,7 @@ public class SysUserDeptServiceImpl extends ServiceImpl<SysUserDeptMapper, SysUs
      */
     @Override
     public boolean deleteByUserId(Serializable userId) {
-        EntityWrapper<SysUserDept> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(new SysUserDept().setUserId(String.valueOf(userId)));
-        return super.delete(wrapper);
+        return mapper.deleteByUserId(userId) >= 0;
     }
 
     /**

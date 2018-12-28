@@ -1,7 +1,9 @@
 package com.wang.jmonkey.common.utils;
 
+import com.xiaoleilu.hutool.lang.Assert;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -38,10 +40,25 @@ public class FileUtil {
 
     /**
      * 生成上传文件的文件名
+     *  uuid + _ + 原始文件名
+     *
+     *  优点：在服务器中能看出原始文件名
+     *  缺点：存在数据库中的文件名长度不容易控制
      * @param fileName 原始文件名
      * @return 新文件名
      */
     public static String renderFileName( String fileName ){
+        Assert.notBlank(fileName, "原始文件名不能为null");
+
+        // IE上传时文件名是全路径名
+        if(fileName.contains(File.separator)){
+            String[] fs = fileName.split("\\\\");
+            fileName = fs[fs.length - 1];
+        }
+
+        // 方便控制数据库中存储的字符长度
+        if(fileName.length() > 100) fileName = fileName.substring(fileName.length()-100);
+
         return  UUIDUtil.value() + FileBuilder.FILE_NAME_SPLIT + fileName;
     }
 
@@ -52,8 +69,9 @@ public class FileUtil {
      * @return
      */
     public static boolean uploadFile(String filePath, InputStream is) {
-        boolean result;
+        Assert.notBlank(filePath, "上传文件路径不能为null");
 
+        boolean result;
         try {
             File targetFile = new File(FileBuilder.staticLocationsFile + filePath);
             FileUtils.copyInputStreamToFile(is, targetFile);
@@ -63,7 +81,6 @@ public class FileUtil {
             log.error("uploadFile error : ", e);
             result = false;
         }
-
         return result;
     }
 }
