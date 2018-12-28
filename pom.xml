@@ -32,6 +32,7 @@
         <hutool.version>3.3.2</hutool.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <velocity-engine-core.version>2.0</velocity-engine-core.version>
+        <commons-io.version>2.6</commons-io.version>
     </properties>
 
     <!-- 设定插件仓库 -->
@@ -88,6 +89,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
 
         <!-- Redis start -->

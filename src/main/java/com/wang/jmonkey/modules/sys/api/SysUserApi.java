@@ -4,15 +4,20 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.common.utils.FileUtil;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
 import com.wang.jmonkey.modules.sys.service.ISysUserService;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 
 /**
@@ -27,6 +32,9 @@ public class SysUserApi extends BaseHttp {
 
     @Resource
     private ISysUserService service;
+
+    @Value("${jmonkey.user.photo}")
+    private String userPhotoPath;
 
     /**
      * 分页查询信息
@@ -87,6 +95,29 @@ public class SysUserApi extends BaseHttp {
     @PostMapping(value = "/checkUsername")
     public HttpResult<Boolean> checkUsername( @RequestBody SysUser sysUser){
         return new HttpResult<>(service.checkUsername(sysUser));
+    }
+
+    /**
+     * 上传用户头像
+     * @param uploadFile 头像文件
+     * @return 用户头像访问路径
+     */
+    @PostMapping("/uploadPhoto")
+    public HttpResult<String> uploadPhoto( @RequestParam(value = "file") MultipartFile uploadFile ){
+        HttpResult<String> result = new HttpResult<>();
+
+        try {
+            String filePath = userPhotoPath + FileUtil.renderFileName(uploadFile.getOriginalFilename());
+            InputStream is = uploadFile.getInputStream();
+
+            if( FileUtil.uploadFile(filePath, is) ) result.setResult(filePath);
+            else result.setIsSuccess(false);
+        } catch (IOException e) {
+            log.error("uploadPhoto error : ", e);
+            result.setIsSuccess(false);
+        }
+
+        return result;
     }
 
 }
