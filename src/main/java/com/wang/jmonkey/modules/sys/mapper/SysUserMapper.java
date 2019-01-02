@@ -34,13 +34,6 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
     List<SysUserDto> selectDtoPage(SysUserParam param);
 
     /**
-     * 用户信息条数
-     * @param param
-     * @return
-     */
-    int selectTotal(SysUserParam param);
-
-    /**
      * 校验用户登录名是否重复
      * @param sysUser 用户登录名信息
      * @return

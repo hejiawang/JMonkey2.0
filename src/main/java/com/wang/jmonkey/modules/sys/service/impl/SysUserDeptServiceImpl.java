@@ -5,6 +5,7 @@ import com.wang.jmonkey.modules.sys.mapper.SysUserDeptMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserDeptService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,8 +58,10 @@ public class SysUserDeptServiceImpl extends ServiceImpl<SysUserDeptMapper, SysUs
 
         if(CollectionUtil.isNotEmpty(deptIds)){
             deptIds.forEach( deptId -> {
-                SysUserDept userDept = new SysUserDept().setUserId(userId).setDeptId(deptId);
-                super.insert(userDept);
+                if(StringUtils.isNotEmpty(deptId)){
+                    SysUserDept userDept = new SysUserDept().setUserId(userId).setDeptId(deptId);
+                    super.insert(userDept);
+                }
             });
         }
 

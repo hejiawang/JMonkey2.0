@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 
 /**
@@ -65,6 +64,16 @@ public class SysUserApi extends BaseHttp {
     @PutMapping(value = "/modify")
     public HttpResult<Boolean> modify( @RequestBody SysUserParam userParam ){
         return new HttpResult<>(service.modify(userParam));
+    }
+
+    /**
+     * 修改用户登录密码
+     * @param user 用户id以及新的密码
+     * @return
+     */
+    @PutMapping(value = "/modifyPassword")
+    public HttpResult<Boolean> modifyPassword( @RequestBody SysUser user ){
+        return new HttpResult<>(service.modifyPassword(user));
     }
 
     /**

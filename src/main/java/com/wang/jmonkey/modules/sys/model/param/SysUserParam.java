@@ -41,28 +41,6 @@ public class SysUserParam extends SysUser {
     private String roleId;
 
     /**
-     * 分页条件 分页条数
-     */
-    private Integer size;
-
-    /**
-     * 分页条件 当前页数
-     */
-    private Integer current;
-
-    /**
-     * 分页条件 mysql limit 起始值
-     */
-    private Integer limitStart;
-
-    /**
-     * 获取分页开始位置
-     */
-    public void setLimitStart() {
-        this.limitStart = this.size * ( this.current - 1 );
-    }
-
-    /**
      * 将param信息转换为entity信息
      * @return
      */

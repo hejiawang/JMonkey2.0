@@ -5,6 +5,7 @@ import com.wang.jmonkey.modules.sys.mapper.SysUserRoleMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,8 +58,10 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
 
         if(CollectionUtil.isNotEmpty(roleIds)){
             roleIds.forEach( roleId ->{
-                SysUserRole userRole = new SysUserRole().setUserId(userId).setRoleId(roleId);
-                super.insert(userRole);
+                if(StringUtils.isNotEmpty(roleId)){
+                    SysUserRole userRole = new SysUserRole().setUserId(userId).setRoleId(roleId);
+                    super.insert(userRole);
+                }
             });
         }
 

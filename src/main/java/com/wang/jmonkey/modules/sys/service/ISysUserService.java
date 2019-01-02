@@ -53,4 +53,11 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     Boolean checkUsername(SysUser sysUser);
+
+    /**
+     * 修改用户登录密码
+     * @param user 用户id以及新的密码
+     * @return
+     */
+    Boolean modifyPassword(SysUser user);
 }

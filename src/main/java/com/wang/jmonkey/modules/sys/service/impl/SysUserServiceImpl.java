@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -59,9 +60,18 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public Page<SysUserDto> selectPage(Page<SysUserDto> page, SysUserParam param) {
-        param.setLimitStart();
-        page.setRecords(mapper.selectDtoPage(param)).setTotal(mapper.selectTotal(param));
-        return page;
+        int current = page.getCurrent(),size = page.getSize();
+
+        List<SysUserDto> userDtoList = mapper.selectDtoPage(param);
+        int start = size * ( current - 1 ) > userDtoList.size() ? userDtoList.size() : size * ( current - 1 ),
+                end = size * current > userDtoList.size() ? userDtoList.size() : size * current;
+
+        Page<SysUserDto> userDtoPage = new Page<>();
+        userDtoPage.setRecords(userDtoList.subList(start, end))
+                .setTotal(userDtoList.size())
+                .setCurrent(page.getCurrent()).setSize(page.getSize());
+
+        return userDtoPage;
     }
 
     /**
@@ -113,6 +123,17 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public Boolean checkUsername(SysUser sysUser) {
         return  mapper.checkUsername(sysUser) > 0;
+    }
+
+    /**
+     * 修改用户登录密码
+     * @param user 用户id以及新的密码
+     * @return
+     */
+    @Override
+    public Boolean modifyPassword(SysUser user) {
+        user.setPassword( ENCODER.encode(user.getPassword()) );
+        return this.updateById(user);
     }
 
     /**
