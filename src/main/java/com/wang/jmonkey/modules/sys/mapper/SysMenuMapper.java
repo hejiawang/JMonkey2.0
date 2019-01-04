@@ -1,9 +1,12 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -21,4 +24,11 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @return 菜单dto信息
      */
     List<SysMenuTreeDto> selectDtoList();
+
+    /**
+     * 获取菜单信息
+     * @param id 菜单信息id
+     * @return
+     */
+    SysMenuDto selectDtoById(@Param("id") Serializable id);
 }

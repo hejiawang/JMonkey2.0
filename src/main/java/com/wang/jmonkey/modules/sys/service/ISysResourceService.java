@@ -35,4 +35,11 @@ public interface ISysResourceService extends IService<SysResource> {
      * @return
      */
     List<SysResourceTreeDto> smbTree();
+
+    /**
+     * 根据sys_resource表的id获取资源名称
+     * @param rId sys_resource表的id
+     * @return
+     */
+    String findNameByRid(String rId);
 }

@@ -2,8 +2,8 @@ package com.wang.jmonkey.modules.sys.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
-import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
 import com.wang.jmonkey.modules.sys.model.param.SysMenuParam;
 import com.wang.jmonkey.modules.sys.service.ISysMenuService;
 
@@ -47,12 +47,12 @@ public class SysMenuApi extends BaseHttp {
 
     /**
      * 修改实体信息
-     * @param entity 实体信息
+     * @param param 实体信息
      * @return
      */
     @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody SysMenu entity ){
-        return new HttpResult<>(service.updateById(entity));
+    public HttpResult<Boolean> modify( @RequestBody SysMenuParam param ){
+        return new HttpResult<>(service.updateById(param));
     }
 
     /**
@@ -71,8 +71,8 @@ public class SysMenuApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/find/{id}")
-    public HttpResult<SysMenu> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    public HttpResult<SysMenuDto> findDtoById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.selectDtoById(id));
     }
 
 }

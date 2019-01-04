@@ -11,10 +11,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,5 +94,18 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
     @Override
     public List<SysResourceTreeDto> smbTree() {
         return TreeUtil.bulid( mapper.selectDtoList(3), null );
+    }
+
+    /**
+     * 根据sys_resource表的id获取资源名称
+     * @param rId sys_resource表的id
+     * @return
+     */
+    @Override
+    public String findNameByRid(String rId) {
+        if( StringUtils.isEmpty(rId) ) return "";
+
+        SysResource resource = super.selectById(rId);
+        return mapper.findRName(resource.getRId(), rMap.get(resource.getType()));
     }
 }

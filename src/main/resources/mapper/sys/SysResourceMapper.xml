@@ -59,4 +59,8 @@
         </if>
     </select>
 
+    <select id="findRName" resultType="java.lang.String">
+        SELECT name FROM ${tableName} WHERE delete_flag = 'Used' AND id = #{id}
+    </select>
+
 </mapper>

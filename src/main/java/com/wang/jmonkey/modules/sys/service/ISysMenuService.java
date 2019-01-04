@@ -1,10 +1,12 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.sys.model.param.SysMenuParam;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -30,4 +32,18 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return
      */
     boolean insert(SysMenuParam param);
+
+    /**
+     * 修改菜单信息
+     * @param param 菜单信息
+     * @return
+     */
+    boolean updateById(SysMenuParam param);
+
+    /**
+     * 获取菜单信息
+     * @param id 菜单信息id
+     * @return
+     */
+    SysMenuDto selectDtoById(Serializable id);
 }

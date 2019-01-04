@@ -21,12 +21,16 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
-    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto" extends="BaseResultMap">
+    <resultMap id="TreeDtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto" extends="BaseResultMap">
         <result column="r_id" property="rId" />
         <result column="parent_id" property="parentId" />
     </resultMap>
 
-    <select id="selectDtoList" resultMap="DtoResultMap">
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysMenuDto" extends="BaseResultMap">
+        <result column="parent_id" property="parentId" />
+    </resultMap>
+
+    <select id="selectDtoList" resultMap="TreeDtoResultMap">
         select
             m.id as r_id,
             m.name as name, m.icon as icon,
@@ -40,4 +44,11 @@
         order by m.sort
     </select>
 
+    <select id="selectDtoById" resultMap="DtoResultMap">
+        select
+            m.*, r.parent_id as parent_id
+        FROM sys_menu m
+        INNER JOIN sys_resource r ON m.id = r.r_id AND r.delete_flag = 'Used'
+        WHERE m.id = #{id}
+    </select>
 </mapper>

@@ -1,6 +1,8 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.common.utils.TreeUtil;
+import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
 import com.wang.jmonkey.modules.sys.mapper.SysMenuMapper;
@@ -49,6 +51,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @param param
      * @return
      */
+    @Transactional
     @Override
     public boolean insert(SysMenuParam param) {
         SysMenu menu = param.converToEntity();
@@ -57,6 +60,35 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         return resourceService.insert(
                 new SysResource().setRId(menu.getId()).setParentId(param.getParentId()).setType(ResourceTypeEnums.Menu)
         );
+    }
+
+    /**
+     * 修改菜单信息
+     * @param param 菜单信息
+     * @return
+     */
+    @Transactional
+    @Override
+    public boolean updateById(SysMenuParam param) {
+        // 修改菜单信息
+        SysMenu menu = param.converToEntity();
+        super.updateById(menu);
+
+        // 修改菜单资源父子结构信息
+        EntityWrapper<SysResource> wrapper = new EntityWrapper<>();
+        wrapper.setEntity(new SysResource().setRId(menu.getId()));
+        SysResource resource = resourceService.selectOne(wrapper).setParentId(param.getParentId());
+        return resourceService.updateById(resource);
+    }
+
+    /**
+     * 获取菜单信息
+     * @param id 菜单信息id
+     * @return
+     */
+    @Override
+    public SysMenuDto selectDtoById(Serializable id) {
+        return mapper.selectDtoById(id);
     }
 
     /**

@@ -39,4 +39,14 @@ public class SysResourceApi extends BaseHttp {
     public HttpResult<List<SysResourceTreeDto>> smbTree(){
         return new HttpResult<>( service.smbTree() );
     }
+
+    /**
+     * 根据sys_resource表的id获取资源名称
+     * @param rId sys_resource表的id
+     * @return
+     */
+    @GetMapping(value = "/findNameByRid")
+    public HttpResult<String> findNameByRid(String rId){
+        return new HttpResult<>(service.findNameByRid(rId));
+    }
 }

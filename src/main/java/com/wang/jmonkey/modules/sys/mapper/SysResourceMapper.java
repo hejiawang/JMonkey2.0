@@ -31,4 +31,12 @@ public interface SysResourceMapper extends BaseMapper<SysResource> {
      * @return
      */
     List<SysResourceTreeDto> selectDtoList(@Param("index")int index);
+
+    /**
+     * 获取资源名称
+     * @param id 各个资源表id
+     * @param tableName 资源表名
+     * @return
+     */
+    String findRName(@Param("id")String id, @Param("tableName")String tableName);
 }
