@@ -10,6 +10,8 @@ import com.wang.jmonkey.modules.sys.service.ISysDictService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,10 +62,23 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
     }
 
     /**
+     * 为字典组件赋值
+     * 根据父value获取子字典信息
+     * @param parentValue 父字典value
+     * @return
+     */
+    @Cacheable(value = "sys_dict", key = "#parentValue  + '_sys_dict'")
+    @Override
+    public List<SysDict> findChildren(String parentValue) {
+        return mapper.findChildren(parentValue);
+    }
+
+    /**
      * 删除字典以及子节点字典
      * @param id 字典id
      * @return
      */
+    @CacheEvict(value = "sys_dict", allEntries = true)
     @Transactional
     @Override
     public boolean deleteById(Serializable id) {
@@ -77,5 +92,27 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDict> impl
 
         // 删除本身信息
         return super.deleteById(id);
+    }
+
+    /**
+     * 新增字典
+     * @param entity 字典信息
+     * @return
+     */
+    @CacheEvict(value = "sys_dict", allEntries = true)
+    @Override
+    public boolean insert(SysDict entity) {
+        return super.insert(entity);
+    }
+
+    /**
+     * 修改字典信息
+     * @param entity 字典信息
+     * @return
+     */
+    @CacheEvict(value = "sys_dict", allEntries = true)
+    @Override
+    public boolean updateById(SysDict entity) {
+        return super.updateById(entity);
     }
 }

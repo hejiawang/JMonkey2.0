@@ -37,4 +37,12 @@ public interface ISysDictService extends IService<SysDict> {
      * @return
      */
     SysDictDto selectDtoById(Serializable id);
+
+    /**
+     * 为字典组件赋值
+     * 根据父value获取子字典信息
+     * @param parentValue 父字典value
+     * @return
+     */
+    List<SysDict> findChildren(String parentValue);
 }

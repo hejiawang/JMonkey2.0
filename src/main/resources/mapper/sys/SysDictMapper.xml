@@ -51,4 +51,14 @@
         </if>
     </select>
 
+    <select id="findChildren" resultMap="BaseResultMap">
+        SELECT *
+        FROM sys_dict
+        WHERE delete_flag = 'Used'
+        AND parent_id = (
+            SELECT id FROM sys_dict WHERE value = #{parentValue} AND delete_flag = 'Used'
+        )
+        ORDER BY sort
+    </select>
+
 </mapper>

@@ -38,4 +38,12 @@ public interface SysDictMapper extends BaseMapper<SysDict> {
      * @return
      */
     SysDictDto selectDtoById(@Param("id") Serializable id);
+
+    /**
+     * 为字典组件赋值
+     * 根据父value获取子字典信息
+     * @param parentValue 父字典value
+     * @return
+     */
+    List<SysDict> findChildren(@Param("parentValue") String parentValue);
 }

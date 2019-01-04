@@ -84,4 +84,14 @@ public class SysDictApi extends BaseHttp {
         return new HttpResult<>(service.checkValue(sysDict));
     }
 
+    /**
+     * 为字典组件赋值
+     * 根据父value获取子字典信息
+     * @param parentValue 父字典value
+     * @return
+     */
+    @GetMapping(value = "/findChildren/{parentValue}")
+    public HttpResult<List<SysDict>> findChildren( @PathVariable String parentValue ){
+        return new HttpResult<>(service.findChildren(parentValue));
+    }
 }
