@@ -5,11 +5,13 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleMapper;
+import com.wang.jmonkey.modules.sys.service.ISysRoleResourceService;
 import com.wang.jmonkey.modules.sys.service.ISysRoleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -30,6 +32,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Autowired
     private ISysUserRoleService userRoleService;
+
+    @Autowired
+    private ISysRoleResourceService roleResourceService;
 
     /**
      * 获取角色分页数据
@@ -83,8 +88,11 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @param id 角色id
      * @return
      */
+    @Transactional
     @Override
     public boolean deleteById(Serializable id) {
-        return super.deleteById(id) && userRoleService.deleteByRoleId(id);
+        return super.deleteById(id)
+                && userRoleService.deleteByRoleId(id)
+                && roleResourceService.deleteByRole(String.valueOf(id));
     }
 }

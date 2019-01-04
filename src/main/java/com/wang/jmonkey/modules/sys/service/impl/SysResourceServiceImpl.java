@@ -8,9 +8,11 @@ import com.wang.jmonkey.modules.sys.mapper.SysResourceMapper;
 import com.wang.jmonkey.modules.sys.model.enums.ResourceTypeEnums;
 import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.wang.jmonkey.modules.sys.service.ISysRoleResourceService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -31,6 +33,9 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
     @Autowired
     private SysResourceMapper mapper;
 
+    @Autowired
+    private ISysRoleResourceService roleResourceService;
+
     /**
      * 资源类型对应的表名
      */
@@ -47,6 +52,7 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
      * @param rId 当前资源id
      * @return
      */
+    @Transactional
     @Override
     public boolean deleteByRId(Serializable rId) {
         SysResource resource = super.selectOne(
@@ -74,7 +80,7 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
 
         // 子节点信息删除后，删除自己
         mapper.deleteResource(rMap.get(resource.getType()), resource.getRId());
-        return super.deleteById(resource.getId());
+        return super.deleteById(resource.getId()) && roleResourceService.deleteByRid(resource.getId());
     }
 
 
