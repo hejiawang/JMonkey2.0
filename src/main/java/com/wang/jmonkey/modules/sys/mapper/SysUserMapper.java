@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
@@ -24,7 +25,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      * @param id 用户id
      * @return
      */
-    SysUserDto selectDtoById( @Param("id") Serializable id);
+    SysUserDto selectDtoById(@Param("id") Serializable id);
 
     /**
      * 获取用户分页信息
@@ -39,4 +40,11 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      * @return
      */
     Integer checkUsername(SysUser sysUser);
+
+    /**
+     * 根据登陆用户名获取用户登陆信息
+     * @param username 登陆用户名
+     * @return 用户登陆信息
+     */
+    UserVo loadUserByUsername(@Param("username") String username);
 }

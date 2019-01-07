@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Description:
+ * @Description: VO模型继承类
  * @Auther: HeJiawang
  * @Date: 2018/6/24
  */

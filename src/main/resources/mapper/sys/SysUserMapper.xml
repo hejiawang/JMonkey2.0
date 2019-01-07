@@ -40,6 +40,18 @@
         </collection>
     </resultMap>
 
+    <resultMap id="VoResultMap" type="com.wang.jmonkey.common.model.vo.UserVo">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="delete_flag" property="deleteFlag" />
+        <collection property="roleList" ofType="com.wang.jmonkey.common.model.vo.RoleVo">
+            <id column="roleId" property="id" />
+            <result column="role_name" property="name" />
+            <result column="role_code" property="code" />
+        </collection>
+    </resultMap>
+
     <select id="selectDtoById" resultMap="DtoResultMap">
         SELECT
             u.*,
@@ -65,24 +77,12 @@
         LEFT JOIN sys_user_role ur ON u.id = ur.user_id AND ur.delete_flag = 'Used'
         LEFT JOIN sys_role r ON ur.role_id = r.id AND r.delete_flag = 'Used'
         WHERE u.delete_flag = 'Used'
-        <if test=" username != '' and username != null">
-            AND u.username like '%${username}%'
-        </if>
-        <if test=" realName != '' and realName != null">
-            AND u.real_name like '%${realName}%'
-        </if>
-        <if test=" phone != '' and phone != null">
-            AND u.phone like '%${phone}%'
-        </if>
-        <if test=" sex != '' and sex != null">
-            AND u.sex = #{sex}
-        </if>
-        <if test=" roleId != '' and roleId != null">
-            AND ur.role_id = #{roleId}
-        </if>
-        <if test=" deptId != '' and deptId != null">
-            AND ud.dept_id = #{deptId}
-        </if>
+        <if test=" username != '' and username != null"> AND u.username like '%${username}%' </if>
+        <if test=" realName != '' and realName != null"> AND u.real_name like '%${realName}%' </if>
+        <if test=" phone != '' and phone != null"> AND u.phone like '%${phone}%' </if>
+        <if test=" sex != '' and sex != null"> AND u.sex = #{sex} </if>
+        <if test=" roleId != '' and roleId != null"> AND ur.role_id = #{roleId} </if>
+        <if test=" deptId != '' and deptId != null"> AND ud.dept_id = #{deptId} </if>
         order by u.create_date
     </select>
 
@@ -94,5 +94,13 @@
         <if test=" id != '' and id != null">
             AND id != #{id}
         </if>
+    </select>
+
+    <select id="loadUserByUsername" resultMap="VoResultMap">
+        SELECT u.*, r.id as roleId, r.name as role_name, r.code as role_code
+        FROM sys_user u
+        LEFT JOIN sys_user_role ur ON ur.user_id = u.id AND ur.delete_flag = 'Used'
+        LEFT JOIN sys_role r ON ur.role_id = r.id AND r.delete_flag = 'Used'
+        WHERE u.delete_flag = 'Used' AND u.username = #{username}
     </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.wang.jmonkey.modules.sys.mapper.SysUserMapper;
@@ -147,5 +148,15 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return super.deleteById(id)
                 && userDeptService.deleteByUserId(id)
                 && userRoleService.deleteByUserId(id);
+    }
+
+    /**
+     * 根据登陆用户名获取用户登陆信息
+     * @param username 登陆用户名
+     * @return 用户登陆信息
+     */
+    @Override
+    public UserVo loadUserByUsername(String username) {
+        return mapper.loadUserByUsername(username);
     }
 }
