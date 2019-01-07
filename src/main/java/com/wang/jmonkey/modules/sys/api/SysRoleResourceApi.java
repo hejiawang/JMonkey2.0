@@ -26,8 +26,8 @@ public class SysRoleResourceApi extends BaseHttp {
      * @param roleId 角色id
      * @return
      */
-    @GetMapping(value = "/findRidByRole")
-    public HttpResult<List<String>> findRidByRole(String roleId ){
+    @GetMapping(value = "/findRidByRole/{roleId}")
+    public HttpResult<List<String>> findRidByRole(@PathVariable String roleId ){
         return new HttpResult<>(service.findRidByRole(roleId));
     }
 
@@ -37,6 +37,7 @@ public class SysRoleResourceApi extends BaseHttp {
      * @param rIds 资源id集合
      * @return
      */
+    @PostMapping(value = "/auth")
     public HttpResult<Boolean> auth(String roleId, @RequestParam(value = "rIds[]", required=false )List<String> rIds){
         return new HttpResult<>(service.auth(roleId, rIds));
     }
