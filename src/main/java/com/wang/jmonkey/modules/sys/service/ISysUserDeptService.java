@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserDept;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -37,4 +38,11 @@ public interface ISysUserDeptService extends IService<SysUserDept> {
      * @return
      */
     boolean mergeDepts(String userId, List<String> deptIds);
+
+    /**
+     * 根据用户id获取用户部门信息
+     * @param userId 用户id
+     * @return 部门信息list
+     */
+    List<SysDept> selectDeptByUserId(String userId);
 }

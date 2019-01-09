@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserRole;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -37,4 +38,11 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
      * @return
      */
     boolean mergeRoles(String userId, List<String> roleIds);
+
+    /**
+     * 获取用户角色信息
+     * @param userId 用户id
+     * @return 角色信息list
+     */
+    List<SysRole> selectRoleByUserId(String userId);
 }

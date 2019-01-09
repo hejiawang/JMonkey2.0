@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -43,4 +44,11 @@ public interface ISysRoleResourceService extends IService<SysRoleResource> {
      * @return
      */
     boolean deleteByRid(String rId);
+
+    /**
+     * 获取角色的权限标识
+     * @param roleList 角色list
+     * @return 权限标识
+     */
+    List<String> selectPermissionByRoles(List<SysRole> roleList);
 }

@@ -25,4 +25,16 @@
     <delete id="deleteByRid">
         delete from sys_role_resource where resource_id = #{rId}
     </delete>
+
+    <select id="selectPermissionByRoles" resultType="java.lang.Integer">
+        select DISTINCT b.permission
+        FROM sys_role_resource rr
+        LEFT JOIN sys_resource r ON rr.resource_id = r.id AND r.type = 'Button'
+        LEFT JOIN sys_button b ON r.r_id = b.id
+        WHERE rr.delete_flag = 'Used' AND b.permission != ''
+        AND rr.role_id in
+        <foreach collection="roleList" index="index" item="item" open="(" separator="," close=")">
+            #{item.id}
+        </foreach>
+    </select>
 </mapper>

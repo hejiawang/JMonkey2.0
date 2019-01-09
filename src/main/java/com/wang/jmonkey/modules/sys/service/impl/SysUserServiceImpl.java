@@ -1,14 +1,16 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysUserInfoDto;
+import com.wang.jmonkey.modules.sys.model.entity.SysDept;
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.wang.jmonkey.modules.sys.mapper.SysUserMapper;
 import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
-import com.wang.jmonkey.modules.sys.service.ISysUserDeptService;
-import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
-import com.wang.jmonkey.modules.sys.service.ISysUserService;
+import com.wang.jmonkey.modules.sys.service.*;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,6 +50,18 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     private ISysUserRoleService userRoleService;
 
     /**
+     * 资源信息 service
+     */
+    @Autowired
+    private ISysResourceService resourceService;
+
+    /**
+     * roleResourceService
+     */
+    @Autowired
+    private ISysRoleResourceService roleResourceService;
+
+    /**
      * 用户mapper
      */
     @Autowired
@@ -67,6 +81,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         int start = size * ( current - 1 ) > userDtoList.size() ? userDtoList.size() : size * ( current - 1 ),
                 end = size * current > userDtoList.size() ? userDtoList.size() : size * current;
 
+        // 无法在sql中进行分页， 如一个用户有三个角色，limit会当2条数据处理，而业务应当是一条数据处理
         Page<SysUserDto> userDtoPage = new Page<>();
         userDtoPage.setRecords(userDtoList.subList(start, end))
                 .setTotal(userDtoList.size())
@@ -158,5 +173,38 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public UserVo loadUserByUsername(String username) {
         return mapper.loadUserByUsername(username);
+    }
+
+    /**
+     * 根据用户登陆名称获取用户信息
+     * @param username 登陆名称
+     * @return userinfo
+     */
+    @Override
+    public SysUserInfoDto getUserInfoByUsername(String username) {
+        SysUser user = this.selectByUsername(username);
+        if (user == null) return null;
+
+        List<SysRole> roleList = userRoleService.selectRoleByUserId(user.getId());
+        List<SysDept> deptList = userDeptService.selectDeptByUserId(user.getId());
+        List<String> permissionList = roleResourceService.selectPermissionByRoles(roleList);
+        boolean isGuide = resourceService.haveGuide();
+
+        return new SysUserInfoDto()
+                .setUser(user).setRoleList(roleList).setDeptList(deptList)
+                .setPermissionList(permissionList).setGuide(isGuide);
+    }
+
+    /**
+     * 根据用户名称获取用户信息
+     * @param username 用户登录名称
+     * @return 用户信息
+     */
+    @Override
+    public SysUser selectByUsername(String username){
+        EntityWrapper<SysUser> wrapper = new EntityWrapper<>();
+        wrapper.setEntity(new SysUser().setUsername(username));
+
+        return super.selectOne(wrapper);
     }
 }

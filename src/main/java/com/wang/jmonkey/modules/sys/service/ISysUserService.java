@@ -3,6 +3,7 @@ package com.wang.jmonkey.modules.sys.service;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysUserInfoDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
@@ -68,4 +69,18 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 用户登陆信息
      */
     UserVo loadUserByUsername(String username);
+
+    /**
+     * 根据用户登陆名称获取用户信息
+     * @param username 登陆名称
+     * @return userinfo
+     */
+    SysUserInfoDto getUserInfoByUsername(String username);
+
+    /**
+     * 根据用户名称获取用户信息
+     * @param username 用户登录名称
+     * @return 用户信息
+     */
+    SysUser selectByUsername(String username);
 }

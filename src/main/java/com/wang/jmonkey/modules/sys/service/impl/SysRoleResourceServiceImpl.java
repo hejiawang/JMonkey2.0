@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleResourceMapper;
 import com.wang.jmonkey.modules.sys.service.ISysRoleResourceService;
@@ -74,5 +75,15 @@ public class SysRoleResourceServiceImpl extends ServiceImpl<SysRoleResourceMappe
     @Override
     public boolean deleteByRid(String rId) {
         return mapper.deleteByRid(rId) >= 0;
+    }
+
+    /**
+     * 获取角色的权限标识
+     * @param roleList 角色list
+     * @return 权限标识
+     */
+    @Override
+    public List<String> selectPermissionByRoles(List<SysRole> roleList) {
+        return CollectionUtil.isEmpty(roleList) ? null : mapper.selectPermissionByRoles(roleList);
     }
 }

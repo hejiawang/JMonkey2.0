@@ -1,10 +1,12 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserRole;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -29,4 +31,11 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      * @return
      */
     int deleteByUserId(@Param("userId") Serializable userId);
+
+    /**
+     * 获取用户角色信息
+     * @param userId 用户id
+     * @return 角色信息list
+     */
+    List<SysRole> selectRoleByUserId(@Param("userId") String userId);
 }

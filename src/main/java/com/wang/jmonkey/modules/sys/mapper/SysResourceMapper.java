@@ -39,4 +39,10 @@ public interface SysResourceMapper extends BaseMapper<SysResource> {
      * @return
      */
     String findRName(@Param("id")String id, @Param("tableName")String tableName);
+
+    /**
+     * 是否需要引导页
+     * @return 需要引导页系统的个数
+     */
+    int haveGuide();
 }

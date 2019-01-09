@@ -5,10 +5,12 @@ import com.wang.jmonkey.common.utils.TreeUtil;
 import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysResource;
 import com.wang.jmonkey.modules.sys.mapper.SysResourceMapper;
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.enums.ResourceTypeEnums;
 import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wang.jmonkey.modules.sys.service.ISysRoleResourceService;
+import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -114,4 +116,14 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
         SysResource resource = super.selectById(rId);
         return mapper.findRName(resource.getRId(), rMap.get(resource.getType()));
     }
+
+    /**
+     * 是否需要引导页
+     * @return true 需要 false不需要
+     */
+    @Override
+    public boolean haveGuide() {
+        return mapper.haveGuide() > 0;
+    }
+
 }

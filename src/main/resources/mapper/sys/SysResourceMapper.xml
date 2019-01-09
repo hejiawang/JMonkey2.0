@@ -30,7 +30,7 @@
 
     <select id="selectDtoList" resultMap="DtoResultMap">
         <if test=" index >= 1">
-            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, s.name as name
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, s.name as name, s.sort as sort
             FROM sys_resource r
             INNER JOIN sys_system s ON r.r_id = s.id
             WHERE r.delete_flag = 'Used'
@@ -40,7 +40,7 @@
         <if test=" index >= 2">
             UNION ALL
 
-            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, m.name as name
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, m.name as name, m.sort as sort
             FROM sys_resource r
             INNER JOIN sys_menu m ON r.r_id = m.id
             WHERE r.delete_flag = 'Used'
@@ -50,17 +50,26 @@
         <if test=" index >= 3">
             UNION ALL
 
-            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, b.name as name
+            select r.id as id, r.parent_id as parent_id, r.r_id as r_id, r.type as type, b.name as name, 1 as sort
             FROM sys_resource r
             INNER JOIN sys_button b ON r.r_id = b.id
             WHERE r.delete_flag = 'Used'
             AND b.delete_flag = 'Used'
             AND r.type = 'Button'
         </if>
+
+        ORDER BY sort
     </select>
 
     <select id="findRName" resultType="java.lang.String">
         SELECT name FROM ${tableName} WHERE delete_flag = 'Used' AND id = #{id}
+    </select>
+
+    <select id="haveGuide" resultType="java.lang.Integer">
+        select count(1)
+        FROM sys_system s
+        WHERE s.delete_flag = 'Used'
+        AND s.show_guide = 'Yes'
     </select>
 
 </mapper>

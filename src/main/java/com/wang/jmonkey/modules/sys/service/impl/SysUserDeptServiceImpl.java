@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserDept;
 import com.wang.jmonkey.modules.sys.mapper.SysUserDeptMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserDeptService;
@@ -66,5 +67,15 @@ public class SysUserDeptServiceImpl extends ServiceImpl<SysUserDeptMapper, SysUs
         }
 
         return true;
+    }
+
+    /**
+     * 根据用户id获取用户部门信息
+     * @param userId 用户id
+     * @return 部门信息list
+     */
+    @Override
+    public List<SysDept> selectDeptByUserId(String userId) {
+        return mapper.selectDeptByUserId(userId);
     }
 }

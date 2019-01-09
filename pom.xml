@@ -33,6 +33,7 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <velocity-engine-core.version>2.0</velocity-engine-core.version>
         <commons-io.version>2.6</commons-io.version>
+        <ttl.version>2.2.0</ttl.version>
     </properties>
 
     <!-- 设定插件仓库 -->
@@ -65,6 +66,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${ttl.version}</version>
         </dependency>
 
         <dependency>
@@ -146,6 +158,12 @@
             <groupId>com.sun.activation</groupId>
             <artifactId>javax.activation</artifactId>
             <version>1.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
         <!-- oauth2 end -->
 

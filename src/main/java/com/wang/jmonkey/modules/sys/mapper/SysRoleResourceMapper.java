@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -35,5 +36,12 @@ public interface SysRoleResourceMapper extends BaseMapper<SysRoleResource> {
      * @param rId 资源id
      * @return
      */
-    short deleteByRid(@Param("rId") String rId);
+    int deleteByRid(@Param("rId") String rId);
+
+    /**
+     * 获取角色的权限标识
+     * @param roleList 角色list
+     * @return 权限标识
+     */
+    List<String> selectPermissionByRoles(@Param("roleList") List<SysRole> roleList);
 }

@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysUserRole;
 import com.wang.jmonkey.modules.sys.mapper.SysUserRoleMapper;
 import com.wang.jmonkey.modules.sys.service.ISysUserRoleService;
@@ -58,13 +59,23 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
 
         if(CollectionUtil.isNotEmpty(roleIds)){
             roleIds.forEach( roleId ->{
-                if(StringUtils.isNotEmpty(roleId)){
-                    SysUserRole userRole = new SysUserRole().setUserId(userId).setRoleId(roleId);
-                    super.insert(userRole);
-                }
+                if(StringUtils.isNotEmpty(roleId))
+                    super.insert(
+                            new SysUserRole().setUserId(userId).setRoleId(roleId)
+                    );
             });
         }
 
         return true;
+    }
+
+    /**
+     * 获取用户角色信息
+     * @param userId 用户id
+     * @return 角色信息list
+     */
+    @Override
+    public List<SysRole> selectRoleByUserId(String userId) {
+        return mapper.selectRoleByUserId(userId);
     }
 }

@@ -42,4 +42,11 @@ public interface ISysResourceService extends IService<SysResource> {
      * @return
      */
     String findNameByRid(String rId);
+
+    /**
+     * 是否需要引导页
+     * @return true 需要 false不需要
+     */
+    boolean haveGuide();
+
 }

@@ -6,6 +6,7 @@ import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.common.utils.FileUtil;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysUserInfoDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
 import com.wang.jmonkey.modules.sys.service.ISysUserService;
@@ -128,4 +129,13 @@ public class SysUserApi extends BaseHttp {
         return result;
     }
 
+    /**
+     * 根据用户登陆名称获取用户信息
+     * @param username 登陆名称
+     * @return userinfo
+     */
+    @GetMapping(value = "/info/{username}")
+    public HttpResult<SysUserInfoDto> getUserInfoByUsername(@PathVariable String username){
+        return new HttpResult<>(service.getUserInfoByUsername(username));
+    }
 }
