@@ -44,6 +44,11 @@ public class SysMenuTreeDto extends BaseTreeNode {
     @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
     private YesOrNoEnum isShow;
     /**
+     * 是否在引导页显示，Yes是，No否
+     */
+    @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
+    private YesOrNoEnum isGuide;
+    /**
      * 是否是主页，Yes是，No否
      */
     @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)

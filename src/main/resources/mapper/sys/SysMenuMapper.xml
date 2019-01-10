@@ -10,6 +10,7 @@
         <result column="path" property="path" />
         <result column="component" property="component" />
         <result column="is_show" property="isShow" />
+        <result column="is_guide" property="isGuide" />
         <result column="is_index" property="isIndex" />
         <result column="show_type" property="showType" />
         <result column="sort" property="sort" />
@@ -35,7 +36,7 @@
             m.id as r_id,
             m.name as name, m.icon as icon,
             m.path as path, m.component as component,
-            m.is_show as is_show, m.is_index as is_index,
+            m.is_show as is_show, m.is_guide as is_guide, m.is_index as is_index,
             m.show_type as show_type, m.sort as sort,
             r.parent_id as parent_id, r.id as id
         FROM sys_menu m
