@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class SysDictTreeDto extends BaseTreeNode {
+public class SysDictTreeDto extends BaseTreeNode<SysDictTreeDto> {
 
     /**
      * 字典标签

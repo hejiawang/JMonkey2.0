@@ -27,6 +27,12 @@ public interface ISysMenuService extends IService<SysMenu> {
     List<SysMenuTreeDto> treeList(String pId);
 
     /**
+     * 获取所有菜单dto信息
+     * @return 菜单dto信息
+     */
+    List<SysMenuTreeDto> selectTreeDtoList();
+
+    /**
      * 增加菜单信息，并增加菜单资源
      * @param param
      * @return
@@ -46,4 +52,5 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return
      */
     SysMenuDto selectDtoById(Serializable id);
+
 }

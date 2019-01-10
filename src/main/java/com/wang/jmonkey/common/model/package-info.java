@@ -1,1 +1,0 @@
-package com.wang.jmonkey.common.model;

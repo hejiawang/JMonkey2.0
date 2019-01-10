@@ -31,7 +31,7 @@
         <result column="parent_id" property="parentId" />
     </resultMap>
 
-    <select id="selectDtoList" resultMap="TreeDtoResultMap">
+    <select id="selectTreeDtoList" resultMap="TreeDtoResultMap">
         select
             m.id as r_id,
             m.name as name, m.icon as icon,

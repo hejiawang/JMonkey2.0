@@ -2,7 +2,9 @@ package com.wang.jmonkey.modules.sys.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 
 import org.springframework.web.bind.annotation.*;
@@ -48,5 +50,14 @@ public class SysResourceApi extends BaseHttp {
     @GetMapping(value = "/findNameByRid")
     public HttpResult<String> findNameByRid(String rId){
         return new HttpResult<>(service.findNameByRid(rId));
+    }
+
+    /**
+     * 构建引导页显示系统与菜单信息
+     * @return 系统与菜单信息
+     */
+    @GetMapping(value = "/guideInfo")
+    public HttpResult<List<SysSystemDto>> guideInfo(){
+        return new HttpResult<>(service.guideInfo());
     }
 }

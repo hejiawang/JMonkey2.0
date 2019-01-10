@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.wang.jmonkey.common.utils.UserUtils;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleResourceMapper;
@@ -9,7 +10,10 @@ import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -34,6 +38,18 @@ public class SysRoleResourceServiceImpl extends ServiceImpl<SysRoleResourceMappe
     @Override
     public List<String> findRidByRole(String roleId) {
         return mapper.findRidByRole(roleId);
+    }
+
+    /**
+     * 获取当前登录用户的所有有权限的资源id
+     * @return 资源id集合
+     */
+    @Override
+    public List<String> findRIdByCurrentUser() {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+
+        return mapper.findRIdByRoleCodes(UserUtils.getRole(request));
     }
 
     /**

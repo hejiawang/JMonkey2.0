@@ -20,9 +20,16 @@ public interface SysRoleResourceMapper extends BaseMapper<SysRoleResource> {
     /**
      * 获取角色以授权的资源id
      * @param roleId 角色id
-     * @return
+     * @return 资源id集合
      */
     List<String> findRidByRole(@Param("roleId") String roleId);
+
+    /**
+     * 获取角色以授权的资源id
+     * @param roleCodeList 角色code集合
+     * @return 资源id集合
+     */
+    List<String> findRIdByRoleCodes(@Param("roleCodeList") List<String> roleCodeList);
 
     /**
      * 删除角色授权资源
@@ -44,4 +51,5 @@ public interface SysRoleResourceMapper extends BaseMapper<SysRoleResource> {
      * @return 权限标识
      */
     List<String> selectPermissionByRoles(@Param("roleList") List<SysRole> roleList);
+
 }

@@ -24,6 +24,12 @@ public interface ISysRoleResourceService extends IService<SysRoleResource> {
     List<String> findRidByRole(String roleId);
 
     /**
+     * 获取当前登录用户的所有有权限的资源id
+     * @return 资源id集合
+     */
+    List<String> findRIdByCurrentUser();
+
+    /**
      * 为角色授权
      * @param roleId 角色id
      * @param rIds 资源id集合
@@ -51,4 +57,5 @@ public interface ISysRoleResourceService extends IService<SysRoleResource> {
      * @return 权限标识
      */
     List<String> selectPermissionByRoles(List<SysRole> roleList);
+
 }

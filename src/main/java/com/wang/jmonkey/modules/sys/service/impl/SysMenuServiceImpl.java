@@ -43,7 +43,16 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public List<SysMenuTreeDto> treeList(String pId) {
-        return  TreeUtil.bulid( mapper.selectDtoList(), pId );
+        return  TreeUtil.bulid( mapper.selectTreeDtoList(), pId );
+    }
+
+    /**
+     * 获取所有菜单dto信息
+     * @return 菜单dto信息
+     */
+    @Override
+    public List<SysMenuTreeDto> selectTreeDtoList() {
+        return mapper.selectTreeDtoList();
     }
 
     /**
@@ -101,4 +110,5 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     public boolean deleteById(Serializable id) {
         return super.deleteById(id) && resourceService.deleteByRId(id);
     }
+
 }

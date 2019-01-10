@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.service;
 
 import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysResource;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -49,4 +50,9 @@ public interface ISysResourceService extends IService<SysResource> {
      */
     boolean haveGuide();
 
+    /**
+     * 构建引导页显示系统与菜单信息
+     * @return 系统与菜单信息
+     */
+    List<SysSystemDto> guideInfo();
 }

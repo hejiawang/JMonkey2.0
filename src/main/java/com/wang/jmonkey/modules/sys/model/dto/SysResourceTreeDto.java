@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class SysResourceTreeDto extends BaseTreeNode {
+public class SysResourceTreeDto extends BaseTreeNode<SysResourceTreeDto> {
 
     /**
      * 具体资源id

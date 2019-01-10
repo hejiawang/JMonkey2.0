@@ -7,15 +7,17 @@ import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import com.wang.jmonkey.modules.sys.model.enums.MenuShowTypeEnums;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.beans.BeanUtils;
 
 /**
  * @Description: 树形菜单
+ * TODO 将系统、菜单、按钮分开后，构建树时本身id与resource表中的id，在代码逻辑中容易混淆，一定要注意
  * @Auther: HeJiawang
  * @Date: 2018/12/11
  */
 @Data
 @Accessors(chain = true)
-public class SysMenuTreeDto extends BaseTreeNode {
+public class SysMenuTreeDto extends BaseTreeNode<SysMenuTreeDto> {
 
     /**
      * 本身id， BaseTreeNode中的id为资源id
@@ -63,4 +65,14 @@ public class SysMenuTreeDto extends BaseTreeNode {
      */
     private Integer sort;
 
+    /**
+     * 将menu tree dto转换为menu dto信息
+     * @return menu dto
+     */
+    public SysMenuDto converToDto(){
+        SysMenuDto dto = new SysMenuDto();
+        BeanUtils.copyProperties(this, dto);
+        dto.setRId(this.id).setId(this.rId);
+        return dto;
+    }
 }

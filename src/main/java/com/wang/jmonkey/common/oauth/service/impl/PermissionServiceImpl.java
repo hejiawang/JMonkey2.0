@@ -1,7 +1,6 @@
 package com.wang.jmonkey.common.oauth.service.impl;
 
 import com.wang.jmonkey.common.oauth.service.PermissionService;
-import com.xiaoleilu.hutool.collection.CollUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,7 +9,6 @@ import org.springframework.util.AntPathMatcher;
 import org.springframework.util.CollectionUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
 import java.util.List;
 
 /**

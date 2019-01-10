@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public abstract class BaseTreeNode extends BaseVo {
+public abstract class BaseTreeNode<T> extends BaseVo {
 
     /**
      * 自身id
@@ -28,13 +28,13 @@ public abstract class BaseTreeNode extends BaseVo {
     /**
      * 子节点集合
      */
-    protected List<BaseTreeNode> children = new ArrayList<>();
+    protected List<T> children = new ArrayList<>();
 
     /**
      * 添加子节点
      * @param node
      */
-    public void addChildren(BaseTreeNode node) {
+    public void addChildren(T node) {
         children.add(node);
     }
 }
