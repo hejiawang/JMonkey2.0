@@ -23,7 +23,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * 获取所有菜单dto信息
      * @return 菜单dto信息
      */
-    List<SysMenuTreeDto> selectTreeDtoList();
+    List<SysMenuTreeDto> selectTreeDtoList(@Param("roleCodeList") List<String> roleCodeList);
 
     /**
      * 获取菜单信息

@@ -142,6 +142,7 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
      */
     @Override
     public List<SysSystemDto> guideInfo() {
+        // 将当前用户授权的资源id和所有菜单信息一次性获取出来,方便遍历系统信息时使用
         List<String> rIdList = roleResourceService.findRIdByCurrentUser();
         List<SysMenuTreeDto> menuTreeDtoList = menuService.selectTreeDtoList();
 
@@ -153,6 +154,11 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
             // 获取要在引导页显示的菜单
             List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId());  // 归属该系统的菜单树
             system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
+
+            // 获取当前用户授权的菜单树信息
+            system.setAuthMenuList(
+                    TreeUtil.bulid( menuService.selectCurrentMenuList(), system.getRId() )
+            );
         });
 
         return systemList;

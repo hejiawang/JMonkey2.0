@@ -33,6 +33,12 @@ public interface ISysMenuService extends IService<SysMenu> {
     List<SysMenuTreeDto> selectTreeDtoList();
 
     /**
+     * 获取当前用户已授权的菜单信息
+     * @return 菜单树信息
+     */
+    List<SysMenuTreeDto> selectCurrentMenuList();
+
+    /**
      * 增加菜单信息，并增加菜单资源
      * @param param
      * @return

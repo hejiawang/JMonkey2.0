@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.common.utils.TreeUtil;
+import com.wang.jmonkey.common.utils.UserUtils;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
@@ -15,7 +16,10 @@ import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 
@@ -43,7 +47,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public List<SysMenuTreeDto> treeList(String pId) {
-        return  TreeUtil.bulid( mapper.selectTreeDtoList(), pId );
+        return  TreeUtil.bulid( mapper.selectTreeDtoList(null), pId );
     }
 
     /**
@@ -52,7 +56,19 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public List<SysMenuTreeDto> selectTreeDtoList() {
-        return mapper.selectTreeDtoList();
+        return mapper.selectTreeDtoList(null);
+    }
+
+    /**
+     * 获取当前用户已授权的菜单信息
+     * @return 菜单树信息
+     */
+    @Override
+    public List<SysMenuTreeDto> selectCurrentMenuList() {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+
+        return mapper.selectTreeDtoList(UserUtils.getRole(request));
     }
 
     /**

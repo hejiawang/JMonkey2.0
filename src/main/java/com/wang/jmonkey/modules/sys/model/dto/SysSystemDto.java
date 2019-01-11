@@ -27,7 +27,12 @@ public class SysSystemDto extends SysSystem {
     private YesOrNoEnum isAuth = YesOrNoEnum.No;
 
     /**
-     * 系统包含的菜单
+     * 系统包含的应该在引导页展示的菜单信息
      */
     private List<SysMenuDto> menuList;
+
+    /**
+     * 当前用户已授权的菜单树信息
+     */
+    private List<SysMenuTreeDto> authMenuList;
 }

@@ -41,7 +41,15 @@
             r.parent_id as parent_id, r.id as id
         FROM sys_menu m
         INNER JOIN sys_resource r ON m.id = r.r_id AND r.delete_flag = 'Used'
+        LEFT JOIN sys_role_resource rr ON r.id = rr.resource_id AND rr.delete_flag = 'Used'
+        LEFT JOIN sys_role role ON rr.role_id = role.id AND role.delete_flag = 'Used'
         WHERE m.delete_flag = 'Used'
+        <if test="roleCodeList != null">
+            AND role.code in
+            <foreach collection="roleCodeList" index="index" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
         order by m.sort
     </select>
 
