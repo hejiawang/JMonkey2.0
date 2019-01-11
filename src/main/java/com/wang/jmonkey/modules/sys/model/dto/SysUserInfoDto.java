@@ -41,4 +41,9 @@ public class SysUserInfoDto {
      * 系统中是否需要显示引导页
      */
     private boolean isGuide;
+
+    /**
+     * 引导页以及页面头部显示的系统信息
+     */
+    private List<SysSystemDto> systemList;
 }

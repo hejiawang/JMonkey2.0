@@ -52,12 +52,4 @@ public class SysResourceApi extends BaseHttp {
         return new HttpResult<>(service.findNameByRid(rId));
     }
 
-    /**
-     * 构建引导页显示系统与菜单信息
-     * @return 系统与菜单信息
-     */
-    @GetMapping(value = "/guideInfo")
-    public HttpResult<List<SysSystemDto>> guideInfo(){
-        return new HttpResult<>(service.guideInfo());
-    }
 }

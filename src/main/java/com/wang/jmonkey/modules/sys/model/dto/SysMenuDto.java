@@ -25,5 +25,5 @@ public class SysMenuDto extends SysMenu {
      * 对当前登陆用户是否授权
      */
     @JSONField(serialzeFeatures = SerializerFeature.WriteEnumUsingToString)
-    private YesOrNoEnum isAuth;
+    private YesOrNoEnum isAuth = YesOrNoEnum.No;
 }

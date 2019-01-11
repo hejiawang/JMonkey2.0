@@ -72,10 +72,9 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 根据用户登陆名称获取用户信息
-     * @param username 登陆名称
      * @return userinfo
      */
-    SysUserInfoDto getUserInfoByUsername(String username);
+    SysUserInfoDto getCurrentUserInfo();
 
     /**
      * 根据用户名称获取用户信息

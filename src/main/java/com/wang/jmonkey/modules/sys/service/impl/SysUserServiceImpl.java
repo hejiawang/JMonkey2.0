@@ -3,6 +3,8 @@ package com.wang.jmonkey.modules.sys.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.model.vo.UserVo;
+import com.wang.jmonkey.common.utils.UserUtils;
+import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserInfoDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDept;
@@ -177,22 +179,22 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 根据用户登陆名称获取用户信息
-     * @param username 登陆名称
      * @return userinfo
      */
     @Override
-    public SysUserInfoDto getUserInfoByUsername(String username) {
-        SysUser user = this.selectByUsername(username);
+    public SysUserInfoDto getCurrentUserInfo() {
+        SysUser user = this.selectByUsername(UserUtils.getUser());
         if (user == null) return null;
 
         List<SysRole> roleList = userRoleService.selectRoleByUserId(user.getId());
         List<SysDept> deptList = userDeptService.selectDeptByUserId(user.getId());
         List<String> permissionList = roleResourceService.selectPermissionByRoles(roleList);
         boolean isGuide = resourceService.haveGuide();
+        List<SysSystemDto> systemList = resourceService.guideInfo();
 
         return new SysUserInfoDto()
                 .setUser(user).setRoleList(roleList).setDeptList(deptList)
-                .setPermissionList(permissionList).setGuide(isGuide);
+                .setPermissionList(permissionList).setGuide(isGuide).setSystemList(systemList);
     }
 
     /**

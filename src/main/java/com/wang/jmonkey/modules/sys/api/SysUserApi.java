@@ -131,11 +131,10 @@ public class SysUserApi extends BaseHttp {
 
     /**
      * 根据用户登陆名称获取用户信息
-     * @param username 登陆名称
      * @return userinfo
      */
-    @GetMapping(value = "/info/{username}")
-    public HttpResult<SysUserInfoDto> getUserInfoByUsername(@PathVariable String username){
-        return new HttpResult<>(service.getUserInfoByUsername(username));
+    @GetMapping(value = "/info")
+    public HttpResult<SysUserInfoDto> getCurrentUserInfo(){
+        return new HttpResult<>(service.getCurrentUserInfo());
     }
 }
