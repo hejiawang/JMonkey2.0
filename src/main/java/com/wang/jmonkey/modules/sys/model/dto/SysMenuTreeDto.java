@@ -5,9 +5,12 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.wang.jmonkey.common.model.BaseTreeNode;
 import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import com.wang.jmonkey.modules.sys.model.enums.MenuShowTypeEnums;
+import com.xiaoleilu.hutool.collection.CollectionUtil;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
 
 /**
  * @Description: 树形菜单
@@ -74,5 +77,31 @@ public class SysMenuTreeDto extends BaseTreeNode<SysMenuTreeDto> {
         BeanUtils.copyProperties(this, dto);
         dto.setRId(this.id).setId(this.rId);
         return dto;
+    }
+
+    public SysMenuTreeDto copy(){
+        SysMenuTreeDto menuTreeDto = new SysMenuTreeDto();
+        menuTreeDto.setRId(this.rId).setName(this.name).setIcon(this.icon).setPath(this.path)
+                .setComponent(this.component).setIsShow(this.isShow).setIsGuide(this.isGuide)
+                .setIsIndex(this.isIndex).setShowType(this.showType).setSort(this.sort)
+                .setId(this.id).setParentId(this.parentId).setChildren(new ArrayList<>());
+
+        return menuTreeDto;
+    }
+
+    @Override
+    public SysMenuTreeDto clone() {
+        SysMenuTreeDto menuTree = null;
+        try {
+            menuTree = (SysMenuTreeDto) super.clone();
+
+            if (CollectionUtil.isNotEmpty(children)) {
+                menuTree.setChildren(new ArrayList<>());
+            }
+        } catch (CloneNotSupportedException ignored) {
+            System.out.println(ignored.getMessage());
+        }
+
+        return menuTree;
     }
 }

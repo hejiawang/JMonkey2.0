@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public abstract class BaseTreeNode<T> extends BaseVo {
+public abstract class BaseTreeNode<T> extends BaseVo implements Cloneable{
 
     /**
      * 自身id

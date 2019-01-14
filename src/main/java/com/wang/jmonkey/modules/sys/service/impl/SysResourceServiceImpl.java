@@ -144,30 +144,46 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
     public List<SysSystemDto> guideInfo() {
         // TODO 应当将当前用户授权的资源id、所有菜单信息以及授权过的菜单信息一次性获取出来,方便遍历系统信息时使用
         // TODO TreeUtil.bulid() 方法中把传入的信息修改了，在循环中子节点越来越多，
-        List<String> rIdList = roleResourceService.findRIdByCurrentUser();
-        List<SysMenuTreeDto> menuTreeDtoList = menuService.selectTreeDtoList(); // 所有菜单信息
+        //List<String> rIdList = roleResourceService.findRIdByCurrentUser();
+        //List<SysMenuTreeDto> menuTreeDtoList = menuService.selectTreeDtoList(); // 所有菜单信息
 
+        List<SysMenuTreeDto> authMenuList = menuService.selectCurrentMenuList();    // 所有授权过的菜单信息
 
         // 获取所有系统信息
         List<SysSystemDto> systemList = systemService.selectDtoList();
         systemList.forEach( system -> {
-            if(rIdList.contains(system.getRId())) system.setIsAuth(YesOrNoEnum.Yes);    // 设置该系统是否已授权
+            //if(rIdList.contains(system.getRId())) system.setIsAuth(YesOrNoEnum.Yes);    // 设置该系统是否已授权
 
             // 获取要在引导页显示的菜单
-            if ( system.getShowMenu() == YesOrNoEnum.Yes ) {
+            /*if ( system.getShowMenu() == YesOrNoEnum.Yes ) {
                 List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId());  // 归属该系统的菜单树
                 system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
-            }
+            }*/
 
             // 获取当前用户授权的菜单树信息
             // TODO 应该优化，进入方法后执行，不要每次循环都读取数据库，在这里TreeUtil.bulid导致会修改authMenuList。。。。
             // TODO java 深拷贝、浅拷贝
-            List<SysMenuTreeDto> authMenuList = menuService.selectCurrentMenuList();    // 所有授权过的菜单信息
-            List<SysMenuTreeDto> authMenus = TreeUtil.bulid(authMenuList, system.getRId());
+            List<SysMenuTreeDto> authMenus = this.bulid(authMenuList, system.getRId());
             system.setAuthMenuList( authMenus );
         });
 
         return systemList;
+    }
+
+    private List<SysMenuTreeDto> bulid(List<SysMenuTreeDto> treeNodeList, String root) {
+        List<SysMenuTreeDto> treeNodes = new ArrayList<>();
+        treeNodeList.forEach( t -> treeNodes.add(t.copy()) );
+
+        List<SysMenuTreeDto> trees = new ArrayList<>();
+        treeNodes.forEach( treeNode -> {
+            // 查出归属该系统的菜单
+            if ( root == treeNode.getParentId() || StringUtils.equals(root, treeNode.getParentId()) ) trees.add(treeNode);
+
+            // 构建子节点
+            treeNodes.forEach(it -> { if ( StringUtils.equals(it.getParentId(), treeNode.getId()) ) treeNode.addChildren(it); });
+        });
+
+        return trees;
     }
 
     /**
