@@ -142,9 +142,10 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
      */
     @Override
     public List<SysSystemDto> guideInfo() {
-        // 将当前用户授权的资源id和所有菜单信息一次性获取出来,方便遍历系统信息时使用
+        // 将当前用户授权的资源id、所有菜单信息以及授权过的菜单信息一次性获取出来,方便遍历系统信息时使用
         List<String> rIdList = roleResourceService.findRIdByCurrentUser();
         List<SysMenuTreeDto> menuTreeDtoList = menuService.selectTreeDtoList();
+        List<SysMenuTreeDto> authMenuList = menuService.selectCurrentMenuList();
 
         // 获取所有系统信息
         List<SysSystemDto> systemList = systemService.selectDtoList();
@@ -152,13 +153,14 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
             if(rIdList.contains(system.getRId())) system.setIsAuth(YesOrNoEnum.Yes);    // 设置该系统是否已授权
 
             // 获取要在引导页显示的菜单
-            List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId());  // 归属该系统的菜单树
-            system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
+            if ( system.getShowMenu() == YesOrNoEnum.Yes ) {
+                List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId());  // 归属该系统的菜单树
+                system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
+            }
 
             // 获取当前用户授权的菜单树信息
-            system.setAuthMenuList(
-                    TreeUtil.bulid( menuService.selectCurrentMenuList(), system.getRId() )
-            );
+            List<SysMenuTreeDto> authMenus = TreeUtil.bulid(authMenuList, system.getRId());
+            system.setAuthMenuList( authMenus );
         });
 
         return systemList;
