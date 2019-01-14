@@ -37,4 +37,5 @@ public abstract class BaseTreeNode<T> extends BaseVo {
     public void addChildren(T node) {
         children.add(node);
     }
+
 }

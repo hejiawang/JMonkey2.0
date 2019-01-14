@@ -15,6 +15,7 @@ public class TreeUtil {
 
     /**
      * 构建树形结构数据
+     * TODO 目前该方法不试用于循环中，调用一次后传入的treeNodes会被改变，如果是循环，子节点会越来越多
      * @param treeNodes
      * @param root
      * @param <T>

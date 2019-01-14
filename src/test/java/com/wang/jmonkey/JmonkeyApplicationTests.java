@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class JmonkeyApplicationTests {
 
     @Test
-    public void contextLoads() { }
+    public void contextLoads() {
+        System.out.println("123");
+    }
 
 }
