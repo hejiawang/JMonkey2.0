@@ -14,19 +14,39 @@ import java.util.List;
 public class TreeUtil {
 
     /**
-     * 构建树形结构数据
-     * TODO 目前该方法不试用于循环中，调用一次后传入的treeNodes会被改变，如果是循环，子节点会越来越多
+     * 构建树形结构数据，用于树形表格的构建
+     * 该方法不试用于循环中，调用一次后传入的treeNodes会被改变，如果是循环，子节点会越来越多
      * @param treeNodes
      * @param root
      * @param <T>
      * @return
      */
     public static <T extends BaseTreeNode> List<T> bulid(List<T> treeNodes, Object root) {
-        List<T> trees = new ArrayList<>();
+        return bulid(treeNodes, root, false);
+    }
 
+    /**
+     * 构建树形结构数据
+     * @param treeNodeList
+     * @param root
+     * @param isClone true 不影响原来的treeNodeList， 但是要重写clone方法，参考SysResourceService guideInfo 方法
+     * @param <T>
+     * @return
+     */
+    public static <T extends BaseTreeNode> List<T> bulid(List<T> treeNodeList, Object root, boolean isClone) {
+        List<T> treeNodes ;
+        if(isClone){
+            treeNodes = new ArrayList<>();
+            treeNodeList.forEach( t -> treeNodes.add((T) t.clone()) );
+        } else {
+            treeNodes = treeNodeList;
+        }
+
+        // 构建树的算法
+        List<T> trees = new ArrayList<>();
         treeNodes.forEach( treeNode -> {
             // 没有归属具体系统的菜单，在所有系统中都显示
-             if ( null == treeNode.getParentId() || StringUtils.equals("", treeNode.getParentId()) ) trees.add(treeNode);
+            if ( null == treeNode.getParentId() || StringUtils.equals("", treeNode.getParentId()) ) trees.add(treeNode);
 
             // 查出归属该系统的菜单
             if( null != root ){
@@ -39,4 +59,5 @@ public class TreeUtil {
 
         return trees;
     }
+
 }

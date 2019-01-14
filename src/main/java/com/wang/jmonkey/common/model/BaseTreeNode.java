@@ -2,6 +2,7 @@ package com.wang.jmonkey.common.model;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @Auther: HeJiawang
  * @Date: 2018/12/11
  */
+@Slf4j
 @Data
 @Accessors(chain = true)
 public abstract class BaseTreeNode<T> extends BaseVo implements Cloneable{
@@ -38,4 +40,18 @@ public abstract class BaseTreeNode<T> extends BaseVo implements Cloneable{
         children.add(node);
     }
 
+    /**
+     * clone
+     * @return T
+     */
+    @Override
+    public T clone() {
+        T t = null;
+        try {
+            t = (T)super.clone();
+        } catch (CloneNotSupportedException ignored) {
+            log.error(ignored.getMessage());
+        }
+        return t;
+    }
 }

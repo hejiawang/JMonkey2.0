@@ -79,28 +79,14 @@ public class SysMenuTreeDto extends BaseTreeNode<SysMenuTreeDto> {
         return dto;
     }
 
-    public SysMenuTreeDto copy(){
-        SysMenuTreeDto menuTreeDto = new SysMenuTreeDto();
-        menuTreeDto.setRId(this.rId).setName(this.name).setIcon(this.icon).setPath(this.path)
-                .setComponent(this.component).setIsShow(this.isShow).setIsGuide(this.isGuide)
-                .setIsIndex(this.isIndex).setShowType(this.showType).setSort(this.sort)
-                .setId(this.id).setParentId(this.parentId).setChildren(new ArrayList<>());
-
-        return menuTreeDto;
-    }
-
+    /**
+     * clone
+     * @return SysMenuTreeDto
+     */
     @Override
     public SysMenuTreeDto clone() {
-        SysMenuTreeDto menuTree = null;
-        try {
-            menuTree = (SysMenuTreeDto) super.clone();
-
-            if (CollectionUtil.isNotEmpty(children)) {
-                menuTree.setChildren(new ArrayList<>());
-            }
-        } catch (CloneNotSupportedException ignored) {
-            System.out.println(ignored.getMessage());
-        }
+        SysMenuTreeDto menuTree = super.clone();
+        menuTree.setChildren(new ArrayList<>());
 
         return menuTree;
     }
