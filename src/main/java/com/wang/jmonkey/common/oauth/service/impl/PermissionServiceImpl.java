@@ -41,6 +41,7 @@ public class PermissionServiceImpl implements PermissionService {
 
             System.out.println(request.getRequestURI());
             if( antPathMatcher.match(BASE_URL + "/test/list", request.getRequestURI()) ){
+                // TODO 未完待续
                 hasPermission = true;
             }
         }

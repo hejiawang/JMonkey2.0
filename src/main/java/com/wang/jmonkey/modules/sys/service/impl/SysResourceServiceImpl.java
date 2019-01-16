@@ -139,6 +139,7 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
      * 构建引导页显示系统与菜单信息
      * TODO 思考更优算法
      * TODO TreeUtil.bulid方法的使用，可能还存在未知bug
+     * TODO 在构建‘引导页显示的菜单’和‘用户有权限的菜单树信息’时，能够同时进行，使用线程优化
      * @return 系统与菜单信息
      */
     @Override
@@ -155,13 +156,18 @@ public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysRe
 
             // 获取要在引导页显示的菜单
             if ( system.getShowMenu() == YesOrNoEnum.Yes ) {
-                List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId(), true);  // 归属该系统的菜单树
-                system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
+                {
+                    List<SysMenuTreeDto> menuTreeCurrentSystem = TreeUtil.bulid(menuTreeDtoList, system.getRId(), true);  // 归属该系统的菜单树
+                    system.setMenuList(this.buildGuideMenu(menuTreeCurrentSystem, rIdList));
+                }
             }
 
-            // 用户有权限的菜单树信息
-            List<SysMenuTreeDto> authMenus = TreeUtil.bulid(authMenuList, system.getRId(), true);
-            system.setAuthMenuList( authMenus );
+            {
+                // 用户有权限的菜单树信息
+                // TODO 优化方案：在循环外部构建Map<String, List<SysMenuTreeDto>>key为system.getRId()，value为List<SysMenuTreeDto> authMenus
+                List<SysMenuTreeDto> authMenus = TreeUtil.bulid(authMenuList, system.getRId(), true);
+                system.setAuthMenuList( authMenus );
+            }
         });
 
         return systemList;
