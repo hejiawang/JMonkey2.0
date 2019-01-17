@@ -31,4 +31,11 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      * @return
      */
     SysMenuDto selectDtoById(@Param("id") Serializable id);
+
+    /**
+     * 校验菜单路径是否重复
+     * @param sysMenu sysMenu
+     * @return 大于0 重复
+     */
+    int checkPath(SysMenu sysMenu);
 }

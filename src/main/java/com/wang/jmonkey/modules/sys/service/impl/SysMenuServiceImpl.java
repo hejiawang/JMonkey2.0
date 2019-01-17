@@ -117,6 +117,16 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     }
 
     /**
+     * 校验菜单路径是否重复
+     * @param sysMenu sysMenu
+     * @return true 重复
+     */
+    @Override
+    public Boolean checkPath(SysMenu sysMenu) {
+        return mapper.checkPath(sysMenu) > 0;
+    }
+
+    /**
      * 删除菜单信息，并删除该菜单的资源信息
      * @param id 菜单信息id
      * @return

@@ -60,4 +60,14 @@
         INNER JOIN sys_resource r ON m.id = r.r_id AND r.delete_flag = 'Used'
         WHERE m.id = #{id}
     </select>
+
+    <select id="checkPath" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM sys_menu
+        WHERE delete_flag = 'Used'
+        AND path = #{path}
+        <if test=" id != '' and id != null">
+            AND id != #{id}
+        </if>
+    </select>
 </mapper>

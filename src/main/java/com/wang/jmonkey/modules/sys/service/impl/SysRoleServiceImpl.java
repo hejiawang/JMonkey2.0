@@ -3,6 +3,7 @@ package com.wang.jmonkey.modules.sys.service.impl;
 import com.baomidou.mybatisplus.enums.SqlLike;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.constant.CommonConstant;
 import com.wang.jmonkey.common.constant.SecurityConstants;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleMapper;
@@ -95,6 +96,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Transactional
     @Override
     public boolean deleteById(Serializable id) {
+        if (String.valueOf(id).equals(CommonConstant.SYS_ID)) return false;
+
         return super.deleteById(id)
                 && userRoleService.deleteByRoleId(id)
                 && roleResourceService.deleteByRole(String.valueOf(id));

@@ -27,4 +27,8 @@ public interface CommonConstant {
      */
     String TOKEN_SPLIT = "Bearer ";
 
+    /**
+     * 超级管理员用户和角色的id
+     */
+    String SYS_ID = "1";
 }

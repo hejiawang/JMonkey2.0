@@ -4,6 +4,7 @@ import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysMenuTreeDto;
+import com.wang.jmonkey.modules.sys.model.entity.SysMenu;
 import com.wang.jmonkey.modules.sys.model.param.SysMenuParam;
 import com.wang.jmonkey.modules.sys.service.ISysMenuService;
 
@@ -75,4 +76,13 @@ public class SysMenuApi extends BaseHttp {
         return new HttpResult<>(service.selectDtoById(id));
     }
 
+    /**
+     * 校验菜单路径是否重复
+     * @param sysMenu sysMenu
+     * @return true 重复
+     */
+    @PostMapping(value = "/checkPath")
+    public HttpResult<Boolean> checkPath( @RequestBody SysMenu sysMenu){
+        return new HttpResult<>(service.checkPath(sysMenu));
+    }
 }

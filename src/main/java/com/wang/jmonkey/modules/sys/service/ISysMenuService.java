@@ -59,4 +59,10 @@ public interface ISysMenuService extends IService<SysMenu> {
      */
     SysMenuDto selectDtoById(Serializable id);
 
+    /**
+     * 校验菜单路径是否重复
+     * @param sysMenu sysMenu
+     * @return true 重复
+     */
+    Boolean checkPath(SysMenu sysMenu);
 }

@@ -37,7 +37,7 @@
         delete from sys_role_resource where resource_id = #{rId}
     </delete>
 
-    <select id="selectPermissionByRoles" resultType="java.lang.Integer">
+    <select id="selectPermissionByRoles" resultType="java.lang.String">
         select DISTINCT b.permission
         FROM sys_role_resource rr
         LEFT JOIN sys_resource r ON rr.resource_id = r.id AND r.type = 'Button'

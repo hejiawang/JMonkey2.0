@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.constant.CommonConstant;
 import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.common.utils.UserUtils;
 import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
@@ -162,6 +163,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Transactional
     @Override
     public boolean deleteById(Serializable id) {
+        if (String.valueOf(id).equals(CommonConstant.SYS_ID)) return false;
+
         return super.deleteById(id)
                 && userDeptService.deleteByUserId(id)
                 && userRoleService.deleteByUserId(id);
