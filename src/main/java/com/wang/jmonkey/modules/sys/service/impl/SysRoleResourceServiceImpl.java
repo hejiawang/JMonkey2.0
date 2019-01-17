@@ -9,6 +9,8 @@ import com.wang.jmonkey.modules.sys.service.ISysRoleResourceService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -60,6 +62,7 @@ public class SysRoleResourceServiceImpl extends ServiceImpl<SysRoleResourceMappe
      * @param rIds 资源id集合
      * @return
      */
+    @CacheEvict(value = "auth_permission", allEntries = true)
     @Transactional
     @Override
     public Boolean auth(String roleId, List<String> rIds) {
@@ -110,6 +113,7 @@ public class SysRoleResourceServiceImpl extends ServiceImpl<SysRoleResourceMappe
      * @param roleCode 角色编码
      * @return 访问路径信息list
      */
+    @Cacheable(value = "auth_permission", key = "#roleCode  + '_permission'")
     @Override
     public Set<SysButton> selectButtonByRole(String roleCode) {
         return mapper.selectButtonByRole(roleCode);

@@ -9,6 +9,7 @@ import com.wang.jmonkey.modules.sys.service.ISysButtonService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,9 +63,21 @@ public class SysButtonServiceImpl extends ServiceImpl<SysButtonMapper, SysButton
      * @param id 按钮信息id
      * @return
      */
+    @CacheEvict(value = "auth_permission", allEntries = true)
     @Transactional
     @Override
     public boolean deleteById(Serializable id) {
         return super.deleteById(id) && resourceService.deleteByRId(id);
+    }
+
+    /**
+     * 修改按钮信息
+     * @param entity 按钮信息
+     * @return
+     */
+    @CacheEvict(value = "auth_permission", allEntries = true)
+    @Override
+    public boolean updateById(SysButton entity) {
+        return super.updateById(entity);
     }
 }

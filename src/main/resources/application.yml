@@ -8,7 +8,7 @@ spring:
   cache:
     type: redis
     redis:
-      time-to-live: 20000 #缓存超时时间ms
+      time-to-live: 86400000 #缓存超时时间ms 1天
       cache-null-values: false #是否缓存空值
   redis:
     host: localhost
