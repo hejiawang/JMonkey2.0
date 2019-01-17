@@ -1,11 +1,13 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysButton;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -52,4 +54,10 @@ public interface SysRoleResourceMapper extends BaseMapper<SysRoleResource> {
      */
     List<String> selectPermissionByRoles(@Param("roleList") List<SysRole> roleList);
 
+    /**
+     * 获取角色授权的菜单信息
+     * @param roleCode 角色编码
+     * @return 菜单信息list
+     */
+    Set<SysButton> selectButtonByRole(@Param("roleCode") String roleCode);
 }

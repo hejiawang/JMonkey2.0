@@ -152,9 +152,9 @@ jmonkey:
     expiresIn: 3600 # token过期时间，默认10小时，单位秒，60 * 60（一小时）
   urls:
     anon:
+    - /auth/**
     - /signin
     - /signup
-    - /test/list2
     - /favicon.ico
     - /page/**
     resources:

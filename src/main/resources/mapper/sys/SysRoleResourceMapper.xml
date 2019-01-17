@@ -14,6 +14,12 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="ButtonResultMap" type="com.wang.jmonkey.modules.sys.model.entity.SysButton">
+        <id column="id" property="id" />
+        <result column="url" property="url" />
+        <result column="method" property="method" />
+    </resultMap>
+
     <select id="findRidByRole" resultType="java.lang.String">
         select resource_id from sys_role_resource where delete_flag = 'Used' and role_id = #{roleId}
     </select>
@@ -47,5 +53,14 @@
         <foreach collection="roleList" index="index" item="item" open="(" separator="," close=")">
             #{item.id}
         </foreach>
+    </select>
+
+    <select id="selectButtonByRole" resultMap="ButtonResultMap">
+        select b.id as id, b.url as url, b.method as method
+        FROM sys_button b
+        INNER JOIN sys_resource resource ON b.id = resource.r_id
+        INNER JOIN sys_role_resource rr ON rr.resource_id = resource.id
+        INNER JOIN sys_role r ON r.id = rr.role_id
+        WHERE r.code = #{roleCode}
     </select>
 </mapper>

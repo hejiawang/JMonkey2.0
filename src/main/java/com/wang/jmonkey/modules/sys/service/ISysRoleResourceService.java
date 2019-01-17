@@ -1,10 +1,12 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.entity.SysButton;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -58,4 +60,10 @@ public interface ISysRoleResourceService extends IService<SysRoleResource> {
      */
     List<String> selectPermissionByRoles(List<SysRole> roleList);
 
+    /**
+     * 获取角色授权的访问路径信息
+     * @param roleCode 角色编码
+     * @return 访问路径信息list
+     */
+    Set<SysButton> selectButtonByRole(String roleCode);
 }

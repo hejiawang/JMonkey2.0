@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.wang.jmonkey.common.utils.UserUtils;
+import com.wang.jmonkey.modules.sys.model.entity.SysButton;
 import com.wang.jmonkey.modules.sys.model.entity.SysRole;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleResource;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleResourceMapper;
@@ -15,6 +16,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -101,5 +103,15 @@ public class SysRoleResourceServiceImpl extends ServiceImpl<SysRoleResourceMappe
     @Override
     public List<String> selectPermissionByRoles(List<SysRole> roleList) {
         return CollectionUtil.isEmpty(roleList) ? null : mapper.selectPermissionByRoles(roleList);
+    }
+
+    /**
+     * 获取角色授权的访问路径信息
+     * @param roleCode 角色编码
+     * @return 访问路径信息list
+     */
+    @Override
+    public Set<SysButton> selectButtonByRole(String roleCode) {
+        return mapper.selectButtonByRole(roleCode);
     }
 }
