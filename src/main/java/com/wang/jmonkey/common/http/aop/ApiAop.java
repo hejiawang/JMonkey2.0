@@ -82,7 +82,6 @@ public class ApiAop {
         log.info("CLASS_METHOD : " + pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName());
         log.info("ARGS : " + Arrays.toString(pjp.getArgs()));
 
-
         Object result;
         try {
             result = pjp.proceed();

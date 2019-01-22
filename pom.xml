@@ -29,6 +29,7 @@
         <druid.spring.boot.version>1.1.10</druid.spring.boot.version>
         <mybatisplus.version>2.2.0</mybatisplus.version>
         <mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>
+        <sharding.spring.boot.version>2.0.1</sharding.spring.boot.version>
         <hutool.version>3.3.2</hutool.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <velocity-engine-core.version>2.0</velocity-engine-core.version>
@@ -108,6 +109,13 @@
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
         </dependency>
+
+        <!-- 消息总线 start -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <!-- 消息总线 end -->
 
         <!-- Redis start -->
         <dependency>
@@ -192,6 +200,11 @@
             <artifactId>mybatisplus-spring-boot-starter</artifactId>
             <version>${mybatisplus.spring.boot.version}</version>
         </dependency>
+        <!--<dependency>
+            <groupId>io.shardingjdbc</groupId>
+            <artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
+            <version>${sharding.spring.boot.version}</version>
+        </dependency>-->
         <!-- mybatis end -->
 
         <dependency>

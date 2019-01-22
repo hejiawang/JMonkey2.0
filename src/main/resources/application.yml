@@ -10,10 +10,15 @@ spring:
     redis:
       time-to-live: 86400000 #缓存超时时间ms 1天
       cache-null-values: false #是否缓存空值
+  rabbitmq:
+    host: ${jmonkey.rabbitmq.host}
+    port: ${jmonkey.rabbitmq.port}
+    username: ${jmonkey.rabbitmq.username}
+    password: ${jmonkey.rabbitmq.password}
   redis:
-    host: localhost
-    port: 6379
-    database: 10
+    host: ${jmonkey.redis.host}
+    port: ${jmonkey.redis.port}
+    database: ${jmonkey.redis.database}
     timeout: 10000  #redis 连接超时时间ms
     lettuce:
       pool:
@@ -24,9 +29,9 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      username: root
-      password: 123456
-      url: jdbc:mysql://localhost:3306/j_monkey?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      username: ${jmonkey.datasource.username}
+      password: ${jmonkey.datasource.password}
+      url: ${jmonkey.datasource.url}
       initial-size: 1
       max-active: 20
       min-idle: 1
