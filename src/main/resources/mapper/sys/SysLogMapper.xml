@@ -5,19 +5,43 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wang.jmonkey.modules.sys.model.entity.SysLog">
         <id column="id" property="id" />
+        <result column="user_name" property="userName" />
         <result column="ip" property="ip" />
         <result column="url" property="url" />
         <result column="http_method" property="httpMethod" />
         <result column="class_method" property="classMethod" />
         <result column="param" property="param" />
         <result column="handle_length" property="handleLength" />
+
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />
         <result column="update_date" property="updateDate" />
         <result column="update_by" property="updateBy" />
         <result column="remark" property="remark" />
         <result column="delete_flag" property="deleteFlag" />
-        <result column="user_name" property="userName" />
     </resultMap>
+
+    <insert id="save">
+      INSERT INTO ${tableName} SET user_name = #{log.userName},
+      id = #{log.id}, ip = #{log.ip}, url = #{log.url}, http_method = #{log.httpMethod},
+      class_method = #{log.classMethod}, param = #{log.param}, handle_length = #{log.handleLength}
+    </insert>
+
+    <delete id="deleteAll">
+        <foreach collection="tableList" index="index" item="item" open="" separator=";" close="">
+            delete from ${item}
+        </foreach>
+    </delete>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        select *
+        from sys_log
+        ORDER BY create_date DESC
+        LIMIT ${limitStart}, ${size}
+    </select>
+
+    <select id="pageCount" resultType="java.lang.Long">
+        select count(1) from sys_log
+    </select>
 
 </mapper>

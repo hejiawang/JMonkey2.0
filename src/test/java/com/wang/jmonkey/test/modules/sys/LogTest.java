@@ -22,7 +22,6 @@ public class LogTest {
 
     @Test
     public void saveTest() {
-        SysLog log = new SysLog().setParam("sdfsdf");
-        service.insert(log);
+        service.deleteAll();
     }
 }

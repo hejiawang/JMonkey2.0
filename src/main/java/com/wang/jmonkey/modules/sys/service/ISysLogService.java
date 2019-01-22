@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface ISysLogService extends IService<SysLog> {
 
+    /**
+     * 删除所有日志信息
+     * @return
+     */
+    Boolean deleteAll();
 }
