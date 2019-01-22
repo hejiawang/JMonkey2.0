@@ -52,26 +52,6 @@ spring:
   resources:
     static-locations: file:${jmonkey.static-locations-file},classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 
-sharding:
-  jdbc:
-    datasource:
-      names: jmonkey0
-      jmonkey0:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: ${jmonkey.datasource.url}
-        username: ${jmonkey.datasource.username}
-        password: ${jmonkey.datasource.password}
-    config:
-      sharding:
-        tables:
-          sys_log:
-            actual-data-nodes: jmonkey.sys_log_${0..9}
-            table-strategy:
-              standard:
-                sharding-column: create_date
-                precise-algorithm-class-name: com.wang.jmonkey.common.sharding.config.JMonkeyPreciseShardingAlgorithm
-
 server:
   servlet:
     context-path: /
