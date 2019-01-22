@@ -9,6 +9,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
@@ -28,8 +29,17 @@ import java.util.Arrays;
 @Component
 public class ApiAop {
 
+    /**
+     * cacheManager
+     */
     @Autowired
     private CacheManager cacheManager;
+
+    /**
+     * rabbitTemplate
+     */
+    @Autowired
+    private AmqpTemplate rabbitTemplate;
 
     /**
      * 拦截规则
@@ -85,11 +95,11 @@ public class ApiAop {
         Object result;
         try {
             result = pjp.proceed();
-            log.info(pjp.getSignature() + "use time:" + (System.currentTimeMillis() - startTime));
         } catch (Throwable e) {
             log.error("异常信息：", e);
             throw new RuntimeException(e);
         } finally {
+            log.info(pjp.getSignature() + "use time:" + (System.currentTimeMillis() - startTime));
             if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();
         }
         log.info("———— api end —————————————————————————————————————————");
