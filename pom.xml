@@ -200,11 +200,11 @@
             <artifactId>mybatisplus-spring-boot-starter</artifactId>
             <version>${mybatisplus.spring.boot.version}</version>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>io.shardingjdbc</groupId>
             <artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
             <version>${sharding.spring.boot.version}</version>
-        </dependency>-->
+        </dependency>
         <!-- mybatis end -->
 
         <dependency>
