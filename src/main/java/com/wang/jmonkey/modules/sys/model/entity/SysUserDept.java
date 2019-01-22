@@ -1,5 +1,7 @@
 package com.wang.jmonkey.modules.sys.model.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import lombok.Data;
@@ -26,10 +28,12 @@ public class SysUserDept extends BaseEntity<SysUserDept> {
     /**
      * 用户ID
      */
+    @TableId(type = IdType.INPUT)
     private String userId;
     /**
      * 部门ID
      */
+    @TableId(type = IdType.INPUT)
     private String deptId;
 
 

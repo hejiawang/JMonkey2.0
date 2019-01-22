@@ -1,9 +1,8 @@
 package com.wang.jmonkey.modules.sys.model.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
-
-import com.baomidou.mybatisplus.annotations.Version;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,12 +28,13 @@ public class SysUserRole extends BaseEntity<SysUserRole> {
     /**
      * 用户ID
      */
+    @TableId(type = IdType.INPUT)
     private String userId;
     /**
      * 角色ID
      */
+    @TableId(type = IdType.INPUT)
     private String roleId;
-
 
     @Override
     protected Serializable pkVal() {

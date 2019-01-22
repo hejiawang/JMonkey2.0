@@ -1,5 +1,7 @@
 package com.wang.jmonkey.modules.sys.model.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import lombok.Data;
@@ -26,6 +28,7 @@ public class SysDict extends BaseEntity<SysDict> {
     /**
      * 主键ID
      */
+    @TableId(value = "id", type = IdType.UUID)
     private String id;
     /**
      * 上级字典ID

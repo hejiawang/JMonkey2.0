@@ -2,6 +2,8 @@ package com.wang.jmonkey.modules.sys.model.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import com.wang.jmonkey.modules.sys.model.enums.ResourceTypeEnums;
@@ -29,6 +31,7 @@ public class SysResource extends BaseEntity<SysResource> {
     /**
      * 主键ID
      */
+    @TableId(value = "id", type = IdType.UUID)
     private String id;
     /**
      * 资源类型 System,Menu,Button

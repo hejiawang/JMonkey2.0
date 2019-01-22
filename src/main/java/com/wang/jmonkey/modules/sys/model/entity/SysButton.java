@@ -2,6 +2,8 @@ package com.wang.jmonkey.modules.sys.model.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import com.wang.jmonkey.modules.sys.model.enums.ButtonMethodEnums;
@@ -29,6 +31,7 @@ public class SysButton extends BaseEntity<SysButton> {
     /**
      * 主键ID
      */
+    @TableId(value = "id", type = IdType.UUID)
     private String id;
     /**
      * 按钮名称

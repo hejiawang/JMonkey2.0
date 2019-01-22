@@ -3,6 +3,8 @@ spring:
     name: JMonkey2.0
   profiles:
     active: dev
+  #main:
+    #allow-bean-definition-overriding: true
   jackson:
     time-zone: GMT+8
   cache:
@@ -27,84 +29,20 @@ spring:
         max-idle: 8
         min-idle: 0
   datasource:
-    druid:
-      driver-class-name: com.mysql.jdbc.Driver
-      username: ${jmonkey.datasource.username}
-      password: ${jmonkey.datasource.password}
-      url: ${jmonkey.datasource.url}
-      initial-size: 1
-      max-active: 20
-      min-idle: 1
-      max-wait: 60000
-      validation-query: select 1 from dual
-      validationQueryTimeout: 5
-      test-on-borrow: false
-      test-on-return: false
-      test-while-idle: true
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      filters: stat,wall,log4j2
-      filter:
-        stat:
-          enabled: true
-          log-slow-sql: true
-          slow-sql-millis: 1000
-          merge-sql: true
-        slf4j:
-          enabled: true
-          connection-log-enabled: true
-          connection-close-after-log-enabled: true
-          connection-commit-after-log-enabled: true
-          connection-connect-after-log-enabled: true
-          connection-connect-before-log-enabled: true
-          connection-log-error-enabled: true
-          data-source-log-enabled: true
-          result-set-log-enabled: true
-          statement-log-enabled: true
-        wall:
-          enabled: true
-          config:
-            alter-table-allow: false
-            truncate-allow: false
-            drop-table-allow: false
-            #是否允许非以上基本语句的其他语句，缺省关闭，通过这个选项就能够屏蔽DDL
-            none-base-statement-allow: false
-            #检查UPDATE语句是否无where条件，这是有风险的，但不是SQL注入类型的风险
-            update-where-none-check: true
-            #SELECT ... INTO OUTFILE 是否允许，这个是mysql注入攻击的常见手段，缺省是禁止的
-            select-into-outfile-allow: false
-            #是否允许调用Connection.getMetadata方法，这个方法调用会暴露数据库的表信息
-            metadata-allow: true
-            #允许多条sql一起执行
-            multiStatementAllow: true
-          #对被认为是攻击的SQL进行LOG.error输出
-          log-violation: true
-          #对被认为是攻击的SQL抛出SQLExcepton
-          throw-exception: true
-          db-type: mysql
-        web-stat-filter:
-          enabled: true
-          url-pattern: /*
-          exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
-          #你可以配置principalSessionName，使得druid能够知道当前的cookie的用户是谁
-          #principal-cookie-name: admin
-          #你可以配置principalSessionName，使得druid能够知道当前的session的用户是谁
-          #principal-session-name: admin
-          #设置profileEnable能够监控单个url调用的sql列表。
-          profile-enable: true
-          #session统计功能
-          session-stat-enable: false
-          #最大session数
-          session-stat-max-count: 100000
-        stat-view-servlet:
-          #allow: ${GATEWAY_HOST:172.26.114.241}
-          enabled: true
-          login-username: admin
-          login-password: 123456
-          url-pattern: /druid/*
-          #允许清除记录
-          reset-enable: false
-        aop-patterns: com.wang.jmonkey.modules.*.service.*
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: ${jmonkey.datasource.url}
+    username: ${jmonkey.datasource.username}
+    password: ${jmonkey.datasource.password}
+    hikari:
+      minimum-idle: 5 #最小空闲连接数量
+      idle-timeout: 180000 #空闲连接存活最大时间，默认600000（10分钟）
+      maximum-pool-size: 10 #连接池最大连接数，默认是10
+      auto-commit: true #此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      pool-name: MyHikariCP #连接池母子
+      max-lifetime: 1800000 #此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      connection-timeout: 30000  #数据库连接超时时间,默认30秒，即30000
+      connection-test-query: SELECT 1
   thymeleaf:
     cache: true
   devtools:
@@ -117,10 +55,10 @@ spring:
 sharding:
   jdbc:
     datasource:
-      names: jmonkey
-      jmonkey:
-        type: com.alibaba.druid.pool.DruidDataSource
-        driver-class-name: com.mysql.jdbc.Driver
+      names: jmonkey0
+      jmonkey0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
         url: ${jmonkey.datasource.url}
         username: ${jmonkey.datasource.username}
         password: ${jmonkey.datasource.password}

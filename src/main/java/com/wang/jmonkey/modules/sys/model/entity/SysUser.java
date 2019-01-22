@@ -2,6 +2,9 @@ package com.wang.jmonkey.modules.sys.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import lombok.Data;
@@ -26,6 +29,7 @@ public class SysUser extends BaseEntity<SysUser> {
     /**
      * 主键ID
      */
+    @TableId(value = "id", type = IdType.UUID)
     private String id;
     /**
      * 用户名
