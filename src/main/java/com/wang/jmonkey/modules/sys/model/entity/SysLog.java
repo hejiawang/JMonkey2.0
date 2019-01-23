@@ -19,7 +19,7 @@ import java.io.Serializable;
  * @author HeJiawang
  * @since 2019-01-22
  */
-@Slf4j
+@Slf4j(topic="jmonkey.log")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)

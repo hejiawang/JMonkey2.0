@@ -26,7 +26,7 @@ import java.util.Arrays;
  * @Auther: HeJiawang
  * @Date: 2019/1/29
  */
-@Slf4j
+@Slf4j(topic="jmonkey.log")
 @Aspect
 @Component
 public class ApiAop {
