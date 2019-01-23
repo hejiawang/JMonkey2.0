@@ -3,8 +3,6 @@ spring:
     name: JMonkey2.0
   profiles:
     active: dev
-  #main:
-    #allow-bean-definition-overriding: true
   jackson:
     time-zone: GMT+8
   cache:

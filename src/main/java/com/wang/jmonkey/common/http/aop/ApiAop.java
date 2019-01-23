@@ -1,8 +1,10 @@
 package com.wang.jmonkey.common.http.aop;
 
+import com.wang.jmonkey.common.constant.MqQueueConstant;
 import com.wang.jmonkey.common.constant.SecurityConstants;
 import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.common.utils.UserUtils;
+import com.wang.jmonkey.modules.sys.model.entity.SysLog;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -84,14 +86,6 @@ public class ApiAop {
         }
 
         log.info("———— api start ————————————————————————————————————————");
-        log.info("login username:{}", username);
-        log.info("URL : " + request.getRequestURL().toString());
-        log.info("HTTP_METHOD : " + request.getMethod());
-        log.info("Remote IP : " + request.getRemoteAddr());
-        log.info("Real IP : " + request.getHeader("X-Real-IP"));
-        log.info("CLASS_METHOD : " + pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName());
-        log.info("ARGS : " + Arrays.toString(pjp.getArgs()));
-
         Object result;
         try {
             result = pjp.proceed();
@@ -99,8 +93,13 @@ public class ApiAop {
             log.error("异常信息：", e);
             throw new RuntimeException(e);
         } finally {
-            log.info(pjp.getSignature() + "use time:" + (System.currentTimeMillis() - startTime));
             if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();
+
+            SysLog sysLog = new SysLog().setUserName(username).setIp(request.getHeader("X-Real-IP"))
+                    .setUrl(request.getRequestURL().toString()).setHttpMethod(request.getMethod())
+                    .setClassMethod(pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName())
+                    .setParam(Arrays.toString(pjp.getArgs())).setHandleLength(String.valueOf(System.currentTimeMillis() - startTime));
+            rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
         }
         log.info("———— api end —————————————————————————————————————————");
 
