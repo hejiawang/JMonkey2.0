@@ -1,4 +1,7 @@
 jmonkey:
+  log:
+    save: false #是否存储日志
+    debug: false #是否打印访问接口日志
   rabbitmq:
     host: localhost
     port: 5672

@@ -13,6 +13,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -42,6 +43,18 @@ public class ApiAop {
      */
     @Autowired
     private AmqpTemplate rabbitTemplate;
+
+    /**
+     * 是否记录日志信息
+     */
+    @Value("${jmonkey.log.save:true}")
+    private Boolean isSave;
+
+    /**
+     * 是否打印日志信息
+     */
+    @Value("${jmonkey.log.debug:true}")
+    private Boolean isDebug;
 
     /**
      * 拦截规则
@@ -85,7 +98,7 @@ public class ApiAop {
             UserUtils.setUser(username);
         }
 
-        log.info("———— api start ————————————————————————————————————————");
+        if (isDebug) log.info("———— api start ————————————————————————————————————————");
         Object result;
         try {
             result = pjp.proceed();
@@ -95,13 +108,26 @@ public class ApiAop {
         } finally {
             if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();
 
-            SysLog sysLog = new SysLog().setUserName(username).setIp(request.getHeader("X-Real-IP"))
-                    .setUrl(request.getRequestURL().toString()).setHttpMethod(request.getMethod())
-                    .setClassMethod(pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName())
-                    .setParam(Arrays.toString(pjp.getArgs())).setHandleLength(String.valueOf(System.currentTimeMillis() - startTime));
-            rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
+            if (isDebug) {
+                log.info("login username:{}", username);
+                log.info("Remote IP : " + request.getHeader("X-Real-IP"));
+                log.info("URL : " + request.getRequestURL().toString());
+                log.info("HTTP_METHOD : " + request.getMethod());
+                log.info("CLASS_METHOD : " + pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName());
+                log.info("ARGS : " + Arrays.toString(pjp.getArgs()));
+                log.info("use time:" + (System.currentTimeMillis() - startTime));
+            }
+
+            if (isSave) {
+                SysLog sysLog = new SysLog().setUserName(username).setIp(request.getHeader("X-Real-IP"))
+                        .setUrl(request.getRequestURL().toString()).setHttpMethod(request.getMethod())
+                        .setClassMethod(pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName())
+                        .setParam(Arrays.toString(pjp.getArgs())).setHandleLength(String.valueOf(System.currentTimeMillis() - startTime));
+                rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
+            }
+
         }
-        log.info("———— api end —————————————————————————————————————————");
+        if (isDebug) log.info("———— api end —————————————————————————————————————————");
 
         return result;
     }
