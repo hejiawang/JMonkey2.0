@@ -32,7 +32,7 @@ public interface ISysTaskService extends IService<SysTask> {
      * @param sysTask sysTask
      * @return Boolean
      */
-    Boolean stratNow(SysTask sysTask);
+    Boolean startNow(SysTask sysTask);
 
     /**
      * 删除任务

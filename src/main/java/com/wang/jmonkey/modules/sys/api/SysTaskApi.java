@@ -140,8 +140,8 @@ public class SysTaskApi extends BaseHttp {
      * @param sysTask sysTask
      * @return Boolean
      */
-    @PostMapping(value = "/stratNow")
-    public HttpResult<Boolean> stratNow(@RequestBody SysTask sysTask){
-        return new HttpResult<>(service.stratNow(sysTask));
+    @PostMapping(value = "/startNow")
+    public HttpResult<Boolean> startNow(@RequestBody SysTask sysTask){
+        return new HttpResult<>(service.startNow(sysTask));
     }
 }

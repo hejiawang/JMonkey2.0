@@ -81,7 +81,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
      * @return Boolean
      */
     @Override
-    public Boolean stratNow(SysTask sysTask) {
+    public Boolean startNow(SysTask sysTask) {
         JobKey key = new JobKey(sysTask.getName(), sysTask.getGroup());
         try {
             scheduler.triggerJob(key);
