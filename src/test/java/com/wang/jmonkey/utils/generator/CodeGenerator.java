@@ -15,7 +15,7 @@ public class CodeGenerator {
 
     private String outputDir = "D:/WorkSpace/JMonkey2.0/src/main/java";
     private String author = "HeJiawang";
-    private String tableName = "sys_log";
+    private String tableName = "sys_task";
 
     @Test
     public void codeGeneratorTest(){
@@ -50,7 +50,7 @@ public class CodeGenerator {
         DataSourceConfig config = new DataSourceConfig();
         config.setDbType(DbType.MYSQL)
                 .setUrl("jdbc:mysql://localhost:3306/j_monkey?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false")
-                .setUsername("root").setPassword("123456").setDriverName("com.mysql.jdbc.Driver");
+                .setUsername("root").setPassword("123456").setDriverName("com.mysql.cj.jdbc.Driver");
 
         return config;
     }
