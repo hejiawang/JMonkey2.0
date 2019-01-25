@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import com.wang.jmonkey.common.utils.UUIDUtil;
 import com.wang.jmonkey.modules.sys.model.entity.SysTask;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -121,6 +124,18 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskMapper, SysTask> impl
     @Override
     public Boolean checkName(SysTask sysTask) {
         return mapper.checkName(sysTask) > 0;
+    }
+
+    /**
+     * 启动所有的状态为开启的任务
+     * @return boolean
+     */
+    @Override
+    public Boolean startAllTask() {
+        List<SysTask> taskList = super.selectList(new EntityWrapper<>());
+        taskList.forEach( task -> this.addJob(task) );
+
+        return true;
     }
 
     /**

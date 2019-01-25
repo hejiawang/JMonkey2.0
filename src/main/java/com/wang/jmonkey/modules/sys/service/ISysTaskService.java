@@ -47,4 +47,10 @@ public interface ISysTaskService extends IService<SysTask> {
      * @return Boolean true 已存在
      */
     Boolean checkName(SysTask sysTask);
+
+    /**
+     * 启动所有的状态为开启的任务
+     * @return boolean
+     */
+    Boolean startAllTask();
 }

@@ -106,8 +106,6 @@ public class ApiAop {
             log.error("异常信息：", e);
             throw new RuntimeException(e);
         } finally {
-            if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();
-
             if (isDebug) {
                 log.info("login username:{}", username);
                 log.info("Remote IP : " + request.getHeader("X-Real-IP"));
@@ -126,6 +124,7 @@ public class ApiAop {
                 rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
             }
 
+            if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();
         }
         if (isDebug) log.info("———— api end —————————————————————————————————————————");
 

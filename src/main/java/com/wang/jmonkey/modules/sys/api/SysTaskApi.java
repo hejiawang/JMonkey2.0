@@ -85,13 +85,12 @@ public class SysTaskApi extends BaseHttp {
      */
     @GetMapping(value = "/checkTask")
     public HttpResult<Boolean> checkTask(String className) {
-        HttpResult<Boolean> result = new HttpResult<>();
         try {
             Class.forName(className);
 
-            return result.setIsSuccess(true);
+            return new HttpResult<>(true);
         } catch (ClassNotFoundException e1) {
-            return result.setIsSuccess(false);
+            return new HttpResult<>(false);
         }
     }
 
