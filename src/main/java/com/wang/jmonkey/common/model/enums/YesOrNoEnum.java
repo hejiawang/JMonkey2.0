@@ -10,7 +10,8 @@ import com.baomidou.mybatisplus.enums.IEnum;
 public enum YesOrNoEnum implements IEnum {
 
     Yes("Yes", "是"),
-    No("No", "否");
+    No("No", "否"),
+    Temp("Temp", "Temp");
 
     private String value;
     private String desc;
