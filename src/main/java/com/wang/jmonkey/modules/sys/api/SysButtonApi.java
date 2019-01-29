@@ -1,6 +1,5 @@
 package com.wang.jmonkey.modules.sys.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.sys.model.entity.SysButton;
