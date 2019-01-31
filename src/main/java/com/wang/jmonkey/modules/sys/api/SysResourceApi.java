@@ -2,9 +2,7 @@ package com.wang.jmonkey.modules.sys.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.sys.model.dto.SysResourceTreeDto;
-import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.service.ISysResourceService;
 
 import org.springframework.web.bind.annotation.*;

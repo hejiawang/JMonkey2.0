@@ -49,7 +49,6 @@ public class MsMessage extends BaseEntity<MsMessage> {
      */
     private String rate;
 
-
     @Override
     protected Serializable pkVal() {
         return this.id;

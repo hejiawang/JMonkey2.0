@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.common.model.vo.UserVo;
+import com.wang.jmonkey.modules.message.model.dto.MsMessageDto;
 import com.wang.jmonkey.modules.message.model.entity.MsMessage;
 import com.wang.jmonkey.modules.message.model.param.MsMessageParam;
+import com.wang.jmonkey.modules.message.model.param.MsMessageSearchParam;
 import com.wang.jmonkey.modules.message.service.IMsMessageService;
 
 import org.springframework.web.bind.annotation.*;
@@ -29,14 +32,24 @@ public class MsMessageApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
-     * @return
+     * @param param 实体信息
+     * @return result
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<MsMessage> list(Page<MsMessage> page, MsMessage entity) {
-        EntityWrapper wrapper = new EntityWrapper<MsMessage>();
+    public HttpPageResult<MsMessage> list(Page<MsMessage> page, MsMessageSearchParam param) {
+        return new HttpPageResult<>( service.selectListPage( page, param ) );
+    }
 
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    /**
+     * 获取消息查看列表
+     * @param page page
+     * @param param param
+     * @param userVo userVo
+     * @return result
+     */
+    @GetMapping(value = "/readList")
+    public HttpPageResult<MsMessage> readList(Page<MsMessage> page, MsMessageSearchParam param, UserVo userVo) {
+        return new HttpPageResult<>( service.selectReadPage( page, param.setUserId(userVo.getId()) ) );
     }
 
     /**
@@ -75,8 +88,8 @@ public class MsMessageApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/find/{id}")
-    public HttpResult<MsMessage> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    public HttpResult<MsMessageDto> findById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.selectDtoById(id));
     }
 
 }

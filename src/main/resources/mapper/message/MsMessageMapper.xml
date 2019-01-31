@@ -17,4 +17,55 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.message.model.dto.MsMessageDto" extends="BaseResultMap">
+        <result column="create_name" property="createName" />
+        <result column="read_state" property="readState" />
+        <collection property="fileList" ofType="com.wang.jmonkey.modules.message.model.entity.MsFile">
+            <id column="file_id" property="id" />
+            <result column="file_name" property="name" />
+            <result column="file_path" property="path" />
+        </collection>
+    </resultMap>
+
+    <select id="selectDtoById" resultMap="DtoResultMap">
+        select ms.*, f.id as file_id, f.name as file_name, f.path as file_path
+        FROM ms_message ms
+        LEFT JOIN ms_file f on f.message_id = ms.id AND f.delete_flag = 'Used'
+        WHERE ms.id = '1'
+    </select>
+
+    <select id="selectTotal" resultType="java.lang.Long">
+        select count(1)
+        from ms_message
+        where delete_flag = 'Used'
+        <if test="title != '' and title != null">
+            AND title like '%${title}%'
+        </if>
+    </select>
+
+    <select id="selectListPage" resultMap="DtoResultMap">
+        select ms.*,
+          u.real_name as create_name
+        from ms_message ms
+        LEFT JOIN sys_user u on ms.create_by = u.username
+        WHERE ms.delete_flag = 'Used'
+        <if test="title != '' and title != null">
+            AND ms.title like '%${title}%'
+        </if>
+        ORDER BY ms.create_date
+    </select>
+
+    <select id="selectReadListPage" resultMap="DtoResultMap">
+        select ms.*,
+          u.real_name as create_name, r.state as read_state
+        from ms_message ms
+        LEFT JOIN sys_user u on ms.create_by = u.username
+        LEFT JOIN ms_read r ON ms.id = r.message_id AND r.user_id = #{userId}
+        WHERE ms.delete_flag = 'Used'
+        <if test="title != '' and title != null">
+            AND ms.title like '%${title}%'
+        </if>
+        ORDER BY ms.create_date
+    </select>
+
 </mapper>
