@@ -52,7 +52,7 @@
         <if test="title != '' and title != null">
             AND ms.title like '%${title}%'
         </if>
-        ORDER BY ms.create_date
+        ORDER BY ms.create_date desc
     </select>
 
     <select id="selectReadListPage" resultMap="DtoResultMap">
@@ -65,7 +65,7 @@
         <if test="title != '' and title != null">
             AND ms.title like '%${title}%'
         </if>
-        ORDER BY ms.create_date
+        ORDER BY ms.create_date desc
     </select>
 
 </mapper>

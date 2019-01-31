@@ -19,4 +19,8 @@
         delete from ms_read where message_id = #{messageId}
     </delete>
 
+    <delete id="read">
+        delete from ms_read where message_id = #{messageId} and user_id = #{userId}
+    </delete>
+
 </mapper>

@@ -22,4 +22,13 @@ public interface MsReadMapper extends BaseMapper<MsRead> {
      * @return int
      */
     int deleteByMsId( @Param("messageId") Serializable messageId);
+
+    /**
+     * 设置消息为已读
+     * 此处是将ms_read表中数据删除,好处是控制表中数据量，缺点是不能记录用户读取消息的时间,不能统计用户读过多少消息
+     * @param messageId messageId
+     * @param userId userId
+     * @return Boolean
+     */
+    int read(@Param("messageId")String messageId, @Param("userId")String userId);
 }

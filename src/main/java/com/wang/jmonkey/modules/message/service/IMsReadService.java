@@ -29,4 +29,20 @@ public interface IMsReadService extends IService<MsRead> {
      * @return boolean
      */
     boolean deleteByMsId(Serializable messageId);
+
+    /**
+     * 统计用户未读消息个数
+     * @param userId 用户id
+     * @return 个数
+     */
+    Integer countNoRead(String userId);
+
+    /**
+     * 设置消息为已读
+     * 此处是将ms_read表中数据删除,好处是控制表中数据量，缺点是不能记录用户读取消息的时间,不能统计用户读过多少消息
+     * @param messageId messageId
+     * @param userId userId
+     * @return Boolean
+     */
+    Boolean read(String messageId, String userId);
 }
