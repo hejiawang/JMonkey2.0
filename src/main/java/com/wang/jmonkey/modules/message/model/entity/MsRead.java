@@ -2,6 +2,8 @@ package com.wang.jmonkey.modules.message.model.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
 import com.wang.jmonkey.common.model.BaseEntity;
 
 import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
@@ -27,16 +29,14 @@ public class MsRead extends BaseEntity<MsRead> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键ID
-     */
-    private String id;
-    /**
      * 阅读人ID
      */
+    @TableId(type = IdType.INPUT)
     private String userId;
     /**
      * 消息ID
      */
+    @TableId(type = IdType.INPUT)
     private String messageId;
     /**
      * 阅读状态 Yes已读 No未读
@@ -44,10 +44,9 @@ public class MsRead extends BaseEntity<MsRead> {
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private YesOrNoEnum state;
 
-
     @Override
     protected Serializable pkVal() {
-        return this.id;
+        return this.userId + this.messageId;
     }
 
 }

@@ -2,6 +2,9 @@ package com.wang.jmonkey.modules.message.mapper;
 
 import com.wang.jmonkey.modules.message.model.entity.MsRead;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface MsReadMapper extends BaseMapper<MsRead> {
 
+    /**
+     * 删除消息阅读情况
+     * @param messageId 消息id
+     * @return int
+     */
+    int deleteByMsId( @Param("messageId") Serializable messageId);
 }

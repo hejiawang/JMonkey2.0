@@ -212,4 +212,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
         return super.selectOne(wrapper);
     }
+
+    /**
+     * 获取所有用户信息
+     * @return List<SysUser>
+     */
+    @Override
+    public List<SysUser> selectAll() {
+        EntityWrapper<SysUser> wrapper = new EntityWrapper<>();
+        return super.selectList(wrapper);
+    }
 }

@@ -5,9 +5,8 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.modules.message.model.entity.MsMessage;
-import com.wang.jmonkey.modules.message.model.param.MsMessageParam;
-import com.wang.jmonkey.modules.message.service.IMsMessageService;
+import com.wang.jmonkey.modules.message.model.entity.MsFile;
+import com.wang.jmonkey.modules.message.service.IMsFileService;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -15,16 +14,16 @@ import javax.annotation.Resource;
 import java.io.Serializable;
 
 /**
- * @Description: 消息 api
+ * @Description: 消息附件 api
  * @Auther: HeJiawang
- * @Date: 2019-01-29
+ * @Date: 2019-01-31
  */
 @RestController
-@RequestMapping("/ms/message")
-public class MsMessageApi extends BaseHttp {
+@RequestMapping("/ms/file")
+public class MsFileApi extends BaseHttp {
 
     @Resource
-    private IMsMessageService service;
+    private IMsFileService service;
 
     /**
      * 分页查询信息
@@ -33,20 +32,20 @@ public class MsMessageApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<MsMessage> list(Page<MsMessage> page, MsMessage entity) {
-        EntityWrapper wrapper = new EntityWrapper<MsMessage>();
+    public HttpPageResult<MsFile> list(Page<MsFile> page, MsFile entity) {
+        EntityWrapper wrapper = new EntityWrapper<MsFile>();
 
         return new HttpPageResult<>( service.selectPage( page, wrapper ) );
     }
 
     /**
      * 保存实体信息
-     * @param param 实体信息
-     * @return Boolean
+     * @param entity 实体信息
+     * @return
      */
     @PostMapping(value = "/save")
-    public HttpResult<Boolean> save( @RequestBody MsMessageParam param ){
-        return new HttpResult<>(service.save(param));
+    public HttpResult<Boolean> save( @RequestBody MsFile entity ){
+        return new HttpResult<>(service.insert(entity));
     }
 
     /**
@@ -55,7 +54,7 @@ public class MsMessageApi extends BaseHttp {
      * @return
      */
     @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody MsMessage entity ){
+    public HttpResult<Boolean> modify( @RequestBody MsFile entity ){
         return new HttpResult<>(service.updateById(entity));
     }
 
@@ -75,7 +74,7 @@ public class MsMessageApi extends BaseHttp {
      * @return
      */
     @GetMapping(value = "/find/{id}")
-    public HttpResult<MsMessage> findById(@PathVariable Serializable id ){
+    public HttpResult<MsFile> findById(@PathVariable Serializable id ){
         return new HttpResult<>(service.selectById(id));
     }
 

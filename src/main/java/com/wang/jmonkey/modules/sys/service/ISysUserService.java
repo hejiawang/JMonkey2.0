@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.sys.model.param.SysUserParam;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -82,4 +83,10 @@ public interface ISysUserService extends IService<SysUser> {
      * @return 用户信息
      */
     SysUser selectByUsername(String username);
+
+    /**
+     * 获取所有用户信息
+     * @return List<SysUser>
+     */
+    List<SysUser> selectAll();
 }

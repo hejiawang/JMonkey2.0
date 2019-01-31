@@ -16,8 +16,12 @@ jmonkey:
     password: 123456
     url: jdbc:mysql://localhost:3306/j_monkey?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&nullCatalogMeansCurrent=true
   static-locations-file: D:/JMonkeyFile
+  filePath: /assets
   fileTempMemory: D:/fileTempMemory
   thymeleaf:
     staticPath: http://49.4.54.245:8080/lib/ #https://cdn.bootcss.com/
   user:
-    photo: /user/photo/
+    photo: ${jmonkey.filePath}/user/photo/
+  message:
+    image: ${jmonkey.filePath}/message/image/
+    file: ${jmonkey.filePath}/message/file/
