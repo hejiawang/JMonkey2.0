@@ -1,5 +1,8 @@
 package com.wang.jmonkey.modules.message.model.param;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -23,6 +26,12 @@ public class MsMessageSearchParam {
     private String userId;
 
     /**
+     * 审核状态 Yes审核通过 No审核未通过 Temp正在审核
+     */
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
+    private YesOrNoEnum state;
+
+    /**
      * 分页条件 分页条数
      */
     private Integer size;
@@ -37,7 +46,9 @@ public class MsMessageSearchParam {
      */
     private Integer limitStart;
 
-    public void setLimitStart() {
+    public MsMessageSearchParam setLimitStart() {
         this.limitStart = this.size * ( this.current - 1 );
+
+        return this;
     }
 }

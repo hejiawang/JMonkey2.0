@@ -22,6 +22,11 @@ public class MsMessageParam extends MsMessage {
      */
     private List<MsFile> fileList;
 
+    /**
+     * 审核人员id
+     */
+    private String audit;
+
     public MsMessage converToEntity(){
         MsMessage msMessage = new MsMessage();
         BeanUtils.copyProperties(this, msMessage);

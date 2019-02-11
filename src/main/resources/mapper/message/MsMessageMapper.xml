@@ -42,6 +42,9 @@
         <if test="title != '' and title != null">
             AND title like '%${title}%'
         </if>
+        <if test="state != null">
+            AND state = #{state}
+        </if>
     </select>
 
     <select id="selectListPage" resultMap="DtoResultMap">
@@ -52,6 +55,9 @@
         WHERE ms.delete_flag = 'Used'
         <if test="title != '' and title != null">
             AND ms.title like '%${title}%'
+        </if>
+        <if test="state != null">
+            AND ms.state = #{state}
         </if>
         ORDER BY ms.create_date desc
     </select>
@@ -65,6 +71,9 @@
         WHERE ms.delete_flag = 'Used'
         <if test="title != '' and title != null">
             AND ms.title like '%${title}%'
+        </if>
+        <if test="state != null">
+            AND ms.state = #{state}
         </if>
         ORDER BY ms.create_date desc
     </select>

@@ -11,6 +11,7 @@ import com.wang.jmonkey.modules.message.service.IMsFileService;
 import com.wang.jmonkey.modules.message.service.IMsMessageService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wang.jmonkey.modules.message.service.IMsReadService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,17 +56,25 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
     @Override
     public Boolean save(MsMessageParam param) {
         MsMessage message = param.converToEntity();
+        message.setState(
+            StringUtils.isNotEmpty(param.getAudit()) ? YesOrNoEnum.Temp : YesOrNoEnum.Yes
+        );
 
-        // TODO
-        message.setState(YesOrNoEnum.Yes);
+        // save message
+        super.insert(message);
+        fileService.saveList(message.getId(), param.getFileList());
 
-        return super.insert(message)
-                && fileService.saveList(message.getId(), param.getFileList())
-                && readService.saveList(message.getId());
+        if (StringUtils.isNotEmpty(param.getAudit())) { // TODO 审批流程
+            System.out.println(param.getAudit());
+        } else { // 无需审批, 发送给用户
+            readService.saveList(message.getId());
+        }
+
+        return true;
     }
 
     /**
-     * 获取小松dto信息
+     * 获取消息dto信息
      * @param id 消息id
      * @return dto
      */
@@ -107,7 +116,7 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
      */
     @Override
     public Page<MsMessage> selectReadPage(Page<MsMessage> page, MsMessageSearchParam param) {
-        param.setLimitStart();
+        param.setLimitStart().setState(YesOrNoEnum.Yes);
         page.setRecords(mapper.selectReadListPage(param))
                 .setTotal(mapper.selectTotal(param));
         return page;
