@@ -27,7 +27,7 @@ public class MsMessageParam extends MsMessage {
      */
     private String audit;
 
-    public MsMessage converToEntity(){
+    public MsMessage converToEntity () {
         MsMessage msMessage = new MsMessage();
         BeanUtils.copyProperties(this, msMessage);
 

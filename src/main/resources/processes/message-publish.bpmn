@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1549936726372" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="messagePublish" isClosed="false" isExecutable="true" name="消息发布流程" processType="None">
+    <startEvent activiti:initiator="${publishUserId}" id="startPublish" name="开始发布"/>
+    <userTask activiti:assignee="${publishUserId}" activiti:exclusive="true" id="publish" name="发布消息"/>
+    <sequenceFlow id="_4" sourceRef="startPublish" targetRef="publish"/>
+    <exclusiveGateway gatewayDirection="Unspecified" id="isAudit" name="是否需要审核"/>
+    <sequenceFlow id="_2" sourceRef="publish" targetRef="isAudit"/>
+    <endEvent id="endPublish" name="发布成功"/>
+    <sequenceFlow id="_6" name="否" sourceRef="isAudit" targetRef="endPublish">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isAudit=='No'}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask activiti:assignee="${auditUserId}" activiti:exclusive="true" id="auditMessage" name="审核消息"/>
+    <sequenceFlow id="_8" name="是" sourceRef="isAudit" targetRef="auditMessage">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isAudit=='Yes'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway gatewayDirection="Unspecified" id="auditState" name="是否审核通过"/>
+    <sequenceFlow id="_10" sourceRef="auditMessage" targetRef="auditState"/>
+    <sequenceFlow id="_11" name="审核未通过，修改后重新发布" sourceRef="auditState" targetRef="publish">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='No'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_12" name="审核通过" sourceRef="auditState" targetRef="endPublish">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='Yes'}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="messagePublish">
+      <bpmndi:BPMNShape bpmnElement="startPublish" id="Shape-startPublish">
+        <omgdc:Bounds height="32.0" width="32.0" x="50.0" y="85.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="publish" id="Shape-publish">
+        <omgdc:Bounds height="55.0" width="105.0" x="155.0" y="75.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="105.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="isAudit" id="Shape-isAudit" isMarkerVisible="false">
+        <omgdc:Bounds height="32.0" width="32.0" x="370.0" y="85.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endPublish" id="Shape-endPublish">
+        <omgdc:Bounds height="32.0" width="32.0" x="575.0" y="85.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="auditMessage" id="Shape-auditMessage">
+        <omgdc:Bounds height="55.0" width="85.0" x="345.0" y="245.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="auditState" id="Shape-auditState" isMarkerVisible="false">
+        <omgdc:Bounds height="32.0" width="32.0" x="370.0" y="370.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12" sourceElement="auditState" targetElement="endPublish">
+        <omgdi:waypoint x="402.0" y="386.0"/>
+        <omgdi:waypoint x="590.0" y="205.0"/>
+        <omgdi:waypoint x="590.0" y="116.96871942267131"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2" id="BPMNEdge__2" sourceElement="publish" targetElement="isAudit">
+        <omgdi:waypoint x="260.0" y="100.0"/>
+        <omgdi:waypoint x="310.0" y="100.0"/>
+        <omgdi:waypoint x="371.0" y="100.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4" sourceElement="startPublish" targetElement="publish">
+        <omgdi:waypoint x="81.96871942267131" y="100.0"/>
+        <omgdi:waypoint x="125.0" y="100.0"/>
+        <omgdi:waypoint x="155.0" y="100.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6" sourceElement="isAudit" targetElement="endPublish">
+        <omgdi:waypoint x="402.0" y="101.0"/>
+        <omgdi:waypoint x="575.0" y="101.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="isAudit" targetElement="auditMessage">
+        <omgdi:waypoint x="386.0" y="117.0"/>
+        <omgdi:waypoint x="386.0" y="245.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="auditState" targetElement="publish">
+        <omgdi:waypoint x="370.0" y="386.0"/>
+        <omgdi:waypoint x="205.0" y="210.0"/>
+        <omgdi:waypoint x="205.0" y="130.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="auditMessage" targetElement="auditState">
+        <omgdi:waypoint x="386.0" y="300.0"/>
+        <omgdi:waypoint x="386.0" y="370.0"/>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
