@@ -1,10 +1,10 @@
 package com.wang.jmonkey.modules.message.model.param;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Description: 消息列表的参数
@@ -26,10 +26,9 @@ public class MsMessageSearchParam {
     private String userId;
 
     /**
-     * 审核状态 Yes审核通过 No审核未通过 Temp正在审核
+     * 要查询的消息id list
      */
-    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
-    private YesOrNoEnum state;
+    private List<String> msIdList = new ArrayList<>();
 
     /**
      * 分页条件 分页条数

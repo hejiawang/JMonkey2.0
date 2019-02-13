@@ -27,6 +27,11 @@ public class MsMessageParam extends MsMessage {
      */
     private String audit;
 
+    /**
+     * 发布人id
+     */
+    private String publishUserId;
+
     public MsMessage converToEntity () {
         MsMessage msMessage = new MsMessage();
         BeanUtils.copyProperties(this, msMessage);

@@ -1,11 +1,7 @@
 package com.wang.jmonkey.modules.message.model.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.wang.jmonkey.common.model.BaseEntity;
 
-
-import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -40,14 +36,13 @@ public class MsMessage extends BaseEntity<MsMessage> {
      */
     private String content;
     /**
-     * 审核状态 Yes审核通过 No审核未通过 Temp正在审核
-     */
-    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
-    private YesOrNoEnum state;
-    /**
      * 消息重要程度
      */
     private String rate;
+    /**
+     * activiti process_instance_id
+     */
+    private String piId;
 
     @Override
     protected Serializable pkVal() {

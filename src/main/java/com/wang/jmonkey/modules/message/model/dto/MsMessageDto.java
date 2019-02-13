@@ -7,6 +7,7 @@ import com.wang.jmonkey.modules.message.model.entity.MsFile;
 import com.wang.jmonkey.modules.message.model.entity.MsMessage;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.activiti.engine.task.Task;
 
 import java.util.List;
 
@@ -34,4 +35,14 @@ public class MsMessageDto extends MsMessage {
      */
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private YesOrNoEnum readState;
+
+    /**
+     * activiti task key
+     */
+    private String taskKey;
+
+    /**
+     * activiti task name
+     */
+    private String taskName;
 }

@@ -7,8 +7,8 @@
         <id column="id" property="id" />
         <result column="title" property="title" />
         <result column="content" property="content" />
-        <result column="state" property="state" />
         <result column="rate" property="rate" />
+        <result column="pi_id" property="piId" />
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />
         <result column="update_date" property="updateDate" />
@@ -42,9 +42,6 @@
         <if test="title != '' and title != null">
             AND title like '%${title}%'
         </if>
-        <if test="state != null">
-            AND state = #{state}
-        </if>
     </select>
 
     <select id="selectListPage" resultMap="DtoResultMap">
@@ -56,9 +53,6 @@
         <if test="title != '' and title != null">
             AND ms.title like '%${title}%'
         </if>
-        <if test="state != null">
-            AND ms.state = #{state}
-        </if>
         ORDER BY ms.create_date desc
     </select>
 
@@ -69,12 +63,10 @@
         LEFT JOIN sys_user u on ms.create_by = u.username
         LEFT JOIN ms_read r ON ms.id = r.message_id AND r.user_id = #{userId}
         WHERE ms.delete_flag = 'Used'
-        <if test="title != '' and title != null">
-            AND ms.title like '%${title}%'
-        </if>
-        <if test="state != null">
-            AND ms.state = #{state}
-        </if>
+        and ms.id in
+        <foreach collection="msIdList" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
         ORDER BY ms.create_date desc
     </select>
 

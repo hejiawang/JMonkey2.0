@@ -39,7 +39,7 @@ public interface IMsMessageService extends IService<MsMessage> {
      * @param param param
      * @return List<MsMessage>
      */
-    Page<MsMessage> selectListPage(Page<MsMessage> page, MsMessageSearchParam param);
+    Page<MsMessageDto> selectListPage(Page<MsMessageDto> page, MsMessageSearchParam param);
 
     /**
      * 获取消息查看列表
@@ -47,5 +47,5 @@ public interface IMsMessageService extends IService<MsMessage> {
      * @param param param
      * @return result
      */
-    Page<MsMessage> selectReadPage(Page<MsMessage> page, MsMessageSearchParam param);
+    Page<MsMessageDto> selectReadPage(Page<MsMessageDto> page, MsMessageSearchParam param);
 }

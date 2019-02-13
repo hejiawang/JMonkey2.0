@@ -1,7 +1,6 @@
 package com.wang.jmonkey.modules.message.service.impl;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import com.wang.jmonkey.modules.message.model.dto.MsMessageDto;
 import com.wang.jmonkey.modules.message.model.entity.MsMessage;
 import com.wang.jmonkey.modules.message.mapper.MsMessageMapper;
@@ -11,12 +10,23 @@ import com.wang.jmonkey.modules.message.service.IMsFileService;
 import com.wang.jmonkey.modules.message.service.IMsMessageService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wang.jmonkey.modules.message.service.IMsReadService;
+import org.activiti.engine.HistoryService;
+import org.activiti.engine.IdentityService;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
+import org.activiti.engine.history.HistoricProcessInstance;
+import org.activiti.engine.history.HistoricProcessInstanceQuery;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -48,29 +58,67 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
     private MsMessageMapper mapper;
 
     /**
+     * activiti IdentityService
+     */
+    @Autowired
+    IdentityService identityservice;
+
+    /**
+     * activiti RuntimeService
+     */
+    @Autowired
+    RuntimeService runtimeservice;
+
+    /**
+     * activiti TaskService
+     */
+    @Autowired
+    TaskService taskservice;
+
+    /**
+     * activiti HistoryService
+     */
+    @Autowired
+    HistoryService histiryservice;
+
+    /**
      * 发布消息
      * @param param 消息对象
      * @return Boolean
      */
     @Transactional
     @Override
-    public Boolean save(MsMessageParam param) {
+    public Boolean save (MsMessageParam param) {
+        // 保存消息信息
         MsMessage message = param.converToEntity();
-        message.setState(
-            StringUtils.isNotEmpty(param.getAudit()) ? YesOrNoEnum.Temp : YesOrNoEnum.Yes
-        );
-
-        // save message
         super.insert(message);
         fileService.saveList(message.getId(), param.getFileList());
 
-        if (StringUtils.isNotEmpty(param.getAudit())) { // TODO 审批流程
-            System.out.println(param.getAudit());
-        } else { // 无需审批, 发送给用户
-            readService.saveList(message.getId());
-        }
+        // 如果没有审核人,设置用户读取消息的情况
+        if (StringUtils.isEmpty(param.getAudit())) readService.saveList(message.getId());
 
-        return true;
+        // 开始发布消息的流程
+        ProcessInstance ins = this.startPublish(param.getPublishUserId(), message.getId(), param.getAudit());
+        return super.updateById(message.setPiId(ins.getId()));
+    }
+
+    /**
+     * 开始发布消息的流程
+     * @param publishUserId 发布人id
+     * @param businesskey 消息id
+     * @param audit 审核人id
+     */
+    private ProcessInstance startPublish (String publishUserId, String businesskey, String audit) {
+        identityservice.setAuthenticatedUserId(publishUserId);
+
+        Map<String, Object> variables = new HashMap<String, Object>(){
+            {
+                put("publishUserId", publishUserId);
+                put("isAudit", StringUtils.isNotEmpty(audit));
+                put("auditUserId", audit);
+            }
+        };
+        return runtimeservice.startProcessInstanceByKey("messagePublish", businesskey, variables);
     }
 
     /**
@@ -101,10 +149,18 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
      * @return List<MsMessage>
      */
     @Override
-    public Page<MsMessage> selectListPage(Page<MsMessage> page, MsMessageSearchParam param) {
+    public Page<MsMessageDto> selectListPage(Page<MsMessageDto> page, MsMessageSearchParam param) {
         param.setLimitStart();
-        page.setRecords(mapper.selectListPage(param))
-                .setTotal(mapper.selectTotal(param));
+
+        // 获取流程task信息
+        List<MsMessageDto> messageDtoList = mapper.selectListPage(param);
+        messageDtoList.forEach(msMessageDto ->{
+            Task task = taskservice.createTaskQuery().processInstanceId(msMessageDto.getPiId()).singleResult();
+            msMessageDto.setTaskKey(null != task ? task.getTaskDefinitionKey() : "endPublish")
+                    .setTaskName(null != task ? task.getName() : "审核通过");
+        });
+
+        page.setRecords(messageDtoList).setTotal(mapper.selectTotal(param));
         return page;
     }
 
@@ -112,13 +168,20 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
      * 获取消息查看列表
      * @param page page
      * @param param param
-     * @return result
+     * @return result result
      */
     @Override
-    public Page<MsMessage> selectReadPage(Page<MsMessage> page, MsMessageSearchParam param) {
-        param.setLimitStart().setState(YesOrNoEnum.Yes);
-        page.setRecords(mapper.selectReadListPage(param))
-                .setTotal(mapper.selectTotal(param));
+    public Page<MsMessageDto> selectReadPage(Page<MsMessageDto> page, MsMessageSearchParam param) {
+        param.setLimitStart();
+
+        // 查询流程结束（消息发布审核通过）的message id
+        // TODO 如果要对message查询怎么办？？？？？？？
+        HistoricProcessInstanceQuery process = histiryservice.createHistoricProcessInstanceQuery()
+                .processDefinitionKey("messagePublish").finished().orderByProcessInstanceEndTime().desc();
+        List<HistoricProcessInstance> processList = process.listPage(param.getLimitStart(), param.getSize());
+        processList.forEach(history -> param.getMsIdList().add(history.getBusinessKey()) );
+
+        page.setRecords(mapper.selectReadListPage(param)).setTotal(process.count());
         return page;
     }
 }

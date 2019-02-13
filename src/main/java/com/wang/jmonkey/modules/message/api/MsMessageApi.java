@@ -35,7 +35,7 @@ public class MsMessageApi extends BaseHttp {
      * @return result
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<MsMessage> list(Page<MsMessage> page, MsMessageSearchParam param) {
+    public HttpPageResult<MsMessageDto> list(Page<MsMessageDto> page, MsMessageSearchParam param) {
         return new HttpPageResult<>( service.selectListPage( page, param ) );
     }
 
@@ -47,7 +47,7 @@ public class MsMessageApi extends BaseHttp {
      * @return result
      */
     @GetMapping(value = "/readList")
-    public HttpPageResult<MsMessage> readList(Page<MsMessage> page, MsMessageSearchParam param, UserVo userVo) {
+    public HttpPageResult<MsMessageDto> readList(Page<MsMessageDto> page, MsMessageSearchParam param, UserVo userVo) {
         return new HttpPageResult<>( service.selectReadPage( page, param.setUserId(userVo.getId()) ) );
     }
 
@@ -57,8 +57,12 @@ public class MsMessageApi extends BaseHttp {
      * @return Boolean
      */
     @PostMapping(value = "/save")
-    public HttpResult<Boolean> save( @RequestBody MsMessageParam param ){
-        return new HttpResult<>(service.save(param));
+    public HttpResult<Boolean> save( @RequestBody MsMessageParam param, UserVo userVo ){
+        return new HttpResult<>(
+                service.save(
+                        param.setPublishUserId(userVo.getId())
+                )
+        );
     }
 
     /**

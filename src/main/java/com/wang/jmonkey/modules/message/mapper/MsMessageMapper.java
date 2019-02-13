@@ -38,12 +38,12 @@ public interface MsMessageMapper extends BaseMapper<MsMessage> {
      * @param param param
      * @return List<MsMessage>
      */
-    List<MsMessage> selectListPage(MsMessageSearchParam param);
+    List<MsMessageDto> selectListPage(MsMessageSearchParam param);
 
     /**
      * 获取消息查看列表
      * @param param param
      * @return List<MsMessage>
      */
-    List<MsMessage> selectReadListPage(MsMessageSearchParam param);
+    List<MsMessageDto> selectReadListPage(MsMessageSearchParam param);
 }
