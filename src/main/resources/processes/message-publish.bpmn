@@ -16,10 +16,10 @@
     <exclusiveGateway gatewayDirection="Unspecified" id="auditState" name="是否审核通过"/>
     <sequenceFlow id="_10" sourceRef="auditMessage" targetRef="auditState"/>
     <sequenceFlow id="_11" name="审核未通过，修改后重新发布" sourceRef="auditState" targetRef="publish">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='No'}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='false'}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_12" name="审核通过" sourceRef="auditState" targetRef="endPublish">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='Yes'}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${state=='true'}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="_3" sourceRef="startPublish" targetRef="isAudit"/>
   </process>
@@ -56,13 +56,13 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="auditState" id="Shape-auditState" isMarkerVisible="false">
-        <omgdc:Bounds height="32.0" width="32.0" x="370.0" y="370.0"/>
+        <omgdc:Bounds height="32.0" width="32.0" x="375.0" y="375.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12" sourceElement="auditState" targetElement="endPublish">
-        <omgdi:waypoint x="402.0" y="386.0"/>
+        <omgdi:waypoint x="407.0" y="391.0"/>
         <omgdi:waypoint x="590.0" y="205.0"/>
         <omgdi:waypoint x="590.0" y="116.96871942267131"/>
         <bpmndi:BPMNLabel>
@@ -99,7 +99,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11" sourceElement="auditState" targetElement="publish">
-        <omgdi:waypoint x="370.0" y="386.0"/>
+        <omgdi:waypoint x="375.0" y="391.0"/>
         <omgdi:waypoint x="205.0" y="210.0"/>
         <omgdi:waypoint x="205.0" y="130.0"/>
         <bpmndi:BPMNLabel>
@@ -107,8 +107,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="auditMessage" targetElement="auditState">
-        <omgdi:waypoint x="386.0" y="300.0"/>
-        <omgdi:waypoint x="386.0" y="370.0"/>
+        <omgdi:waypoint x="391.0" y="300.0"/>
+        <omgdi:waypoint x="391.0" y="375.0"/>
         <bpmndi:BPMNLabel>
           <omgdc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
         </bpmndi:BPMNLabel>

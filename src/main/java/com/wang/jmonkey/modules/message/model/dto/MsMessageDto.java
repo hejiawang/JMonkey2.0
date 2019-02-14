@@ -37,6 +37,11 @@ public class MsMessageDto extends MsMessage {
     private YesOrNoEnum readState;
 
     /**
+     * activiti task id
+     */
+    private String taskId;
+
+    /**
      * activiti task key
      */
     private String taskKey;

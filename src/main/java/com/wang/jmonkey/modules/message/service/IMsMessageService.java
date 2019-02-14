@@ -48,4 +48,21 @@ public interface IMsMessageService extends IService<MsMessage> {
      * @return result
      */
     Page<MsMessageDto> selectReadPage(Page<MsMessageDto> page, MsMessageSearchParam param);
+
+    /**
+     * 消息审核list
+     * @param page page
+     * @param param param
+     * @return MsMessageDto list
+     */
+    Page<MsMessageDto> auditList(Page<MsMessageDto> page, MsMessageSearchParam param);
+
+    /**
+     * 审核消息
+     * @param state 审核是否通过
+     * @param taskId 任务id
+     * @param userId userId
+     * @return Boolean
+     */
+    Boolean audit(boolean state, String taskId, String messageId, String userId);
 }

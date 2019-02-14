@@ -139,6 +139,13 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
     @Transactional
     @Override
     public boolean deleteById(Serializable id) {
+        // 删除流程实例
+        // TODO 可以用catch Exception改进
+        String piId = super.selectById(id).getPiId();
+        Task task = taskservice.createTaskQuery().processInstanceId(piId).singleResult();
+        if (null == task) histiryservice.deleteHistoricProcessInstance(piId);
+        else runtimeservice.deleteProcessInstance(piId, "delete message");
+
         return super.deleteById(id) && fileService.deleteByMsId(id) && readService.deleteByMsId(id);
     }
 
@@ -151,16 +158,11 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
     @Override
     public Page<MsMessageDto> selectListPage(Page<MsMessageDto> page, MsMessageSearchParam param) {
         param.setLimitStart();
-
-        // 获取流程task信息
-        List<MsMessageDto> messageDtoList = mapper.selectListPage(param);
-        messageDtoList.forEach(msMessageDto ->{
-            Task task = taskservice.createTaskQuery().processInstanceId(msMessageDto.getPiId()).singleResult();
-            msMessageDto.setTaskKey(null != task ? task.getTaskDefinitionKey() : "endPublish")
-                    .setTaskName(null != task ? task.getName() : "审核通过");
-        });
-
-        page.setRecords(messageDtoList).setTotal(mapper.selectTotal(param));
+        page.setRecords(
+            this.buildAuditState(mapper.selectListPage(param))
+        ).setTotal(
+            mapper.selectTotal(param)
+        );
         return page;
     }
 
@@ -183,5 +185,68 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
 
         page.setRecords(mapper.selectReadListPage(param)).setTotal(process.count());
         return page;
+    }
+
+    /**
+     * 消息审核list
+     * @param page page
+     * @param param param
+     * @return MsMessageDto list
+     */
+    @Override
+    public Page<MsMessageDto> auditList(Page<MsMessageDto> page, MsMessageSearchParam param) {
+        param.setLimitStart();
+
+        // 查询当前登录人审核的消息流程
+        HistoricProcessInstanceQuery process = histiryservice.createHistoricProcessInstanceQuery().processDefinitionKey("messagePublish")
+                .variableValueEquals("auditUserId", param.getUserId()).orderByProcessInstanceEndTime().desc();
+        List<HistoricProcessInstance> processList = process.listPage(param.getLimitStart(), param.getSize());
+        processList.forEach(history -> param.getMsIdList().add(history.getBusinessKey()) );
+
+        page.setRecords(
+            this.buildAuditState(mapper.selectAuditListPage(param))
+        ).setTotal(
+            process.count()
+        );
+        return page;
+    }
+
+    /**
+     * 构建消息的审核状态
+     * @param messageDtoList messageDtoList
+     * @return 消息的审核状态
+     */
+    private List<MsMessageDto> buildAuditState (List<MsMessageDto> messageDtoList) {
+        messageDtoList.forEach(msMessageDto ->{
+            Task task = taskservice.createTaskQuery().processInstanceId(msMessageDto.getPiId()).singleResult();
+            msMessageDto.setTaskKey(null != task ? task.getTaskDefinitionKey() : "endPublish")
+                    .setTaskName(null != task ? task.getName() : "审核通过")
+                    .setTaskId(null != task ? task.getId() : "");
+        });
+
+        return messageDtoList;
+    }
+
+    /**
+     * 审核消息
+     * @param state 审核是否通过
+     * @param taskId 任务id
+     * @param userId userId
+     * @return Boolean
+     */
+    @Override
+    public Boolean audit(boolean state, String taskId, String messageId, String userId) {
+        Map<String, Object> variables = new HashMap<String, Object>(){
+            {
+                put("state", state);
+            }
+        };
+
+        // taskservice.claim(taskId, userId);
+        taskservice.complete(taskId, variables);
+
+        if (state) readService.saveList(messageId);
+
+        return true;
     }
 }
