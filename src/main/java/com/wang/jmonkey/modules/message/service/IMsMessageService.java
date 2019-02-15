@@ -65,4 +65,11 @@ public interface IMsMessageService extends IService<MsMessage> {
      * @return Boolean
      */
     Boolean audit(boolean state, String taskId, String messageId, String userId);
+
+    /**
+     * 修改实体信息
+     * @param param 实体信息
+     * @return Boolean
+     */
+    Boolean modify(MsMessageParam param);
 }

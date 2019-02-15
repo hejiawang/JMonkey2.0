@@ -261,4 +261,32 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
 
         return true;
     }
+
+    /**
+     * 修改实体信息
+     * @param param 实体信息
+     * @return Boolean
+     */
+    @Override
+    public Boolean modify(MsMessageParam param) {
+        // 修改消息信息
+        MsMessage message = param.converToEntity();
+        super.updateById(message);
+        fileService.mergeMsFile(message.getId(), param.getFileList());
+
+        // 如果没有审核人,设置用户读取消息的情况
+        if (StringUtils.isEmpty(param.getAudit())) readService.saveList(message.getId());
+
+        // activiti 流程处理
+        Task task = taskservice.createTaskQuery().processInstanceId(message.getPiId()).singleResult();
+        Map<String, Object> variables = new HashMap<String, Object>(){
+            {
+                put("isAudit", StringUtils.isNotEmpty(param.getAudit()));
+                put("auditUserId", param.getAudit());
+            }
+        };
+        taskservice.complete(task.getId(), variables);
+
+        return true;
+    }
 }

@@ -6,6 +6,7 @@ import com.wang.jmonkey.modules.message.mapper.MsFileMapper;
 import com.wang.jmonkey.modules.message.service.IMsFileService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -21,6 +22,12 @@ import java.util.List;
  */
 @Service
 public class MsFileServiceImpl extends ServiceImpl<MsFileMapper, MsFile> implements IMsFileService {
+
+    /**
+     * mapper
+     */
+    @Autowired
+    private MsFileMapper mapper;
 
     /**
      * 保存消息附件信息
@@ -46,11 +53,17 @@ public class MsFileServiceImpl extends ServiceImpl<MsFileMapper, MsFile> impleme
      */
     @Override
     public boolean deleteByMsId(Serializable messageId) {
-        EntityWrapper<MsFile> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(
-                new MsFile().setMessageId(String.valueOf(messageId))
-        );
+        return mapper.deleteByMsId(messageId) >= 0;
+    }
 
-        return super.delete(wrapper);
+    /**
+     * 删除消息附件后保存消息附件信息
+     * @param messageId messageId
+     * @param fileList fileList
+     * @return boolean
+     */
+    @Override
+    public boolean mergeMsFile(String messageId, List<MsFile> fileList) {
+        return this.deleteByMsId(messageId) && this.saveList(messageId, fileList);
     }
 }

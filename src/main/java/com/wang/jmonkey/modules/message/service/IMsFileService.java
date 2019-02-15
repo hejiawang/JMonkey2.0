@@ -30,4 +30,12 @@ public interface IMsFileService extends IService<MsFile> {
      * @return boolean
      */
     boolean deleteByMsId(Serializable messageId);
+
+    /**
+     * 删除消息附件后保存消息附件信息
+     * @param messageId messageId
+     * @param fileList fileList
+     * @return boolean
+     */
+    boolean mergeMsFile(String messageId, List<MsFile> fileList);
 }

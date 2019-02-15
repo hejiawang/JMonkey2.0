@@ -79,12 +79,12 @@ public class MsMessageApi extends BaseHttp {
 
     /**
      * 修改实体信息
-     * @param entity 实体信息
-     * @return
+     * @param param 实体信息
+     * @return Boolean
      */
     @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody MsMessage entity ){
-        return new HttpResult<>(service.updateById(entity));
+    public HttpResult<Boolean> modify( @RequestBody MsMessageParam param ){
+        return new HttpResult<>(service.modify(param));
     }
 
     /**

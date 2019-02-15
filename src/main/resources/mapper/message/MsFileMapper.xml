@@ -16,4 +16,7 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <delete id="deleteByMsId">
+        DELETE FROM ms_file WHERE message_id = #{messageId}
+    </delete>
 </mapper>
