@@ -50,4 +50,9 @@ public class MsMessageDto extends MsMessage {
      * activiti task name
      */
     private String taskName;
+
+    /**
+     * 审核人员id
+     */
+    private String audit;
 }

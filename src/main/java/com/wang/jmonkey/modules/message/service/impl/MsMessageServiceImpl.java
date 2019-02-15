@@ -16,6 +16,7 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricProcessInstance;
 import org.activiti.engine.history.HistoricProcessInstanceQuery;
+import org.activiti.engine.history.HistoricVariableInstance;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.apache.commons.lang3.StringUtils;
@@ -128,7 +129,18 @@ public class MsMessageServiceImpl extends ServiceImpl<MsMessageMapper, MsMessage
      */
     @Override
     public MsMessageDto selectDtoById(Serializable id) {
-        return mapper.selectDtoById(id);
+        MsMessageDto messageDto = mapper.selectDtoById(id);
+
+        // 获取最后审核人员
+        List<HistoricVariableInstance> variableList = histiryservice.createHistoricVariableInstanceQuery()
+                .processInstanceId(messageDto.getPiId()).variableName("auditUserId").list();
+        variableList.forEach(variable ->
+                messageDto.setAudit(
+                        variable.getValue() != null ? variable.getValue().toString() : ""
+                )
+        );
+
+        return messageDto;
     }
 
     /**
