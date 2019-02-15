@@ -1,6 +1,5 @@
 package com.wang.jmonkey.modules.message.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.modules.message.model.entity.MsFile;
 import com.wang.jmonkey.modules.message.mapper.MsFileMapper;
 import com.wang.jmonkey.modules.message.service.IMsFileService;

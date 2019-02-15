@@ -54,6 +54,7 @@
             AND ms.title like '%${title}%'
         </if>
         ORDER BY ms.create_date desc
+        LIMIT ${limitStart}, ${size}
     </select>
 
     <select id="selectReadListPage" resultMap="DtoResultMap">

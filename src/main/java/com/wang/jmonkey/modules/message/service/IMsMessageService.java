@@ -61,10 +61,9 @@ public interface IMsMessageService extends IService<MsMessage> {
      * 审核消息
      * @param state 审核是否通过
      * @param taskId 任务id
-     * @param userId userId
      * @return Boolean
      */
-    Boolean audit(boolean state, String taskId, String messageId, String userId);
+    Boolean audit(boolean state, String taskId, String messageId);
 
     /**
      * 修改实体信息

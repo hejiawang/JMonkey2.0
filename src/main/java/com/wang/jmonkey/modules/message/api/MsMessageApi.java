@@ -111,11 +111,10 @@ public class MsMessageApi extends BaseHttp {
      * 审核消息
      * @param state 审核是否通过
      * @param taskId 任务id
-     * @param userVo user vo
      * @return Boolean
      */
     @GetMapping(value = "/audit")
-    public HttpResult<Boolean> audit (boolean state, String taskId, String messageId, UserVo userVo) {
-        return new HttpResult<>( service.audit(state, taskId, messageId, userVo.getId()) );
+    public HttpResult<Boolean> audit (boolean state, String taskId, String messageId) {
+        return new HttpResult<>( service.audit(state, taskId, messageId) );
     }
 }
