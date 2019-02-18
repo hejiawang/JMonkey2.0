@@ -101,6 +101,12 @@ jmonkey:
     - /assets/**
     - /favicon.ico
     - /page/**
+    - /poserver.zz
+    - /posetup.exe
+    - /pageoffice.js
+    - /jquery.min.js
+    - /pobstyle.css
+    - /sealsetup.exe
     resources:
     - /css/**
     - /images/**

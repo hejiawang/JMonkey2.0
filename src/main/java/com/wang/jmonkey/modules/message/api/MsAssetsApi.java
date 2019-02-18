@@ -3,12 +3,11 @@ package com.wang.jmonkey.modules.message.api;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.common.utils.FileUtil;
+import com.zhuozhengsoft.pageoffice.OpenModeType;
+import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -78,4 +77,26 @@ public class MsAssetsApi extends BaseHttp {
 
         return result;
     }
+
+    @Value("${jmonkey.static-locations-path}")
+    private String staticLocationsPath;
+
+    /**
+     * page office test
+     * @return String
+     */
+    @GetMapping("/pageOfficeTest")
+    public HttpResult<String> pageOfficeTest(){
+        String path = staticLocationsPath + "pageOffice/pageOfficeTest.docx";
+
+        PageOfficeCtrl poCtrl = new PageOfficeCtrl(request);
+        poCtrl.setServerPage(request.getContextPath()+"/poserver.zz"); //此行必须
+        poCtrl.setTitlebar(false); // 隐藏标题栏
+        poCtrl.setMenubar(false); // 隐藏菜单栏
+        poCtrl.setCustomToolbar(false); // 隐藏自定义工具栏
+        poCtrl.setCaption("pageOfficeTest");
+        poCtrl.webOpen(path, OpenModeType.docNormalEdit, "pageOfficeTest");
+        return new HttpResult<>(poCtrl.getHtmlCode("PageOfficeCtrl1"));
+    }
+
 }

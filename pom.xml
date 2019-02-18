@@ -35,6 +35,8 @@
         <ttl.version>2.2.0</ttl.version>
         <quartz.version>2.2.3</quartz.version>
         <activiti.spring.boot.version>6.0.0</activiti.spring.boot.version>
+
+        <lib.path>${basedir}/src/main/resources/lib</lib.path>
     </properties>
 
     <!-- 设定插件仓库 -->
@@ -222,6 +224,13 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>pageoffice</groupId>
+            <artifactId>QRCoder</artifactId>
+            <version>1.0</version>
+            <systemPath>${lib.path}/pageoffice4.3.0.3.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
     </dependencies>
 
     <build>
