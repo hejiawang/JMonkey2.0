@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.service;
 
 import com.wang.jmonkey.modules.sys.model.dto.SysDeptTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -28,4 +29,10 @@ public interface ISysDeptService extends IService<SysDept> {
      * @return
      */
     Boolean checkCode(SysDept sysDept);
+
+    /**
+     * 部门中有哪些用户
+     * @return SysDeptUserDto
+     */
+    List<SysDeptUserDto> deptUserList();
 }

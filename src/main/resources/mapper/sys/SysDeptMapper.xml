@@ -19,6 +19,14 @@
 
     <resultMap id="TreeResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDeptTreeDto" extends="BaseResultMap"></resultMap>
 
+    <resultMap id="DeptUserResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto" extends="BaseResultMap">
+        <collection property="userList" ofType="com.wang.jmonkey.modules.sys.model.entity.SysUser">
+            <id column="user_id" property="id" />
+            <result column="user_real_name" property="realName" />
+            <result column="user_photo" property="photo" />
+        </collection>
+    </resultMap>
+
     <select id="tree" resultMap="TreeResultMap">
         SELECT *
         FROM sys_dept
@@ -34,5 +42,13 @@
         <if test=" id != '' and id != null">
             AND id != #{id}
         </if>
+    </select>
+
+    <select id="deptUserList" resultMap="DeptUserResultMap">
+        select d.*, u.id as user_id, u.real_name as user_real_name, u.photo as user_photo
+        FROM sys_dept d
+        LEFT JOIN sys_user_dept ud ON d.id = ud.dept_id AND ud.delete_flag = 'Used'
+        LEFT JOIN sys_user u ON ud.user_id = u.id AND u.delete_flag = 'Used'
+        WHERE d.delete_flag = 'Used'
     </select>
 </mapper>

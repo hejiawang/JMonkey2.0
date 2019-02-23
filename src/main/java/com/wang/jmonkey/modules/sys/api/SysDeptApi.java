@@ -3,6 +3,7 @@ package com.wang.jmonkey.modules.sys.api;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.sys.model.dto.SysDeptTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.wang.jmonkey.modules.sys.service.ISysDeptService;
 
@@ -83,4 +84,12 @@ public class SysDeptApi extends BaseHttp {
         return new HttpResult<>(service.checkCode(sysDept));
     }
 
+    /**
+     * 部门中有哪些用户
+     * @return SysDeptUserDto
+     */
+    @GetMapping(value = "/deptUserList")
+    public HttpResult<List<SysDeptUserDto>> deptUserList(){
+        return new HttpResult<>(service.deptUserList());
+    }
 }

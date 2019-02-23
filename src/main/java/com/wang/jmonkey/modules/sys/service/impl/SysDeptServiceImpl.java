@@ -3,6 +3,7 @@ package com.wang.jmonkey.modules.sys.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.common.utils.TreeUtil;
 import com.wang.jmonkey.modules.sys.model.dto.SysDeptTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.wang.jmonkey.modules.sys.mapper.SysDeptMapper;
 import com.wang.jmonkey.modules.sys.service.ISysDeptService;
@@ -73,5 +74,14 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
 
         // 删除自身信息, 删除部门用户关联关系
         return super.deleteById(id) && userDeptService.deleteByDeptId(id);
+    }
+
+    /**
+     * 部门中有哪些用户
+     * @return SysDeptUserDto
+     */
+    @Override
+    public List<SysDeptUserDto> deptUserList() {
+        return mapper.deptUserList();
     }
 }

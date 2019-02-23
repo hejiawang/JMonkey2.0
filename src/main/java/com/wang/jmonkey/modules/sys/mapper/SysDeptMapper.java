@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
 import com.wang.jmonkey.modules.sys.model.dto.SysDeptTreeDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDept;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
@@ -28,4 +29,10 @@ public interface SysDeptMapper extends BaseMapper<SysDept> {
      * @return
      */
     int checkCode(SysDept sysDept);
+
+    /**
+     * 部门中有哪些用户
+     * @return SysDeptUserDto
+     */
+    List<SysDeptUserDto> deptUserList();
 }
