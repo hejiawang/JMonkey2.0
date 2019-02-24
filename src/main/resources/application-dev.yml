@@ -28,3 +28,6 @@ jmonkey:
   message:
     image: ${jmonkey.filePath}/message/image/
     file: ${jmonkey.filePath}/message/file/
+    chat:
+      group:
+        img: ${jmonkey.filePath}/message/chat/image/

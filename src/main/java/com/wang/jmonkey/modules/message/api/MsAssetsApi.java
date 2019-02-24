@@ -35,6 +35,12 @@ public class MsAssetsApi extends BaseHttp {
     private String file;
 
     /**
+     * 群组头像照片
+     */
+    @Value("${jmonkey.message.chat.group.image}")
+    private String chatGroupImage;
+
+    /**
      * 上传消息中的图片
      * @param uploadFile uploadFile
      * @return Boolean
@@ -72,6 +78,29 @@ public class MsAssetsApi extends BaseHttp {
             else result.setIsSuccess(false);
         } catch (IOException e) {
             log.error("upload message file error : ", e);
+            result.setIsSuccess(false);
+        }
+
+        return result;
+    }
+
+    /**
+     * 上传群组头像照片
+     * @param uploadFile uploadFile
+     * @return String
+     */
+    @PostMapping("/chat/group/image")
+    public HttpResult<String> chatGroupImage(@RequestParam(value = "file") MultipartFile uploadFile){
+        HttpResult<String> result = new HttpResult<>();
+
+        try {
+            String filePath = chatGroupImage + FileUtil.renderFileName(uploadFile.getOriginalFilename());
+
+            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
+            else result.setIsSuccess(false);
+        } catch (IOException e) {
+            log.error("upload chat group iamge error : ", e);
+
             result.setIsSuccess(false);
         }
 
