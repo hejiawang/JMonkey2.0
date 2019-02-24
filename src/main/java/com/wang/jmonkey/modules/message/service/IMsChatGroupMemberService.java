@@ -38,4 +38,11 @@ public interface IMsChatGroupMemberService extends IService<MsChatGroupMember> {
      * @return boolean
      */
     boolean deleteList(String groupId);
+
+    /**
+     * 退出群组
+     * @param groupMember 群组成员信息
+     * @return Boolean
+     */
+    boolean outGroup(MsChatGroupMember groupMember);
 }

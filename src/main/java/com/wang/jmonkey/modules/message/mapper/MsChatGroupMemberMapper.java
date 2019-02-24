@@ -20,4 +20,11 @@ public interface MsChatGroupMemberMapper extends BaseMapper<MsChatGroupMember> {
      * @return 删除个数
      */
     int deleteByGroupId(@Param("groupId") String groupId);
+
+    /**
+     * 退出群组
+     * @param groupMember 群组成员信息
+     * @return Boolean
+     */
+    int outGroup(MsChatGroupMember groupMember);
 }

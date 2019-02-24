@@ -17,4 +17,10 @@
     <delete id="deleteByGroupId">
         DELETE FROM ms_chat_group_member WHERE group_id = #{groupId}
     </delete>
+
+    <delete id="outGroup">
+        DELETE FROM ms_chat_group_member
+        WHERE group_id = #{groupId} and user_id = #{userId}
+    </delete>
+
 </mapper>

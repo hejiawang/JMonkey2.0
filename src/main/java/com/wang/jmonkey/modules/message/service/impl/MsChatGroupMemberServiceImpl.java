@@ -8,7 +8,6 @@ import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -67,5 +66,15 @@ public class MsChatGroupMemberServiceImpl extends ServiceImpl<MsChatGroupMemberM
     @Override
     public boolean deleteList(String groupId) {
         return mapper.deleteByGroupId(groupId) >= 0;
+    }
+
+    /**
+     * 退出群组
+     * @param groupMember 群组成员信息
+     * @return Boolean
+     */
+    @Override
+    public boolean outGroup(MsChatGroupMember groupMember) {
+        return mapper.outGroup(groupMember) >= 0;
     }
 }
