@@ -30,4 +30,7 @@ jmonkey:
     file: ${jmonkey.filePath}/message/file/
     chat:
       group:
-        img: ${jmonkey.filePath}/message/chat/image/
+        image: ${jmonkey.filePath}/message/chat/image/
+      history:
+        clear: -7 #自动删除7天前的聊天记录
+        backups: true #删除的聊天记录是否保存到Excel文件中
