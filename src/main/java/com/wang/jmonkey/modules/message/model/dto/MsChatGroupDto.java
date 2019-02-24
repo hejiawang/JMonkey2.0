@@ -22,4 +22,9 @@ public class MsChatGroupDto extends MsChatGroup {
      * 群组成员id
      */
     private List<String> userList;
+
+    /**
+     * 创建人姓名
+     */
+    private String creatorName;
 }

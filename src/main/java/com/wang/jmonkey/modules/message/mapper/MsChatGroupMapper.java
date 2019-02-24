@@ -3,9 +3,11 @@ package com.wang.jmonkey.modules.message.mapper;
 import com.wang.jmonkey.modules.message.model.dto.MsChatGroupDto;
 import com.wang.jmonkey.modules.message.model.entity.MsChatGroup;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.wang.jmonkey.modules.message.model.param.MsChatGroupParam;
 import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -23,4 +25,25 @@ public interface MsChatGroupMapper extends BaseMapper<MsChatGroup> {
      * @return 群组信息
      */
     MsChatGroupDto selectDtoById(@Param("id") Serializable id);
+
+    /**
+     * 获取当前登录人所在的群组list
+     * @param userId 当前登录人Id
+     * @return List<MsChatGroup>
+     */
+    List<MsChatGroupDto> list(@Param("userId")String userId);
+
+    /**
+     * 分页查询信息
+     * @param param param
+     * @return MsChatGroup
+     */
+    List<MsChatGroupDto> selectPageList(MsChatGroupParam param);
+
+    /**
+     * 分页查询信息总数
+     * @param param param
+     * @return long
+     */
+    long selectPageTotal(MsChatGroupParam param);
 }

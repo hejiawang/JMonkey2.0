@@ -25,6 +25,27 @@ public class MsChatGroupParam extends MsChatGroup {
     private List<String> userList;
 
     /**
+     * 分页条件 分页条数
+     */
+    private Integer size;
+
+    /**
+     * 分页条件 当前页数
+     */
+    private Integer current;
+
+    /**
+     * 分页条件 mysql limit 起始值
+     */
+    private Integer limitStart;
+
+    public MsChatGroupParam setLimitStart() {
+        this.limitStart = this.size * ( this.current - 1 );
+
+        return this;
+    }
+
+    /**
      * 转换为entity信息
      * @return MsChatGroup
      */

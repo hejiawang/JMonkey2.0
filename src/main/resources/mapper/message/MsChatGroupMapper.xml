@@ -17,6 +17,7 @@
     </resultMap>
 
     <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.message.model.dto.MsChatGroupDto" extends="BaseResultMap">
+        <result column="creator_name" property="creatorName" />
         <collection property="userList" ofType="java.lang.String">
             <result column="user_id" />
         </collection>
@@ -28,4 +29,31 @@
         LEFT JOIN ms_chat_group_member cgm ON cg.id = cgm.group_id AND cgm.delete_flag = 'Used'
         WHERE cg.delete_flag = 'Used' AND cg.id = #{id}
     </select>
+
+    <select id="list" resultMap="BaseResultMap">
+        select cg.*, u.real_name as creator_name
+        FROM ms_chat_group cg
+        left join sys_user u on cg.creator = u.id and u.delete_flag = 'Used'
+        WHERE cg.delete_flag = 'Used'
+        AND cg.id in (
+            select cgm.group_id
+            FROM ms_chat_group_member cgm
+            WHERE cgm.delete_flag = 'Used'
+            AND cgm.user_id = #{userId}
+        )
+    </select>
+
+    <select id="selectPageList" resultMap="DtoResultMap">
+        select cg.*, u.real_name as creator_name
+        from ms_chat_group cg
+        left join sys_user u on cg.creator = u.id and u.delete_flag = 'Used'
+        where cg.delete_flag = 'Used'
+        ORDER BY cg.create_date desc
+        LIMIT ${limitStart}, ${size}
+    </select>
+
+    <select id="selectPageTotal" resultType="java.lang.Long">
+        SELECT count(1) FROM ms_chat_group WHERE delete_flag = 'Used'
+    </select>
+
 </mapper>

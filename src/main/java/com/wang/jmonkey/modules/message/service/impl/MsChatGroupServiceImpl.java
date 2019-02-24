@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.message.service.impl;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.message.model.dto.MsChatGroupDto;
 import com.wang.jmonkey.modules.message.model.entity.MsChatGroup;
 import com.wang.jmonkey.modules.message.mapper.MsChatGroupMapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -78,5 +80,30 @@ public class MsChatGroupServiceImpl extends ServiceImpl<MsChatGroupMapper, MsCha
     @Override
     public MsChatGroupDto selectDtoById(Serializable id) {
         return mapper.selectDtoById(id);
+    }
+
+    /**
+     * 获取当前登录人所在的群组list
+     * @param userId 当前登录人Id
+     * @return List<MsChatGroupDto>
+     */
+    @Override
+    public List<MsChatGroupDto> list(String userId) {
+        return mapper.list(userId);
+    }
+
+    /**
+     * 分页查询信息
+     * @param page page
+     * @param param 实体信息
+     * @return MsChatGroupDto
+     */
+    @Override
+    public Page<MsChatGroupDto> selectPageList(Page<MsChatGroupDto> page, MsChatGroupParam param) {
+        param.setLimitStart();
+
+        page.setRecords( mapper.selectPageList(param) )
+                .setTotal( mapper.selectPageTotal(param) );
+        return page;
     }
 }

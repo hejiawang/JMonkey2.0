@@ -1,12 +1,11 @@
 package com.wang.jmonkey.modules.message.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.common.model.vo.UserVo;
 import com.wang.jmonkey.modules.message.model.dto.MsChatGroupDto;
-import com.wang.jmonkey.modules.message.model.entity.MsChatGroup;
 import com.wang.jmonkey.modules.message.model.param.MsChatGroupParam;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupService;
 
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Description: 消息聊天群组信息 api
@@ -30,14 +30,22 @@ public class MsChatGroupApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
-     * @return
+     * @param param 实体信息
+     * @return MsChatGroupDto
+     */
+    @GetMapping(value = "/pageList")
+    public HttpPageResult<MsChatGroupDto> pageList(Page<MsChatGroupDto> page,MsChatGroupParam param) {
+        return new HttpPageResult<>( service.selectPageList( page, param ) );
+    }
+
+    /**
+     * 获取当前登录人所在的群组list
+     * @param userVo 当前登录人信息
+     * @return List<MsChatGroupDto>
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<MsChatGroup> list(Page<MsChatGroup> page, MsChatGroup entity) {
-        EntityWrapper wrapper = new EntityWrapper<MsChatGroup>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpResult<List<MsChatGroupDto>> list(UserVo userVo) {
+        return new HttpResult<>(service.list(userVo.getId()));
     }
 
     /**
