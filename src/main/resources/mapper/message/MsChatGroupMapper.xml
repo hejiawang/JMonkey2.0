@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wang.jmonkey.modules.message.mapper.MsChatGroupMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wang.jmonkey.modules.message.model.entity.MsChatGroup">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="img" property="img" />
+        <result column="creator" property="creator" />
+        <result column="create_date" property="createDate" />
+        <result column="create_by" property="createBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="remark" property="remark" />
+        <result column="delete_flag" property="deleteFlag" />
+    </resultMap>
+
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.message.model.dto.MsChatGroupDto" extends="BaseResultMap">
+        <collection property="userList" ofType="java.lang.String">
+            <result column="user_id" />
+        </collection>
+    </resultMap>
+
+    <select id="selectDtoById" resultMap="DtoResultMap">
+        SELECT cg.*, cgm.user_id as user_id
+        FROM ms_chat_group cg
+        LEFT JOIN ms_chat_group_member cgm ON cg.id = cgm.group_id AND cgm.delete_flag = 'Used'
+        WHERE cg.delete_flag = 'Used' AND cg.id = #{id}
+    </select>
+</mapper>
