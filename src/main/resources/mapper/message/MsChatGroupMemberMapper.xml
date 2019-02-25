@@ -14,6 +14,13 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="UserResultMap" type="com.wang.jmonkey.modules.sys.model.entity.SysUser">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="real_name" property="realName" />
+        <result column="photo" property="photo" />
+    </resultMap>
+
     <delete id="deleteByGroupId">
         DELETE FROM ms_chat_group_member WHERE group_id = #{groupId}
     </delete>
@@ -23,4 +30,10 @@
         WHERE group_id = #{groupId} and user_id = #{userId}
     </delete>
 
+    <select id="selectMemberByGroupId" resultMap="UserResultMap">
+        select u.*
+        FROM ms_chat_group_member cgm
+        inner JOIN sys_user u ON cgm.user_id = u.id
+        WHERE cgm.delete_flag = 'Used' AND u.delete_flag = 'Used' AND cgm.group_id = #{groupId}
+    </select>
 </mapper>

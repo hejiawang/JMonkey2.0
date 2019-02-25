@@ -44,7 +44,7 @@
     </select>
 
     <select id="selectPageList" resultMap="DtoResultMap">
-        select cg.*, u.real_name as creator_name
+        select cg.*, u.real_name as creator_name, u.id as user_id
         from ms_chat_group cg
         left join sys_user u on cg.creator = u.id and u.delete_flag = 'Used'
         where cg.delete_flag = 'Used'

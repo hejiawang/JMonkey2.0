@@ -102,8 +102,14 @@ public class MsChatGroupServiceImpl extends ServiceImpl<MsChatGroupMapper, MsCha
     public Page<MsChatGroupDto> selectPageList(Page<MsChatGroupDto> page, MsChatGroupParam param) {
         param.setLimitStart();
 
-        page.setRecords( mapper.selectPageList(param) )
-                .setTotal( mapper.selectPageTotal(param) );
+        List<MsChatGroupDto> groupList = mapper.selectPageList(param);
+        groupList.forEach(group ->
+            group.setMemberList(
+                groupMemberService.selectMemberByGroupId(group.getId())
+            )
+        );
+
+        page.setRecords( groupList ).setTotal( mapper.selectPageTotal(param) );
         return page;
     }
 }
