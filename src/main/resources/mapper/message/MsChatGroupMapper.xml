@@ -48,12 +48,18 @@
         from ms_chat_group cg
         left join sys_user u on cg.creator = u.id and u.delete_flag = 'Used'
         where cg.delete_flag = 'Used'
+        <if test="name != '' and name != null">
+            AND cg.name like '%${name}%'
+        </if>
         ORDER BY cg.create_date desc
         LIMIT ${limitStart}, ${size}
     </select>
 
     <select id="selectPageTotal" resultType="java.lang.Long">
-        SELECT count(1) FROM ms_chat_group WHERE delete_flag = 'Used'
+        SELECT count(1) FROM ms_chat_group cg WHERE cg.delete_flag = 'Used'
+        <if test="name != '' and name != null">
+            AND cg.name like '%${name}%'
+        </if>
     </select>
 
 </mapper>
