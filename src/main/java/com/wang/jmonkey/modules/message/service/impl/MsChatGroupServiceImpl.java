@@ -57,7 +57,7 @@ public class MsChatGroupServiceImpl extends ServiceImpl<MsChatGroupMapper, MsCha
     @Override
     public Boolean modify(MsChatGroupParam param) {
         MsChatGroup group = param.converToEntity();
-        return super.insert(group)
+        return super.updateById(group)
                 && groupMemberService.modifyList(group.getId(), param.getUserList());
     }
 

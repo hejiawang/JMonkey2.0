@@ -30,8 +30,8 @@
         WHERE cg.delete_flag = 'Used' AND cg.id = #{id}
     </select>
 
-    <select id="list" resultMap="BaseResultMap">
-        select cg.*, u.real_name as creator_name
+    <select id="list" resultMap="DtoResultMap">
+        select cg.*, u.real_name as creator_name, u.id as user_id
         FROM ms_chat_group cg
         left join sys_user u on cg.creator = u.id and u.delete_flag = 'Used'
         WHERE cg.delete_flag = 'Used'
@@ -41,6 +41,7 @@
             WHERE cgm.delete_flag = 'Used'
             AND cgm.user_id = #{userId}
         )
+        ORDER BY cg.create_date desc
     </select>
 
     <select id="selectPageList" resultMap="DtoResultMap">
