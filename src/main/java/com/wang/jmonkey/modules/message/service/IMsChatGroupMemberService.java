@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.message.service;
 
 import com.wang.jmonkey.modules.message.model.entity.MsChatGroupMember;
 import com.baomidou.mybatisplus.service.IService;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 
 import java.io.Serializable;
@@ -53,4 +54,11 @@ public interface IMsChatGroupMemberService extends IService<MsChatGroupMember> {
      * @return 成员信息
      */
     List<SysUser> selectMemberByGroupId(String groupId);
+
+    /**
+     * 群组成员信息
+     * @param groupId 群组id
+     * @return SysDeptUserDto
+     */
+    List<SysDeptUserDto> deptUserList(String groupId);
 }

@@ -4,6 +4,7 @@ import com.wang.jmonkey.modules.message.model.entity.MsChatGroupMember;
 import com.wang.jmonkey.modules.message.mapper.MsChatGroupMemberMapper;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupMemberService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,5 +88,15 @@ public class MsChatGroupMemberServiceImpl extends ServiceImpl<MsChatGroupMemberM
     @Override
     public List<SysUser> selectMemberByGroupId(String groupId) {
         return mapper.selectMemberByGroupId(groupId);
+    }
+
+    /**
+     * 群组成员信息
+     * @param groupId 群组id
+     * @return SysDeptUserDto
+     */
+    @Override
+    public List<SysDeptUserDto> deptUserList(String groupId) {
+        return mapper.deptUserList(groupId);
     }
 }

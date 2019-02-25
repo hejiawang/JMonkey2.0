@@ -5,9 +5,11 @@ import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.message.model.entity.MsChatGroupMember;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupMemberService;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Description: 消息聊天群组信息 api
@@ -29,6 +31,16 @@ public class MsChatGroupMemberApi extends BaseHttp {
     @GetMapping(value = "/out")
     public HttpResult<Boolean> outGroup(MsChatGroupMember groupMember){
         return new HttpResult<>(service.outGroup(groupMember));
+    }
+
+    /**
+     * 群组成员信息
+     * @param groupId 群组id
+     * @return SysDeptUserDto
+     */
+    @GetMapping(value = "/deptUserList/{groupId}")
+    public HttpResult<List<SysDeptUserDto>> deptUserList(@PathVariable String groupId){
+        return new HttpResult<>(service.deptUserList(groupId));
     }
 
 }

@@ -50,5 +50,6 @@
         LEFT JOIN sys_user_dept ud ON d.id = ud.dept_id AND ud.delete_flag = 'Used'
         LEFT JOIN sys_user u ON ud.user_id = u.id AND u.delete_flag = 'Used'
         WHERE d.delete_flag = 'Used'
+        order by d.sort
     </select>
 </mapper>

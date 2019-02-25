@@ -21,6 +21,16 @@
         <result column="photo" property="photo" />
     </resultMap>
 
+    <resultMap id="DeptUserResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <collection property="userList" ofType="com.wang.jmonkey.modules.sys.model.entity.SysUser">
+            <id column="user_id" property="id" />
+            <result column="user_real_name" property="realName" />
+            <result column="user_photo" property="photo" />
+        </collection>
+    </resultMap>
+
     <delete id="deleteByGroupId">
         DELETE FROM ms_chat_group_member WHERE group_id = #{groupId}
     </delete>
@@ -35,5 +45,16 @@
         FROM ms_chat_group_member cgm
         inner JOIN sys_user u ON cgm.user_id = u.id
         WHERE cgm.delete_flag = 'Used' AND u.delete_flag = 'Used' AND cgm.group_id = #{groupId}
+    </select>
+
+    <select id="deptUserList" resultMap="DeptUserResultMap">
+        select d.*, u.id as user_id, u.real_name as user_real_name, u.photo as user_photo
+        FROM ms_chat_group_member cgm
+        inner JOIN sys_user u ON cgm.user_id = u.id AND u.delete_flag = 'Used'
+        INNER JOIN sys_user_dept ud ON ud.user_id = u.id AND ud.delete_flag = 'Used'
+        INNER JOIN sys_dept d on d.id = ud.dept_id AND d.delete_flag = 'Used'
+        WHERE cgm.delete_flag = 'Used'
+        AND cgm.group_id = #{groupId}
+        order by d.sort
     </select>
 </mapper>

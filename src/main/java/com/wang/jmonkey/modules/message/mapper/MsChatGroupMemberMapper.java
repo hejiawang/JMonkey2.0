@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.message.mapper;
 
 import com.wang.jmonkey.modules.message.model.entity.MsChatGroupMember;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.wang.jmonkey.modules.sys.model.dto.SysDeptUserDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 
@@ -37,4 +38,11 @@ public interface MsChatGroupMemberMapper extends BaseMapper<MsChatGroupMember> {
      * @return 成员信息
      */
     List<SysUser> selectMemberByGroupId(@Param("groupId") String groupId);
+
+    /**
+     * 群组成员信息
+     * @param groupId 群组id
+     * @return SysDeptUserDto
+     */
+    List<SysDeptUserDto> deptUserList(@Param("groupId") String groupId);
 }
