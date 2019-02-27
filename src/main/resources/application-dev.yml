@@ -29,6 +29,8 @@ jmonkey:
     image: ${jmonkey.filePath}/message/image/
     file: ${jmonkey.filePath}/message/file/
     chat:
+      im:
+        file: ${jmonkey.filePath}/message/chat/im/
       group:
         image: ${jmonkey.filePath}/message/chat/image/
       history:

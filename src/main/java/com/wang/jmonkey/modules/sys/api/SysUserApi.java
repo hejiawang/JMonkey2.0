@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.common.utils.FileUtil;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserInfoDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysUser;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -114,19 +112,7 @@ public class SysUserApi extends BaseHttp {
      */
     @PostMapping("/uploadPhoto")
     public HttpResult<String> uploadPhoto( @RequestParam(value = "file") MultipartFile uploadFile ){
-        HttpResult<String> result = new HttpResult<>();
-
-        try {
-            String filePath = userPhotoPath + FileUtil.renderFileName(uploadFile.getOriginalFilename());
-
-            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
-            else result.setIsSuccess(false);
-        } catch (IOException e) {
-            log.error("uploadPhoto error : ", e);
-            result.setIsSuccess(false);
-        }
-
-        return result;
+        return super.uploadFile(uploadFile, userPhotoPath);
     }
 
     /**

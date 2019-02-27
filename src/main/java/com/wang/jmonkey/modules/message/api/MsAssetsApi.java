@@ -2,7 +2,6 @@ package com.wang.jmonkey.modules.message.api;
 
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.common.utils.FileUtil;
 import com.zhuozhengsoft.pageoffice.OpenModeType;
 import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 
 /**
  * @Description: 资源 api
@@ -41,25 +39,19 @@ public class MsAssetsApi extends BaseHttp {
     private String chatGroupImage;
 
     /**
+     * 聊天文件
+     */
+    @Value("${jmonkey.message.chat.im.file}")
+    private String chatImFile;
+
+    /**
      * 上传消息中的图片
      * @param uploadFile uploadFile
      * @return Boolean
      */
     @PostMapping("/image")
     public HttpResult<String> image(@RequestParam(value = "file") MultipartFile uploadFile ){
-        HttpResult<String> result = new HttpResult<>();
-
-        try {
-            String filePath = image + FileUtil.renderFileName(uploadFile.getOriginalFilename());
-
-            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
-            else result.setIsSuccess(false);
-        } catch (IOException e) {
-            log.error("upload message image error : ", e);
-            result.setIsSuccess(false);
-        }
-
-        return result;
+        return super.uploadFile(uploadFile, image);
     }
 
     /**
@@ -69,19 +61,7 @@ public class MsAssetsApi extends BaseHttp {
      */
     @PostMapping("/file")
     public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile ){
-        HttpResult<String> result = new HttpResult<>();
-
-        try {
-            String filePath = file + FileUtil.renderFileName(uploadFile.getOriginalFilename());
-
-            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
-            else result.setIsSuccess(false);
-        } catch (IOException e) {
-            log.error("upload message file error : ", e);
-            result.setIsSuccess(false);
-        }
-
-        return result;
+        return super.uploadFile(uploadFile, file);
     }
 
     /**
@@ -91,20 +71,17 @@ public class MsAssetsApi extends BaseHttp {
      */
     @PostMapping("/chat/group/image")
     public HttpResult<String> chatGroupImage(@RequestParam(value = "file") MultipartFile uploadFile){
-        HttpResult<String> result = new HttpResult<>();
+        return super.uploadFile(uploadFile, chatGroupImage);
+    }
 
-        try {
-            String filePath = chatGroupImage + FileUtil.renderFileName(uploadFile.getOriginalFilename());
-
-            if( FileUtil.uploadFile(filePath, uploadFile.getInputStream()) ) result.setResult(filePath);
-            else result.setIsSuccess(false);
-        } catch (IOException e) {
-            log.error("upload chat group iamge error : ", e);
-
-            result.setIsSuccess(false);
-        }
-
-        return result;
+    /**
+     * 聊天文件
+     * @param uploadFile 文件
+     * @return 文件路径
+     */
+    @PostMapping("/chat/im/file")
+    public HttpResult<String> chatImFile(@RequestParam(value = "file") MultipartFile uploadFile){
+        return super.uploadFile(uploadFile, chatImFile);
     }
 
     @Value("${jmonkey.static-locations-path}")
