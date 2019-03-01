@@ -84,6 +84,7 @@ public class MsAssetsApi extends BaseHttp {
         return super.uploadFile(uploadFile, chatImFile);
     }
 
+    /**  pageoffice test start *****************************************************************************/
     @Value("${jmonkey.static-locations-path}")
     private String staticLocationsPath;
 
@@ -104,5 +105,6 @@ public class MsAssetsApi extends BaseHttp {
         poCtrl.webOpen(path, OpenModeType.docNormalEdit, "pageOfficeTest");
         return new HttpResult<>(poCtrl.getHtmlCode("PageOfficeCtrl1"));
     }
+    /**  pageoffice test end *****************************************************************************/
 
 }

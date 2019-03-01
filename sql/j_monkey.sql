@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2019-02-18 11:30:55
+Date: 2019-02-27 16:33:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -82,7 +82,7 @@ CREATE TABLE `act_ge_property` (
 -- Records of act_ge_property
 -- ----------------------------
 INSERT INTO `act_ge_property` VALUES ('cfg.execution-related-entities-count', 'false', '1');
-INSERT INTO `act_ge_property` VALUES ('next.dbid', '67501', '28');
+INSERT INTO `act_ge_property` VALUES ('next.dbid', '70001', '29');
 INSERT INTO `act_ge_property` VALUES ('schema.history', 'create(6.0.0.4)', '1');
 INSERT INTO `act_ge_property` VALUES ('schema.version', '6.0.0.4', '1');
 
@@ -173,7 +173,7 @@ INSERT INTO `act_hi_actinst` VALUES ('62549', 'messagePublish:4:52504', '62541',
 INSERT INTO `act_hi_actinst` VALUES ('62550', 'messagePublish:4:52504', '62541', '62547', 'auditMessage', '62551', null, '正在审核', 'userTask', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-15 13:34:42.926', '2019-02-15 13:53:17.652', '1114726', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('62560', 'messagePublish:4:52504', '62553', '62559', 'startPublish', null, null, '开始发布', 'startEvent', null, '2019-02-15 13:34:57.105', '2019-02-15 13:34:57.105', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('62561', 'messagePublish:4:52504', '62553', '62559', 'isAudit', null, null, '是否需要审核', 'exclusiveGateway', null, '2019-02-15 13:34:57.105', '2019-02-15 13:34:57.105', '0', null, '');
-INSERT INTO `act_hi_actinst` VALUES ('62562', 'messagePublish:4:52504', '62553', '62559', 'auditMessage', '62563', null, '正在审核', 'userTask', '1', '2019-02-15 13:34:57.105', null, null, null, '');
+INSERT INTO `act_hi_actinst` VALUES ('62562', 'messagePublish:4:52504', '62553', '62559', 'auditMessage', '62563', null, '正在审核', 'userTask', '1', '2019-02-15 13:34:57.105', '2019-02-18 13:50:12.123', '260115018', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('65001', 'messagePublish:4:52504', '52519', '52525', 'auditState', null, null, '是否审核通过', 'exclusiveGateway', null, '2019-02-15 13:53:03.080', '2019-02-15 13:53:03.111', '31', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('65002', 'messagePublish:4:52504', '52519', '52525', 'endPublish', null, null, '发布成功', 'endEvent', null, '2019-02-15 13:53:03.112', '2019-02-15 13:53:03.112', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('65006', 'messagePublish:4:52504', '62541', '62547', 'auditState', null, null, '是否审核通过', 'exclusiveGateway', null, '2019-02-15 13:53:17.652', '2019-02-15 13:53:17.652', '0', null, '');
@@ -186,6 +186,11 @@ INSERT INTO `act_hi_actinst` VALUES ('65026', 'messagePublish:4:52504', '65018',
 INSERT INTO `act_hi_actinst` VALUES ('65027', 'messagePublish:4:52504', '65018', '65024', 'endPublish', null, null, '发布成功', 'endEvent', null, '2019-02-15 13:53:56.568', '2019-02-15 13:53:56.568', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('65028', 'messagePublish:1:22504', '30001', '30007', 'isAudit', null, null, '是否需要审核', 'exclusiveGateway', null, '2019-02-15 13:54:23.348', '2019-02-15 13:54:23.348', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('65029', 'messagePublish:1:22504', '30001', '30007', 'endPublish', null, null, '发布成功', 'endEvent', null, '2019-02-15 13:54:23.349', '2019-02-15 13:54:23.349', '0', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('67502', 'messagePublish:4:52504', '62553', '62559', 'auditState', null, null, '是否审核通过', 'exclusiveGateway', null, '2019-02-18 13:50:12.129', '2019-02-18 13:50:12.162', '33', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('67503', 'messagePublish:4:52504', '62553', '62559', 'publish', '67504', null, '重新发布', 'userTask', null, '2019-02-18 13:50:12.163', null, null, null, '');
+INSERT INTO `act_hi_actinst` VALUES ('67512', 'messagePublish:4:52504', '67505', '67511', 'startPublish', null, null, '开始发布', 'startEvent', null, '2019-02-20 09:02:09.288', '2019-02-20 09:02:09.288', '0', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('67513', 'messagePublish:4:52504', '67505', '67511', 'isAudit', null, null, '是否需要审核', 'exclusiveGateway', null, '2019-02-20 09:02:09.288', '2019-02-20 09:02:09.288', '0', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('67514', 'messagePublish:4:52504', '67505', '67511', 'auditMessage', '67515', null, '正在审核', 'userTask', '1', '2019-02-20 09:02:09.288', null, null, null, '');
 
 -- ----------------------------
 -- Table structure for act_hi_attachment
@@ -300,6 +305,7 @@ INSERT INTO `act_hi_identitylink` VALUES ('62552', null, 'participant', '36f8103
 INSERT INTO `act_hi_identitylink` VALUES ('62555', null, 'starter', '1', null, '62553');
 INSERT INTO `act_hi_identitylink` VALUES ('65010', null, 'starter', '36f8103bf41c4098b72d28734c5fb2ed', null, '65008');
 INSERT INTO `act_hi_identitylink` VALUES ('65020', null, 'starter', '36f8103bf41c4098b72d28734c5fb2ed', null, '65018');
+INSERT INTO `act_hi_identitylink` VALUES ('67507', null, 'starter', '1', null, '67505');
 
 -- ----------------------------
 -- Table structure for act_hi_procinst
@@ -343,6 +349,7 @@ INSERT INTO `act_hi_procinst` VALUES ('62541', '62541', '16806956b23a4df0b3f5281
 INSERT INTO `act_hi_procinst` VALUES ('62553', '62553', 'e494cc6f8923415daea1eac19a9c8da7', 'messagePublish:4:52504', '2019-02-15 13:34:57.104', null, null, '1', 'startPublish', null, null, null, '', null);
 INSERT INTO `act_hi_procinst` VALUES ('65008', '65008', '557a8e5224bf43bfb95fec82c819bb07', 'messagePublish:4:52504', '2019-02-15 13:53:48.857', '2019-02-15 13:53:48.864', '7', '36f8103bf41c4098b72d28734c5fb2ed', 'startPublish', 'endPublish', null, null, '', null);
 INSERT INTO `act_hi_procinst` VALUES ('65018', '65018', 'b7f5455267f14a569698084625f311f3', 'messagePublish:4:52504', '2019-02-15 13:53:56.567', '2019-02-15 13:53:56.575', '8', '36f8103bf41c4098b72d28734c5fb2ed', 'startPublish', 'endPublish', null, null, '', null);
+INSERT INTO `act_hi_procinst` VALUES ('67505', '67505', '71d19dfd6da145149a4514b2ea27eb5b', 'messagePublish:4:52504', '2019-02-20 09:02:09.285', null, null, '1', 'startPublish', null, null, null, '', null);
 
 -- ----------------------------
 -- Table structure for act_hi_taskinst
@@ -392,7 +399,9 @@ INSERT INTO `act_hi_taskinst` VALUES ('62503', 'messagePublish:1:22504', 'auditM
 INSERT INTO `act_hi_taskinst` VALUES ('62506', 'messagePublish:1:22504', 'publish', '30001', '30007', '重新发布', null, null, null, null, '2019-02-15 13:32:13.406', null, '2019-02-15 13:54:23.345', '1329939', null, '50', null, null, null, '');
 INSERT INTO `act_hi_taskinst` VALUES ('62527', 'messagePublish:4:52504', 'auditMessage', '62517', '62523', '正在审核', null, null, null, '1', '2019-02-15 13:32:51.351', null, '2019-02-15 13:32:56.536', '5185', null, '50', null, null, null, '');
 INSERT INTO `act_hi_taskinst` VALUES ('62551', 'messagePublish:4:52504', 'auditMessage', '62541', '62547', '正在审核', null, null, null, '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-15 13:34:42.926', null, '2019-02-15 13:53:17.651', '1114725', null, '50', null, null, null, '');
-INSERT INTO `act_hi_taskinst` VALUES ('62563', 'messagePublish:4:52504', 'auditMessage', '62553', '62559', '正在审核', null, null, null, '1', '2019-02-15 13:34:57.105', null, null, null, null, '50', null, null, null, '');
+INSERT INTO `act_hi_taskinst` VALUES ('62563', 'messagePublish:4:52504', 'auditMessage', '62553', '62559', '正在审核', null, null, null, '1', '2019-02-15 13:34:57.105', null, '2019-02-18 13:50:12.090', '260114985', null, '50', null, null, null, '');
+INSERT INTO `act_hi_taskinst` VALUES ('67504', 'messagePublish:4:52504', 'publish', '62553', '62559', '重新发布', null, null, null, null, '2019-02-18 13:50:12.164', null, null, null, null, '50', null, null, null, '');
+INSERT INTO `act_hi_taskinst` VALUES ('67515', 'messagePublish:4:52504', 'auditMessage', '67505', '67511', '正在审核', null, null, null, '1', '2019-02-20 09:02:09.288', null, null, null, null, '50', null, null, null, '');
 
 -- ----------------------------
 -- Table structure for act_hi_varinst
@@ -485,6 +494,11 @@ INSERT INTO `act_hi_varinst` VALUES ('65019', '65018', '65018', null, '${publish
 INSERT INTO `act_hi_varinst` VALUES ('65021', '65018', '65018', null, 'auditUserId', 'null', '0', null, null, null, null, null, '2019-02-15 13:53:56.567', '2019-02-15 13:53:56.567');
 INSERT INTO `act_hi_varinst` VALUES ('65022', '65018', '65018', null, 'isAudit', 'boolean', '0', null, null, '0', null, null, '2019-02-15 13:53:56.567', '2019-02-15 13:53:56.567');
 INSERT INTO `act_hi_varinst` VALUES ('65023', '65018', '65018', null, 'publishUserId', 'string', '0', null, null, null, '36f8103bf41c4098b72d28734c5fb2ed', null, '2019-02-15 13:53:56.568', '2019-02-15 13:53:56.568');
+INSERT INTO `act_hi_varinst` VALUES ('67501', '62553', '62553', null, 'state', 'boolean', '0', null, null, '0', null, null, '2019-02-18 13:50:12.084', '2019-02-18 13:50:12.084');
+INSERT INTO `act_hi_varinst` VALUES ('67506', '67505', '67505', null, '${publishUserId}', 'string', '0', null, null, null, '1', null, '2019-02-20 09:02:09.285', '2019-02-20 09:02:09.285');
+INSERT INTO `act_hi_varinst` VALUES ('67508', '67505', '67505', null, 'auditUserId', 'string', '0', null, null, null, '1', null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
+INSERT INTO `act_hi_varinst` VALUES ('67509', '67505', '67505', null, 'isAudit', 'boolean', '0', null, null, '1', null, null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
+INSERT INTO `act_hi_varinst` VALUES ('67510', '67505', '67505', null, 'publishUserId', 'string', '0', null, null, null, '1', null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
 
 -- ----------------------------
 -- Table structure for act_id_group
@@ -781,7 +795,9 @@ CREATE TABLE `act_ru_execution` (
 INSERT INTO `act_ru_execution` VALUES ('35012', '1', '35012', 'c1712691fb964f319449f3a5df16b7cc', null, 'messagePublish:1:22504', null, '35012', null, '1', '0', '1', '0', '0', '1', null, '', null, '2019-02-14 09:46:22.853', '1', null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `act_ru_execution` VALUES ('35018', '1', '35012', null, '35012', 'messagePublish:1:22504', null, '35012', 'auditMessage', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-14 09:46:22.853', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `act_ru_execution` VALUES ('62553', '1', '62553', 'e494cc6f8923415daea1eac19a9c8da7', null, 'messagePublish:4:52504', null, '62553', null, '1', '0', '1', '0', '0', '1', null, '', null, '2019-02-15 13:34:57.104', '1', null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
-INSERT INTO `act_ru_execution` VALUES ('62559', '1', '62553', null, '62553', 'messagePublish:4:52504', null, '62553', 'auditMessage', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-15 13:34:57.104', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `act_ru_execution` VALUES ('62559', '2', '62553', null, '62553', 'messagePublish:4:52504', null, '62553', 'publish', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-15 13:34:57.104', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `act_ru_execution` VALUES ('67505', '1', '67505', '71d19dfd6da145149a4514b2ea27eb5b', null, 'messagePublish:4:52504', null, '67505', null, '1', '0', '1', '0', '0', '1', null, '', null, '2019-02-20 09:02:09.285', '1', null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `act_ru_execution` VALUES ('67511', '1', '67505', null, '67505', 'messagePublish:4:52504', null, '67505', 'auditMessage', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-20 09:02:09.286', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for act_ru_identitylink
@@ -813,6 +829,7 @@ CREATE TABLE `act_ru_identitylink` (
 INSERT INTO `act_ru_identitylink` VALUES ('35014', '1', null, 'starter', '1', null, '35012', null);
 INSERT INTO `act_ru_identitylink` VALUES ('35023', '1', null, 'participant', '36f8103bf41c4098b72d28734c5fb2ed', null, '35012', null);
 INSERT INTO `act_ru_identitylink` VALUES ('62555', '1', null, 'starter', '1', null, '62553', null);
+INSERT INTO `act_ru_identitylink` VALUES ('67507', '1', null, 'starter', '1', null, '67505', null);
 
 -- ----------------------------
 -- Table structure for act_ru_job
@@ -925,7 +942,8 @@ CREATE TABLE `act_ru_task` (
 -- Records of act_ru_task
 -- ----------------------------
 INSERT INTO `act_ru_task` VALUES ('35022', '1', '35018', '35012', 'messagePublish:1:22504', '正在审核', null, null, 'auditMessage', null, '36f8103bf41c4098b72d28734c5fb2ed', null, '50', '2019-02-14 09:46:22.854', null, null, '1', '', null, null);
-INSERT INTO `act_ru_task` VALUES ('62563', '1', '62559', '62553', 'messagePublish:4:52504', '正在审核', null, null, 'auditMessage', null, '1', null, '50', '2019-02-15 13:34:57.105', null, null, '1', '', null, null);
+INSERT INTO `act_ru_task` VALUES ('67504', '1', '62559', '62553', 'messagePublish:4:52504', '重新发布', null, null, 'publish', null, null, null, '50', '2019-02-18 13:50:12.163', null, null, '1', '', null, null);
+INSERT INTO `act_ru_task` VALUES ('67515', '1', '67511', '67505', 'messagePublish:4:52504', '正在审核', null, null, 'auditMessage', null, '1', null, '50', '2019-02-20 09:02:09.288', null, null, '1', '', null, null);
 
 -- ----------------------------
 -- Table structure for act_ru_timer_job
@@ -1002,6 +1020,114 @@ INSERT INTO `act_ru_variable` VALUES ('62554', '1', 'string', '${publishUserId}'
 INSERT INTO `act_ru_variable` VALUES ('62556', '1', 'string', 'auditUserId', '62553', '62553', null, null, null, null, '1', null);
 INSERT INTO `act_ru_variable` VALUES ('62557', '1', 'boolean', 'isAudit', '62553', '62553', null, null, null, '1', null, null);
 INSERT INTO `act_ru_variable` VALUES ('62558', '1', 'string', 'publishUserId', '62553', '62553', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('67501', '1', 'boolean', 'state', '62553', '62553', null, null, null, '0', null, null);
+INSERT INTO `act_ru_variable` VALUES ('67506', '1', 'string', '${publishUserId}', '67505', '67505', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('67508', '1', 'string', 'auditUserId', '67505', '67505', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('67509', '1', 'boolean', 'isAudit', '67505', '67505', null, null, null, '1', null, null);
+INSERT INTO `act_ru_variable` VALUES ('67510', '1', 'string', 'publishUserId', '67505', '67505', null, null, null, null, '1', null);
+
+-- ----------------------------
+-- Table structure for ms_chat_group
+-- ----------------------------
+DROP TABLE IF EXISTS `ms_chat_group`;
+CREATE TABLE `ms_chat_group` (
+  `id` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '主键ID',
+  `name` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '群组名称',
+  `img` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '群组信息头像',
+  `creator` varchar(64) CHARACTER SET utf8 DEFAULT NULL COMMENT '群组创始人',
+  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
+  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
+  `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
+  `delete_flag` varchar(10) COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='消息聊天群组信息';
+
+-- ----------------------------
+-- Records of ms_chat_group
+-- ----------------------------
+INSERT INTO `ms_chat_group` VALUES ('048872d527f040c8b459a15b028a9a32', 'test2', null, '1', '2019-02-25 12:21:05', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('0842d709a93e4f11adeecd95a30726c8', 'test5', null, '1', '2019-02-25 20:41:26', 'admin', '2019-02-25 20:41:35', 'admin', null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('2bce847a202f40d8ad26a07097435cea', '撒大东方阿萨德饭店阿', '/assets/message/chat/image/f20baff425a14038bc2f80ed0cbae279_2.jpg', '1', '2019-02-25 15:19:20', 'admin', '2019-02-25 20:04:18', null, null, 'Delete');
+INSERT INTO `ms_chat_group` VALUES ('3f6d3da6093649a9acb4d45a80a16f21', 'test6', null, '1', '2019-02-26 08:26:38', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('618620b7508945d08c0ea58a365691bb', 'test3', '/assets/message/chat/image/786b104914d047ca8bdf88343e0635d3_头像.jpg', '1', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('6ec4d51e72154fd892165b9e5ecb2e8e', 'test4', null, '1', '2019-02-25 20:35:16', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('a72712bc967146dc86dd5358d4886c8b', 'common-tee', '/assets/message/chat/image/c05be91f7f1149b8933993fc83c265dd_42.jpg', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-26 08:25:57', 'common', null, null, null, 'Used');
+INSERT INTO `ms_chat_group` VALUES ('e39156938465400e95c5463b11dc7c21', 'test1-1', '/assets/message/chat/image/f47431f697eb4eb6bfab3088f368236f_1.jpg', '1', '2019-02-25 11:32:03', 'admin', '2019-02-25 20:28:47', 'admin', null, 'Used');
+
+-- ----------------------------
+-- Table structure for ms_chat_group_member
+-- ----------------------------
+DROP TABLE IF EXISTS `ms_chat_group_member`;
+CREATE TABLE `ms_chat_group_member` (
+  `group_id` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '群组id',
+  `user_id` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '群组成员id',
+  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
+  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
+  `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
+  `delete_flag` varchar(10) COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
+  PRIMARY KEY (`group_id`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='消息聊天群组信息';
+
+-- ----------------------------
+-- Records of ms_chat_group_member
+-- ----------------------------
+INSERT INTO `ms_chat_group_member` VALUES ('048872d527f040c8b459a15b028a9a32', '1', '2019-02-25 12:21:05', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('048872d527f040c8b459a15b028a9a32', '23bae2f290a947ae86e1731dcd2d7988', '2019-02-25 12:21:05', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('048872d527f040c8b459a15b028a9a32', '514122a8c3944f10b245399aafc8978d', '2019-02-25 12:21:05', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('048872d527f040c8b459a15b028a9a32', '5b0048391d5e497398d363cbad1a21eb', '2019-02-25 12:21:05', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('0842d709a93e4f11adeecd95a30726c8', '1', '2019-02-25 20:41:35', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('0842d709a93e4f11adeecd95a30726c8', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-25 20:41:35', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('0842d709a93e4f11adeecd95a30726c8', '94492b8bd0d74afb9c1af5c8fc36d57e', '2019-02-25 20:41:35', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('3f6d3da6093649a9acb4d45a80a16f21', '1', '2019-02-26 08:26:38', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('3f6d3da6093649a9acb4d45a80a16f21', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-26 08:26:38', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('3f6d3da6093649a9acb4d45a80a16f21', '5b0048391d5e497398d363cbad1a21eb', '2019-02-26 08:26:38', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('3f6d3da6093649a9acb4d45a80a16f21', '94492b8bd0d74afb9c1af5c8fc36d57e', '2019-02-26 08:26:38', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '1', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '237f91e6cd1245dbb585f585d3f3b75e', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '23bae2f290a947ae86e1731dcd2d7988', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '514122a8c3944f10b245399aafc8978d', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '5b0048391d5e497398d363cbad1a21eb', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '6e2d55ca9b604e01b17b03c4fd7821d0', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '94492b8bd0d74afb9c1af5c8fc36d57e', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', '94d8f27841bf40fb942c8d865ba0e002', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', 'd78b19eecc524d5a8ee39126471a92dd', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('618620b7508945d08c0ea58a365691bb', 'd8c3368d55d8414cab00bafb5d733aca', '2019-02-25 12:53:34', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('6ec4d51e72154fd892165b9e5ecb2e8e', '1', '2019-02-25 20:35:16', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('6ec4d51e72154fd892165b9e5ecb2e8e', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-25 20:35:16', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('a72712bc967146dc86dd5358d4886c8b', '1', '2019-02-26 08:25:57', 'common', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('a72712bc967146dc86dd5358d4886c8b', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-26 08:25:57', 'common', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('e39156938465400e95c5463b11dc7c21', '1', '2019-02-25 20:35:07', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('e39156938465400e95c5463b11dc7c21', '36f8103bf41c4098b72d28734c5fb2ed', '2019-02-25 20:35:07', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('e39156938465400e95c5463b11dc7c21', '5b0048391d5e497398d363cbad1a21eb', '2019-02-25 20:35:07', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('e39156938465400e95c5463b11dc7c21', '94492b8bd0d74afb9c1af5c8fc36d57e', '2019-02-25 20:35:07', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_chat_group_member` VALUES ('e39156938465400e95c5463b11dc7c21', 'd8c3368d55d8414cab00bafb5d733aca', '2019-02-25 20:35:07', 'admin', null, null, null, 'Used');
+
+-- ----------------------------
+-- Table structure for ms_chat_history
+-- ----------------------------
+DROP TABLE IF EXISTS `ms_chat_history`;
+CREATE TABLE `ms_chat_history` (
+  `id` varchar(64) COLLATE utf8mb4_bin NOT NULL COMMENT '主键ID',
+  `sender` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '消息发送者',
+  `receiver` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '消息接收者',
+  `msg` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '聊天信息',
+  `type` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '聊天类型 Single私聊 group群聊',
+  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
+  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_by` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
+  `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
+  `delete_flag` varchar(10) COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='消息聊天记录';
+
+-- ----------------------------
+-- Records of ms_chat_history
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for ms_file
@@ -1062,6 +1188,7 @@ INSERT INTO `ms_message` VALUES ('230e4b7ad46b431ea76863fb654b4565', '6', '', '5
 INSERT INTO `ms_message` VALUES ('350324b80fdb4c1db7772f0f5b5f60e0', '1', '', '5', '30001', '2019-02-14 08:46:23', 'admin', '2019-02-14 08:46:23', 'admin', null, 'Used');
 INSERT INTO `ms_message` VALUES ('557a8e5224bf43bfb95fec82c819bb07', '阿萨德发', 0x3C703EE998BFE890A8E5BEB7E58F913C2F703E, '5', '65008', '2019-02-15 13:53:48', 'common', '2019-02-15 13:53:48', 'common', null, 'Used');
 INSERT INTO `ms_message` VALUES ('68e230780301454fb505e2f31e454d9a', '125', 0x3C703E3132353C2F703E, '5', '62507', '2019-02-15 13:32:37', 'admin', '2019-02-15 13:32:37', 'admin', null, 'Used');
+INSERT INTO `ms_message` VALUES ('71d19dfd6da145149a4514b2ea27eb5b', 'qwe', 0x3C703EE8AFB7E997AE3C2F703E, '5', '67505', '2019-02-20 09:02:09', 'admin', '2019-02-20 09:02:09', 'admin', null, 'Used');
 INSERT INTO `ms_message` VALUES ('8bc33626d1514cb3a1b3970f1527934f', 'NO-3', 0x3C703E4E4F2D333C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6D6573736167652F696D6167652F35303264386135333036363934363264396363393562363064623565633432325F312E706E67223E3C2F703E, '5', '27501', '2019-02-13 16:43:04', 'admin', '2019-02-14 08:43:02', 'admin', null, 'Delete');
 INSERT INTO `ms_message` VALUES ('b1ddbdc193e44978b27c132f4e04e1df', '124', 0x3C703E3C7374726F6E673EE998BFE696AFE8BEBEE68980E5A49A3132333C2F7374726F6E673E3C2F703E3C703E3C656D3EE998BFE890A8E5BEB73132333C2F656D3E3C2F703E3C703E3C62723E3C2F703E3C703E3C656D3EEFBBBF3C2F656D3E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6D6573736167652F696D6167652F63353366366165613431306334393531383364353637613065343063383434635F31322E6A7067223E3C2F703E, '5', '57501', '2019-02-15 08:34:20', 'admin', '2019-02-15 08:34:21', 'admin', null, 'Used');
 INSERT INTO `ms_message` VALUES ('b7f5455267f14a569698084625f311f3', '阿萨德发a发撒的发生的发生阿萨德发', 0x3C703EE998BFE998BFE696AFE9A1BFE58F91E998BFE890A8E5BEB7E58F91E998BFE890A8E5BEB7E58F91E98081E588B066617364663C2F703E, '5', '65018', '2019-02-15 13:53:56', 'common', '2019-02-15 13:53:56', 'common', null, 'Used');
@@ -1093,11 +1220,8 @@ CREATE TABLE `ms_read` (
 -- Records of ms_read
 -- ----------------------------
 INSERT INTO `ms_read` VALUES ('1', '16806956b23a4df0b3f5281afd6dced0', 'No', '2019-02-15 13:53:17', 'common', null, null, null, 'Used');
-INSERT INTO `ms_read` VALUES ('1', '68e230780301454fb505e2f31e454d9a', 'No', '2019-02-15 13:32:37', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('1', 'b1ddbdc193e44978b27c132f4e04e1df', 'No', '2019-02-15 11:02:21', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('1', 'c1712691fb964f319449f3a5df16b7cc', 'No', '2019-02-15 13:53:15', 'common', null, null, null, 'Used');
-INSERT INTO `ms_read` VALUES ('1', 'ccca754fc88540ad98049eb8d81ec1aa', 'No', '2019-02-15 13:34:33', 'admin', null, null, null, 'Used');
-INSERT INTO `ms_read` VALUES ('1', 'f5a107a5e57547eeb7f22afa13a11dfb', 'No', '2019-02-15 13:32:56', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', '008b8e7efa204062b8774ecea91dca93', 'No', '2019-02-14 13:27:52', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', '16806956b23a4df0b3f5281afd6dced0', 'No', '2019-02-15 13:53:17', 'common', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', '230e4b7ad46b431ea76863fb654b4565', 'No', '2019-02-15 13:53:02', 'common', null, null, null, 'Used');
@@ -1639,6 +1763,7 @@ INSERT INTO `sys_menu` VALUES ('ada820e2bd6345a2a882dd2526f16725', '用户管理
 INSERT INTO `sys_menu` VALUES ('b5a6eeea310644e2a25e4e3a10cf0628', '定时任务', 'md-clock', '/sys/task', '/sys/task', 'Yes', 'No', 'No', 'Home', '7', '2019-01-24 13:59:20', null, null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('b6620f37c1b247a586ae5414663299bc', '无权操作', 'md-book', null, null, 'Yes', 'Yes', 'No', 'Home', '1', '2019-01-11 09:03:17', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('f564547f036e4631967ed4ba0c165d38', '消息审核', 'logo-css3', '/message/audit', '/message/audit', 'Yes', 'No', 'No', 'Home', '3', '2019-01-29 14:25:53', 'admin', '2019-01-29 14:29:27', 'admin', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('f986c3db2cbf46fdbd5c0c057fd282d9', '群组台账', 'md-contacts', '/message/chat/group', '/message/chat/group', 'Yes', 'No', 'No', 'Home', '4', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 
 -- ----------------------------
 -- Table structure for sys_resource
@@ -1675,6 +1800,7 @@ INSERT INTO `sys_resource` VALUES ('50226e046cab4cc9bdf88684698ee47f', 'Menu', '
 INSERT INTO `sys_resource` VALUES ('55910164c8fc4dd28a889059697b5b32', 'Button', '95ea2fa6656d439382f8e42e6a926ced', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:54', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('7a684d1e725e4864a4d12b347ef97ce2', 'Menu', '319b072a4f044442876ee65211f8aa78', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:25:45', 'admin_test', '2019-01-10 13:09:05', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('7d3065f62b184acba8be3323c40723ab', 'System', 'd7065f3eba94409397f4d21f2692a8fa', null, '2019-01-10 13:24:35', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('812368028df247a69bc974adb44cd0b4', 'Menu', 'f986c3db2cbf46fdbd5c0c057fd282d9', 'b860f629bd3f4e118fa2b406c1684689', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('88139b0b64ae46a5a70ca1c53f43872b', 'Button', '03aca5c317bc4e19816f95089ae907f3', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:49', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('8b181665db794069b476f02f42e1a8f8', 'Button', 'ade005be6b4e420d9e899284b3869dc2', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:51:04', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('9004f54f261f4320b05beb2b82dd4c3f', 'Button', 'f14184d9c6b540799385b47b3ba9bb45', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:42', 'admin', null, null, null, 'Used');
@@ -1734,33 +1860,34 @@ CREATE TABLE `sys_role_resource` (
 -- ----------------------------
 -- Records of sys_role_resource
 -- ----------------------------
-INSERT INTO `sys_role_resource` VALUES ('1', '101c7ef15cd8474da7586316eb3289c3', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '1419331c93f949fda927aa562363f0c9', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '21e01b2da75c42e39968d514c25a1f56', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '2a63aec9db604fa898c11380e8893dd2', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '328672b0736b4e57ba1803571ef418d1', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '394b434defd74548ab04493b5fee924b', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '408099690e724f70bd655be2ee00dccd', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '4f3355f7ae6c4156ac320f9691e91a4b', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '50226e046cab4cc9bdf88684698ee47f', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '55910164c8fc4dd28a889059697b5b32', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '7a684d1e725e4864a4d12b347ef97ce2', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '7d3065f62b184acba8be3323c40723ab', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '88139b0b64ae46a5a70ca1c53f43872b', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '8b181665db794069b476f02f42e1a8f8', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '9004f54f261f4320b05beb2b82dd4c3f', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '9aa69c54984c455daa3be9c574f4209d', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'b98f836b7276467ea18cca3900071c51', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'bda4da4b71a942be9e23883e3386479a', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'd8ba380d157846d691f0eb3ec5902130', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('1', 'f5224801941644bdad7a0ea7fe6f863e', '2019-01-29 16:20:55', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '101c7ef15cd8474da7586316eb3289c3', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '13704bf763904cfbb4ecd4395a7c7745', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '1419331c93f949fda927aa562363f0c9', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '21e01b2da75c42e39968d514c25a1f56', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '2a63aec9db604fa898c11380e8893dd2', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '328672b0736b4e57ba1803571ef418d1', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '394b434defd74548ab04493b5fee924b', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '408099690e724f70bd655be2ee00dccd', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '4f3355f7ae6c4156ac320f9691e91a4b', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '50226e046cab4cc9bdf88684698ee47f', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '55910164c8fc4dd28a889059697b5b32', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '7a684d1e725e4864a4d12b347ef97ce2', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '7d3065f62b184acba8be3323c40723ab', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '812368028df247a69bc974adb44cd0b4', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '88139b0b64ae46a5a70ca1c53f43872b', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '8b181665db794069b476f02f42e1a8f8', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '9004f54f261f4320b05beb2b82dd4c3f', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '9aa69c54984c455daa3be9c574f4209d', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'b860f629bd3f4e118fa2b406c1684689', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'b98f836b7276467ea18cca3900071c51', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'bda4da4b71a942be9e23883e3386479a', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'd8ba380d157846d691f0eb3ec5902130', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('1', 'f5224801941644bdad7a0ea7fe6f863e', '2019-02-24 12:14:30', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '101c7ef15cd8474da7586316eb3289c3', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '1419331c93f949fda927aa562363f0c9', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '21e01b2da75c42e39968d514c25a1f56', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
@@ -1830,8 +1957,10 @@ CREATE TABLE `sys_task` (
 -- Records of sys_task
 -- ----------------------------
 INSERT INTO `sys_task` VALUES ('79eb74272c124cd388c659916711c9a2', '清空日志', 'sys_task_sys', '0 0 23 * * ?', 'No', 'com.wang.jmonkey.modules.sys.task.SysClearLogTask', '2019-01-25 15:31:09', null, '2019-01-25 15:51:54', null, null, 'Delete');
+INSERT INTO `sys_task` VALUES ('98dcb9db37374495b45dcafb4f032638', '清楚聊天记录', 'sys_task_sys', '0 0 23 * * ?', 'Yes', 'com.wang.jmonkey.modules.message.task.MsChatClearHistoryTask', '2019-02-24 10:47:23', 'admin', null, null, '清楚聊天记录', 'Used');
 INSERT INTO `sys_task` VALUES ('99ef4a1cd212432898afae4793094aa1', '测试任务', 'sys_task_test', '0 */1 * * * ?', 'No', 'com.wang.jmonkey.modules.sys.task.SysTestTask', '2019-01-25 15:23:56', null, '2019-01-25 15:27:08', 'admin', null, 'Used');
 INSERT INTO `sys_task` VALUES ('c9c5681b0d794e708d00a728e453ed8a', '清空日志', 'sys_task_sys', '0 0 23 * * ?', 'No', 'com.wang.jmonkey.modules.sys.task.SysClearLogTask', '2019-01-25 15:31:09', null, '2019-01-25 15:32:36', 'admin', null, 'Used');
+INSERT INTO `sys_task` VALUES ('db75dc06b7ae44fa944c9b4c953de01a', '清楚聊天记录', 'sys_task_sys', '0 */1 * * * ?', 'Yes', 'com.wang.jmonkey.modules.message.task.MsChatClearHistoryTask', '2019-02-24 10:47:23', 'admin', '2019-02-24 10:50:09', null, '清楚聊天记录', 'Delete');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -1858,7 +1987,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '$2a$10$2KkX8XQk5D0/eOhoOZX/cuTGDId.0qa7iu4s21bhe.lTcIC7QkqnW', '13888888888', '超级管理员', '2019-01-09', 'Other', '', '2019-01-09 11:07:45', 'admin_test', '2019-01-10 08:43:40', 'admin_test', null, 'Used');
+INSERT INTO `sys_user` VALUES ('1', 'admin', '$2a$10$2KkX8XQk5D0/eOhoOZX/cuTGDId.0qa7iu4s21bhe.lTcIC7QkqnW', '13888888888', '超级管理员', '2019-01-09', 'Other', '/assets/user/photo/df5152039a8349d8a6bb63c6d3a8f7de_16f351735c21400024da7bb264c4f8c2.jpg', '2019-01-09 11:07:45', 'admin_test', '2019-01-10 08:43:40', 'admin_test', null, 'Used');
 INSERT INTO `sys_user` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', 'common7', '$2a$10$M7ibF/Meny/wfT6csrKBw.MNJ9SaIJb45IedWl5OTtd0qEGlEdFgC', '13333333333', 'common7', '2019-02-12', 'Man', null, '2019-02-01 14:36:22', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'common5', '$2a$10$7RPCB6LRJ9DlgUIWR84R3eCzjMRtQYxqer1sLsNl.dDqsFOp6ydZO', '13666666666', 'common5', '2019-02-07', 'Man', null, '2019-02-01 14:35:44', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'common', '$2a$10$7y1IOxvikqw3RmYTsRkDA.lBcp9sPWvvG8zHkLDIFAd7h3qMRHqia', '13555555555', '普通用户', '2019-01-18', 'Man', '/assets/user/photo/d42fc8a314164c49808dc848e654139b_1234567890.jpg', '2019-01-17 10:20:25', 'admin_test', '2019-01-30 14:48:58', 'admin', null, 'Used');
@@ -1889,7 +2018,7 @@ CREATE TABLE `sys_user_dept` (
 -- ----------------------------
 -- Records of sys_user_dept
 -- ----------------------------
-INSERT INTO `sys_user_dept` VALUES ('1', '50f2a61a8321423aa6534d36aa2dafb6', '2019-01-11 19:06:38', null, null, null, null, 'Used');
+INSERT INTO `sys_user_dept` VALUES ('1', '50f2a61a8321423aa6534d36aa2dafb6', '2019-02-27 16:08:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', '212b1467fb53491a9b80f7f689d4f435', '2019-02-01 14:36:22', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'a35e5084e51e486e96615eba477ce68f', '2019-02-01 14:35:44', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'cfdfef67079e45139125c91c7e016e8a', '2019-01-30 14:48:58', 'admin', null, null, null, 'Used');
@@ -1920,7 +2049,7 @@ CREATE TABLE `sys_user_role` (
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
-INSERT INTO `sys_user_role` VALUES ('1', '1', '2019-01-11 19:06:38', null, null, null, null, 'Used');
+INSERT INTO `sys_user_role` VALUES ('1', '1', '2019-02-27 16:08:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('237f91e6cd1245dbb585f585d3f3b75e', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:36:22', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:35:44', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'b5270709547143e5afb16c1f5c61ce95', '2019-01-30 14:48:58', 'admin', null, null, null, 'Used');
