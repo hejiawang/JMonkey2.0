@@ -98,6 +98,7 @@ jmonkey:
     - /auth/**
     - /signin
     - /signup
+    - /socket/**
     - /assets/**
     - /favicon.ico
     - /page/**
