@@ -123,4 +123,14 @@ public class SysUserApi extends BaseHttp {
     public HttpResult<SysUserInfoDto> getCurrentUserInfo(){
         return new HttpResult<>(service.getCurrentUserInfo());
     }
+
+    /**
+     * 获取登录错误次数
+     * @param userName userName
+     * @return 登录错误次数
+     */
+    @GetMapping(value = "/loginErrorNum")
+    public HttpResult<Integer> loginErrorNum(String userName) {
+        return new HttpResult<>(service.loginErrorNum(userName));
+    }
 }

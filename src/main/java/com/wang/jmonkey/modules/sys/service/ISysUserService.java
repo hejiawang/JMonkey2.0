@@ -89,4 +89,11 @@ public interface ISysUserService extends IService<SysUser> {
      * @return List<SysUser>
      */
     List<SysUser> selectAll();
+
+    /**
+     * 获取登录错误次数
+     * @param userName userName
+     * @return 登录错误次数
+     */
+    Integer loginErrorNum(String userName);
 }

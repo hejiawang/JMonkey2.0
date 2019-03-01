@@ -3,7 +3,9 @@ package com.wang.jmonkey.modules.sys.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.constant.CommonConstant;
+import com.wang.jmonkey.common.constant.SecurityConstants;
 import com.wang.jmonkey.common.model.vo.UserVo;
+import com.wang.jmonkey.common.utils.RedisUtil;
 import com.wang.jmonkey.common.utils.UserUtils;
 import com.wang.jmonkey.modules.sys.model.dto.SysSystemDto;
 import com.wang.jmonkey.modules.sys.model.dto.SysUserDto;
@@ -69,6 +71,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Autowired
     private SysUserMapper mapper;
+
+    /**
+     * redis util
+     */
+    @Autowired
+    private RedisUtil redisUtil;
 
     /**
      * 获取用户分页信息
@@ -221,5 +229,16 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public List<SysUser> selectAll() {
         EntityWrapper<SysUser> wrapper = new EntityWrapper<>();
         return super.selectList(wrapper);
+    }
+
+    /**
+     * 获取登录错误次数
+     * @param userName userName
+     * @return 登录错误次数
+     */
+    @Override
+    public Integer loginErrorNum(String userName) {
+        String key = SecurityConstants.LOIN_CODE_PREFIX + userName;
+        return redisUtil.get(key) == null ? 0 : Integer.valueOf(redisUtil.get(key).toString());
     }
 }

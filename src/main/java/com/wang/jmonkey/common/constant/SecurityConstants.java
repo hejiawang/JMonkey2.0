@@ -104,4 +104,14 @@ public interface SecurityConstants {
      * 默认生成图形验证码长度
      */
     String DEFAULT_IMAGE_LENGTH = "4";
+
+    /**
+     * 登录错误次数过期时间
+     */
+    int LOIN_CODE_EXPIRE = 300;
+
+    /**
+     * 记录登录错误次数的key前缀
+     */
+    String LOIN_CODE_PREFIX = "jmonkey_login_code_";
 }
