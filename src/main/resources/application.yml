@@ -96,8 +96,10 @@ jmonkey:
   urls:
     anon:
     - /auth/**
+    - /oauth/**
     - /signin
     - /signup
+    - /sys/user/loginErrorNum
     - /socket/**
     - /assets/**
     - /favicon.ico

@@ -63,7 +63,7 @@ public interface SecurityConstants {
     /**
      * 默认生成图形验证码过期时间
      */
-    int DEFAULT_IMAGE_EXPIRE = 60;
+    int DEFAULT_IMAGE_EXPIRE = 120;
 
     /**
      * oauth token
