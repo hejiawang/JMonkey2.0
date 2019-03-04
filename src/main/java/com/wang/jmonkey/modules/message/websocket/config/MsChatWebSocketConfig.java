@@ -1,7 +1,7 @@
 package com.wang.jmonkey.modules.message.websocket.config;
 
-import com.wang.jmonkey.modules.message.websocket.service.MsChatIMSocketHandshakeInterceptor;
-import com.wang.jmonkey.modules.message.websocket.service.MsChatImSocketHandler;
+import com.wang.jmonkey.modules.message.websocket.interceptor.MsChatIMSocketHandshakeInterceptor;
+import com.wang.jmonkey.modules.message.websocket.handler.MsChatImSocketHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketHandler;
@@ -25,6 +25,7 @@ public class MsChatWebSocketConfig implements WebSocketConfigurer {
      */
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        // 注册聊天消息接收与发送
         registry.addHandler(msChatImSocketHandler(),"/socket/ms/chat/im")
                 .addInterceptors(new MsChatIMSocketHandshakeInterceptor());
     }
@@ -37,4 +38,5 @@ public class MsChatWebSocketConfig implements WebSocketConfigurer {
     public WebSocketHandler msChatImSocketHandler(){
         return new MsChatImSocketHandler();
     }
+
 }
