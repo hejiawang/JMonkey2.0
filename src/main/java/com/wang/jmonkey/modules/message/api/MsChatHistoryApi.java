@@ -1,11 +1,10 @@
 package com.wang.jmonkey.modules.message.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
-import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
+import com.wang.jmonkey.modules.message.model.dto.MsChatImHistoryDto;
+import com.wang.jmonkey.modules.message.model.param.MsChatImHistoryParam;
 import com.wang.jmonkey.modules.message.service.IMsChatHistoryService;
 
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +26,12 @@ public class MsChatHistoryApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
-     * @return
+     * @param param 实体信息
+     * @return MsChatImHistoryDto
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<MsChatHistory> list(Page<MsChatHistory> page, MsChatHistory entity) {
-        EntityWrapper wrapper = new EntityWrapper<MsChatHistory>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpPageResult<MsChatImHistoryDto> list(Page<MsChatImHistoryDto> page, MsChatImHistoryParam param) {
+        return new HttpPageResult<>( service.list(page, param) );
     }
 
 }

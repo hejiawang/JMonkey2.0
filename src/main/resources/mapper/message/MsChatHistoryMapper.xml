@@ -17,4 +17,66 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.message.model.dto.MsChatImHistoryDto">
+        <result column="sender" property="sender" />
+        <result column="imType" property="imType" />
+        <result column="senderId" property="senderId" />
+        <result column="senderName" property="senderName" />
+        <result column="senderPhoto" property="senderPhoto" />
+        <result column="receiverId" property="receiverId" />
+        <result column="receiverName" property="receiverName" />
+        <result column="receiverImg" property="receiverImg" />
+        <result column="senderDate" property="senderDate" />
+        <result column="msg" property="msg" />
+    </resultMap>
+
+    <select id="listGroup" resultMap="DtoResultMap">
+        select
+            h.type as imType,
+            h.sender as senderId, u.real_name as senderName, u.photo as senderPhoto,
+            h.create_date as senderDate, h.msg as msg
+        from ms_chat_history h
+        LEFT JOIN sys_user u on u.id = h.sender AND u.delete_flag = 'Used'
+        where h.delete_flag = 'Used' AND h.type = 'Group'
+        AND h.receiver = #{receiverId}
+        ORDER BY h.create_date
+        LIMIT ${limitStart}, ${size}
+    </select>
+
+    <select id="selectPageTotal" resultType="java.lang.Long">
+        select count(1)
+        from ms_chat_history h
+        where h.delete_flag = 'Used' AND h.type = 'Group'
+        AND h.receiver = #{receiverId}
+    </select>
+
+    <select id="listSingle" resultMap="DtoResultMap">
+        select
+            h.type as imType,
+            h.sender as senderId, u.real_name as senderName, u.photo as senderPhoto,
+            h.create_date as senderDate, h.msg as msg
+        from ms_chat_history h
+        LEFT JOIN sys_user u on u.id = h.sender AND u.delete_flag = 'Used'
+        WHERE h.delete_flag = 'Used' AND h.type = 'Single'
+        AND (
+            ( h.sender = #{senderId} and h.receiver = #{receiverId} )
+            OR
+            ( h.sender = #{receiverId} and h.receiver = #{senderId} )
+        )
+        ORDER BY h.create_date
+        LIMIT ${limitStart}, ${size}
+    </select>
+
+    <select id="listSingleTotal" resultType="java.lang.Long">
+        select count(1)
+        from ms_chat_history h
+        LEFT JOIN sys_user u on u.id = h.sender AND u.delete_flag = 'Used'
+        WHERE h.delete_flag = 'Used' AND h.type = 'Single'
+        AND (
+            ( h.sender = #{senderId} and h.receiver = #{receiverId} )
+            OR
+            ( h.sender = #{receiverId} and h.receiver = #{senderId} )
+        )
+    </select>
+
 </mapper>
