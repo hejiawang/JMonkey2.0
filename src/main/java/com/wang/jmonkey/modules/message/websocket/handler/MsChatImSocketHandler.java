@@ -1,6 +1,9 @@
 package com.wang.jmonkey.modules.message.websocket.handler;
 
+import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
+import com.wang.jmonkey.modules.message.model.enums.MsChatHistoryTypeEnums;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupMemberService;
+import com.wang.jmonkey.modules.message.service.IMsChatHistoryService;
 import com.xiaoleilu.hutool.date.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +41,12 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     private IMsChatGroupMemberService groupMemberService;
 
     /**
+     * IMsChatHistoryService
+     */
+    @Autowired
+    private IMsChatHistoryService historyService;
+
+    /**
      * 用户上线后触发
      * @param webSocketSession
      * @throws Exception
@@ -45,12 +54,14 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
         userList.add(webSocketSession);
-        // userIdList.add(webSocketSession.getAttributes().get("userId").toString());
+
+        // 将消息未读的情况发送给这个刚登陆的用户
     }
 
     /**
      * 接收到消息时触发
      * TODO _msg_字符分割存在bug, 消息中有_msg_字符就bug了
+     * TODO 参数太多，需要处理
      * @param webSocketSession
      * @param webSocketMessage
      */
@@ -69,8 +80,15 @@ public class MsChatImSocketHandler implements WebSocketHandler {
             senderName = webSocketSession.getAttributes().get("realName").toString(), // 消息发送者姓名
             senderPhoto = webSocketSession.getAttributes().get("userPhoto").toString(); // 消息发送者头像
 
+        // 发送消息
         if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
         else sendGroup(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
+
+        // 保存聊天记录
+        MsChatHistory msChatHistory = new MsChatHistory()
+                .setMsg(message).setReceiver(receiverId).setSender(senderId)
+                .setType(imType.equals("Single") ? MsChatHistoryTypeEnums.Single : MsChatHistoryTypeEnums.Group);
+        historyService.insert(msChatHistory);
     }
 
     /**

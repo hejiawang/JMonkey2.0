@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
+import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
 import com.wang.jmonkey.modules.message.service.IMsChatHistoryService;
 

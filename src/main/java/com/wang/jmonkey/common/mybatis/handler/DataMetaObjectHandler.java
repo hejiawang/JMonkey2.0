@@ -23,10 +23,12 @@ public class DataMetaObjectHandler extends MetaObjectHandler {
         Object createBy = getFieldValByName("createBy", metaObject);
         if ( StringUtils.isEmpty(createBy) ) {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            HttpServletRequest request = attributes.getRequest();
-            String userName = UserUtils.getUserName(request);
+            if (null != attributes) {
+                HttpServletRequest request = attributes.getRequest();
+                String userName = UserUtils.getUserName(request);
 
-            setFieldValByName("createBy", userName, metaObject);
+                setFieldValByName("createBy", userName, metaObject);
+            }
         }
     }
 
@@ -36,10 +38,12 @@ public class DataMetaObjectHandler extends MetaObjectHandler {
         // TODO 第二次修改时没记录updateBy, 如若放开这个if, 手动为updateBy复制就失效了
         if ( StringUtils.isEmpty(updateBy) ) {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            HttpServletRequest request = attributes.getRequest();
-            String userName = UserUtils.getUserName(request);
+            if (null != attributes) {
+                HttpServletRequest request = attributes.getRequest();
+                String userName = UserUtils.getUserName(request);
 
-            setFieldValByName("updateBy", userName, metaObject);
+                setFieldValByName("updateBy", userName, metaObject);
+            }
         }
     }
 }
