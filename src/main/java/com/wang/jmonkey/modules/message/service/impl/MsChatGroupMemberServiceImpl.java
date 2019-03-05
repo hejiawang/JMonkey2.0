@@ -91,6 +91,16 @@ public class MsChatGroupMemberServiceImpl extends ServiceImpl<MsChatGroupMemberM
     }
 
     /**
+     * 获取群组成员id信息
+     * @param groupId 群组id
+     * @return 成员id信息
+     */
+    @Override
+    public List<String> selectMemberIdByGroupId(String groupId) {
+        return mapper.selectMemberIdByGroupId(groupId);
+    }
+
+    /**
      * 群组成员信息
      * @param groupId 群组id
      * @return SysDeptUserDto

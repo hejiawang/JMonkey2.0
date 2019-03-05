@@ -56,6 +56,13 @@ public interface IMsChatGroupMemberService extends IService<MsChatGroupMember> {
     List<SysUser> selectMemberByGroupId(String groupId);
 
     /**
+     * 获取群组成员id信息
+     * @param groupId 群组id
+     * @return 成员id信息
+     */
+    List<String> selectMemberIdByGroupId(String groupId);
+
+    /**
      * 群组成员信息
      * @param groupId 群组id
      * @return SysDeptUserDto

@@ -47,6 +47,12 @@
         WHERE cgm.delete_flag = 'Used' AND u.delete_flag = 'Used' AND cgm.group_id = #{groupId}
     </select>
 
+    <select id="selectMemberIdByGroupId" resultType="java.lang.String">
+        select user_id
+        FROM ms_chat_group_member
+        WHERE delete_flag = 'Used' AND group_id = #{groupId}
+    </select>
+
     <select id="deptUserList" resultMap="DeptUserResultMap">
         select d.*, u.id as user_id, u.real_name as user_real_name, u.photo as user_photo
         FROM ms_chat_group_member cgm
