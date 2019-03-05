@@ -20,6 +20,9 @@ public class MsChatImSocketHandler implements WebSocketHandler {
 
     /**
      * 已登录用户的webnsocket session
+     * TODO 可以根据这个信息在前台显示那些用户在线，那些用户不在线，
+     * TODO 还可以根据这个信息处理给不在线的人发消息的友好提示
+     * TODO Redis？？？
      */
     private List<WebSocketSession> userList = new ArrayList<>();
 
@@ -55,17 +58,19 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     public void handleMessage(WebSocketSession webSocketSession, WebSocketMessage<?> webSocketMessage) {
         String message = webSocketMessage.getPayload().toString();
         String[] arr = message.split( "_msg_" );
-        if (arr.length != 3) return;
+        if (arr.length != 5) return;
 
         String imType = arr[0], // 聊天类型 Single私聊 Group群聊
             receiverId = arr[1], // 消息接收者id
-            msg = arr[2],        // 消息内容
+            receiverName = arr[2],  // 消息接收者名称
+            receiverImg = arr[3], // 消息接收者头像
+            msg = arr[4],        // 消息内容
             senderId = webSocketSession.getAttributes().get("userId").toString(), // 消息发送者id
             senderName = webSocketSession.getAttributes().get("realName").toString(), // 消息发送者姓名
             senderPhoto = webSocketSession.getAttributes().get("userPhoto").toString(); // 消息发送者头像
 
-        if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, msg);
-        else sendGroup(senderId, senderName, senderPhoto, receiverId, msg);
+        if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
+        else sendGroup(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
     }
 
     /**
@@ -76,12 +81,15 @@ public class MsChatImSocketHandler implements WebSocketHandler {
      * @param receiverId receiverId
      * @param msg msg
      */
-    private void sendSingle(String senderId, String senderName, String senderPhoto, String receiverId, String msg ) {
+    private void sendSingle(String senderId, String senderName, String senderPhoto,
+                            String receiverId, String receiverName, String  receiverImg, String msg ) {
         userList.forEach( user -> {
             String userSId = user.getAttributes().get("userId").toString();
             if (userSId.equals(senderId) || userSId.equals(receiverId)) {
                 try {
-                    user.sendMessage( this.renderImMessage("Single", senderId, senderName, senderPhoto, receiverId, msg) );
+                    user.sendMessage(
+                        this.renderImMessage("Single", senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg)
+                    );
                 } catch (IOException e) {
                     log.error("chat im send single exception : ", e);
                 }
@@ -97,13 +105,16 @@ public class MsChatImSocketHandler implements WebSocketHandler {
      * @param receiverId receiverId
      * @param msg msg
      */
-    private void sendGroup(String senderId, String senderName, String senderPhoto, String receiverId, String msg ) {
+    private void sendGroup(String senderId, String senderName, String senderPhoto,
+                           String receiverId, String  receiverName, String  receiverImg, String msg ) {
         List<String> groupMemberList = groupMemberService.selectMemberIdByGroupId(receiverId);
         userList.forEach( user -> {
             String userSId = user.getAttributes().get("userId").toString();
             if (groupMemberList.contains(userSId)) {
                 try {
-                    user.sendMessage( this.renderImMessage("Group", senderId, senderName, senderPhoto, receiverId, msg) );
+                    user.sendMessage(
+                        this.renderImMessage("Group", senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg)
+                    );
                 } catch (IOException e) {
                     log.error("chat im send group exception : ", e);
                 }
@@ -122,7 +133,8 @@ public class MsChatImSocketHandler implements WebSocketHandler {
      * @param msg
      * @return
      */
-    private TextMessage renderImMessage(String imType, String senderId, String senderName, String senderPhoto, String receiverId, String msg ) {
+    private TextMessage renderImMessage(String imType, String senderId, String senderName,
+                                        String senderPhoto, String receiverId, String receiverName, String  receiverImg, String msg ) {
         String jsonMessage = "" +
                 "{" +
                 "\"imType\": \"" + imType + "\", " +
@@ -130,6 +142,8 @@ public class MsChatImSocketHandler implements WebSocketHandler {
                 "\"senderName\": \"" + senderName + "\", " +
                 "\"senderPhoto\": \"" + senderPhoto + "\", " +
                 "\"receiverId\": \"" + receiverId + "\", " +
+                "\"receiverName\": \"" + receiverName + "\", " +
+                "\"receiverImg\": \"" + receiverImg + "\", " +
                 "\"senderDate\": \"" + DateUtil.now() + "\", " +
                 "\"msg\": \"" + msg + "\" " +
                 "}";
