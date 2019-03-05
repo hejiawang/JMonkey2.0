@@ -47,6 +47,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
 
     /**
      * 接收到消息时触发
+     * TODO _msg_字符分割存在bug, 消息中有_msg_字符就bug了
      * @param webSocketSession
      * @param webSocketMessage
      */
@@ -56,18 +57,15 @@ public class MsChatImSocketHandler implements WebSocketHandler {
         String[] arr = message.split( "_msg_" );
         if (arr.length != 3) return;
 
-        String imType = arr[0]; // 聊天类型 Single私聊 Group群聊
-        String receiverId = arr[1]; // 消息接收者id
-        String msg = arr[2];        // 消息内容
-        String senderId = webSocketSession.getAttributes().get("userId").toString(); // 消息发送者id
-        String senderName = webSocketSession.getAttributes().get("realName").toString(); // 消息发送者姓名
-        String senderPhoto = webSocketSession.getAttributes().get("userPhoto").toString(); // 消息发送者头像
+        String imType = arr[0], // 聊天类型 Single私聊 Group群聊
+            receiverId = arr[1], // 消息接收者id
+            msg = arr[2],        // 消息内容
+            senderId = webSocketSession.getAttributes().get("userId").toString(), // 消息发送者id
+            senderName = webSocketSession.getAttributes().get("realName").toString(), // 消息发送者姓名
+            senderPhoto = webSocketSession.getAttributes().get("userPhoto").toString(); // 消息发送者头像
 
-        if (imType.equals("Single")) {
-            sendSingle(senderId, senderName, senderPhoto, receiverId, msg);
-        } else { // Group
-            sendGroup(senderId, senderName, senderPhoto, receiverId, msg);
-        }
+        if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, msg);
+        else sendGroup(senderId, senderName, senderPhoto, receiverId, msg);
     }
 
     /**
@@ -85,7 +83,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
                 try {
                     user.sendMessage( this.renderImMessage("Single", senderId, senderName, senderPhoto, receiverId, msg) );
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error("chat im send single exception : ", e);
                 }
             }
         });
@@ -107,7 +105,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
                 try {
                     user.sendMessage( this.renderImMessage("Group", senderId, senderName, senderPhoto, receiverId, msg) );
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.error("chat im send group exception : ", e);
                 }
             }
         });
@@ -115,6 +113,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
 
     /**
      * 构建发送的消息体
+     * TODO 前台发送的消息有特殊格式影响json转换, 存在bug, 需要改进
      * @param imType
      * @param senderId
      * @param senderName
