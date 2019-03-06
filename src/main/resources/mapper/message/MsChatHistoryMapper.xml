@@ -43,7 +43,7 @@
         LIMIT ${limitStart}, ${size}
     </select>
 
-    <select id="selectPageTotal" resultType="java.lang.Long">
+    <select id="listGroupTotal" resultType="java.lang.Long">
         select count(1)
         from ms_chat_history h
         where h.delete_flag = 'Used' AND h.type = 'Group'

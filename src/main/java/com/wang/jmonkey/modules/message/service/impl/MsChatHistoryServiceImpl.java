@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 消息聊天记录 服务实现类
@@ -49,7 +51,7 @@ public class MsChatHistoryServiceImpl extends ServiceImpl<MsChatHistoryMapper, M
      * @return MsChatImHistoryDto
      */
     private Page<MsChatImHistoryDto> listSingle(Page<MsChatImHistoryDto> page, MsChatImHistoryParam param) {
-        page.setRecords( mapper.listSingle(param) )
+        page.setRecords( this.renderMsg(mapper.listSingle(param)) )
                 .setTotal( mapper.listSingleTotal(param) );
         return page;
     }
@@ -61,8 +63,23 @@ public class MsChatHistoryServiceImpl extends ServiceImpl<MsChatHistoryMapper, M
      * @return MsChatImHistoryDto
      */
     private Page<MsChatImHistoryDto> listGroup(Page<MsChatImHistoryDto> page, MsChatImHistoryParam param) {
-        page.setRecords( mapper.listGroup(param) )
+        page.setRecords( this.renderMsg(mapper.listGroup(param)) )
                 .setTotal( mapper.listGroupTotal(param) );
         return page;
+    }
+
+    /**
+     * renderMsg
+     * @param historyList
+     * @return
+     */
+    private List<MsChatImHistoryDto> renderMsg(List<MsChatImHistoryDto> historyList) {
+        historyList.forEach( history ->
+                history.setMsg(
+                        history.getMsg().split( "_msg_" )[4]
+                )
+        );
+
+        return historyList;
     }
 }
