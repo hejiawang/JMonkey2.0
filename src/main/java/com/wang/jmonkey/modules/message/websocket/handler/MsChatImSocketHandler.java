@@ -1,9 +1,11 @@
 package com.wang.jmonkey.modules.message.websocket.handler;
 
 import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
+import com.wang.jmonkey.modules.message.model.entity.MsChatRead;
 import com.wang.jmonkey.modules.message.model.enums.MsChatHistoryTypeEnums;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupMemberService;
 import com.wang.jmonkey.modules.message.service.IMsChatHistoryService;
+import com.wang.jmonkey.modules.message.service.IMsChatReadService;
 import com.xiaoleilu.hutool.date.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +32,9 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     private List<WebSocketSession> userList = new ArrayList<>();
 
     /**
-     * 以登录用户的id
+     * 已登录用户的id
      */
-    // private List<String> userIdList = new ArrayList<>();
+    private List<String> userIdList = new ArrayList<>();
 
     /**
      * groupMemberService
@@ -47,6 +49,12 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     private IMsChatHistoryService historyService;
 
     /**
+     * readService
+     */
+    @Autowired
+    private IMsChatReadService readService;
+
+    /**
      * 用户上线后触发
      * @param webSocketSession
      * @throws Exception
@@ -54,8 +62,13 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
         userList.add(webSocketSession);
+        userIdList.add(webSocketSession.getAttributes().get("userId").toString());
 
         // 将消息未读的情况发送给这个刚登陆的用户
+
+
+
+
     }
 
     /**
@@ -71,6 +84,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
         String[] arr = message.split( "_msg_" );
         if (arr.length != 5) return;
 
+        // 构建参数
         String imType = arr[0], // 聊天类型 Single私聊 Group群聊
             receiverId = arr[1], // 消息接收者id
             receiverName = arr[2],  // 消息接收者名称
@@ -83,6 +97,13 @@ public class MsChatImSocketHandler implements WebSocketHandler {
         // 发送消息
         if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
         else sendGroup(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
+
+        // 记录未读消息情况
+        if (!userIdList.contains(receiverId)) {
+            MsChatRead read = new MsChatRead()
+                    .setSender(senderId).setReceiver(receiverId).setType(imType.equals("Single") ? MsChatHistoryTypeEnums.Single : MsChatHistoryTypeEnums.Group);
+            readService.save(read);
+        }
 
         // 保存聊天记录
         MsChatHistory msChatHistory = new MsChatHistory()
@@ -174,6 +195,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
         if(webSocketSession.isOpen()) webSocketSession.close();
 
         userList.remove(webSocketSession);
+        userIdList.remove(webSocketSession.getAttributes().get("userId").toString());
     }
 
     /**
@@ -185,6 +207,7 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus closeStatus) throws Exception {
         userList.remove(webSocketSession);
+        userIdList.remove(webSocketSession.getAttributes().get("userId").toString());
     }
 
     @Override
