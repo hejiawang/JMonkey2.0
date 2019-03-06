@@ -39,7 +39,7 @@
         LEFT JOIN sys_user u on u.id = h.sender AND u.delete_flag = 'Used'
         where h.delete_flag = 'Used' AND h.type = 'Group'
         AND h.receiver = #{receiverId}
-        ORDER BY h.create_date
+        ORDER BY h.create_date desc
         LIMIT ${limitStart}, ${size}
     </select>
 
@@ -63,7 +63,7 @@
             OR
             ( h.sender = #{receiverId} and h.receiver = #{senderId} )
         )
-        ORDER BY h.create_date
+        ORDER BY h.create_date desc
         LIMIT ${limitStart}, ${size}
     </select>
 

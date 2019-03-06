@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -80,6 +81,7 @@ public class MsChatHistoryServiceImpl extends ServiceImpl<MsChatHistoryMapper, M
                 )
         );
 
+        Collections.reverse(historyList);   // 反转顺序
         return historyList;
     }
 }
