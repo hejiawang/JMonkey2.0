@@ -44,6 +44,13 @@
         ORDER BY cg.create_date desc
     </select>
 
+    <select id="listGroupIds" resultType="java.lang.String">
+        select cgm.group_id
+        FROM ms_chat_group_member cgm
+        WHERE cgm.delete_flag = 'Used'
+        AND cgm.user_id = #{userId}
+    </select>
+
     <select id="selectPageList" resultMap="DtoResultMap">
         select cg.*, u.real_name as creator_name, u.id as user_id
         from ms_chat_group cg

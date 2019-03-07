@@ -48,6 +48,13 @@ public interface IMsChatGroupService extends IService<MsChatGroup> {
     List<MsChatGroupDto> list(String userId);
 
     /**
+     * 获取用户所在群组的id集合
+     * @param userId 用户id
+     * @return 群组id集合
+     */
+    List<String> listGroupIds(String userId);
+
+    /**
      * 分页查询信息
      * @param page page
      * @param param 实体信息

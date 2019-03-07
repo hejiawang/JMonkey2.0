@@ -93,6 +93,16 @@ public class MsChatGroupServiceImpl extends ServiceImpl<MsChatGroupMapper, MsCha
     }
 
     /**
+     * 获取用户所在群组的id集合
+     * @param userId 用户id
+     * @return 群组id集合
+     */
+    @Override
+    public List<String> listGroupIds(String userId) {
+        return mapper.listGroupIds(userId);
+    }
+
+    /**
      * 分页查询信息
      * @param page page
      * @param param 实体信息

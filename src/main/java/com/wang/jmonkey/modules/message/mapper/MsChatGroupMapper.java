@@ -34,6 +34,13 @@ public interface MsChatGroupMapper extends BaseMapper<MsChatGroup> {
     List<MsChatGroupDto> list(@Param("userId")String userId);
 
     /**
+     * 获取用户所在群组的id集合
+     * @param userId 用户id
+     * @return 群组id集合
+     */
+    List<String> listGroupIds(@Param("userId")String userId);
+
+    /**
      * 分页查询信息
      * @param param param
      * @return MsChatGroup
@@ -46,4 +53,5 @@ public interface MsChatGroupMapper extends BaseMapper<MsChatGroup> {
      * @return long
      */
     long selectPageTotal(MsChatGroupParam param);
+
 }

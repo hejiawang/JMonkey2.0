@@ -4,6 +4,7 @@ import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
 import com.wang.jmonkey.modules.message.model.entity.MsChatRead;
 import com.wang.jmonkey.modules.message.model.enums.MsChatHistoryTypeEnums;
 import com.wang.jmonkey.modules.message.service.IMsChatGroupMemberService;
+import com.wang.jmonkey.modules.message.service.IMsChatGroupService;
 import com.wang.jmonkey.modules.message.service.IMsChatHistoryService;
 import com.wang.jmonkey.modules.message.service.IMsChatReadService;
 import com.xiaoleilu.hutool.date.DateUtil;
@@ -37,6 +38,12 @@ public class MsChatImSocketHandler implements WebSocketHandler {
     private List<String> userIdList = new ArrayList<>();
 
     /**
+     * groupService
+     */
+    @Autowired
+    private IMsChatGroupService groupService;
+
+    /**
      * groupMemberService
      */
     @Autowired
@@ -61,10 +68,35 @@ public class MsChatImSocketHandler implements WebSocketHandler {
      */
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
+        String userId = webSocketSession.getAttributes().get("userId").toString();
+
         userList.add(webSocketSession);
-        userIdList.add(webSocketSession.getAttributes().get("userId").toString());
+        userIdList.add(userId);
 
         // 将消息未读的情况发送给这个刚登陆的用户
+        // 构建查询条件： 消息接收人是当前登录人或者是当前登录人所在的群组id
+        // List<String> groupIdList = groupService.listGroupIds(userId);
+        // groupIdList.add(userId);
+
+        /*
+        *
+        * 1、如果是私聊
+        *
+        *
+        * 2、如果是群聊
+        *
+        *
+        * */
+
+        // 消息读取状态表： 接收者是‘我’,谁给我发送的； senderId
+
+
+
+
+
+
+
+
 
 
 
@@ -98,13 +130,6 @@ public class MsChatImSocketHandler implements WebSocketHandler {
         if (imType.equals("Single")) sendSingle(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
         else sendGroup(senderId, senderName, senderPhoto, receiverId, receiverName, receiverImg, msg);
 
-        // 记录未读消息情况
-        if (!userIdList.contains(receiverId)) {
-            MsChatRead read = new MsChatRead()
-                    .setSender(senderId).setReceiver(receiverId).setType(imType.equals("Single") ? MsChatHistoryTypeEnums.Single : MsChatHistoryTypeEnums.Group);
-            readService.save(read);
-        }
-
         // 保存聊天记录
         MsChatHistory msChatHistory = new MsChatHistory()
                 .setMsg(message).setReceiver(receiverId).setSender(senderId)
@@ -134,6 +159,13 @@ public class MsChatImSocketHandler implements WebSocketHandler {
                 }
             }
         });
+
+        // 记录未读消息情况
+        /*if (!userIdList.contains(receiverId)) {
+            MsChatRead read = new MsChatRead()
+                    .setSender(senderId).setReceiver(receiverId).setType(MsChatHistoryTypeEnums.Single);
+            readService.save(read);
+        }*/
     }
 
     /**

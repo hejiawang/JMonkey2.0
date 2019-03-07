@@ -29,7 +29,7 @@ public class MsChatRead extends BaseEntity<MsChatRead> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 消息发送者
+     * 消息发送者,人获取群组id
      */
     @TableId(type = IdType.INPUT)
     private String sender;
