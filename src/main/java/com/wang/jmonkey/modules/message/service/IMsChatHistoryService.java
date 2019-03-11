@@ -23,4 +23,11 @@ public interface IMsChatHistoryService extends IService<MsChatHistory> {
      * @return MsChatImHistoryDto
      */
     Page<MsChatImHistoryDto> list(Page<MsChatImHistoryDto> page, MsChatImHistoryParam param);
+
+    /**
+     * 清空clearDate时间以前的聊天记录
+     * @param clearDate 时间
+     * @return int
+     */
+    int clearOldByDate(String clearDate);
 }

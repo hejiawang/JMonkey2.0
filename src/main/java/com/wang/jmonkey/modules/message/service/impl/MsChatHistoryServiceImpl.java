@@ -84,4 +84,14 @@ public class MsChatHistoryServiceImpl extends ServiceImpl<MsChatHistoryMapper, M
         Collections.reverse(historyList);   // 反转顺序
         return historyList;
     }
+
+    /**
+     * 清空clearDate时间以前的聊天记录
+     * @param clearDate 时间
+     * @return int
+     */
+    @Override
+    public int clearOldByDate(String clearDate) {
+        return mapper.clearOldByDate(clearDate);
+    }
 }

@@ -4,6 +4,7 @@ import com.wang.jmonkey.modules.message.model.dto.MsChatImHistoryDto;
 import com.wang.jmonkey.modules.message.model.entity.MsChatHistory;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.wang.jmonkey.modules.message.model.param.MsChatImHistoryParam;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -44,4 +45,11 @@ public interface MsChatHistoryMapper extends BaseMapper<MsChatHistory> {
      * @return
      */
     long listSingleTotal(MsChatImHistoryParam param);
+
+    /**
+     * 清空clearDate时间以前的聊天记录
+     * @param clearDate 时间
+     * @return int
+     */
+    int clearOldByDate(@Param("clearDate") String clearDate);
 }

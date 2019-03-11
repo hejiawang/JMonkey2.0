@@ -79,4 +79,9 @@
         )
     </select>
 
+    <delete id="clearOldByDate">
+        <![CDATA[
+        DELETE FROM ms_chat_history WHERE create_date <= #{clearDate}
+        ]]>
+    </delete>
 </mapper>
