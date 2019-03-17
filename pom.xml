@@ -34,6 +34,7 @@
         <commons-io.version>2.6</commons-io.version>
         <ttl.version>2.2.0</ttl.version>
         <quartz.version>2.2.3</quartz.version>
+        <poi.version>3.17</poi.version>
         <activiti.spring.boot.version>6.0.0</activiti.spring.boot.version>
         <kaptcha.version>0.0.9</kaptcha.version>
 
@@ -226,6 +227,24 @@
             <version>${quartz.version}</version>
         </dependency>
         <!-- quartz end -->
+
+        <!-- poi start -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!-- poi end -->
 
         <dependency>
             <groupId>org.activiti</groupId>
