@@ -1,13 +1,13 @@
 package com.wang.jmonkey.common.model.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import com.wang.jmonkey.common.model.BaseEnum;
 
 /**
  * @Description: 记录状态枚举
  * @Auther: HeJiawang
  * @Date: 2018/6/23
  */
-public enum RecordStatusEnum implements IEnum {
+public enum RecordStatusEnum implements BaseEnum {
 
     Used("Used", "启用"),
     Disable("Disable", "禁用"),
@@ -26,6 +26,7 @@ public enum RecordStatusEnum implements IEnum {
         return this.value;
     }
 
+    @Override
     public String getDesc(){
         return this.desc;
     }

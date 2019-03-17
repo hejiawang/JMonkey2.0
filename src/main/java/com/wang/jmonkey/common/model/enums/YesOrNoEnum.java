@@ -1,13 +1,13 @@
 package com.wang.jmonkey.common.model.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import com.wang.jmonkey.common.model.BaseEnum;
 
 /**
  * @Description: Yes No
  * @Auther: HeJiawang
  * @Date: 2018/12/10
  */
-public enum YesOrNoEnum implements IEnum {
+public enum YesOrNoEnum implements BaseEnum {
 
     Yes("Yes", "是"),
     No("No", "否"),
@@ -26,6 +26,7 @@ public enum YesOrNoEnum implements IEnum {
         return this.value;
     }
 
+    @Override
     public String getDesc(){
         return this.desc;
     }

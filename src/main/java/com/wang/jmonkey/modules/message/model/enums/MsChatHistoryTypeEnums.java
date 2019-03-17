@@ -1,13 +1,13 @@
 package com.wang.jmonkey.modules.message.model.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import com.wang.jmonkey.common.model.BaseEnum;
 
 /**
  * @Description: 聊天类型 Single私聊 group群聊
  * @Auther: HeJiawang
  * @Date: 2019/2/23
  */
-public enum MsChatHistoryTypeEnums implements IEnum {
+public enum MsChatHistoryTypeEnums implements BaseEnum {
 
     Single("Single", "私聊"),
     Group("Group", "群聊");
@@ -25,6 +25,7 @@ public enum MsChatHistoryTypeEnums implements IEnum {
         return this.value;
     }
 
+    @Override
     public String getDesc(){
         return this.desc;
     }

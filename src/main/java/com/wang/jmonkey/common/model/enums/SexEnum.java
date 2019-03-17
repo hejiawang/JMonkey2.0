@@ -1,13 +1,13 @@
 package com.wang.jmonkey.common.model.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import com.wang.jmonkey.common.model.BaseEnum;
 
 /**
  * @Description: 性别
  * @Auther: HeJiawang
  * @Date: 2019/3/17
  */
-public enum SexEnum implements IEnum {
+public enum SexEnum implements BaseEnum {
 
     Man("Man", "男"),
     Woman("Woman", "女"),
@@ -26,6 +26,7 @@ public enum SexEnum implements IEnum {
         return this.value;
     }
 
+    @Override
     public String getDesc(){
         return this.desc;
     }

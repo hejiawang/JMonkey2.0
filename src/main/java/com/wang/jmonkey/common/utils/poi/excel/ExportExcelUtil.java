@@ -1,5 +1,6 @@
 package com.wang.jmonkey.common.utils.poi.excel;
 
+import com.wang.jmonkey.common.model.BaseEnum;
 import com.wang.jmonkey.common.utils.poi.annotation.ExcelField;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -117,6 +118,8 @@ public class ExportExcelUtil {
             cell.setCellValue((Double) val);
         } else if (val instanceof Float) {
             cell.setCellValue((Float) val);
+        } else if (val instanceof BaseEnum) {
+            cell.setCellValue(((BaseEnum) val).getDesc());
         } else if (val instanceof Date) {
             DataFormat format = wb.createDataFormat();
             style.setDataFormat(format.getFormat("yyyy-MM-dd"));

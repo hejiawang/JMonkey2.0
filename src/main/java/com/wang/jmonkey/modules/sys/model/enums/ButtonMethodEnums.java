@@ -1,13 +1,13 @@
 package com.wang.jmonkey.modules.sys.model.enums;
 
-import com.baomidou.mybatisplus.enums.IEnum;
+import com.wang.jmonkey.common.model.BaseEnum;
 
 /**
  * @Description: 按钮请求方式
  * @Auther: HeJiawang
  * @Date: 2018/12/10
  */
-public enum ButtonMethodEnums implements IEnum {
+public enum ButtonMethodEnums implements BaseEnum {
 
     Get("Get", "Get"),
     Post("Post", "Post"),
@@ -27,6 +27,7 @@ public enum ButtonMethodEnums implements IEnum {
         return this.value;
     }
 
+    @Override
     public String getDesc(){
         return this.desc;
     }
