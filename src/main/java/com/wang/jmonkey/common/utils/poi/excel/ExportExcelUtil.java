@@ -69,6 +69,7 @@ public class ExportExcelUtil {
             headerList.add(t);
         });
 
+        // 初始化Excel
         new InitExcel(title, headerList);
     }
 
@@ -181,7 +182,7 @@ public class ExportExcelUtil {
 
         public InitExcel (String title, List<String> headerList) {
             wb = new SXSSFWorkbook(500);
-            sheet = wb.createSheet("Export");
+            sheet = wb.createSheet(title);
             styles = createStyles(wb);
 
             // Create title

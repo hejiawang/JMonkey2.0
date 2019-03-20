@@ -53,6 +53,8 @@ public class PermissionServiceImpl implements PermissionService {
         if (principal != null) {
             if (CollectionUtils.isEmpty(grantedAuthorityList)) return hasPermission;
 
+            request.setAttribute("dataScope", "dataScope test");
+
             Set<SysButton> urls = permissionInfo(grantedAuthorityList);
             for( SysButton button : urls ){
                 if (StringUtils.isNotEmpty(button.getUrl())

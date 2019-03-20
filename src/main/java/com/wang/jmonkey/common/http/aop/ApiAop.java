@@ -117,11 +117,15 @@ public class ApiAop {
             }
 
             if (isSave) {
-                SysLog sysLog = new SysLog().setUserName(username).setIp(request.getHeader("X-Real-IP"))
-                        .setUrl(request.getRequestURL().toString()).setHttpMethod(request.getMethod())
-                        .setClassMethod(pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName())
-                        .setParam(Arrays.toString(pjp.getArgs())).setHandleLength(String.valueOf(System.currentTimeMillis() - startTime));
-                rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
+                try {   // 避免mq链接失败时对业务模块有影响
+                    SysLog sysLog = new SysLog().setUserName(username).setIp(request.getHeader("X-Real-IP"))
+                            .setUrl(request.getRequestURL().toString()).setHttpMethod(request.getMethod())
+                            .setClassMethod(pjp.getSignature().getDeclaringTypeName() + "." + pjp.getSignature().getName())
+                            .setParam(Arrays.toString(pjp.getArgs())).setHandleLength(String.valueOf(System.currentTimeMillis() - startTime));
+                    rabbitTemplate.convertAndSend(MqQueueConstant.LOG_QUEUE, sysLog);
+                } catch (Throwable e) {
+                    log.error("异常信息：", e);
+                }
             }
 
             if (StringUtils.isNotEmpty(username)) UserUtils.clearAllUserInfo();

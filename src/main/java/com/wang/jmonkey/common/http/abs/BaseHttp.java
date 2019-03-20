@@ -27,11 +27,20 @@ public abstract class BaseHttp {
 
     protected HttpSession session;
 
+    /**
+     * 数据规则
+     */
+    protected String dataScope;
+
     @ModelAttribute
     public void setReqAndRes(HttpServletRequest request, HttpServletResponse response) {
         this.request = request;
         this.response = response;
         this.session = request.getSession();
+
+        // 获取数据规则
+        if (null != request.getAttribute("dataScope"))
+            this.dataScope = request.getAttribute("dataScope").toString();
     }
 
     /**
