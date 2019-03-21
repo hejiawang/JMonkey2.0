@@ -1,11 +1,13 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataRuleDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * <p>
@@ -38,4 +40,11 @@ public interface ISysRoleDataService extends IService<SysRoleData> {
      * @return Map<String, String>
      */
     Map<String, String> findByRole(String roleId);
+
+    /**
+     * 获取角色授权的数据规则
+     * @param roleCode 角色编码
+     * @return 数据规则
+     */
+    Set<SysRoleDataRuleDto> selectByRole(String roleCode);
 }

@@ -1,12 +1,14 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
 import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataConverDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataRuleDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * <p>
@@ -38,4 +40,11 @@ public interface SysRoleDataMapper extends BaseMapper<SysRoleData> {
      * @return
      */
     List<SysRoleDataConverDto> findByRole(@Param("roleId")String roleId);
+
+    /**
+     * 获取角色授权的数据规则
+     * @param roleCode 角色编码
+     * @return 数据规则
+     */
+    Set<SysRoleDataRuleDto> selectByRole(@Param("roleCode")String roleCode);
 }

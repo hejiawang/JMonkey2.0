@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
 import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataConverDto;
+import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataRuleDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.wang.jmonkey.modules.sys.mapper.SysRoleDataMapper;
 import com.wang.jmonkey.modules.sys.service.ISysRoleDataService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * <p>
@@ -80,5 +82,15 @@ public class SysRoleDataServiceImpl extends ServiceImpl<SysRoleDataMapper, SysRo
         dtoList.forEach( dto -> result.put(dto.getScopeId(), dto.getRuleId()) );
 
         return result;
+    }
+
+    /**
+     * 获取角色授权的数据规则
+     * @param roleCode 角色编码
+     * @return 数据规则
+     */
+    @Override
+    public Set<SysRoleDataRuleDto> selectByRole(String roleCode) {
+        return mapper.selectByRole(roleCode);
     }
 }

@@ -31,4 +31,13 @@
         WHERE rd.delete_flag = 'Used' AND rd.role_id = #{roleId}
     </select>
 
+    <select id="selectByRole" resultType="com.wang.jmonkey.modules.sys.model.dto.SysRoleDataRuleDto">
+        select sr.sql_segment as sqlSegment, s.url as url
+        FROM sys_role_data rd
+        LEFT JOIN sys_role r on r.id = rd.role_id AND r.delete_flag = 'Used'
+        LEFT JOIN sys_data_scope_rule sr ON rd.rule_id = sr.id AND sr.delete_flag = 'Used'
+        LEFT JOIN sys_data_scope s on s.id = sr.scope_id AND s.delete_flag = 'Used'
+        WHERE rd.delete_flag = 'Used' AND r.code = #{roleCode}
+    </select>
+
 </mapper>
