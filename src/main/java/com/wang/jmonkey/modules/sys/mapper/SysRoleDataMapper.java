@@ -1,10 +1,12 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysRoleDataConverDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -22,4 +24,18 @@ public interface SysRoleDataMapper extends BaseMapper<SysRoleData> {
      * @return num
      */
     int deleteByScopeId(@Param("scopeId") Serializable scopeId);
+
+    /**
+     * 删除角色已经授权的数据规则
+     * @param roleId 角色id
+     * @return num
+     */
+    int deleteByRoleId(@Param("roleId")String roleId);
+
+    /**
+     *
+     * @param roleId
+     * @return
+     */
+    List<SysRoleDataConverDto> findByRole(@Param("roleId")String roleId);
 }

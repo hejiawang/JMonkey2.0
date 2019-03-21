@@ -1,7 +1,10 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.baomidou.mybatisplus.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,4 +29,10 @@ public interface ISysDataScopeService extends IService<SysDataScope> {
      * @return Boolean
      */
     Boolean checkUrl(SysDataScope dataScope);
+
+    /**
+     * 获取数据规则信息
+     * @return List<SysDataScopeDto>
+     */
+    List<SysDataScopeDto> listDto();
 }

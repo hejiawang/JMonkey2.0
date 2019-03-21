@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.wang.jmonkey.modules.sys.service.ISysDataScopeService;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Description: 获取数据规则定义 api
@@ -34,6 +36,15 @@ public class SysDataScopeApi extends BaseHttp {
     public HttpPageResult<SysDataScope> list(Page<SysDataScope> page) {
         EntityWrapper wrapper = new EntityWrapper<SysDataScope>();
         return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    }
+
+    /**
+     * 获取数据规则信息
+     * @return List<SysDataScopeDto>
+     */
+    @GetMapping(value = "/listDto")
+    public HttpResult<List<SysDataScopeDto>> listDto() {
+        return new HttpResult<>(service.listDto());
     }
 
     /**

@@ -4,6 +4,8 @@ import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -21,4 +23,19 @@ public interface ISysRoleDataService extends IService<SysRoleData> {
      * @return true
      */
     boolean deleteByScopeId(Serializable id);
+
+    /**
+     * 为角色授权数据规则
+     * @param roleId roleId
+     * @param ruleIds ruleIds
+     * @return Boolean
+     */
+    boolean auth(String roleId, List<String> ruleIds);
+
+    /**
+     * 获取角色授权的数据规则
+     * @param roleId 角色id
+     * @return Map<String, String>
+     */
+    Map<String, String> findByRole(String roleId);
 }

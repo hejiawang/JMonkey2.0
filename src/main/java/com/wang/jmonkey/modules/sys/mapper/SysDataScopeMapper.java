@@ -1,7 +1,10 @@
 package com.wang.jmonkey.modules.sys.mapper;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,4 +29,10 @@ public interface SysDataScopeMapper extends BaseMapper<SysDataScope> {
      * @return int
      */
     int checkUrl(SysDataScope dataScope);
+
+    /**
+     * 获取数据规则信息
+     * @return List<SysDataScopeDto>
+     */
+    List<SysDataScopeDto> listDto();
 }

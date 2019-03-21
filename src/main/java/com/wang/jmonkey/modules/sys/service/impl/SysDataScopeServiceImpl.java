@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.sys.service.impl;
 
+import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.wang.jmonkey.modules.sys.mapper.SysDataScopeMapper;
 import com.wang.jmonkey.modules.sys.service.ISysDataScopeRuleService;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -72,5 +74,14 @@ public class SysDataScopeServiceImpl extends ServiceImpl<SysDataScopeMapper, Sys
     @Override
     public Boolean checkUrl(SysDataScope dataScope) {
         return mapper.checkUrl(dataScope) > 0;
+    }
+
+    /**
+     * 获取数据规则信息
+     * @return List<SysDataScopeDto>
+     */
+    @Override
+    public List<SysDataScopeDto> listDto() {
+        return mapper.listDto();
     }
 }

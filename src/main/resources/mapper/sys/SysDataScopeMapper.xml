@@ -15,6 +15,13 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto" extends="BaseResultMap">
+        <collection property="ruleList" ofType="com.wang.jmonkey.modules.sys.model.entity.SysDataScopeRule">
+            <id column="rule_id" property="id" />
+            <result column="rule_name" property="name" />
+        </collection>
+    </resultMap>
+
     <select id="checkName" resultType="java.lang.Integer">
         SELECT COUNT(1)
         FROM sys_data_scope
@@ -33,6 +40,13 @@
         <if test=" id != '' and id != null">
             AND id != #{id}
         </if>
+    </select>
+
+    <select id="listDto" resultMap="DtoResultMap">
+        select s.*, r.id as rule_id, r.name as rule_name
+        FROM sys_data_scope s
+        LEFT JOIN sys_data_scope_rule r on s.id = r.scope_id AND r.delete_flag = 'Used'
+        WHERE s.delete_flag = 'Used'
     </select>
 
 </mapper>

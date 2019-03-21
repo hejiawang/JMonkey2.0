@@ -1,17 +1,14 @@
 package com.wang.jmonkey.modules.sys.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
-import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
-import com.wang.jmonkey.modules.sys.model.entity.SysRoleData;
 import com.wang.jmonkey.modules.sys.service.ISysRoleDataService;
 
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Description: 角色数据规则表 api
@@ -26,56 +23,24 @@ public class SysRoleDataApi extends BaseHttp {
     private ISysRoleDataService service;
 
     /**
-     * 分页查询信息
-     * @param page page
-     * @param entity 实体信息
-     * @return
+     * 获取角色授权的数据规则
+     * @param roleId 角色id
+     * @return Map<String, String> key: dataScopeId value: ruleId
      */
-    @GetMapping(value = "/list")
-    public HttpPageResult<SysRoleData> list(Page<SysRoleData> page, SysRoleData entity) {
-        EntityWrapper wrapper = new EntityWrapper<SysRoleData>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    @GetMapping(value = "/findByRole/{roleId}")
+    public HttpResult<Map<String, String>> findByRole(@PathVariable String roleId ){
+        return new HttpResult<>(service.findByRole(roleId));
     }
 
     /**
-     * 保存实体信息
-     * @param entity 实体信息
-     * @return
+     * 为角色授权数据规则
+     * @param roleId roleId
+     * @param ruleIds ruleIds
+     * @return Boolean
      */
-    @PostMapping(value = "/save")
-    public HttpResult<Boolean> save( @RequestBody SysRoleData entity ){
-        return new HttpResult<>(service.insert(entity));
-    }
-
-    /**
-     * 修改实体信息
-     * @param entity 实体信息
-     * @return
-     */
-    @PutMapping(value = "/modify")
-    public HttpResult<Boolean> modify( @RequestBody SysRoleData entity ){
-        return new HttpResult<>(service.updateById(entity));
-    }
-
-    /**
-     * 删除实体信息
-     * @param id 实体ID
-     * @return
-     */
-    @DeleteMapping(value = "/delete/{id}")
-    public HttpResult<Boolean> delete( @PathVariable Serializable id ){
-        return new HttpResult<>(service.deleteById(id));
-    }
-
-    /**
-     * 查找实体信息
-     * @param id 实体ID
-     * @return
-     */
-    @GetMapping(value = "/find/{id}")
-    public HttpResult<SysRoleData> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    @PostMapping(value = "/auth")
+    public HttpResult<Boolean> auth( String roleId, @RequestParam(value = "ruleIds[]", required=false ) List<String> ruleIds ){
+        return new HttpResult<>(service.auth(roleId, ruleIds));
     }
 
 }
