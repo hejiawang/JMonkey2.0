@@ -13,4 +13,17 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface ISysDataScopeService extends IService<SysDataScope> {
 
+    /**
+     * 校验名称是否存在
+     * @param dataScope
+     * @return Boolean
+     */
+    Boolean checkName(SysDataScope dataScope);
+
+    /**
+     * 校验拦截路径是否重复
+     * @param dataScope
+     * @return Boolean
+     */
+    Boolean checkUrl(SysDataScope dataScope);
 }

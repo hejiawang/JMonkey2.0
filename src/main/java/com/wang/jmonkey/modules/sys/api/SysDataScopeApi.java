@@ -28,13 +28,11 @@ public class SysDataScopeApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<SysDataScope> list(Page<SysDataScope> page, SysDataScope entity) {
+    public HttpPageResult<SysDataScope> list(Page<SysDataScope> page) {
         EntityWrapper wrapper = new EntityWrapper<SysDataScope>();
-
         return new HttpPageResult<>( service.selectPage( page, wrapper ) );
     }
 
@@ -78,4 +76,23 @@ public class SysDataScopeApi extends BaseHttp {
         return new HttpResult<>(service.selectById(id));
     }
 
+    /**
+     * 校验名称是否存在
+     * @param dataScope
+     * @return Boolean
+     */
+    @PostMapping(value = "/checkName")
+    public HttpResult<Boolean> checkName( @RequestBody SysDataScope dataScope){
+        return new HttpResult<>(service.checkName(dataScope));
+    }
+
+    /**
+     * 校验拦截路径是否重复
+     * @param dataScope
+     * @return Boolean
+     */
+    @PostMapping(value = "/checkUrl")
+    public HttpResult<Boolean> checkUrl( @RequestBody SysDataScope dataScope){
+        return new HttpResult<>(service.checkUrl(dataScope));
+    }
 }

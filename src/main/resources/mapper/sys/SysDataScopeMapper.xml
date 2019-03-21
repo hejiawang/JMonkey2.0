@@ -15,4 +15,24 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <select id="checkName" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM sys_data_scope
+        WHERE delete_flag = 'Used'
+        AND name = #{name}
+        <if test=" id != '' and id != null">
+            AND id != #{id}
+        </if>
+    </select>
+
+    <select id="checkUrl" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM sys_data_scope
+        WHERE delete_flag = 'Used'
+        AND url = #{url}
+        <if test=" id != '' and id != null">
+            AND id != #{id}
+        </if>
+    </select>
+
 </mapper>

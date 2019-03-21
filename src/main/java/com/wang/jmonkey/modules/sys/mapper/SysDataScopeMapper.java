@@ -13,4 +13,17 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface SysDataScopeMapper extends BaseMapper<SysDataScope> {
 
+    /**
+     * 校验名称是否存在
+     * @param dataScope
+     * @return int
+     */
+    int checkName(SysDataScope dataScope);
+
+    /**
+     * 校验拦截路径是否重复
+     * @param dataScope
+     * @return int
+     */
+    int checkUrl(SysDataScope dataScope);
 }
