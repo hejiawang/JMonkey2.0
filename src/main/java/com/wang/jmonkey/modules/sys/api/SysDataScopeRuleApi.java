@@ -33,9 +33,7 @@ public class SysDataScopeRuleApi extends BaseHttp {
      */
     @GetMapping(value = "/list")
     public HttpPageResult<SysDataScopeRule> list(Page<SysDataScopeRule> page, SysDataScopeRule entity) {
-        EntityWrapper wrapper = new EntityWrapper<SysDataScopeRule>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+        return new HttpPageResult<>( service.selectPageList( page, entity ) );
     }
 
     /**
