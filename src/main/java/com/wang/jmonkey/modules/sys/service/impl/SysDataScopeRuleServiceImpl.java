@@ -8,6 +8,8 @@ import com.wang.jmonkey.modules.sys.service.ISysDataScopeRuleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * 数据规则 服务实现类
@@ -31,5 +33,17 @@ public class SysDataScopeRuleServiceImpl extends ServiceImpl<SysDataScopeRuleMap
         wrapper.setEntity(entity);
 
         return super.selectPage(page, wrapper);
+    }
+
+    /**
+     * 根据数据规则id删除数据规则定义信息
+     * @param id 数据规则id
+     * @return true
+     */
+    @Override
+    public boolean deleteByScopeId(Serializable id) {
+        EntityWrapper wrapper = new EntityWrapper<SysDataScopeRule>();
+        wrapper.setEntity(new SysDataScopeRule().setScopeId(String.valueOf(id)));
+        return super.delete(wrapper);
     }
 }

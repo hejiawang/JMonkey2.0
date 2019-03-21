@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScopeRule;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * 数据规则 服务类
@@ -21,4 +23,11 @@ public interface ISysDataScopeRuleService extends IService<SysDataScopeRule> {
      * @return
      */
     Page<SysDataScopeRule> selectPageList(Page<SysDataScopeRule> page, SysDataScopeRule entity);
+
+    /**
+     * 根据数据规则id删除数据规则定义信息
+     * @param id 数据规则id
+     * @return true
+     */
+    boolean deleteByScopeId(Serializable id);
 }

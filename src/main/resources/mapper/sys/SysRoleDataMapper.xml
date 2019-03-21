@@ -14,4 +14,9 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <delete id="deleteByScopeId">
+        DELETE FROM sys_role_data WHERE rule_id in (
+            select id FROM sys_data_scope_rule WHERE scope_id = #{scopeId}
+        )
+    </delete>
 </mapper>
