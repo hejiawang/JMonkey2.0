@@ -121,10 +121,7 @@ public class SysDataScopeServiceImpl extends ServiceImpl<SysDataScopeMapper, Sys
     @Override
     public Page<SysDataScope> list(Page<SysDataScope> page, String dataScope) {
         EntityWrapper wrapper = new EntityWrapper<SysDataScope>();
-        if (!StringUtils.isEmpty(dataScope)) {
-            if ( "desc".equals(dataScope) ) wrapper.orderBy("create_date", false);
-            else wrapper.orderBy("create_date", true);
-        }
+        if (!StringUtils.isEmpty(dataScope)) wrapper.orderBy("create_date", "desc".equals(dataScope));
 
         return super.selectPage(page, wrapper);
     }
