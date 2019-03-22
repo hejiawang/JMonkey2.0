@@ -6,6 +6,7 @@ import com.wang.jmonkey.modules.sys.model.entity.SysDataScopeRule;
 import com.wang.jmonkey.modules.sys.mapper.SysDataScopeRuleMapper;
 import com.wang.jmonkey.modules.sys.service.ISysDataScopeRuleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -45,5 +46,38 @@ public class SysDataScopeRuleServiceImpl extends ServiceImpl<SysDataScopeRuleMap
         EntityWrapper wrapper = new EntityWrapper<SysDataScopeRule>();
         wrapper.setEntity(new SysDataScopeRule().setScopeId(String.valueOf(id)));
         return super.delete(wrapper);
+    }
+
+    /**
+     * Override insert
+     * @param entity SysDataScopeRule
+     * @return boolean
+     */
+    @CacheEvict(value = "data_scope_rule", allEntries = true)
+    @Override
+    public boolean insert(SysDataScopeRule entity) {
+        return super.insert(entity);
+    }
+
+    /**
+     * Override deleteById
+     * @param id id
+     * @return boolean
+     */
+    @CacheEvict(value = "data_scope_rule", allEntries = true)
+    @Override
+    public boolean deleteById(Serializable id) {
+        return super.deleteById(id);
+    }
+
+    /**
+     * Override updateById
+     * @param entity SysDataScopeRule
+     * @return boolean
+     */
+    @CacheEvict(value = "data_scope_rule", allEntries = true)
+    @Override
+    public boolean updateById(SysDataScopeRule entity) {
+        return super.updateById(entity);
     }
 }

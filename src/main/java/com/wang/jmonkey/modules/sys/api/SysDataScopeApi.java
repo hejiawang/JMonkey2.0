@@ -9,6 +9,7 @@ import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.wang.jmonkey.modules.sys.service.ISysDataScopeService;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -34,8 +35,7 @@ public class SysDataScopeApi extends BaseHttp {
      */
     @GetMapping(value = "/list")
     public HttpPageResult<SysDataScope> list(Page<SysDataScope> page) {
-        EntityWrapper wrapper = new EntityWrapper<SysDataScope>();
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+        return new HttpPageResult<>( service.list(page, dataScope) );
     }
 
     /**

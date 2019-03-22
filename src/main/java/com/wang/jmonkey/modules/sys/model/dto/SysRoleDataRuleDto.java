@@ -3,6 +3,8 @@ package com.wang.jmonkey.modules.sys.model.dto;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 /**
  * 数据规则 Dto
  * @author HeJiawang
@@ -10,7 +12,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class SysRoleDataRuleDto {
+public class SysRoleDataRuleDto implements Serializable {
 
     /**
      * 请求链接

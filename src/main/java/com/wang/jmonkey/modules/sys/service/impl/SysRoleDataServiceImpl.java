@@ -8,6 +8,8 @@ import com.wang.jmonkey.modules.sys.service.ISysRoleDataService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -37,6 +39,7 @@ public class SysRoleDataServiceImpl extends ServiceImpl<SysRoleDataMapper, SysRo
      * @param id 数据规则id
      * @return true
      */
+    @CacheEvict(value = "data_scope_rule", allEntries = true)
     @Override
     public boolean deleteByScopeId(Serializable id) {
         return mapper.deleteByScopeId(id) >= 0;
@@ -57,6 +60,7 @@ public class SysRoleDataServiceImpl extends ServiceImpl<SysRoleDataMapper, SysRo
      * @param ruleIds ruleIds
      * @return Boolean
      */
+    @CacheEvict(value = "data_scope_rule", allEntries = true)
     @Override
     public boolean auth(String roleId, List<String> ruleIds) {
         Boolean result = this.deleteByRoleId(roleId);
@@ -89,6 +93,7 @@ public class SysRoleDataServiceImpl extends ServiceImpl<SysRoleDataMapper, SysRo
      * @param roleCode 角色编码
      * @return 数据规则
      */
+    @Cacheable(value = "data_scope_rule", key = "#roleCode  + '_data_rule'")
     @Override
     public Set<SysRoleDataRuleDto> selectByRole(String roleCode) {
         return mapper.selectByRole(roleCode);

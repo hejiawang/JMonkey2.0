@@ -1,5 +1,7 @@
 package com.wang.jmonkey.modules.sys.service;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.sys.model.dto.SysDataScopeDto;
 import com.wang.jmonkey.modules.sys.model.entity.SysDataScope;
 import com.baomidou.mybatisplus.service.IService;
@@ -35,4 +37,12 @@ public interface ISysDataScopeService extends IService<SysDataScope> {
      * @return List<SysDataScopeDto>
      */
     List<SysDataScopeDto> listDto();
+
+    /**
+     * page list
+     * @param page
+     * @param dataScope
+     * @return
+     */
+    Page<SysDataScope> list(Page<SysDataScope> page, String dataScope);
 }
