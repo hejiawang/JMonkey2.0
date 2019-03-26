@@ -1,10 +1,9 @@
 package com.wang.jmonkey.modules.ieg.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
-import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.ieg.model.dto.IegMajorDto;
+import com.wang.jmonkey.modules.ieg.model.dto.IegMajorTreeDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegMajor;
 import com.wang.jmonkey.modules.ieg.service.IIegMajorService;
 
@@ -27,16 +26,13 @@ public class IegMajorApi extends BaseHttp {
     private IIegMajorService service;
 
     /**
-     * 分页查询信息
-     * @param page page
-     * @param entity 实体信息
-     * @return
+     * 获取树形数据
+     * @param major 专业信息
+     * @return 专业树
      */
-    @GetMapping(value = "/list")
-    public HttpPageResult<IegMajor> list(Page<IegMajor> page, IegMajor entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegMajor>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    @GetMapping(value = "/tree")
+    public HttpResult<List<IegMajorTreeDto>> tree(IegMajor major) {
+        return new HttpResult<>( service.tree(major) );
     }
 
     /**
@@ -74,9 +70,9 @@ public class IegMajorApi extends BaseHttp {
      * @param id 实体ID
      * @return
      */
-    @GetMapping(value = "/find/{id}")
-    public HttpResult<IegMajor> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    @GetMapping(value = "/findDto/{id}")
+    public HttpResult<IegMajorDto> findDtoById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.selectDtoById(id));
     }
 
 }

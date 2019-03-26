@@ -1,7 +1,10 @@
 package com.wang.jmonkey.modules.ieg.mapper;
 
+import com.wang.jmonkey.modules.ieg.model.dto.IegMajorTreeDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegMajor;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface IegMajorMapper extends BaseMapper<IegMajor> {
 
+    /**
+     * 获取树形数据
+     * @param major 专业信息
+     * @return 专业树
+     */
+    List<IegMajorTreeDto> tree(IegMajor major);
 }

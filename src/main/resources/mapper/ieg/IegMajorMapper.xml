@@ -5,12 +5,6 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wang.jmonkey.modules.ieg.model.entity.IegMajor">
         <id column="id" property="id" />
-    <result column="create_date" property="createDate" />
-    <result column="create_by" property="createBy" />
-    <result column="update_date" property="updateDate" />
-    <result column="update_by" property="updateBy" />
-    <result column="remark" property="remark" />
-    <result column="delete_flag" property="deleteFlag" />
         <result column="parent_id" property="parentId" />
         <result column="degree_type" property="degreeType" />
         <result column="level_type" property="levelType" />
@@ -30,6 +24,26 @@
         <result column="ratio_assess_study" property="ratioAssessStudy" />
         <result column="ratio_assess_shool" property="ratioAssessShool" />
         <result column="ratio_assess_difficulty" property="ratioAssessDifficulty" />
+        <result column="create_date" property="createDate" />
+        <result column="create_by" property="createBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="remark" property="remark" />
+        <result column="delete_flag" property="deleteFlag" />
     </resultMap>
+
+    <resultMap id="TreeDtoResultMap" type="com.wang.jmonkey.modules.ieg.model.dto.IegMajorTreeDto">
+        <id column="id" property="id" />
+        <result column="level_type" property="levelType" />
+        <result column="name" property="name" />
+    </resultMap>
+
+    <select id="tree" resultMap="TreeDtoResultMap">
+        SELECT id, parent_id, name
+        FROM ieg_major
+        WHERE delete_flag = 'Used'
+        AND degree_type = #{degreeType}
+        ORDER BY sort
+    </select>
 
 </mapper>
