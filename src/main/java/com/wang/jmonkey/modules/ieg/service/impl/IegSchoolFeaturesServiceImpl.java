@@ -49,4 +49,14 @@ public class IegSchoolFeaturesServiceImpl extends ServiceImpl<IegSchoolFeaturesM
 
         return result;
     }
+
+    /**
+     * 获取院校特征名称集合
+     * @param schoolId 院校id
+     * @return 特征名称集合
+     */
+    @Override
+    public List<String> selectFeatureNames(String schoolId) {
+        return mapper.selectFeatureNames(schoolId);
+    }
 }

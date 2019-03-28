@@ -6,8 +6,10 @@ import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolPageDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolParam;
+import com.wang.jmonkey.modules.ieg.model.param.IegSchoolSearchParam;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolService;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -38,14 +40,12 @@ public class IegSchoolApi extends BaseHttp {
     /**
      * 分页查询信息
      * @param page page
-     * @param entity 实体信息
+     * @param param 查询参数
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<IegSchool> list(Page<IegSchool> page, IegSchool entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegSchool>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpPageResult<IegSchoolPageDto> list(Page<IegSchoolPageDto> page, IegSchoolSearchParam param) {
+        return new HttpPageResult<>( service.pageList( page, param ) );
     }
 
     /**

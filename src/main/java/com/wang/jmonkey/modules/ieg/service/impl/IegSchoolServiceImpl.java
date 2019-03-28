@@ -1,10 +1,13 @@
 package com.wang.jmonkey.modules.ieg.service.impl;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolPageDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.wang.jmonkey.modules.ieg.mapper.IegSchoolMapper;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolDetail;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolParam;
+import com.wang.jmonkey.modules.ieg.model.param.IegSchoolSearchParam;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolDetailService;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolFeaturesService;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolService;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * <p>
@@ -85,5 +89,27 @@ public class IegSchoolServiceImpl extends ServiceImpl<IegSchoolMapper, IegSchool
     @Override
     public IegSchoolDto findDtoById(Serializable id) {
         return mapper.findDtoById(id);
+    }
+
+    /**
+     * 分页查询信息
+     * @param page page
+     * @param param 查询参数
+     * @return
+     */
+    @Override
+    public Page<IegSchoolPageDto> pageList(Page<IegSchoolPageDto> page, IegSchoolSearchParam param) {
+        int limitStart = page.getSize() * ( page.getCurrent() - 1 );
+
+        List<IegSchoolPageDto> schoolPageDtoList = mapper.pageList(param, limitStart, page.getSize());
+        schoolPageDtoList.forEach( schoolPageDto ->
+            schoolPageDto.setFeatureNames(featuresService.selectFeatureNames(schoolPageDto.getId()))
+        );
+
+        page.setRecords( schoolPageDtoList )
+                .setTotal( mapper.pageCount(param) )
+                .setCurrent( page.getCurrent() )
+                .setSize( page.getSize() );
+        return page;
     }
 }

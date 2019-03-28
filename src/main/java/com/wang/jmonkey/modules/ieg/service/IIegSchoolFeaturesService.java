@@ -22,4 +22,11 @@ public interface IIegSchoolFeaturesService extends IService<IegSchoolFeatures> {
      * @return true
      */
     boolean mergeList(List<String> features, String schoolId);
+
+    /**
+     * 获取院校特征名称集合
+     * @param schoolId 院校id
+     * @return 特征名称集合
+     */
+    List<String> selectFeatureNames(String schoolId);
 }

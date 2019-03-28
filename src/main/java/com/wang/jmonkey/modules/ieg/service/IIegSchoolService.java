@@ -1,9 +1,12 @@
 package com.wang.jmonkey.modules.ieg.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolPageDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolParam;
+import com.wang.jmonkey.modules.ieg.model.param.IegSchoolSearchParam;
 
 import java.io.Serializable;
 
@@ -37,4 +40,12 @@ public interface IIegSchoolService extends IService<IegSchool> {
      * @return IegSchoolDto
      */
     IegSchoolDto findDtoById(Serializable id);
+
+    /**
+     * 分页查询信息
+     * @param page page
+     * @param param 查询参数
+     * @return
+     */
+    Page<IegSchoolPageDto> pageList(Page<IegSchoolPageDto> page, IegSchoolSearchParam param);
 }
