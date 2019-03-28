@@ -39,9 +39,17 @@ public class IegSchool extends BaseEntity<IegSchool> {
      */
     private String name;
     /**
-     * 院校所在地
+     * 院校所在地——省
      */
-    private String area;
+    private String areaProvince;
+    /**
+     * 院校所在地——市
+     */
+    private String areaCity;
+    /**
+     * 院校所在地——区
+     */
+    private String areaArea;
     /**
      * 院校所在地详细地址
      */
@@ -91,7 +99,10 @@ public class IegSchool extends BaseEntity<IegSchool> {
      * 满意度——教育
      */
     private Double ratioSatisfyEdu;
-
+    /**
+     * 满意度——就业
+     */
+    private Double ratioSatisfyWork;
 
     @Override
     protected Serializable pkVal() {

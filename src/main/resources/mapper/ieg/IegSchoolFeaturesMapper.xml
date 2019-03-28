@@ -15,4 +15,8 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <delete id="deleteBySchool">
+        DELETE FROM ieg_school_features WHERE school_id = #{schoolId}
+    </delete>
+
 </mapper>

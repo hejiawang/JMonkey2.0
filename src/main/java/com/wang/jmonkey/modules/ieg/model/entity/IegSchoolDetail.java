@@ -52,7 +52,6 @@ public class IegSchoolDetail extends BaseEntity<IegSchoolDetail> {
      */
     private String scholarship;
 
-
     @Override
     protected Serializable pkVal() {
         return this.id;

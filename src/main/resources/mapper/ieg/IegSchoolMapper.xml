@@ -7,7 +7,9 @@
         <id column="id" property="id" />
         <result column="logo" property="logo" />
         <result column="name" property="name" />
-        <result column="area" property="area" />
+        <result column="area_province" property="areaProvince" />
+        <result column="area_city" property="areaCity" />
+        <result column="area_area" property="areaArea" />
         <result column="area_detail" property="areaDetail" />
         <result column="website" property="website" />
         <result column="phone" property="phone" />
@@ -20,6 +22,7 @@
         <result column="ratio_satisfy_environment" property="ratioSatisfyEnvironment" />
         <result column="ratio_satisfy_life" property="ratioSatisfyLife" />
         <result column="ratio_satisfy_edu" property="ratioSatisfyEdu" />
+        <result column="ratio_satisfy_work" property="ratioSatisfyWork" />
 
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />

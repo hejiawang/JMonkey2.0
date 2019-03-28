@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.mapper;
 
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolFeatures;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +14,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface IegSchoolFeaturesMapper extends BaseMapper<IegSchoolFeatures> {
 
+    /**
+     * 删除院校的特征
+     * @param schoolId schoolId
+     * @return int
+     */
+    int deleteBySchool(@Param("schoolId") String schoolId);
 }

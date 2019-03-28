@@ -36,3 +36,12 @@ jmonkey:
       history:
         clear: -7 #自动删除7天前的聊天记录
         backups: true #删除的聊天记录是否保存到Excel文件中
+  ieg:
+    school:
+      img:
+        logo: ${jmonkey.filePath}/ieg/school/logo/
+        describe: ${jmonkey.filePath}/ieg/school/describe/
+        faculty: ${jmonkey.filePath}/ieg/school/faculty/
+        life: ${jmonkey.filePath}/ieg/school/life/
+        environment: ${jmonkey.filePath}/ieg/school/environment/
+        scholarship: ${jmonkey.filePath}/ieg/school/scholarship/

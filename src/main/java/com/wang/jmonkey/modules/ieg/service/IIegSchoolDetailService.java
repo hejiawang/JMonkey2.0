@@ -13,4 +13,10 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IIegSchoolDetailService extends IService<IegSchoolDetail> {
 
+    /**
+     * 院校详细信息 merge
+     * @param schoolDetail schoolDetail
+     * @return true
+     */
+    boolean merge(IegSchoolDetail schoolDetail);
 }
