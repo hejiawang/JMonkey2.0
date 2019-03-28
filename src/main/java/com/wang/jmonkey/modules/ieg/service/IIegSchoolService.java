@@ -1,8 +1,11 @@
 package com.wang.jmonkey.modules.ieg.service;
 
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolParam;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -27,4 +30,11 @@ public interface IIegSchoolService extends IService<IegSchool> {
      * @return Boolean
      */
     Boolean modify(IegSchoolParam schoolParam);
+
+    /**
+     * 查找实体信息
+     * @param id 实体ID
+     * @return IegSchoolDto
+     */
+    IegSchoolDto findDtoById(Serializable id);
 }

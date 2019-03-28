@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.ieg.service.impl;
 
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.wang.jmonkey.modules.ieg.mapper.IegSchoolMapper;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolDetail;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * 报考指南——学校基本信息 服务实现类
@@ -22,6 +25,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class IegSchoolServiceImpl extends ServiceImpl<IegSchoolMapper, IegSchool> implements IIegSchoolService {
+
+    /**
+     * mapper
+     */
+    @Autowired
+    private IegSchoolMapper mapper;
 
     /**
      * detailService
@@ -66,5 +75,15 @@ public class IegSchoolServiceImpl extends ServiceImpl<IegSchoolMapper, IegSchool
                     schoolParam.getDetail().setSchoolId(school.getId())
                 )
                 && featuresService.mergeList(schoolParam.getFeatures(), school.getId());
+    }
+
+    /**
+     * 查找实体信息
+     * @param id 实体ID
+     * @return IegSchoolDto
+     */
+    @Override
+    public IegSchoolDto findDtoById(Serializable id) {
+        return mapper.findDtoById(id);
     }
 }

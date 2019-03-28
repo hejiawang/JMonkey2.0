@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolParam;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolService;
@@ -81,11 +82,11 @@ public class IegSchoolApi extends BaseHttp {
     /**
      * 查找实体信息
      * @param id 实体ID
-     * @return
+     * @return IegSchoolDto
      */
-    @GetMapping(value = "/find/{id}")
-    public HttpResult<IegSchool> findById(@PathVariable Serializable id ){
-        return new HttpResult<>(service.selectById(id));
+    @GetMapping(value = "/findDto/{id}")
+    public HttpResult<IegSchoolDto> findById(@PathVariable Serializable id ){
+        return new HttpResult<>(service.findDtoById(id));
     }
 
     /**

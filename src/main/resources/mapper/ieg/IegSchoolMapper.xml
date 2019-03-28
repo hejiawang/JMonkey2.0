@@ -32,4 +32,29 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.ieg.model.dto.IegSchoolDto" extends="BaseResultMap">
+        <association property="detail" javaType="com.wang.jmonkey.modules.ieg.model.entity.IegSchoolDetail">
+            <result column="detail_describe" property="describe" />
+            <result column="detail_faculty" property="faculty" />
+            <result column="detail_life" property="life" />
+            <result column="detail_environment" property="environment" />
+            <result column="detail_scholarship" property="scholarship" />
+        </association>
+        <collection property="features" ofType="java.lang.String">
+            <result column="features_type"/>
+        </collection>
+    </resultMap>
+
+    <select id="findDtoById" resultMap="DtoResultMap">
+        select s.*,
+            sd.`describe` as detail_describe, sd.environment as detail_environment,
+            sd.faculty as detail_faculty, sd.life as detail_life, sd.scholarship as detail_scholarship,
+            f.type as features_type
+        FROM ieg_school s
+        INNER JOIN ieg_school_detail sd ON s.id = sd.school_id AND sd.delete_flag = 'Used'
+        LEFT JOIN ieg_school_features f ON s.id = f.school_id AND f.delete_flag = 'Used'
+        WHERE s.delete_flag = 'Used'
+        AND s.id = #{id}
+    </select>
+
 </mapper>
