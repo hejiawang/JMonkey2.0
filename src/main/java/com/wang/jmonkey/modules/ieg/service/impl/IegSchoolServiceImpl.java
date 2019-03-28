@@ -44,11 +44,12 @@ public class IegSchoolServiceImpl extends ServiceImpl<IegSchoolMapper, IegSchool
     @Override
     public Boolean save(IegSchoolParam schoolParam) {
         IegSchool school = schoolParam.converToEntity();
-        IegSchoolDetail schoolDetail = schoolParam.converToDetail();
 
         return super.insert(school)
-                && detailService.merge(schoolDetail.setSchoolId(school.getId()))
-                && featuresService.mergeList(schoolParam.getFeatures(), school.getLogo());
+                && detailService.merge(
+                    schoolParam.getDetail().setSchoolId(school.getId())
+                )
+                && featuresService.mergeList(schoolParam.getFeatures(), school.getId());
     }
 
     /**
@@ -59,10 +60,11 @@ public class IegSchoolServiceImpl extends ServiceImpl<IegSchoolMapper, IegSchool
     @Override
     public Boolean modify(IegSchoolParam schoolParam) {
         IegSchool school = schoolParam.converToEntity();
-        IegSchoolDetail schoolDetail = schoolParam.converToDetail();
 
         return super.updateById(school)
-                && detailService.merge(schoolDetail.setSchoolId(school.getId()))
-                && featuresService.mergeList(schoolParam.getFeatures(), school.getLogo());
+                && detailService.merge(
+                    schoolParam.getDetail().setSchoolId(school.getId())
+                )
+                && featuresService.mergeList(schoolParam.getFeatures(), school.getId());
     }
 }

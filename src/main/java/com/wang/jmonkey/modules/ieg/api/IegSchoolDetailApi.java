@@ -39,22 +39,22 @@ public class IegSchoolDetailApi extends BaseHttp {
         }
 
         @Value("${jmonkey.ieg.school.img.faculty}")
-        public static void setFaculty(String faculty) {
+        public void setFaculty(String faculty) {
             ContentParam.faculty = faculty;
         }
 
         @Value("${jmonkey.ieg.school.img.life}")
-        public static void setLife(String life) {
+        public void setLife(String life) {
             ContentParam.life = life;
         }
 
         @Value("${jmonkey.ieg.school.img.environment}")
-        public static void setEnvironment(String environment) {
+        public void setEnvironment(String environment) {
             ContentParam.environment = environment;
         }
 
         @Value("${jmonkey.ieg.school.img.scholarship}")
-        public static void setScholarship(String scholarship) {
+        public void setScholarship(String scholarship) {
             ContentParam.scholarship = scholarship;
         }
     }
@@ -78,6 +78,9 @@ public class IegSchoolDetailApi extends BaseHttp {
      */
     @PostMapping("/file")
     public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile, String content ){
+        System.out.println(content);
+        System.out.println( contentMap.get(content));
+
         return super.uploadFile(uploadFile, contentMap.get(content));
     }
 }

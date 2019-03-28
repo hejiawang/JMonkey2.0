@@ -23,26 +23,11 @@ public class IegSchoolParam extends IegSchool {
      * 院校特性编码
      */
     public List<String> features;
+
     /**
-     * 学校简介
+     * 院校详细信息
      */
-    public String describe;
-    /**
-     * 学院简介
-     */
-    public String faculty;
-    /**
-     * 食宿条件
-     */
-    public String life;
-    /**
-     * 当地气候饮食情况
-     */
-    public String environment;
-    /**
-     * 奖学金设置
-     */
-    public String scholarship;
+    private IegSchoolDetail detail;
 
     /**
      * 转成院校基本信息
@@ -55,14 +40,4 @@ public class IegSchoolParam extends IegSchool {
         return school;
     }
 
-    /**
-     * 转成院校详细信息
-     * @return
-     */
-    public IegSchoolDetail converToDetail() {
-        IegSchoolDetail school = new IegSchoolDetail();
-        BeanUtils.copyProperties(this, school);
-
-        return school;
-    }
 }
