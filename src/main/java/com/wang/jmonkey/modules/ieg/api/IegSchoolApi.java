@@ -95,7 +95,7 @@ public class IegSchoolApi extends BaseHttp {
      * @return Boolean
      */
     @PostMapping("/logo")
-    public HttpResult<String> image(@RequestParam(value = "file") MultipartFile uploadFile ){
+    public HttpResult<String> logo(@RequestParam(value = "file") MultipartFile uploadFile ){
         return super.uploadFile(uploadFile, logoImage);
     }
 

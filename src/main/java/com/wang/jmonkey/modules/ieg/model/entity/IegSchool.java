@@ -86,7 +86,7 @@ public class IegSchool extends BaseEntity<IegSchool> {
     /**
      * 满意度
      */
-    private String satisfy;
+    private Double satisfy;
     /**
      * 满意度——环境
      */

@@ -45,3 +45,4 @@ jmonkey:
         life: ${jmonkey.filePath}/ieg/school/life/
         environment: ${jmonkey.filePath}/ieg/school/environment/
         scholarship: ${jmonkey.filePath}/ieg/school/scholarship/
+      faculty: ${jmonkey.filePath}/ieg/faculty/
