@@ -29,7 +29,7 @@ public class IegSchoolEnrollRecordServiceImpl extends ServiceImpl<IegSchoolEnrol
     public List<IegSchoolEnrollRecord> selectBySchool(IegSchoolEnrollRecord enrollRecord) {
         EntityWrapper<IegSchoolEnrollRecord> wrapper = new EntityWrapper<>();
         wrapper.setEntity(enrollRecord);
-        wrapper.orderBy("year");
+        wrapper.orderBy("year", false);
 
         return super.selectList(wrapper);
     }

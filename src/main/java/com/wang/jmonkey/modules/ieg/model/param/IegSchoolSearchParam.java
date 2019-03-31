@@ -11,4 +11,9 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class IegSchoolSearchParam {
+
+    /**
+     * 院校名称
+     */
+    private String name;
 }

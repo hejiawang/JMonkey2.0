@@ -68,6 +68,9 @@
         LEFT JOIN sys_dict attach ON attach.`value` = s.attach_type AND attach.delete_flag = 'Used'
         LEFT JOIN sys_dict major on major.`value` = s.major_type AND major.delete_flag = 'Used'
         WHERE s.delete_flag = 'Used'
+        <if test=" param.name != '' and param.name != null">
+            AND s.name like '%${param.name}%'
+        </if>
         ORDER BY s.sort
         LIMIT ${limitStart}, ${size}
     </select>
@@ -76,6 +79,9 @@
         SELECT count(1)
         FROM ieg_school s
         WHERE s.delete_flag = 'Used'
+        <if test=" name != '' and name != null">
+            AND s.name like '%${name}%'
+        </if>
     </select>
 
 </mapper>
