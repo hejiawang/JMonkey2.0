@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.service;
 
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
 import com.baomidou.mybatisplus.service.IService;
+import com.wang.jmonkey.modules.ieg.model.param.IegSchoolMajorParam;
 
 /**
  * <p>
@@ -13,4 +14,17 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IIegSchoolMajorService extends IService<IegSchoolMajor> {
 
+    /**
+     * 保存院校专业信息
+     * @param param 专业信息
+     * @return true
+     */
+    Boolean save(IegSchoolMajorParam param);
+
+    /**
+     * 修改院校专业信息
+     * @param param 专业信息
+     * @return true
+     */
+    Boolean modify(IegSchoolMajorParam param);
 }

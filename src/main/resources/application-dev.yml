@@ -48,3 +48,4 @@ jmonkey:
       faculty: ${jmonkey.filePath}/ieg/faculty/
       problem: ${jmonkey.filePath}/ieg/school/problem/
       enroll: ${jmonkey.filePath}/ieg/school/enroll/
+      major: ${jmonkey.filePath}/ieg/school/major/
