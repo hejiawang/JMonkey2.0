@@ -1,16 +1,16 @@
 package com.wang.jmonkey.modules.ieg.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
-import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajorProblem;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorProblemService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 
@@ -23,20 +23,26 @@ import java.util.List;
 @RequestMapping("/ieg/school/major/problem")
 public class IegSchoolMajorProblemApi extends BaseHttp {
 
+    /**
+     * service
+     */
     @Resource
     private IIegSchoolMajorProblemService service;
 
     /**
-     * 分页查询信息
-     * @param page page
-     * @param entity 实体信息
-     * @return
+     * 院系信息图片
+     */
+    @Value("${jmonkey.ieg.school.major-problem}")
+    private String filePath;
+
+    /**
+     * 查询信息
+     * @param problem problem
+     * @return List<IegSchoolMajorProblem>
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<IegSchoolMajorProblem> list(Page<IegSchoolMajorProblem> page, IegSchoolMajorProblem entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegSchoolMajorProblem>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpResult<List<IegSchoolMajorProblem>> list(IegSchoolMajorProblem problem) {
+        return new HttpResult<>( service.selectBySchool(problem) );
     }
 
     /**
@@ -79,4 +85,14 @@ public class IegSchoolMajorProblemApi extends BaseHttp {
         return new HttpResult<>(service.selectById(id));
     }
 
+    /**
+     * 信息图片
+     * @param uploadFile uploadFile
+     * @param schoolMajorId schoolMajorId
+     * @return String
+     */
+    @PostMapping("/file")
+    public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile, String schoolMajorId ){
+        return super.uploadFile(uploadFile, filePath + schoolMajorId + File.separator);
+    }
 }
