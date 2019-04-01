@@ -35,4 +35,41 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <resultMap id="DtoResultMap" type="com.wang.jmonkey.modules.ieg.model.dto.IegSchoolMajorDto" extends="BaseResultMap">
+        <result column="faculty_name" property="facultyName" />
+        <collection property="featureNames" ofType="java.lang.String">
+            <result column="features_name"/>
+        </collection>
+    </resultMap>
+
+    <select id="findMajorOneBySchool" resultType="com.wang.jmonkey.modules.ieg.model.entity.IegMajor">
+        select DISTINCT m_one.*
+        FROM ieg_school_major sm
+        INNER JOIN ieg_major m_three ON sm.major_id = m_three.id and m_three.delete_flag = 'Used'
+        INNER JOIN ieg_major m_two ON m_three.parent_id = m_two.id and m_two.delete_flag = 'Used'
+        INNER JOIN ieg_major m_one ON m_two.parent_id = m_one.id and m_one.delete_flag = 'Used'
+        WHERE sm.school_id = #{schoolId}
+        and sm.delete_flag = 'Used'
+    </select>
+
+    <select id="list" resultMap="DtoResultMap">
+        select sm.*, f.name as faculty_name, d.lable as features_name
+        FROM ieg_school_major sm
+        LEFT JOIN ieg_school_major_features smf on sm.id = smf.school_major_id AND smf.delete_flag = 'Used'
+        LEFT JOIN sys_dict d ON smf.type = d.`value` AND d.delete_flag = 'Used'
+        LEFT JOIN ieg_school_faculty f ON f.id = sm.faculty_id AND f.delete_flag = 'Used'
+        WHERE sm.delete_flag = 'Used'
+        AND sm.school_id = #{schoolId}
+        AND sm.major_id in (
+            select m_three.id
+            FROM ieg_major m_three
+            WHERE m_three.parent_id in (
+                select m_two.id
+                FROM ieg_major m_two
+                WHERE m_two.parent_id = #{majorOneId}
+            )
+        )
+        ORDER BY sort
+    </select>
+
 </mapper>

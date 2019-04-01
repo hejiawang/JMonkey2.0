@@ -19,6 +19,11 @@ import java.util.List;
 public class IegSchoolMajorParam extends IegSchoolMajor {
 
     /**
+     * 专业所属门类id
+     */
+    private String majorOneId;
+
+    /**
      * 院校专业特性编码
      */
     public List<String> features;

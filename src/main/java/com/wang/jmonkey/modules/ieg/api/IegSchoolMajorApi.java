@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolMajorDto;
+import com.wang.jmonkey.modules.ieg.model.entity.IegMajor;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolMajorParam;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorService;
@@ -16,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Description: 报考指南——学校历年录取信息 api
@@ -36,16 +39,13 @@ public class IegSchoolMajorApi extends BaseHttp {
     private String filePath;
 
     /**
-     * 分页查询信息
-     * @param page page
-     * @param entity 实体信息
-     * @return
+     * 院校专业list
+     * @param param param
+     * @return IegSchoolMajorDto
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<IegSchoolMajor> list(Page<IegSchoolMajor> page, IegSchoolMajor entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegSchoolMajor>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpResult<List<IegSchoolMajorDto>> list(IegSchoolMajorParam param ) {
+        return new HttpResult<>(service.list(param));
     }
 
     /**
@@ -97,6 +97,16 @@ public class IegSchoolMajorApi extends BaseHttp {
     @PostMapping("/file")
     public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile, String schoolId ){
         return super.uploadFile(uploadFile, filePath + schoolId + File.separator);
+    }
+
+    /**
+     * 获取院校中有哪些专业门类
+     * @param schoolId 院校id
+     * @return 专业门类
+     */
+    @GetMapping(value = "/findMajorOneBySchool")
+    public HttpResult<List<IegMajor>> findMajorOneBySchool(String schoolId) {
+        return new HttpResult<>(service.findMajorOneBySchool(schoolId));
     }
 
 }

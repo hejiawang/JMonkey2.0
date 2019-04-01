@@ -1,5 +1,7 @@
 package com.wang.jmonkey.modules.ieg.service.impl;
 
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolMajorDto;
+import com.wang.jmonkey.modules.ieg.model.entity.IegMajor;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
 import com.wang.jmonkey.modules.ieg.mapper.IegSchoolMajorMapper;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajorFeatures;
@@ -9,6 +11,8 @@ import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -20,6 +24,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IegSchoolMajorServiceImpl extends ServiceImpl<IegSchoolMajorMapper, IegSchoolMajor> implements IIegSchoolMajorService {
+
+    /**
+     * mapper
+     */
+    @Autowired
+    private IegSchoolMajorMapper mapper;
 
     /**
      * majorFeaturesService
@@ -51,5 +61,25 @@ public class IegSchoolMajorServiceImpl extends ServiceImpl<IegSchoolMajorMapper,
 
         return super.updateById(schoolMajor)
                 && majorFeaturesService.merge(schoolMajor.getId(), param.getFeatures());
+    }
+
+    /**
+     * 获取院校中有哪些专业门类
+     * @param schoolId 院校id
+     * @return 专业门类
+     */
+    @Override
+    public List<IegMajor> findMajorOneBySchool(String schoolId) {
+        return mapper.findMajorOneBySchool(schoolId);
+    }
+
+    /**
+     * 院校专业list
+     * @param param param
+     * @return IegSchoolMajorDto
+     */
+    @Override
+    public List<IegSchoolMajorDto> list(IegSchoolMajorParam param) {
+        return mapper.list(param);
     }
 }

@@ -1,8 +1,12 @@
 package com.wang.jmonkey.modules.ieg.service;
 
+import com.wang.jmonkey.modules.ieg.model.dto.IegSchoolMajorDto;
+import com.wang.jmonkey.modules.ieg.model.entity.IegMajor;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.ieg.model.param.IegSchoolMajorParam;
+
+import java.util.List;
 
 /**
  * <p>
@@ -27,4 +31,18 @@ public interface IIegSchoolMajorService extends IService<IegSchoolMajor> {
      * @return true
      */
     Boolean modify(IegSchoolMajorParam param);
+
+    /**
+     * 获取院校中有哪些专业门类
+     * @param schoolId 院校id
+     * @return 专业门类
+     */
+    List<IegMajor> findMajorOneBySchool(String schoolId);
+
+    /**
+     * 院校专业list
+     * @param param param
+     * @return IegSchoolMajorDto
+     */
+    List<IegSchoolMajorDto> list(IegSchoolMajorParam param);
 }
