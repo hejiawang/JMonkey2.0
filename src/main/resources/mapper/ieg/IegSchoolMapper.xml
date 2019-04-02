@@ -37,7 +37,6 @@
             <result column="detail_describe" property="describe" />
             <result column="detail_faculty" property="faculty" />
             <result column="detail_life" property="life" />
-            <result column="detail_environment" property="environment" />
             <result column="detail_scholarship" property="scholarship" />
         </association>
         <collection property="features" ofType="java.lang.String">
@@ -52,7 +51,7 @@
 
     <select id="findDtoById" resultMap="DtoResultMap">
         select s.*,
-            sd.`describe` as detail_describe, sd.environment as detail_environment,
+            sd.`describe` as detail_describe,
             sd.faculty as detail_faculty, sd.life as detail_life, sd.scholarship as detail_scholarship,
             f.type as features_type
         FROM ieg_school s

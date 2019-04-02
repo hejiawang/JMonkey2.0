@@ -1,7 +1,10 @@
 package com.wang.jmonkey.modules.ieg.model.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.wang.jmonkey.common.model.BaseEntity;
 
+import com.wang.jmonkey.modules.ieg.model.enums.IegGradeTypeEnums;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -10,16 +13,16 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 报考指南——学校详细信息
+ * 报考指南——一分一段表
  * </p>
  *
  * @author HeJiawang
- * @since 2019-03-27
+ * @since 2019-04-02
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-public class IegSchoolDetail extends BaseEntity<IegSchoolDetail> {
+public class IegGrade extends BaseEntity<IegGrade> {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,25 +31,27 @@ public class IegSchoolDetail extends BaseEntity<IegSchoolDetail> {
      */
     private String id;
     /**
-     * 学校基本信息ID
+     * 年
      */
-    private String schoolId;
+    private Integer year;
     /**
-     * 学校简介
+     * 分数
      */
-    private String describe;
+    private Integer score;
     /**
-     * 学院简介
+     * 人数
      */
-    private String faculty;
+    private Integer number;
     /**
-     * 食宿条件
+     * 累计排名
      */
-    private String life;
+    private Integer sort;
+
     /**
-     * 奖学金设置
+     * 类型 W文科 L理科
      */
-    private String scholarship;
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
+    private IegGradeTypeEnums type;
 
     @Override
     protected Serializable pkVal() {
