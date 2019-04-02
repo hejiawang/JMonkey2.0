@@ -13,4 +13,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface IegGradeMapper extends BaseMapper<IegGrade> {
 
+    /**
+     * 批量删除
+     * @param entity 删除条件
+     * @return true
+     */
+    int delByYearAndType(IegGrade entity);
 }

@@ -17,4 +17,8 @@
         <result column="delete_flag" property="deleteFlag" />
     </resultMap>
 
+    <delete id="delByYearAndType">
+        DELETE FROM ieg_grade WHERE year = #{year} AND type = #{type}
+    </delete>
+
 </mapper>

@@ -6,9 +6,12 @@ import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
+import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
 import com.wang.jmonkey.modules.ieg.service.IIegGradeService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -27,6 +30,13 @@ public class IegGradeApi extends BaseHttp {
      */
     @Resource
     private IIegGradeService service;
+
+    /**
+     * 信息图片
+     */
+    @Value("${jmonkey.ieg.school.grade}")
+    private String filePath;
+
 
     /**
      * 分页查询信息
@@ -70,6 +80,16 @@ public class IegGradeApi extends BaseHttp {
     }
 
     /**
+     * 批量删除
+     * @param entity 删除条件
+     * @return true
+     */
+    @GetMapping(value = "/delByYearAndType")
+    public HttpResult<Boolean> delByYearAndType (IegGrade entity) {
+        return new HttpResult<>(service.delByYearAndType(entity));
+    }
+
+    /**
      * 查找实体信息
      * @param id 实体ID
      * @return
@@ -79,4 +99,23 @@ public class IegGradeApi extends BaseHttp {
         return new HttpResult<>(service.selectById(id));
     }
 
+    /**
+     * 消息
+     * @param uploadFile uploadFile
+     * @return String
+     */
+    @PostMapping("/file")
+    public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile ){
+        return super.uploadFile(uploadFile, filePath);
+    }
+
+    /**
+     * 批量导入
+     * @param param param
+     * @return Boolean
+     */
+    @PostMapping(value = "/importGrade")
+    public HttpResult<Boolean> importGrade(@RequestBody IegGradeParam param) {
+        return new HttpResult<>(service.importGrade(param));
+    }
 }

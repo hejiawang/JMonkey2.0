@@ -50,3 +50,4 @@ jmonkey:
       enroll: ${jmonkey.filePath}/ieg/school/enroll/
       major: ${jmonkey.filePath}/ieg/school/major/
       major-problem: ${jmonkey.filePath}/ieg/school/major/problem/
+      grade: ${jmonkey.filePath}/ieg/school/grade/

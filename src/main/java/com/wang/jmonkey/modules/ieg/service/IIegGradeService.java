@@ -3,6 +3,7 @@ package com.wang.jmonkey.modules.ieg.service;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.baomidou.mybatisplus.service.IService;
+import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
 
 /**
  * <p>
@@ -21,4 +22,18 @@ public interface IIegGradeService extends IService<IegGrade> {
      * @return
      */
     Page<IegGrade> list(Page<IegGrade> page, IegGrade entity);
+
+    /**
+     * 批量导入
+     * @param param param
+     * @return Boolean
+     */
+    Boolean importGrade(IegGradeParam param);
+
+    /**
+     * 批量删除
+     * @param entity 删除条件
+     * @return true
+     */
+    Boolean delByYearAndType(IegGrade entity);
 }

@@ -4,9 +4,14 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.wang.jmonkey.modules.ieg.mapper.IegGradeMapper;
+import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
 import com.wang.jmonkey.modules.ieg.service.IIegGradeService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.io.File;
 
 /**
  * <p>
@@ -18,6 +23,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> implements IIegGradeService {
+
+    /**
+     * mappere
+     */
+    @Autowired
+    private IegGradeMapper mapper;
+
+    /**
+     * 基础路径
+     */
+    @Value("${jmonkey.static-locations-file}")
+    private String staticLocation;
 
     /**
      * 分页查询信息
@@ -32,5 +49,28 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
         wrapper.orderBy("score", false);
 
         return super.selectPage(page, wrapper);
+    }
+
+    /**
+     * 批量导入
+     * @param param param
+     * @return Boolean
+     */
+    @Override
+    public Boolean importGrade(IegGradeParam param) {
+        // File file = new File(this.staticLocation + param.getFilePath());
+
+
+        return true;
+    }
+
+    /**
+     * 批量删除
+     * @param entity 删除条件
+     * @return true
+     */
+    @Override
+    public Boolean delByYearAndType(IegGrade entity) {
+        return mapper.delByYearAndType(entity) >= 0;
     }
 }
