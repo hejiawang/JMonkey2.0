@@ -30,7 +30,6 @@ public class IegSchoolDetailApi extends BaseHttp {
         public static String describe;
         public static String faculty;
         public static String life;
-        public static String environment;
         public static String scholarship;
 
         @Value("${jmonkey.ieg.school.img.describe}")
@@ -48,11 +47,6 @@ public class IegSchoolDetailApi extends BaseHttp {
             ContentParam.life = life;
         }
 
-        @Value("${jmonkey.ieg.school.img.environment}")
-        public void setEnvironment(String environment) {
-            ContentParam.environment = environment;
-        }
-
         @Value("${jmonkey.ieg.school.img.scholarship}")
         public void setScholarship(String scholarship) {
             ContentParam.scholarship = scholarship;
@@ -67,7 +61,6 @@ public class IegSchoolDetailApi extends BaseHttp {
             put("describe", ContentParam.describe);
             put("faculty", ContentParam.faculty);
             put("life", ContentParam.life);
-            put("environment", ContentParam.environment);
             put("scholarship", ContentParam.scholarship);
         }
     };

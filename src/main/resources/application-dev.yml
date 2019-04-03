@@ -43,7 +43,6 @@ jmonkey:
         describe: ${jmonkey.filePath}/ieg/school/describe/
         faculty: ${jmonkey.filePath}/ieg/school/faculty/
         life: ${jmonkey.filePath}/ieg/school/life/
-        environment: ${jmonkey.filePath}/ieg/school/environment/
         scholarship: ${jmonkey.filePath}/ieg/school/scholarship/
       faculty: ${jmonkey.filePath}/ieg/faculty/
       problem: ${jmonkey.filePath}/ieg/school/problem/
@@ -51,3 +50,4 @@ jmonkey:
       major: ${jmonkey.filePath}/ieg/school/major/
       major-problem: ${jmonkey.filePath}/ieg/school/major/problem/
       grade: ${jmonkey.filePath}/ieg/school/grade/
+      environment: ${jmonkey.filePath}/ieg/environment/
