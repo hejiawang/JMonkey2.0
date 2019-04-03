@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.utils.poi.excel.ImportExcelUtil;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.wang.jmonkey.modules.ieg.mapper.IegGradeMapper;
 import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
@@ -10,8 +11,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * <p>
@@ -56,12 +59,60 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
      * @param param param
      * @return Boolean
      */
+    @Transactional
     @Override
     public Boolean importGrade(IegGradeParam param) {
-        // File file = new File(this.staticLocation + param.getFilePath());
+        Boolean result;
+
+        File file = new File(this.staticLocation + param.getFilePath());
+        try {
+            ImportExcelUtil ei = new ImportExcelUtil(file, 0);
+            List<IegGrade> list = ei.getDataList(IegGrade.class);
+            list.forEach( iegGrade -> {
+                iegGrade.setYear(param.getYear()).setType(param.getType());
+                super.insert(iegGrade);
+            });
 
 
-        return true;
+            result = true;
+        } catch (Exception e) {
+            result = false;
+        }
+
+        return result;
+    }
+
+    /**
+     * 批量校验
+     * @param param param
+     * @return Boolean
+     */
+    @Override
+    public Boolean checkGrade(IegGradeParam param) {
+        Boolean result;
+
+        File file = new File(this.staticLocation + param.getFilePath());
+        try {
+            ImportExcelUtil ei = new ImportExcelUtil(file, 0);
+            List<IegGrade> checkList = ei.getDataList(IegGrade.class);
+
+            // 存在的个数与导入校验的条数不一致，校验失败
+            int existNum = mapper.checkExist(param);
+            if (checkList.size() != existNum) return false;
+
+            // 只要有一条与数据库中的不一样，就是校验失败
+            for (IegGrade grade : checkList) {
+                EntityWrapper wrapper = new EntityWrapper();
+                wrapper.setEntity(grade.setYear(param.getYear()).setType(param.getType()));
+                if (super.selectCount(wrapper) != 1) return false;
+            }
+
+            result = mapper.checkYes(param) > 0;
+        } catch (Exception e) {
+            result = false;
+        }
+
+        return result;
     }
 
     /**
@@ -73,4 +124,15 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
     public Boolean delByYearAndType(IegGrade entity) {
         return mapper.delByYearAndType(entity) >= 0;
     }
+
+    /**
+     * 校验是否存在
+     * @param param param
+     * @return true 已存在
+     */
+    @Override
+    public Boolean checkExist(IegGradeParam param) {
+        return mapper.checkExist(param) > 0;
+    }
+
 }

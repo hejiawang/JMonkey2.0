@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.mapper;
 
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
 
 /**
  * <p>
@@ -19,4 +20,18 @@ public interface IegGradeMapper extends BaseMapper<IegGrade> {
      * @return true
      */
     int delByYearAndType(IegGrade entity);
+
+    /**
+     * 校验是否存在
+     * @param param param
+     * @return true 已存在
+     */
+    int checkExist(IegGradeParam param);
+
+    /**
+     * 校验通过
+     * @param param param
+     * @return int
+     */
+    int checkYes(IegGradeParam param);
 }

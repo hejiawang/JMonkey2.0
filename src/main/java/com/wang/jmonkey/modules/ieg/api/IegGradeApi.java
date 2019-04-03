@@ -1,6 +1,5 @@
 package com.wang.jmonkey.modules.ieg.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
@@ -36,7 +35,6 @@ public class IegGradeApi extends BaseHttp {
      */
     @Value("${jmonkey.ieg.school.grade}")
     private String filePath;
-
 
     /**
      * 分页查询信息
@@ -118,4 +116,25 @@ public class IegGradeApi extends BaseHttp {
     public HttpResult<Boolean> importGrade(@RequestBody IegGradeParam param) {
         return new HttpResult<>(service.importGrade(param));
     }
+
+    /**
+     * 批量校验
+     * @param param param
+     * @return Boolean
+     */
+    @PostMapping(value = "/checkGrade")
+    public HttpResult<Boolean> checkGrade(@RequestBody IegGradeParam param) {
+        return new HttpResult<>(service.checkGrade(param));
+    }
+
+    /**
+     * 校验是否存在
+     * @param param param
+     * @return true 已存在
+     */
+    @PostMapping(value = "/checkExist")
+    public HttpResult<Boolean> checkExist( @RequestBody IegGradeParam param){
+        return new HttpResult<>(service.checkExist(param));
+    }
+
 }

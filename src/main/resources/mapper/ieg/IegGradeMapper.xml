@@ -9,6 +9,9 @@
         <result column="score" property="score" />
         <result column="number" property="number" />
         <result column="sort" property="sort" />
+        <result column="type" property="type" />
+        <result column="state" property="state" />
+
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />
         <result column="update_date" property="updateDate" />
@@ -20,5 +23,13 @@
     <delete id="delByYearAndType">
         DELETE FROM ieg_grade WHERE year = #{year} AND type = #{type}
     </delete>
+
+    <select id="checkExist" resultType="java.lang.Integer">
+        SELECT count(1) FROM ieg_grade where year = #{year} AND type = #{type}
+    </select>
+
+    <update id="checkYes">
+        UPDATE ieg_grade SET state = 'Yes' WHERE year = #{year} AND type = #{type}
+    </update>
 
 </mapper>

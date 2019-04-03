@@ -31,9 +31,24 @@ public interface IIegGradeService extends IService<IegGrade> {
     Boolean importGrade(IegGradeParam param);
 
     /**
+     * 批量校验
+     * @param param param
+     * @return Boolean
+     */
+    Boolean checkGrade(IegGradeParam param);
+
+    /**
      * 批量删除
      * @param entity 删除条件
      * @return true
      */
     Boolean delByYearAndType(IegGrade entity);
+
+    /**
+     * 校验是否存在
+     * @param param param
+     * @return true 已存在
+     */
+    Boolean checkExist(IegGradeParam param);
+
 }
