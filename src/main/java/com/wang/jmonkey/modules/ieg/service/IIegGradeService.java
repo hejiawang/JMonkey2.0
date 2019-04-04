@@ -1,6 +1,7 @@
 package com.wang.jmonkey.modules.ieg.service;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
@@ -35,7 +36,7 @@ public interface IIegGradeService extends IService<IegGrade> {
      * @param param param
      * @return Boolean
      */
-    Boolean checkGrade(IegGradeParam param);
+    HttpResult<Boolean> checkGrade(IegGradeParam param);
 
     /**
      * 批量删除

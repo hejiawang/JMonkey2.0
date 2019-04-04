@@ -124,7 +124,7 @@ public class IegGradeApi extends BaseHttp {
      */
     @PostMapping(value = "/checkGrade")
     public HttpResult<Boolean> checkGrade(@RequestBody IegGradeParam param) {
-        return new HttpResult<>(service.checkGrade(param));
+        return service.checkGrade(param);
     }
 
     /**

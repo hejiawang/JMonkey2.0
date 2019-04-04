@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.service.impl;
 
 import com.wang.jmonkey.modules.ieg.model.entity.IegEnrollInfo;
 import com.wang.jmonkey.modules.ieg.mapper.IegEnrollInfoMapper;
+import com.wang.jmonkey.modules.ieg.model.param.IegEnrollInfoParam;
 import com.wang.jmonkey.modules.ieg.service.IIegEnrollInfoService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class IegEnrollInfoServiceImpl extends ServiceImpl<IegEnrollInfoMapper, IegEnrollInfo> implements IIegEnrollInfoService {
 
+    /**
+     * 导入投档分数线信息
+     * @param param param
+     * @return Boolean
+     */
+    @Override
+    public Boolean importInfo(IegEnrollInfoParam param) {
+
+        // TODO
+        
+        return true;
+    }
 }

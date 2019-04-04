@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.common.utils.poi.excel.ImportExcelUtil;
 import com.wang.jmonkey.modules.ieg.model.entity.IegGrade;
 import com.wang.jmonkey.modules.ieg.mapper.IegGradeMapper;
@@ -69,10 +70,11 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
             ImportExcelUtil ei = new ImportExcelUtil(file, 0);
             List<IegGrade> list = ei.getDataList(IegGrade.class);
             list.forEach( iegGrade -> {
-                iegGrade.setYear(param.getYear()).setType(param.getType());
-                super.insert(iegGrade);
+                if (iegGrade.getScore() !=null && iegGrade.getSort() != null && iegGrade.getNumber() != null) {
+                    iegGrade.setYear(param.getYear()).setType(param.getType());
+                    super.insert(iegGrade);
+                }
             });
-
 
             result = true;
         } catch (Exception e) {
@@ -88,8 +90,8 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
      * @return Boolean
      */
     @Override
-    public Boolean checkGrade(IegGradeParam param) {
-        Boolean result;
+    public HttpResult<Boolean> checkGrade(IegGradeParam param) {
+        HttpResult<Boolean> result = new HttpResult<>();
 
         File file = new File(this.staticLocation + param.getFilePath());
         try {
@@ -97,19 +99,22 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
             List<IegGrade> checkList = ei.getDataList(IegGrade.class);
 
             // 存在的个数与导入校验的条数不一致，校验失败
-            int existNum = mapper.checkExist(param);
-            if (checkList.size() != existNum) return false;
+            if (checkList.size() != mapper.checkExist(param)) {
+                return result.setIsSuccess(false).setMessage("数据条数不一致!!!");
+            }
 
             // 只要有一条与数据库中的不一样，就是校验失败
             for (IegGrade grade : checkList) {
                 EntityWrapper wrapper = new EntityWrapper();
                 wrapper.setEntity(grade.setYear(param.getYear()).setType(param.getType()));
-                if (super.selectCount(wrapper) != 1) return false;
+                if (super.selectCount(wrapper) != 1) {
+                    return result.setIsSuccess(false).setMessage(grade.getScore() + "分信息不一致!!!");
+                }
             }
 
-            result = mapper.checkYes(param) > 0;
+            if( mapper.checkYes(param) > 0) result.setIsSuccess(true).setMessage("校验成功");
         } catch (Exception e) {
-            result = false;
+            result.setIsSuccess(false).setMessage("校验失败, 原因不明, 请检查文档格式");
         }
 
         return result;

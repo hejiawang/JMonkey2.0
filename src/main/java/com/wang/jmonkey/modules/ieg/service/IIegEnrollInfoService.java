@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.service;
 
 import com.wang.jmonkey.modules.ieg.model.entity.IegEnrollInfo;
 import com.baomidou.mybatisplus.service.IService;
+import com.wang.jmonkey.modules.ieg.model.param.IegEnrollInfoParam;
 
 /**
  * <p>
@@ -13,4 +14,10 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IIegEnrollInfoService extends IService<IegEnrollInfo> {
 
+    /**
+     * 导入投档分数线信息
+     * @param param param
+     * @return Boolean
+     */
+    Boolean importInfo(IegEnrollInfoParam param);
 }

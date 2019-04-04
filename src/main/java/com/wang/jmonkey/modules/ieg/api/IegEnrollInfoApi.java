@@ -6,6 +6,7 @@ import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegEnrollInfo;
+import com.wang.jmonkey.modules.ieg.model.param.IegEnrollInfoParam;
 import com.wang.jmonkey.modules.ieg.service.IIegEnrollInfoService;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -94,5 +95,15 @@ public class IegEnrollInfoApi extends BaseHttp {
     @PostMapping("/file")
     public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile ){
         return super.uploadFile(uploadFile, filePath);
+    }
+
+    /**
+     * 导入投档分数线信息
+     * @param param param
+     * @return Boolean
+     */
+    @PostMapping(value = "/importInfo")
+    public HttpResult<Boolean> importInfo( @RequestBody IegEnrollInfoParam param ){
+        return new HttpResult<>(service.importInfo(param));
     }
 }
