@@ -145,11 +145,26 @@ public class ImportExcelUtil {
         try {
             Cell cell = row.getCell(column);
             if (cell != null) {
-                if (cell.getCellTypeEnum() == CellType.NUMERIC) val = this.getCellValueNumeric(cell);
-                if (cell.getCellTypeEnum() == CellType.STRING) val = cell.getStringCellValue();
-                if (cell.getCellTypeEnum() == CellType.FORMULA) val = cell.getCellFormula();
-                if (cell.getCellTypeEnum() == CellType.BOOLEAN) val = cell.getBooleanCellValue();
-                if (cell.getCellTypeEnum() ==CellType.ERROR) val = cell.getErrorCellValue();
+                if (cell.getCellTypeEnum() == CellType.NUMERIC) {
+                    val = this.getCellValueNumeric(cell);
+                }
+
+                if (cell.getCellTypeEnum() == CellType.STRING) {
+                    val = cell.getStringCellValue();
+                }
+
+                if (cell.getCellTypeEnum() == CellType.FORMULA){
+                    // val = cell.getCellFormula();
+                    val = cell.getNumericCellValue();
+                }
+
+                if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
+                    val = cell.getBooleanCellValue();
+                }
+
+                if (cell.getCellTypeEnum() ==CellType.ERROR) {
+                    val = cell.getErrorCellValue();
+                }
             }
         } catch (Exception e) {
             return val;

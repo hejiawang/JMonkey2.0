@@ -43,7 +43,13 @@ public class IegEnrollServiceImpl extends ServiceImpl<IegEnrollMapper, IegEnroll
     @Override
     public Boolean checkExist(IegEnroll entity) {
         EntityWrapper<IegEnroll> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(entity);
+        wrapper.setEntity(
+                new IegEnroll()
+                    .setYear(entity.getYear())
+                    .setCourseType(entity.getCourseType())
+                    .setDegreeType(entity.getDegreeType())
+                    .setEnrollType(entity.getEnrollType())
+        );
 
         return super.selectOne(wrapper) != null;
     }

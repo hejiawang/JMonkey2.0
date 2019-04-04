@@ -33,7 +33,7 @@ public class IegGradeApi extends BaseHttp {
     /**
      * 信息图片
      */
-    @Value("${jmonkey.ieg.school.grade}")
+    @Value("${jmonkey.ieg.grade}")
     private String filePath;
 
     /**

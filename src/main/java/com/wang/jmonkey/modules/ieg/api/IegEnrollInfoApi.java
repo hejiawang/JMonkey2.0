@@ -8,7 +8,9 @@ import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegEnrollInfo;
 import com.wang.jmonkey.modules.ieg.service.IIegEnrollInfoService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -24,6 +26,12 @@ public class IegEnrollInfoApi extends BaseHttp {
 
     @Resource
     private IIegEnrollInfoService service;
+
+    /**
+     * Excel file path
+     */
+    @Value("${jmonkey.ieg.enroll}")
+    private String filePath;
 
     /**
      * 分页查询信息
@@ -78,5 +86,13 @@ public class IegEnrollInfoApi extends BaseHttp {
         return new HttpResult<>(service.selectById(id));
     }
 
-
+    /**
+     * upload excel file
+     * @param uploadFile uploadFile
+     * @return String
+     */
+    @PostMapping("/file")
+    public HttpResult<String> file(@RequestParam(value = "file") MultipartFile uploadFile ){
+        return super.uploadFile(uploadFile, filePath);
+    }
 }
