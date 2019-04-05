@@ -5,7 +5,6 @@ import com.xiaoleilu.hutool.collection.CollectionUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.util.ReflectionUtils;
@@ -15,7 +14,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.text.NumberFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -188,9 +187,9 @@ public class ImportExcelUtil {
             SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
             result = dformat.format(date);
         } else {
-            NumberFormat nf = NumberFormat.getInstance();
-            nf.setGroupingUsed(false);// true时的格式：1,234,567,890
-            result = nf.format(cell.getNumericCellValue());// 数值类型的数据为double，所以需要转换一下
+            DecimalFormat df = new DecimalFormat("#.#########");
+            df.setGroupingUsed(false);// true时的格式：1,234,567,890
+            result = df.format(cell.getNumericCellValue());// 数值类型的数据为double，所以需要转换一下
         }
 
         return result;

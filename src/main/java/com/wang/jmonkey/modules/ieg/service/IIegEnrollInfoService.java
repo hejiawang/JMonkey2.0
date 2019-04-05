@@ -1,5 +1,6 @@
 package com.wang.jmonkey.modules.ieg.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.modules.ieg.model.entity.IegEnrollInfo;
 import com.baomidou.mybatisplus.service.IService;
 import com.wang.jmonkey.modules.ieg.model.param.IegEnrollInfoParam;
@@ -20,4 +21,19 @@ public interface IIegEnrollInfoService extends IService<IegEnrollInfo> {
      * @return Boolean
      */
     Boolean importInfo(IegEnrollInfoParam param);
+
+    /**
+     * list page
+     * @param page page
+     * @param entity entity
+     * @return Page<IegEnrollInfo>
+     */
+    Page<IegEnrollInfo> listPage(Page<IegEnrollInfo> page, IegEnrollInfo entity);
+
+    /**
+     * 清空投档分数线信息
+     * @param enrollId enrollId
+     * @return Boolean
+     */
+    Boolean delByEnroll(String enrollId);
 }

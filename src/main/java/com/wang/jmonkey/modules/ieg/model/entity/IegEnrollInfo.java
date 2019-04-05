@@ -2,6 +2,7 @@ package com.wang.jmonkey.modules.ieg.model.entity;
 
 import com.wang.jmonkey.common.model.BaseEntity;
 
+import com.wang.jmonkey.common.utils.poi.annotation.ExcelField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -34,14 +35,17 @@ public class IegEnrollInfo extends BaseEntity<IegEnrollInfo> {
     /**
      * 投档单位编码
      */
+    @ExcelField(title="投档单位编码", align=2)
     private String submitCode;
     /**
      * 院校名称
      */
+    @ExcelField(title="院校名称", align=2)
     private String schoolName;
     /**
      * 分数
      */
+    @ExcelField(title="分数", align=2)
     private Double score;
 
     @Override

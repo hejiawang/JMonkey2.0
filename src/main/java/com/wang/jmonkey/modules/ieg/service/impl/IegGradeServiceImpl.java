@@ -9,6 +9,7 @@ import com.wang.jmonkey.modules.ieg.mapper.IegGradeMapper;
 import com.wang.jmonkey.modules.ieg.model.param.IegGradeParam;
 import com.wang.jmonkey.modules.ieg.service.IIegGradeService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ import java.util.List;
  * @author HeJiawang
  * @since 2019-04-02
  */
+@Slf4j
 @Service
 public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> implements IIegGradeService {
 
@@ -78,6 +80,7 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
 
             result = true;
         } catch (Exception e) {
+            log.error("ieg grade importGrade error :", e);
             result = false;
         }
 
@@ -114,6 +117,7 @@ public class IegGradeServiceImpl extends ServiceImpl<IegGradeMapper, IegGrade> i
 
             if( mapper.checkYes(param) > 0) result.setIsSuccess(true).setMessage("校验成功");
         } catch (Exception e) {
+            log.error("ieg grade checkGrade error :", e);
             result.setIsSuccess(false).setMessage("校验失败, 原因不明, 请检查文档格式");
         }
 

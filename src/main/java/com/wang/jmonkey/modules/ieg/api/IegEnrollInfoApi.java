@@ -1,6 +1,5 @@
 package com.wang.jmonkey.modules.ieg.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
 import com.wang.jmonkey.common.http.result.HttpPageResult;
@@ -42,9 +41,7 @@ public class IegEnrollInfoApi extends BaseHttp {
      */
     @GetMapping(value = "/list")
     public HttpPageResult<IegEnrollInfo> list(Page<IegEnrollInfo> page, IegEnrollInfo entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegEnrollInfo>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+        return new HttpPageResult<>( service.listPage( page, entity ) );
     }
 
     /**
@@ -75,6 +72,16 @@ public class IegEnrollInfoApi extends BaseHttp {
     @DeleteMapping(value = "/delete/{id}")
     public HttpResult<Boolean> delete( @PathVariable Serializable id ){
         return new HttpResult<>(service.deleteById(id));
+    }
+
+    /**
+     * 清空投档分数线信息
+     * @param enrollId enrollId
+     * @return Boolean
+     */
+    @DeleteMapping(value = "/delByEnroll/{enrollId}")
+    public HttpResult<Boolean> delByEnroll ( @PathVariable String enrollId ) {
+        return new HttpResult<>(service.delByEnroll(enrollId));
     }
 
     /**
