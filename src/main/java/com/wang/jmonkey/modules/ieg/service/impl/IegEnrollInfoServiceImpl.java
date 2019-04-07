@@ -74,11 +74,11 @@ public class IegEnrollInfoServiceImpl extends ServiceImpl<IegEnrollInfoMapper, I
      * @param entity entity
      * @return Page<IegEnrollInfo>
      */
-    @Override
-    public Page<IegEnrollInfo> listPage(Page<IegEnrollInfo> page, IegEnrollInfo entity) {
-        EntityWrapper<IegEnrollInfo> wrapper = new EntityWrapper<>();
-        wrapper.setEntity(entity);
-        wrapper.orderBy("submit_code");
+        @Override
+        public Page<IegEnrollInfo> listPage(Page<IegEnrollInfo> page, IegEnrollInfo entity) {
+            EntityWrapper<IegEnrollInfo> wrapper = new EntityWrapper<>();
+            wrapper.setEntity(entity);
+            wrapper.orderBy("submit_code");
 
         return super.selectPage(page, wrapper);
     }
