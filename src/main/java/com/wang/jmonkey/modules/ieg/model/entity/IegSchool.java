@@ -39,6 +39,10 @@ public class IegSchool extends BaseEntity<IegSchool> {
      */
     private String name;
     /**
+     * 院校编码
+     */
+    private String code;
+    /**
      * 院校所在地——省
      */
     private String areaProvince;

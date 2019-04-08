@@ -7,10 +7,13 @@
         <id column="id" property="id" />
         <result column="school_id" property="schoolId" />
         <result column="faculty_id" property="facultyId" />
+        <result column="submit_id" property="submitId" />
         <result column="major_id" property="majorId" />
         <result column="major_name" property="majorName" />
+        <result column="code" property="code" />
         <result column="degree_type" property="degreeType" />
         <result column="record_type" property="recordType" />
+        <result column="course_type" property="courseType" />
         <result column="sort" property="sort" />
         <result column="describe" property="describe" />
         <result column="work_direction" property="workDirection" />

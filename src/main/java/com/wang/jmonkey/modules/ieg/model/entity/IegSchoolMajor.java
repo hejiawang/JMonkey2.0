@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.wang.jmonkey.common.model.BaseEntity;
 
+import com.wang.jmonkey.modules.ieg.model.enums.IegCourseTypeEnums;
 import com.wang.jmonkey.modules.ieg.model.enums.IegDegreeTypeEnums;
 import com.wang.jmonkey.modules.ieg.model.enums.IegSchoolMajorRecordTypeEnums;
 import lombok.Data;
@@ -40,6 +41,10 @@ public class IegSchoolMajor extends BaseEntity<IegSchoolMajor> {
      */
     private String facultyId;
     /**
+     * 投档单位id
+     */
+    private String submitId;
+    /**
      * 专业信息ID
      */
     private String majorId;
@@ -57,6 +62,15 @@ public class IegSchoolMajor extends BaseEntity<IegSchoolMajor> {
      */
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private IegSchoolMajorRecordTypeEnums recordType;
+    /**
+     * 专业编码
+     */
+    private String code;
+    /**
+     * 学科类型 W文科 L理科
+     */
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
+    private IegCourseTypeEnums courseType;
     /**
      * 排序值
      */

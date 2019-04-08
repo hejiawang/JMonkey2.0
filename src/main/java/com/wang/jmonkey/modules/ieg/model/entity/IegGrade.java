@@ -6,7 +6,7 @@ import com.wang.jmonkey.common.model.BaseEntity;
 
 import com.wang.jmonkey.common.model.enums.YesOrNoEnum;
 import com.wang.jmonkey.common.utils.poi.annotation.ExcelField;
-import com.wang.jmonkey.modules.ieg.model.enums.IegGradeTypeEnums;
+import com.wang.jmonkey.modules.ieg.model.enums.IegCourseTypeEnums;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -56,7 +56,7 @@ public class IegGrade extends BaseEntity<IegGrade> {
      * 类型 W文科 L理科
      */
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
-    private IegGradeTypeEnums type;
+    private IegCourseTypeEnums type;
 
     /**
      * 状态 No未校验 Yes已校验

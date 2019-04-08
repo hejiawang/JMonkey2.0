@@ -7,7 +7,7 @@ import com.wang.jmonkey.common.model.BaseEnum;
  * @Auther: HeJiawang
  * @Date: 2019/4/2
  */
-public enum IegGradeTypeEnums implements BaseEnum {
+public enum IegCourseTypeEnums implements BaseEnum {
 
     W("W", "文科"),
     L("L", "理科");
@@ -15,7 +15,7 @@ public enum IegGradeTypeEnums implements BaseEnum {
     private String value;
     private String desc;
 
-    IegGradeTypeEnums(final String value, final String desc) {
+    IegCourseTypeEnums(final String value, final String desc) {
         this.value = value;
         this.desc = desc;
     }
