@@ -24,6 +24,11 @@ public class IegSchoolMajorDto extends IegSchoolMajor {
     private List<String> featureNames;
 
     /**
+     * 专业特征编码
+     */
+    private List<String> features;
+
+    /**
      * 所属院系名称
      */
     private String facultyName;
