@@ -6,7 +6,6 @@ import com.wang.jmonkey.common.model.BaseEntity;
 
 import com.wang.jmonkey.modules.ieg.model.enums.IegCourseTypeEnums;
 import com.wang.jmonkey.modules.ieg.model.enums.IegDegreeTypeEnums;
-import com.wang.jmonkey.modules.ieg.model.enums.IegSchoolMajorRecordTypeEnums;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -45,29 +44,20 @@ public class IegSchoolMajor extends BaseEntity<IegSchoolMajor> {
      */
     private String submitId;
     /**
-     * 专业信息ID
-     */
-    private String majorId;
-    /**
      * 专业名称
      */
-    private String majorName;
+    private String name;
     /**
      * 学历层次 B本科 Z专科
      */
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private IegDegreeTypeEnums degreeType;
     /**
-     * 专业记录类型 common通用专业 other其他类型专业
-     */
-    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
-    private IegSchoolMajorRecordTypeEnums recordType;
-    /**
      * 专业编码
      */
     private String code;
     /**
-     * 学科类型 W文科 L理科
+     * 学科类型 W文科 L理科 A文科/理科
      */
     @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private IegCourseTypeEnums courseType;

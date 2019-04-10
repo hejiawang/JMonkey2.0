@@ -56,7 +56,7 @@
             sd.faculty as detail_faculty, sd.life as detail_life, sd.scholarship as detail_scholarship,
             f.type as features_type
         FROM ieg_school s
-        INNER JOIN ieg_school_detail sd ON s.id = sd.school_id AND sd.delete_flag = 'Used'
+        LEFT JOIN ieg_school_detail sd ON s.id = sd.school_id AND sd.delete_flag = 'Used'
         LEFT JOIN ieg_school_features f ON s.id = f.school_id AND f.delete_flag = 'Used'
         WHERE s.delete_flag = 'Used'
         AND s.id = #{id}
@@ -71,7 +71,7 @@
         <if test=" param.name != '' and param.name != null">
             AND s.name like '%${param.name}%'
         </if>
-        ORDER BY s.sort
+        ORDER BY s.sort, s.code, s.create_date
         LIMIT ${limitStart}, ${size}
     </select>
 

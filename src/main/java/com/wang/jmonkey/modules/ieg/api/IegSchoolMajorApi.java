@@ -99,14 +99,4 @@ public class IegSchoolMajorApi extends BaseHttp {
         return super.uploadFile(uploadFile, filePath + schoolId + File.separator);
     }
 
-    /**
-     * 获取院校中有哪些专业门类
-     * @param schoolId 院校id
-     * @return 专业门类
-     */
-    @GetMapping(value = "/findMajorOneBySchool")
-    public HttpResult<List<IegMajor>> findMajorOneBySchool(String schoolId) {
-        return new HttpResult<>(service.findMajorOneBySchool(schoolId));
-    }
-
 }

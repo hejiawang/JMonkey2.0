@@ -10,7 +10,8 @@ import com.wang.jmonkey.common.model.BaseEnum;
 public enum IegCourseTypeEnums implements BaseEnum {
 
     W("W", "文科"),
-    L("L", "理科");
+    L("L", "理科"),
+    A("A", "文科/理科");
 
     private String value;
     private String desc;

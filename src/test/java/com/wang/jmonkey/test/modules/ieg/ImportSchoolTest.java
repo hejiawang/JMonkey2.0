@@ -4,8 +4,12 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.JmonkeyApplication;
 import com.wang.jmonkey.common.utils.poi.excel.ImportExcelUtil;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
+import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolDetail;
+import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolSubmit;
+import com.wang.jmonkey.modules.ieg.model.enums.IegCourseTypeEnums;
 import com.wang.jmonkey.modules.ieg.model.enums.IegDegreeTypeEnums;
+import com.wang.jmonkey.modules.ieg.service.IIegSchoolDetailService;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorService;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolService;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolSubmitService;
@@ -29,6 +33,9 @@ public class ImportSchoolTest {
     private IIegSchoolService schoolService;
 
     @Autowired
+    private IIegSchoolDetailService detailService;
+
+    @Autowired
     private IIegSchoolSubmitService submitService;
 
     @Autowired
@@ -48,9 +55,47 @@ public class ImportSchoolTest {
             IegSchoolSubmit submitInfo = this.renderSubmit(schoolInfo, param);
 
             // 处理专业信息
-
+            this.renderMajor(schoolInfo, submitInfo, param);
 
         });
+    }
+
+    /**
+     * 构建专业信息
+     * @param schoolInfo
+     * @param submitInfo
+     * @param param
+     */
+    private void renderMajor(IegSchool schoolInfo, IegSchoolSubmit submitInfo, ImportSchoolParam param) {
+        int index = param.getZymc().indexOf(param.getZydh()) + param.getZydh().length();
+        String name = param.getZymc().substring(index).trim();
+
+        IegSchoolMajor schoolMajor = new IegSchoolMajor()
+                .setCode(param.getZydh())
+                .setSubmitId(submitInfo.getId())
+                .setSchoolId(schoolInfo.getId())
+                .setName(name);
+
+        if (param.getPcdm().equals("3")) schoolMajor.setDegreeType(IegDegreeTypeEnums.B);
+        if (param.getPcdm().equals("7")) schoolMajor.setDegreeType(IegDegreeTypeEnums.Z);
+
+        EntityWrapper<IegSchoolMajor> wrapper = new EntityWrapper<>();
+        wrapper.setEntity(schoolMajor);
+        IegSchoolMajor schoolMajorInfo = majorService.selectOne(wrapper);
+
+        if (schoolMajorInfo == null) {
+            if (param.getKldm().equals("1")) schoolMajor.setCourseType(IegCourseTypeEnums.W);
+            if (param.getKldm().equals("5")) schoolMajor.setCourseType(IegCourseTypeEnums.L);
+
+            majorService.insert(schoolMajor);
+        } else {
+            if ((param.getKldm().equals("1") && schoolMajorInfo.getCourseType() == IegCourseTypeEnums.L) ||
+                (param.getKldm().equals("5") && schoolMajorInfo.getCourseType() == IegCourseTypeEnums.W)) {
+                majorService.updateById(
+                    schoolMajorInfo.setCourseType(IegCourseTypeEnums.A)
+                );
+            }
+        }
     }
 
     /**
@@ -107,6 +152,13 @@ public class ImportSchoolTest {
             if (param.getPcdm().equals("7")) schoolInfo.setDegreeType(IegDegreeTypeEnums.Z);
 
             schoolService.insert(schoolInfo);
+
+            // 新建院校的详细信息
+            detailService.insert(
+                new IegSchoolDetail()
+                        .setSchoolId(schoolInfo.getId())
+                        .setDescribe("").setFaculty("").setLife("").setScholarship("")
+            );
         } else {    //院校信息已经存在
             // 更新院校学历层次信息
             if (schoolInfo.getDegreeType() == null) {

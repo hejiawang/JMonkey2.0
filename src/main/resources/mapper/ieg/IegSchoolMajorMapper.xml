@@ -8,11 +8,9 @@
         <result column="school_id" property="schoolId" />
         <result column="faculty_id" property="facultyId" />
         <result column="submit_id" property="submitId" />
-        <result column="major_id" property="majorId" />
-        <result column="major_name" property="majorName" />
+        <result column="name" property="name" />
         <result column="code" property="code" />
         <result column="degree_type" property="degreeType" />
-        <result column="record_type" property="recordType" />
         <result column="course_type" property="courseType" />
         <result column="sort" property="sort" />
         <result column="describe" property="describe" />
@@ -48,16 +46,6 @@
         </collection>
     </resultMap>
 
-    <select id="findMajorOneBySchool" resultType="com.wang.jmonkey.modules.ieg.model.entity.IegMajor">
-        select DISTINCT m_one.*
-        FROM ieg_school_major sm
-        INNER JOIN ieg_major m_three ON sm.major_id = m_three.id and m_three.delete_flag = 'Used'
-        INNER JOIN ieg_major m_two ON m_three.parent_id = m_two.id and m_two.delete_flag = 'Used'
-        INNER JOIN ieg_major m_one ON m_two.parent_id = m_one.id and m_one.delete_flag = 'Used'
-        WHERE sm.school_id = #{schoolId}
-        and sm.delete_flag = 'Used'
-    </select>
-
     <select id="list" resultMap="DtoResultMap">
         select sm.*, f.name as faculty_name, d.lable as features_name, d.value as features_type
         FROM ieg_school_major sm
@@ -66,16 +54,8 @@
         LEFT JOIN ieg_school_faculty f ON f.id = sm.faculty_id AND f.delete_flag = 'Used'
         WHERE sm.delete_flag = 'Used'
         AND sm.school_id = #{schoolId}
-        AND sm.major_id in (
-            select m_three.id
-            FROM ieg_major m_three
-            WHERE m_three.parent_id in (
-                select m_two.id
-                FROM ieg_major m_two
-                WHERE m_two.parent_id = #{majorOneId}
-            )
-        )
-        ORDER BY sort
+        AND sm.submit_id = #{submitId}
+        ORDER BY sort, code, create_date
     </select>
 
 </mapper>

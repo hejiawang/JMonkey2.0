@@ -33,13 +33,6 @@ public interface IIegSchoolMajorService extends IService<IegSchoolMajor> {
     Boolean modify(IegSchoolMajorParam param);
 
     /**
-     * 获取院校中有哪些专业门类
-     * @param schoolId 院校id
-     * @return 专业门类
-     */
-    List<IegMajor> findMajorOneBySchool(String schoolId);
-
-    /**
      * 院校专业list
      * @param param param
      * @return IegSchoolMajorDto

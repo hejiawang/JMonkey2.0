@@ -64,16 +64,6 @@ public class IegSchoolMajorServiceImpl extends ServiceImpl<IegSchoolMajorMapper,
     }
 
     /**
-     * 获取院校中有哪些专业门类
-     * @param schoolId 院校id
-     * @return 专业门类
-     */
-    @Override
-    public List<IegMajor> findMajorOneBySchool(String schoolId) {
-        return mapper.findMajorOneBySchool(schoolId);
-    }
-
-    /**
      * 院校专业list
      * @param param param
      * @return IegSchoolMajorDto
