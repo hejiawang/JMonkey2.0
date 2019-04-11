@@ -16,4 +16,9 @@ public class IegSchoolSearchParam {
      * 院校名称
      */
     private String name;
+
+    /**
+     * 登录人id
+     */
+    private String userId;
 }

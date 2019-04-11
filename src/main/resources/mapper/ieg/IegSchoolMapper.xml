@@ -71,6 +71,11 @@
         <if test=" param.name != '' and param.name != null">
             AND s.name like '%${param.name}%'
         </if>
+        <if test=" param.userId != '' and param.userId != null">
+            AND s.id in (
+              select school_id from ieg_auth where user_id = #{param.userId}
+            )
+        </if>
         ORDER BY s.sort, s.code, s.create_date
         LIMIT ${limitStart}, ${size}
     </select>
@@ -81,6 +86,11 @@
         WHERE s.delete_flag = 'Used'
         <if test=" name != '' and name != null">
             AND s.name like '%${name}%'
+        </if>
+        <if test=" userId != '' and userId != null">
+            AND s.id in (
+              select school_id from ieg_auth where user_id = #{userId}
+            )
         </if>
     </select>
 
