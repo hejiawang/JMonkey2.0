@@ -5,6 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor">
         <id column="id" property="id" />
+        <result column="major_two_id" property="majorTwoId" />
         <result column="school_id" property="schoolId" />
         <result column="faculty_id" property="facultyId" />
         <result column="submit_id" property="submitId" />

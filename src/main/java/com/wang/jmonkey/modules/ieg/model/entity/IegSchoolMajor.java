@@ -32,6 +32,10 @@ public class IegSchoolMajor extends BaseEntity<IegSchoolMajor> {
      */
     private String id;
     /**
+     * 专业所属学科id
+     */
+    private String majorTwoId;
+    /**
      * 学校基本信息ID
      */
     private String schoolId;
