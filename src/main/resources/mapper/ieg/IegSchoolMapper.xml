@@ -39,6 +39,10 @@
             <result column="detail_faculty" property="faculty" />
             <result column="detail_life" property="life" />
             <result column="detail_scholarship" property="scholarship" />
+            <result column="detail_img1Path" property="img1Path" />
+            <result column="detail_img2Path" property="img2Path" />
+            <result column="detail_img3Path" property="img3Path" />
+            <result column="detail_img4Path" property="img4Path" />
         </association>
         <collection property="features" ofType="java.lang.String">
             <result column="features_type"/>
@@ -54,6 +58,7 @@
         select s.*,
             sd.`describe` as detail_describe,
             sd.faculty as detail_faculty, sd.life as detail_life, sd.scholarship as detail_scholarship,
+            sd.img1_path as detail_img1Path, sd.img2_path as detail_img2Path, sd.img3_path as detail_img3Path, sd.img4_path as detail_img4Path,
             f.type as features_type
         FROM ieg_school s
         LEFT JOIN ieg_school_detail sd ON s.id = sd.school_id AND sd.delete_flag = 'Used'

@@ -47,6 +47,22 @@ public class IegSchoolDetail extends BaseEntity<IegSchoolDetail> {
      * 奖学金设置
      */
     private String scholarship;
+    /**
+     * img1Path
+     */
+    private String img1Path;
+    /**
+     * img2Path
+     */
+    private String img2Path;
+    /**
+     * img3Path
+     */
+    private String img3Path;
+    /**
+     * img4Path
+     */
+    private String img4Path;
 
     @Override
     protected Serializable pkVal() {

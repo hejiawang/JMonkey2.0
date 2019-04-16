@@ -10,6 +10,10 @@
         <result column="faculty" property="faculty" />
         <result column="life" property="life" />
         <result column="scholarship" property="scholarship" />
+        <result column="img1_path" property="img1Path" />
+        <result column="img2_path" property="img2Path" />
+        <result column="img3_path" property="img3Path" />
+        <result column="img4_path" property="img4Path" />
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />
         <result column="update_date" property="updateDate" />
