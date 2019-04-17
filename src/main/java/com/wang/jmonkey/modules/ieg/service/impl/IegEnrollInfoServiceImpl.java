@@ -52,9 +52,24 @@ public class IegEnrollInfoServiceImpl extends ServiceImpl<IegEnrollInfoMapper, I
             list.forEach( enrollInfo -> {
                 if (StringUtils.isNotEmpty(enrollInfo.getSubmitCode()) &&
                         StringUtils.isNotEmpty(enrollInfo.getSchoolName()) &&
-                        enrollInfo.getScore() !=null) {
+                        StringUtils.isNotEmpty(enrollInfo.getSchoolCode())) {
+
+                    String schoolCode = enrollInfo.getSchoolCode();
+                    if (schoolCode.length() < 4) {
+                        for (int i = 4, l = schoolCode.length(); i > l; i--) {
+                            schoolCode = "0" + schoolCode;
+                        }
+                    }
+
+                    String submitCode = enrollInfo.getSubmitCode();
+                    if (submitCode.length() < 4) {
+                        for (int i = 4, l = submitCode.length(); i > l; i--) {
+                            submitCode = "0" + submitCode;
+                        }
+                    }
+
                     super.insert(
-                        enrollInfo.setEnrollId(param.getEnrollId())
+                        enrollInfo.setEnrollId(param.getEnrollId()).setSchoolCode(schoolCode).setSubmitCode(submitCode)
                     );
                 }
             });
@@ -78,7 +93,7 @@ public class IegEnrollInfoServiceImpl extends ServiceImpl<IegEnrollInfoMapper, I
         public Page<IegEnrollInfo> listPage(Page<IegEnrollInfo> page, IegEnrollInfo entity) {
             EntityWrapper<IegEnrollInfo> wrapper = new EntityWrapper<>();
             wrapper.setEntity(entity);
-            wrapper.orderBy("submit_code");
+            wrapper.orderBy("school_code");
 
         return super.selectPage(page, wrapper);
     }

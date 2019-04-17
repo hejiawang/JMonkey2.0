@@ -33,20 +33,35 @@ public class IegEnrollInfo extends BaseEntity<IegEnrollInfo> {
      */
     private String enrollId;
     /**
-     * 投档单位编码
+     * 院校编码
      */
-    @ExcelField(title="投档单位编码", align=2)
-    private String submitCode;
+    @ExcelField(title="院校编码", align=2)
+    private String schoolCode;
     /**
      * 院校名称
      */
     @ExcelField(title="院校名称", align=2)
     private String schoolName;
     /**
-     * 分数
+     * 投档单位编码
      */
-    @ExcelField(title="分数", align=2)
-    private Double score;
+    @ExcelField(title="投档单位编码", align=2)
+    private String submitCode;
+    /**
+     * 人数
+     */
+    @ExcelField(title="人数", align=2)
+    private Integer number;
+    /**
+     * 最低分数
+     */
+    @ExcelField(title="最低分数", align=2)
+    private Double scoreMin;
+    /**
+     * 最高分数
+     */
+    @ExcelField(title="最高分数", align=2)
+    private Double scoreMax;
 
     @Override
     protected Serializable pkVal() {
