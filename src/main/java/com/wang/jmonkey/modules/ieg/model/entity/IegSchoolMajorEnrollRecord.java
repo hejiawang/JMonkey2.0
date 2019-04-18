@@ -36,29 +36,21 @@ public class IegSchoolMajorEnrollRecord extends BaseEntity<IegSchoolMajorEnrollR
      */
     private Integer year;
     /**
-     * 全国最低分
+     * 最低分
      */
-    private Integer allScoreMin;
+    private Double scoreMin;
     /**
-     * 全国最高分
+     * 最高分
      */
-    private Integer allScoreMax;
+    private Double scoreMax;
     /**
-     * 全国录取人数
+     * 计划招收人数
      */
-    private Integer allNumber;
+    private Integer planNumber;
     /**
-     * 本地最低分
+     * 实际招收人数
      */
-    private Integer localScoreMin;
-    /**
-     * 本地最高分
-     */
-    private Integer localScoreMax;
-    /**
-     * 本地录取人数
-     */
-    private Integer localNumber;
+    private Integer realNumber;
 
     @Override
     protected Serializable pkVal() {

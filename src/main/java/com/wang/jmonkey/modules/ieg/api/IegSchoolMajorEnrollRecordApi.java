@@ -1,9 +1,6 @@
 package com.wang.jmonkey.modules.ieg.api;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.wang.jmonkey.common.http.abs.BaseHttp;
-import com.wang.jmonkey.common.http.result.HttpPageResult;
 import com.wang.jmonkey.common.http.result.HttpResult;
 import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajorEnrollRecord;
 import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorEnrollRecordService;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Description: 报考指南——学校专业历年录取信息 api
@@ -27,15 +25,12 @@ public class IegSchoolMajorEnrollRecordApi extends BaseHttp {
 
     /**
      * 分页查询信息
-     * @param page page
      * @param entity 实体信息
      * @return
      */
     @GetMapping(value = "/list")
-    public HttpPageResult<IegSchoolMajorEnrollRecord> list(Page<IegSchoolMajorEnrollRecord> page, IegSchoolMajorEnrollRecord entity) {
-        EntityWrapper wrapper = new EntityWrapper<IegSchoolMajorEnrollRecord>();
-
-        return new HttpPageResult<>( service.selectPage( page, wrapper ) );
+    public HttpResult<List<IegSchoolMajorEnrollRecord>> list(IegSchoolMajorEnrollRecord entity) {
+        return new HttpResult<>( service.list(entity) );
     }
 
     /**

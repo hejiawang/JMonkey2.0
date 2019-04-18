@@ -7,12 +7,11 @@
         <id column="id" property="id" />
         <result column="school_major_id" property="schoolMajorId" />
         <result column="year" property="year" />
-        <result column="all_score_min" property="allScoreMin" />
-        <result column="all_score_max" property="allScoreMax" />
-        <result column="all_number" property="allNumber" />
-        <result column="local_score_min" property="localScoreMin" />
-        <result column="local_score_max" property="localScoreMax" />
-        <result column="local_number" property="localNumber" />
+        <result column="score_min" property="scoreMin" />
+        <result column="score_max" property="scoreMax" />
+        <result column="plan_number" property="planNumber" />
+        <result column="real_number" property="realNumber" />
+
         <result column="create_date" property="createDate" />
         <result column="create_by" property="createBy" />
         <result column="update_date" property="updateDate" />
