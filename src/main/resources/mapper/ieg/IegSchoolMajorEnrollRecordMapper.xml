@@ -7,6 +7,7 @@
         <id column="id" property="id" />
         <result column="school_major_id" property="schoolMajorId" />
         <result column="year" property="year" />
+        <result column="type" property="type" />
         <result column="score_min" property="scoreMin" />
         <result column="score_max" property="scoreMax" />
         <result column="plan_number" property="planNumber" />

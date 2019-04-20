@@ -3,16 +3,10 @@ package com.wang.jmonkey.test.modules.ieg;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.wang.jmonkey.JmonkeyApplication;
 import com.wang.jmonkey.common.utils.poi.excel.ImportExcelUtil;
-import com.wang.jmonkey.modules.ieg.model.entity.IegSchool;
-import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolDetail;
-import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolMajor;
-import com.wang.jmonkey.modules.ieg.model.entity.IegSchoolSubmit;
+import com.wang.jmonkey.modules.ieg.model.entity.*;
 import com.wang.jmonkey.modules.ieg.model.enums.IegCourseTypeEnums;
 import com.wang.jmonkey.modules.ieg.model.enums.IegDegreeTypeEnums;
-import com.wang.jmonkey.modules.ieg.service.IIegSchoolDetailService;
-import com.wang.jmonkey.modules.ieg.service.IIegSchoolMajorService;
-import com.wang.jmonkey.modules.ieg.service.IIegSchoolService;
-import com.wang.jmonkey.modules.ieg.service.IIegSchoolSubmitService;
+import com.wang.jmonkey.modules.ieg.service.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +35,12 @@ public class ImportSchoolTest {
     @Autowired
     private IIegSchoolMajorService majorService;
 
+    @Autowired
+    private IIegSchoolMajorEnrollRecordService majorEnrollRecordService;
+
     @Test
     public void importSchool() throws Exception {
-        File file = new File("E://temp.xlsx");
+        File file = new File("E://院校信息.xlsx");
         ImportExcelUtil ei = new ImportExcelUtil(file, 0);
         List<ImportSchoolParam> list = ei.getDataList(ImportSchoolParam.class);
 
@@ -55,9 +52,23 @@ public class ImportSchoolTest {
             IegSchoolSubmit submitInfo = this.renderSubmit(schoolInfo, param);
 
             // 处理专业信息
-            this.renderMajor(schoolInfo, submitInfo, param);
+            IegSchoolMajor schoolMajor = this.renderMajor(schoolInfo, submitInfo, param);
+
+            // 专业2018年录取信息
+            this.renderMajorEnrollRecord(schoolMajor, param);
 
         });
+    }
+
+    private void renderMajorEnrollRecord(IegSchoolMajor schoolMajor, ImportSchoolParam param) {
+        IegSchoolMajorEnrollRecord record = new IegSchoolMajorEnrollRecord()
+                .setYear(2018).setPlanNumber(Integer.valueOf(param.getYjhs()))
+                .setRealNumber(Integer.valueOf(param.getLqs()))
+                .setSchoolMajorId(schoolMajor.getId());
+        if (param.getKldm().equals("1")) record.setType(IegCourseTypeEnums.W);
+        if (param.getKldm().equals("5")) record.setType(IegCourseTypeEnums.L);
+
+        majorEnrollRecordService.insert(record);
     }
 
     /**
@@ -66,7 +77,7 @@ public class ImportSchoolTest {
      * @param submitInfo
      * @param param
      */
-    private void renderMajor(IegSchool schoolInfo, IegSchoolSubmit submitInfo, ImportSchoolParam param) {
+    private IegSchoolMajor renderMajor(IegSchool schoolInfo, IegSchoolSubmit submitInfo, ImportSchoolParam param) {
         int index = param.getZymc().indexOf(param.getZydh()) + param.getZydh().length();
         String name = param.getZymc().substring(index).trim();
 
@@ -88,6 +99,8 @@ public class ImportSchoolTest {
             if (param.getKldm().equals("5")) schoolMajor.setCourseType(IegCourseTypeEnums.L);
 
             majorService.insert(schoolMajor);
+
+            return schoolMajor;
         } else {
             if ((param.getKldm().equals("1") && schoolMajorInfo.getCourseType() == IegCourseTypeEnums.L) ||
                 (param.getKldm().equals("5") && schoolMajorInfo.getCourseType() == IegCourseTypeEnums.W)) {
@@ -95,6 +108,8 @@ public class ImportSchoolTest {
                     schoolMajorInfo.setCourseType(IegCourseTypeEnums.A)
                 );
             }
+
+            return schoolMajorInfo;
         }
     }
 

@@ -50,4 +50,16 @@ public class ImportSchoolParam {
     @ExcelField(title="zymc", align=2)
     private String zymc;
 
+    /**
+     * 原计划数
+     */
+    @ExcelField(title="yjhs", align=2)
+    private String yjhs;
+
+    /**
+     * 录取数
+     */
+    @ExcelField(title="lqs", align=2)
+    private String lqs;
+
 }
