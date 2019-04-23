@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2019-04-23 15:48:55
+Date: 2019-04-23 16:08:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1160,6 +1160,7 @@ INSERT INTO `ms_chat_history` VALUES ('330c973b5a574171875a334ab6ced65f', '1', '
 INSERT INTO `ms_chat_history` VALUES ('36f189833b594f84b7e1c23302d53ce3', '1', 'd78b19eecc524d5a8ee39126471a92dd', 0x53696E676C655F6D73675F64373862313965656363353234643561386565333931323634373161393264645F6D73675F636F6D6D6F6E395F6D73675F6E756C6C5F6D73675F6466, 'Single', '2019-03-06 10:03:24', null, null, null, null, 'Used');
 INSERT INTO `ms_chat_history` VALUES ('3a5b4e46b7ee4060aa8bece2c7bf42bf', '1', '23bae2f290a947ae86e1731dcd2d7988', 0x53696E676C655F6D73675F32336261653266323930613934376165383665313733316463643264373938385F6D73675F636F6D6D6F6E355F6D73675F6E756C6C5F6D73675F3131, 'Single', '2019-03-06 10:34:17', null, null, null, null, 'Used');
 INSERT INTO `ms_chat_history` VALUES ('3b787054951049e9bae0b7a5a3f125d6', '1', '51fd4c5661e44e42ac6097a513dd5272', 0x47726F75705F6D73675F35316664346335363631653434653432616336303937613531336464353237325F6D73675FE698AFE590A6E998BFE890A8E5BEB7E58F91E998BFE890A8E5BEB7E58F915F6D73675F2F6173736574732F6D6573736167652F636861742F696D6167652F63623564333134303234343234613632613735396638643166666634363434635FE5A4B4E5838F2E6A70675F6D73675F36, 'Group', '2019-03-06 09:41:37', null, null, null, null, 'Used');
+INSERT INTO `ms_chat_history` VALUES ('3c36df86c6bf4c46af6b45652a810c01', '1', '23bae2f290a947ae86e1731dcd2d7988', 0x53696E676C655F6D73675F32336261653266323930613934376165383665313733316463643264373938385F6D73675F636F6D6D6F6E355F6D73675F6E756C6C5F6D73675FE794B5E9A5ADE99485, 'Single', '2019-04-23 15:55:41', null, null, null, null, 'Used');
 INSERT INTO `ms_chat_history` VALUES ('4d95a208c10949fa803eecec93a8dc01', '1', 'd8c3368d55d8414cab00bafb5d733aca', 0x53696E676C655F6D73675F64386333333638643535643834313463616230306261666235643733336163615F6D73675F636F6D6D6F6E325F6D73675F6E756C6C5F6D73675FE6898BE58AA8E99880, 'Single', '2019-03-06 11:11:32', null, null, null, null, 'Used');
 INSERT INTO `ms_chat_history` VALUES ('4dce58fa3c7144baaa3d071306dbeadf', '1', '51fd4c5661e44e42ac6097a513dd5272', 0x47726F75705F6D73675F35316664346335363631653434653432616336303937613531336464353237325F6D73675FE698AFE590A6E998BFE890A8E5BEB7E58F91E998BFE890A8E5BEB7E58F915F6D73675F2F6173736574732F6D6573736167652F636861742F696D6167652F63623564333134303234343234613632613735396638643166666634363434635FE5A4B4E5838F2E6A70675F6D73675F31313131, 'Group', '2019-03-06 09:41:42', null, null, null, null, 'Used');
 INSERT INTO `ms_chat_history` VALUES ('4f6e4122041845738a94f687a87cb875', '1', '51fd4c5661e44e42ac6097a513dd5272', 0x47726F75705F6D73675F35316664346335363631653434653432616336303937613531336464353237325F6D73675FE698AFE590A6E998BFE890A8E5BEB7E58F91E998BFE890A8E5BEB7E58F915F6D73675F2F6173736574732F6D6573736167652F636861742F696D6167652F63623564333134303234343234613632613735396638643166666634363434635FE5A4B4E5838F2E6A70675F6D73675F3131313131, 'Group', '2019-03-06 09:41:44', null, null, null, null, 'Used');
@@ -1452,17 +1453,17 @@ CREATE TABLE `sys_button` (
 -- Records of sys_button
 -- ----------------------------
 INSERT INTO `sys_button` VALUES ('03aca5c317bc4e19816f95089ae907f3', 'Delete', '', '/ms/**', 'Delete', '2019-01-29 14:26:49', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_button` VALUES ('0c4fba7e8aba4e27b0e7a6f6599363d9', 'ieg-post', '', '/ieg/**', 'Post', '2019-03-24 11:48:51', 'admin', '2019-03-24 11:49:06', 'admin', null, 'Used');
-INSERT INTO `sys_button` VALUES ('1bfbac06c98e45d8bfffb40f7b4aae28', '删除院校', 'ieg_school_delete', '/ieg/**', 'Get', '2019-04-11 20:08:48', 'ieg', '2019-04-11 20:08:58', 'ieg', null, 'Used');
+INSERT INTO `sys_button` VALUES ('0c4fba7e8aba4e27b0e7a6f6599363d9', 'ieg-post', '', '/ieg/**', 'Post', '2019-03-24 11:48:51', 'admin', '2019-04-23 15:53:42', 'admin', null, 'Delete');
+INSERT INTO `sys_button` VALUES ('1bfbac06c98e45d8bfffb40f7b4aae28', '删除院校', 'ieg_school_delete', '/ieg/**', 'Get', '2019-04-11 20:08:48', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_button` VALUES ('241846af380e4cc0bd6b4817565c5a9a', 'sys_get', 'sys_user_get', '/sys/**', 'Get', '2019-01-09 13:50:42', 'admin_test', '2019-01-17 11:31:17', 'admin_test', null, 'Used');
-INSERT INTO `sys_button` VALUES ('39444f220fcd414184901a6354775e60', '新增院校', 'ieg_school_raise', '/ieg/**', 'Get', '2019-04-11 20:08:04', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_button` VALUES ('39444f220fcd414184901a6354775e60', '新增院校', 'ieg_school_raise', '/ieg/**', 'Get', '2019-04-11 20:08:04', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_button` VALUES ('5af77dfa167645e4a31faaf501532fdc', 'sys_post', 'sys_user_post', '/sys/**', 'Post', '2019-01-09 13:50:29', 'admin_test', '2019-01-17 11:31:19', 'admin_test', null, 'Used');
 INSERT INTO `sys_button` VALUES ('73fb308d5eda4614b36333e0723cad0c', 'Get', '', '/ms/**', 'Get', '2019-01-29 14:26:30', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_button` VALUES ('7cbfce77cbd6422aa81dad33ff91ab9e', 'ieg-get', '', '/ieg/**', 'Get', '2019-03-24 11:49:20', 'admin', '2019-03-24 11:49:59', 'admin', null, 'Used');
+INSERT INTO `sys_button` VALUES ('7cbfce77cbd6422aa81dad33ff91ab9e', 'ieg-get', '', '/ieg/**', 'Get', '2019-03-24 11:49:20', 'admin', '2019-04-23 15:53:42', 'admin', null, 'Delete');
 INSERT INTO `sys_button` VALUES ('95ea2fa6656d439382f8e42e6a926ced', 'sys_put', 'sys_user_put', '/sys/**', 'Put', '2019-01-09 13:50:54', 'admin_test', '2019-01-17 11:31:21', 'admin_test', null, 'Used');
-INSERT INTO `sys_button` VALUES ('abee88b1a8ee4427a2b377ab63f75d8f', 'ieg-delete', '', '/ieg/**', 'Delete', '2019-03-24 11:49:47', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_button` VALUES ('abee88b1a8ee4427a2b377ab63f75d8f', 'ieg-delete', '', '/ieg/**', 'Delete', '2019-03-24 11:49:47', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_button` VALUES ('ade005be6b4e420d9e899284b3869dc2', 'sys_delete', 'sys_user_delete', '/sys/**', 'Delete', '2019-01-09 13:51:04', 'admin_test', '2019-01-17 11:31:23', 'admin_test', null, 'Used');
-INSERT INTO `sys_button` VALUES ('cf800ae3d06c4723966963f7c7fd4ea9', 'ieg-put', '', '/ieg/**', 'Put', '2019-03-24 11:49:36', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_button` VALUES ('cf800ae3d06c4723966963f7c7fd4ea9', 'ieg-put', '', '/ieg/**', 'Put', '2019-03-24 11:49:36', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_button` VALUES ('f14184d9c6b540799385b47b3ba9bb45', 'put', '', '/ms/**', 'Put', '2019-01-29 14:26:42', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_button` VALUES ('ff4f80b7700f43cdb0b2f6cf168c75cf', 'Post', '', '/ms/**', 'Post', '2019-01-29 14:26:37', 'admin', null, null, null, 'Used');
 
@@ -1582,39 +1583,39 @@ CREATE TABLE `sys_dict` (
 -- Records of sys_dict
 -- ----------------------------
 INSERT INTO `sys_dict` VALUES ('0c3460177e044015b23a73e240b5fd28', 'a7156ad680da4e779596d563abde3120', '系统设置', 'sys_task_sys', '1', '2019-01-24 08:59:25', null, '2019-01-24 08:59:44', null, '系统设置模块定时任务', 'Used');
-INSERT INTO `sys_dict` VALUES ('14e71a7c2339489bb45ccc982b5604ce', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '林业', 'linye', '4', '2019-03-27 08:08:17', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('17e8c1a818fb4c27b3509ec3a1b73ab2', '70943c7f196e4fdf84b9a19ce28522ef', '军校', 'junxiao', '4', '2019-03-27 08:12:19', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('1b38e15980264dc8bc1adbfbd7a39814', '70943c7f196e4fdf84b9a19ce28522ef', '其他部委', 'qitabuwei', '2', '2019-03-27 08:11:53', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('1e43c622dac04addae5692fb157b1a26', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '体育', 'tiyu', '10', '2019-03-27 08:09:29', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('1e81d20026464f3899a21a8f5501cff6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '师范', 'shifan', '6', '2019-03-27 08:08:39', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('1ef53c7e3bc141878480a4e9c70dd6b4', 'fb9696a946654a7bb7420b576fc3bd4a', '211高校', '211gaoxiao', '2', '2019-03-27 08:14:19', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('2a0ea8dde52746199f16f019d74218cd', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '农业', 'nongye', '3', '2019-03-27 08:08:02', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('3e266a736d224c498813bff9d3715be6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '财经', 'caijing', '8', '2019-03-27 08:09:08', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('5e95fc7c56b143b0a0e3a7742cc58d03', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '民族', 'minzu', '12', '2019-03-27 08:09:50', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('6b7143e5765840bc8a8507089497a942', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '政法', 'zhengfa', '9', '2019-03-27 08:09:18', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('70943c7f196e4fdf84b9a19ce28522ef', null, '报考指导——院校归属类型', 'ieg-school-attach-type', '3', '2019-03-27 08:11:12', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('71edc0494e6749f19807bef485efb6f6', 'fb9696a946654a7bb7420b576fc3bd4a', '独立学院', 'dulixueyuan', '4', '2019-03-27 08:14:52', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('7bbebd37027f4c178b7ab1aedaec5a7e', '9fb335d5b59944c19f9b4854db92798f', '国家级特色专业', 'gjjtszy', '5', '2019-03-31 21:00:02', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('80abb6cc906c45ae9f27426f49895b0b', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '艺术', 'yishu', '11', '2019-03-27 08:09:40', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('8241dd7d1c604ec180891f427a857f3a', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '医药', 'yiyao', '5', '2019-03-27 08:08:28', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('897cf96df70a4d3fa598d020f31273a5', '70943c7f196e4fdf84b9a19ce28522ef', '地方', 'difang', '3', '2019-03-27 08:12:08', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('8d8aeee9c0744033a2740a257c94e65d', '9fb335d5b59944c19f9b4854db92798f', '一级国家重点学科', 'yjgjzdxk', '2', '2019-03-31 20:59:05', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('920b9f897dc94bc892da71dc25c861f1', '9fb335d5b59944c19f9b4854db92798f', '二级国家重点学科', 'ejgjzdxk', '3', '2019-03-31 20:59:16', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('9434c660f0724f00a91a3a4a01f4810d', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '语言', 'yuyan', '7', '2019-03-27 08:08:57', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('9fb335d5b59944c19f9b4854db92798f', null, '报考指导——院校专业特性', 'ieg-school-major-features-type', '5', '2019-03-31 20:58:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('14e71a7c2339489bb45ccc982b5604ce', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '林业', 'linye', '4', '2019-03-27 08:08:17', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('17e8c1a818fb4c27b3509ec3a1b73ab2', '70943c7f196e4fdf84b9a19ce28522ef', '军校', 'junxiao', '4', '2019-03-27 08:12:19', 'admin', '2019-04-23 15:54:22', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('1b38e15980264dc8bc1adbfbd7a39814', '70943c7f196e4fdf84b9a19ce28522ef', '其他部委', 'qitabuwei', '2', '2019-03-27 08:11:53', 'admin', '2019-04-23 15:54:22', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('1e43c622dac04addae5692fb157b1a26', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '体育', 'tiyu', '10', '2019-03-27 08:09:29', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('1e81d20026464f3899a21a8f5501cff6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '师范', 'shifan', '6', '2019-03-27 08:08:39', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('1ef53c7e3bc141878480a4e9c70dd6b4', 'fb9696a946654a7bb7420b576fc3bd4a', '211高校', '211gaoxiao', '2', '2019-03-27 08:14:19', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('2a0ea8dde52746199f16f019d74218cd', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '农业', 'nongye', '3', '2019-03-27 08:08:02', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('3e266a736d224c498813bff9d3715be6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '财经', 'caijing', '8', '2019-03-27 08:09:08', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('5e95fc7c56b143b0a0e3a7742cc58d03', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '民族', 'minzu', '12', '2019-03-27 08:09:50', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('6b7143e5765840bc8a8507089497a942', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '政法', 'zhengfa', '9', '2019-03-27 08:09:18', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('70943c7f196e4fdf84b9a19ce28522ef', null, '报考指导——院校归属类型', 'ieg-school-attach-type', '3', '2019-03-27 08:11:12', 'admin', '2019-04-23 15:54:22', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('71edc0494e6749f19807bef485efb6f6', 'fb9696a946654a7bb7420b576fc3bd4a', '独立学院', 'dulixueyuan', '4', '2019-03-27 08:14:52', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('7bbebd37027f4c178b7ab1aedaec5a7e', '9fb335d5b59944c19f9b4854db92798f', '国家级特色专业', 'gjjtszy', '5', '2019-03-31 21:00:02', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('80abb6cc906c45ae9f27426f49895b0b', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '艺术', 'yishu', '11', '2019-03-27 08:09:40', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('8241dd7d1c604ec180891f427a857f3a', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '医药', 'yiyao', '5', '2019-03-27 08:08:28', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('897cf96df70a4d3fa598d020f31273a5', '70943c7f196e4fdf84b9a19ce28522ef', '地方', 'difang', '3', '2019-03-27 08:12:08', 'admin', '2019-04-23 15:54:22', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('8d8aeee9c0744033a2740a257c94e65d', '9fb335d5b59944c19f9b4854db92798f', '一级国家重点学科', 'yjgjzdxk', '2', '2019-03-31 20:59:05', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('920b9f897dc94bc892da71dc25c861f1', '9fb335d5b59944c19f9b4854db92798f', '二级国家重点学科', 'ejgjzdxk', '3', '2019-03-31 20:59:16', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('9434c660f0724f00a91a3a4a01f4810d', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '语言', 'yuyan', '7', '2019-03-27 08:08:57', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('9fb335d5b59944c19f9b4854db92798f', null, '报考指导——院校专业特性', 'ieg-school-major-features-type', '5', '2019-03-31 20:58:06', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
 INSERT INTO `sys_dict` VALUES ('a7156ad680da4e779596d563abde3120', null, '定时任务分组', 'sys_task', '1', '2019-01-24 08:58:23', null, null, null, '定时任务分组sys_task表的group字段', 'Used');
-INSERT INTO `sys_dict` VALUES ('b34fd313cd7749cfbc0d7f3ddc5a5294', null, '报考指导——院校类型', 'ieg-school-major-type', '2', '2019-03-27 08:06:21', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('b7c15967ab45435e9af9d36658afcd15', 'fb9696a946654a7bb7420b576fc3bd4a', '研究生院', 'yanjiushengyuan', '3', '2019-03-27 08:14:36', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('be16ab7c27ca423c9b2a4042dd844602', 'fb9696a946654a7bb7420b576fc3bd4a', '985高校', '985gaoxiao', '1', '2019-03-27 08:13:57', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('c4664d6048ff4ffca028472f8150ad87', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '综合', 'zonghe', '1', '2019-03-27 08:07:32', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('c4acc695ed6c45b9b695880bae6cf999', '9fb335d5b59944c19f9b4854db92798f', '国家重点（培育学科）', 'gjzdpyxk', '4', '2019-03-31 20:59:44', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('b34fd313cd7749cfbc0d7f3ddc5a5294', null, '报考指导——院校类型', 'ieg-school-major-type', '2', '2019-03-27 08:06:21', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('b7c15967ab45435e9af9d36658afcd15', 'fb9696a946654a7bb7420b576fc3bd4a', '研究生院', 'yanjiushengyuan', '3', '2019-03-27 08:14:36', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('be16ab7c27ca423c9b2a4042dd844602', 'fb9696a946654a7bb7420b576fc3bd4a', '985高校', '985gaoxiao', '1', '2019-03-27 08:13:57', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('c4664d6048ff4ffca028472f8150ad87', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '综合', 'zonghe', '1', '2019-03-27 08:07:32', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('c4acc695ed6c45b9b695880bae6cf999', '9fb335d5b59944c19f9b4854db92798f', '国家重点（培育学科）', 'gjzdpyxk', '4', '2019-03-31 20:59:44', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
 INSERT INTO `sys_dict` VALUES ('d83da9778b6a46a38109642f2b09b65b', '9fb335d5b59944c19f9b4854db92798f', '第四轮学科评估结果', 'dslxkpgjg', '6', '2019-03-31 21:00:26', 'ieg', '2019-04-15 20:09:46', null, null, 'Delete');
 INSERT INTO `sys_dict` VALUES ('ddc398ace11a47d69e64d6cf71390027', 'a7156ad680da4e779596d563abde3120', '测试', 'sys_task_test', '2', '2019-01-24 13:56:55', null, null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('e08d53393e3d415e84fd0016eeb9f595', 'fb9696a946654a7bb7420b576fc3bd4a', '民办高校', 'minbangaoxiao', '5', '2019-03-27 08:15:06', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('eec9789dbac442d2800baac168b792d6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '工科', 'gongke', '2', '2019-03-27 08:07:48', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('f2f9131c356f4df8ae02630b09844661', '70943c7f196e4fdf84b9a19ce28522ef', '教育部', 'jiaoyubu', '1', '2019-03-27 08:11:36', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('fb9696a946654a7bb7420b576fc3bd4a', null, '报考指导——学校特性', 'ieg-school-features-type', '4', '2019-03-27 08:13:18', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_dict` VALUES ('fedd4a9f658e41309d10bcd34d2b25c6', '9fb335d5b59944c19f9b4854db92798f', '双一流建设学科', 'syljsxk', '1', '2019-03-31 20:58:39', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('e08d53393e3d415e84fd0016eeb9f595', 'fb9696a946654a7bb7420b576fc3bd4a', '民办高校', 'minbangaoxiao', '5', '2019-03-27 08:15:06', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('eec9789dbac442d2800baac168b792d6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '工科', 'gongke', '2', '2019-03-27 08:07:48', 'admin', '2019-04-23 15:54:25', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('f2f9131c356f4df8ae02630b09844661', '70943c7f196e4fdf84b9a19ce28522ef', '教育部', 'jiaoyubu', '1', '2019-03-27 08:11:36', 'admin', '2019-04-23 15:54:22', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('fb9696a946654a7bb7420b576fc3bd4a', null, '报考指导——学校特性', 'ieg-school-features-type', '4', '2019-03-27 08:13:18', 'admin', '2019-04-23 15:54:20', null, null, 'Delete');
+INSERT INTO `sys_dict` VALUES ('fedd4a9f658e41309d10bcd34d2b25c6', '9fb335d5b59944c19f9b4854db92798f', '双一流建设学科', 'syljsxk', '1', '2019-03-31 20:58:39', 'ieg', '2019-04-23 15:54:18', null, null, 'Delete');
 
 -- ----------------------------
 -- Table structure for sys_log_0
@@ -1903,36 +1904,36 @@ CREATE TABLE `sys_menu` (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES ('02409078479444c6967baa22b31a7199', '投档单位', null, '/ieg/schoolSubmit', '/ieg/schoolSubmit', 'No', 'No', 'No', 'Home', '13', '2019-04-07 20:49:32', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('02409078479444c6967baa22b31a7199', '投档单位', null, '/ieg/schoolSubmit', '/ieg/schoolSubmit', 'No', 'No', 'No', 'Home', '13', '2019-04-07 20:49:32', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('14482180614349c39fe9bb70bd3e0fa9', '部门管理', 'logo-xbox', '/sys/dept', '/sys/dept', 'Yes', 'Yes', 'No', 'Home', '4', '2019-01-09 11:25:15', 'admin_test', '2019-01-10 13:08:57', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('258dcbbefef04bf19ad39b3bcacfd022', '按钮管理', null, '/sys/button', '/sys/button', 'Yes', 'No', 'No', 'Home', '3', '2019-01-09 12:24:31', 'admin_test', '2019-01-09 12:24:40', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('26c28c672b764157a29c2fc0ebde4522', '资源管理', 'ios-navigate', null, null, 'Yes', 'No', 'No', 'Home', '70', '2019-01-09 11:27:14', 'admin_test', '2019-01-22 17:42:27', null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('2850c181e2664d94a43f0a890af8576d', '院校信息', 'ios-flask', '/ieg/school', '/ieg/school', 'Yes', 'No', 'No', 'Home', '2', '2019-03-27 09:26:45', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('2850c181e2664d94a43f0a890af8576d', '院校信息', 'ios-flask', '/ieg/school', '/ieg/school', 'Yes', 'No', 'No', 'Home', '2', '2019-03-27 09:26:45', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('319b072a4f044442876ee65211f8aa78', '字典管理', 'ios-at-outline', '/sys/dict', '/sys/dict', 'Yes', 'Yes', 'No', 'Home', '5', '2019-01-09 11:25:45', 'admin_test', '2019-01-10 13:09:05', 'admin_test', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('35e5441365f84896a91777b7880ab10d', '院校问题_', null, '/ieg/schoolProblem', '/ieg/schoolProblem', 'No', 'No', 'No', 'Home', '5', '2019-03-29 16:45:05', 'ieg', '2019-03-29 16:45:13', 'ieg', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('35e5441365f84896a91777b7880ab10d', '院校问题_', null, '/ieg/schoolProblem', '/ieg/schoolProblem', 'No', 'No', 'No', 'Home', '5', '2019-03-29 16:45:05', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('44d8b4106ec7428c880bff606de532fb', '菜单管理', null, '/sys/menu', '/sys/menu', 'Yes', 'No', 'No', 'Home', '2', '2019-01-09 12:24:09', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('4f565e58e7be42c2ab7726494a1a9d1a', '系统首页', 'md-home', '/sys/home', '/sys/home', 'Yes', 'No', 'Yes', 'Home', '1', '2019-01-09 11:23:47', 'admin_test', '2019-01-16 10:56:30', 'admin_test', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('54941a1a74174d3ead1e003f37429fcb', '院系维护_', null, '/ieg/faculty', '/ieg/faculty', 'No', 'No', 'No', 'Home', '4', '2019-03-29 09:18:03', 'ieg', '2019-03-29 09:18:09', 'ieg', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('5596a332e87742f59a6ff064401b01e4', '一分一段', 'ios-expand', '/ieg/grade', '/ieg/grade', 'Yes', 'No', 'No', 'Home', '10', '2019-04-02 09:42:25', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('54941a1a74174d3ead1e003f37429fcb', '院系维护_', null, '/ieg/faculty', '/ieg/faculty', 'No', 'No', 'No', 'Home', '4', '2019-03-29 09:18:03', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
+INSERT INTO `sys_menu` VALUES ('5596a332e87742f59a6ff064401b01e4', '一分一段', 'ios-expand', '/ieg/grade', '/ieg/grade', 'Yes', 'No', 'No', 'Home', '10', '2019-04-02 09:42:25', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('56ed32d56af64758b90734393916db84', '消息发布', 'ios-chatbubbles-outline', '/message/publish', '/message/publish', 'Yes', 'No', 'Yes', 'Home', '1', '2019-01-29 14:25:16', 'admin', '2019-01-29 14:29:23', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('5a806b8031b64bc88591edb09f487313', '日志台账', 'logo-sass', '/sys/log', '/sys/log', 'Yes', 'No', 'No', 'Home', '6', '2019-01-22 17:43:54', null, '2019-01-29 09:41:03', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('5c689421c2e0452bbcd5536661dca3be', '数据规则', 'md-analytics', '/sys/dataScope', '/sys/dataScope', 'Yes', 'No', 'No', 'Home', '9', '2019-03-19 23:08:46', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('60a8ff23bb0048289ec9739223a914ed', '_消息发布', null, '/message/publish/form', '/message/publish/form', 'No', 'No', 'No', 'Home', '2', '2019-01-29 16:19:28', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('6e4b20a23afe4bf6a4a5d24d3071d550', '专业问题_', null, '/ieg/schoolMajorProblem', '/ieg/schoolMajorProblem', 'No', 'No', 'No', 'Home', '8', '2019-04-01 14:30:40', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('6e4b20a23afe4bf6a4a5d24d3071d550', '专业问题_', null, '/ieg/schoolMajorProblem', '/ieg/schoolMajorProblem', 'No', 'No', 'No', 'Home', '8', '2019-04-01 14:30:40', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('71684cea9d654584bad93a20fcd52207', '角色管理', 'md-globe', '/sys/role', '/sys/role', 'Yes', 'Yes', 'No', 'Home', '3', '2019-01-09 11:24:53', 'admin_test', '2019-01-10 13:08:52', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('73450906179349219f2821c8e9c2fee9', '代码生成', 'ios-bug', '/sys/code', '/sys/code', 'Yes', 'No', 'No', 'Home', '8', '2019-01-29 09:40:40', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('75600c17095547008bd02b6bae423193', '院校专业_', null, '/ieg/schoolMajor', '/ieg/schoolMajor', 'No', 'No', 'No', 'Home', '7', '2019-03-31 10:15:33', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('786a7fd7783e4bc6bb9f880aecd058a5', '专业录取_', null, '/ieg/schoolMajorEnrollRecord', '/ieg/schoolMajorEnrollRecord', 'No', 'No', 'No', 'Home', '9', '2019-04-01 16:11:33', 'ieg', '2019-04-01 16:12:46', 'ieg', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('75600c17095547008bd02b6bae423193', '院校专业_', null, '/ieg/schoolMajor', '/ieg/schoolMajor', 'No', 'No', 'No', 'Home', '7', '2019-03-31 10:15:33', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_menu` VALUES ('786a7fd7783e4bc6bb9f880aecd058a5', '专业录取_', null, '/ieg/schoolMajorEnrollRecord', '/ieg/schoolMajorEnrollRecord', 'No', 'No', 'No', 'Home', '9', '2019-04-01 16:11:33', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('7afcc5eb00c246d78d92e673b9679640', '全屏菜单', null, '/home', '/home', 'Yes', 'No', 'Yes', 'Screen', '1', '2019-01-10 13:29:01', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('85ae17e4044a4471b873a48a191ad980', '维护权限', 'logo-codepen', '/ieg/auth', '/ieg/auth', 'Yes', 'No', 'No', 'Home', '14', '2019-04-10 19:14:00', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('85ae17e4044a4471b873a48a191ad980', '维护权限', 'logo-codepen', '/ieg/auth', '/ieg/auth', 'Yes', 'No', 'No', 'Home', '14', '2019-04-10 19:14:00', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('863ea79c022d40f4a57a8ce54954c74d', '系统管理', null, '/sys/system', '/sys/system', 'Yes', 'No', 'No', 'Home', '1', '2019-01-09 12:23:37', 'admin_test', '2019-01-10 16:49:31', 'admin_test', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('94d4b3ba3991445eb928206730af8be6', '院校维护_', null, '/ieg/school/form', '/ieg/school/form', 'No', 'No', 'No', 'Home', '3', '2019-03-27 09:49:22', 'ieg', '2019-03-27 09:49:35', 'ieg', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('a8d89cd7a359497c802345d6b1a7892b', '投档分数', 'ios-color-filter', '/ieg/enroll', '/ieg/enroll', 'Yes', 'No', 'No', 'Home', '12', '2019-04-04 12:21:21', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('94d4b3ba3991445eb928206730af8be6', '院校维护_', null, '/ieg/school/form', '/ieg/school/form', 'No', 'No', 'No', 'Home', '3', '2019-03-27 09:49:22', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
+INSERT INTO `sys_menu` VALUES ('a8d89cd7a359497c802345d6b1a7892b', '投档分数', 'ios-color-filter', '/ieg/enroll', '/ieg/enroll', 'Yes', 'No', 'No', 'Home', '12', '2019-04-04 12:21:21', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('ada820e2bd6345a2a882dd2526f16725', '用户管理', 'ios-contact', '/sys/user', '/sys/user', 'Yes', 'Yes', 'No', 'Home', '2', '2019-01-09 11:24:16', 'admin_test', '2019-01-16 16:10:46', 'admin_test', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('b47334e1f63246edbdfde420f204cd17', '院校录取_', null, '/ieg/schoolEnrollRecord', '/ieg/schoolEnrollRecord', 'No', 'No', 'No', 'Home', '6', '2019-03-29 21:02:07', 'admin', '2019-03-29 21:02:56', 'ieg', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('b47334e1f63246edbdfde420f204cd17', '院校录取_', null, '/ieg/schoolEnrollRecord', '/ieg/schoolEnrollRecord', 'No', 'No', 'No', 'Home', '6', '2019-03-29 21:02:07', 'admin', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('b5a6eeea310644e2a25e4e3a10cf0628', '定时任务', 'md-clock', '/sys/task', '/sys/task', 'Yes', 'No', 'No', 'Home', '7', '2019-01-24 13:59:20', null, null, null, null, 'Used');
-INSERT INTO `sys_menu` VALUES ('b6620f37c1b247a586ae5414663299bc', '专业台账', 'md-book', '/ieg/major', '/ieg/major', 'Yes', 'Yes', 'Yes', 'Home', '1', '2019-01-11 09:03:17', 'admin_test', '2019-03-24 11:21:56', 'admin', null, 'Used');
-INSERT INTO `sys_menu` VALUES ('bfffe4060ec747b38ac9bd311ac16756', '气候饮食', 'md-beer', '/ieg/environment', '/ieg/environment', 'Yes', 'No', 'No', 'Home', '11', '2019-04-03 13:29:47', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('b6620f37c1b247a586ae5414663299bc', '专业台账', 'md-book', '/ieg/major', '/ieg/major', 'Yes', 'Yes', 'Yes', 'Home', '1', '2019-01-11 09:03:17', 'admin_test', '2019-04-23 15:53:42', 'admin', null, 'Delete');
+INSERT INTO `sys_menu` VALUES ('bfffe4060ec747b38ac9bd311ac16756', '气候饮食', 'md-beer', '/ieg/environment', '/ieg/environment', 'Yes', 'No', 'No', 'Home', '11', '2019-04-03 13:29:47', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_menu` VALUES ('f564547f036e4631967ed4ba0c165d38', '消息审核', 'logo-css3', '/message/audit', '/message/audit', 'Yes', 'No', 'No', 'Home', '3', '2019-01-29 14:25:53', 'admin', '2019-01-29 14:29:27', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('f986c3db2cbf46fdbd5c0c057fd282d9', '群组台账', 'md-contacts', '/message/chat/group', '/message/chat/group', 'Yes', 'No', 'No', 'Home', '4', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 
@@ -1957,54 +1958,54 @@ CREATE TABLE `sys_resource` (
 -- ----------------------------
 -- Records of sys_resource
 -- ----------------------------
-INSERT INTO `sys_resource` VALUES ('0254a06c10bb4cc783d7e62cf55ac9c0', 'Menu', '54941a1a74174d3ead1e003f37429fcb', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 09:18:03', 'ieg', '2019-03-29 09:18:09', 'ieg', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('0254a06c10bb4cc783d7e62cf55ac9c0', 'Menu', '54941a1a74174d3ead1e003f37429fcb', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 09:18:03', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('101c7ef15cd8474da7586316eb3289c3', 'Button', 'ff4f80b7700f43cdb0b2f6cf168c75cf', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:37', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('13704bf763904cfbb4ecd4395a7c7745', 'Menu', 'ada820e2bd6345a2a882dd2526f16725', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:24:16', 'admin_test', '2019-01-10 13:08:41', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('1419331c93f949fda927aa562363f0c9', 'Menu', '7afcc5eb00c246d78d92e673b9679640', '7d3065f62b184acba8be3323c40723ab', '2019-01-10 13:29:01', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('195da5c9121b40c4b06fba72585f5fe5', 'Button', 'abee88b1a8ee4427a2b377ab63f75d8f', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:47', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('195da5c9121b40c4b06fba72585f5fe5', 'Button', 'abee88b1a8ee4427a2b377ab63f75d8f', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:47', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('21e01b2da75c42e39968d514c25a1f56', 'Button', '5af77dfa167645e4a31faaf501532fdc', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:29', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('2a63aec9db604fa898c11380e8893dd2', 'Menu', '44d8b4106ec7428c880bff606de532fb', '50226e046cab4cc9bdf88684698ee47f', '2019-01-09 12:24:09', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('2d481065ccf440a8b45d3acb637eed5e', 'Button', '39444f220fcd414184901a6354775e60', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:04', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('2d481065ccf440a8b45d3acb637eed5e', 'Button', '39444f220fcd414184901a6354775e60', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:04', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('328672b0736b4e57ba1803571ef418d1', 'Menu', '60a8ff23bb0048289ec9739223a914ed', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 16:19:28', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('394b434defd74548ab04493b5fee924b', 'System', 'c63493fc99c8489294cbe839ce2071ac', null, '2019-01-09 11:19:50', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('3ef924c74b324a92aee904190a29b318', 'Menu', '5596a332e87742f59a6ff064401b01e4', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-02 09:42:25', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('3ef924c74b324a92aee904190a29b318', 'Menu', '5596a332e87742f59a6ff064401b01e4', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-02 09:42:25', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('408099690e724f70bd655be2ee00dccd', 'Button', '73fb308d5eda4614b36333e0723cad0c', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:30', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('4196bc3de8254b2a95d03a79d40279bf', 'Menu', 'b6620f37c1b247a586ae5414663299bc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-01-11 09:03:17', 'admin_test', '2019-03-24 11:21:56', 'admin', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('4196bc3de8254b2a95d03a79d40279bf', 'Menu', 'b6620f37c1b247a586ae5414663299bc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-01-11 09:03:17', 'admin_test', '2019-04-23 15:53:42', 'admin', null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('4e1f90aad6594c4d81f232ef28e7d40f', 'Menu', '5c689421c2e0452bbcd5536661dca3be', '394b434defd74548ab04493b5fee924b', '2019-03-19 23:08:46', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('4f3355f7ae6c4156ac320f9691e91a4b', 'Menu', '258dcbbefef04bf19ad39b3bcacfd022', '50226e046cab4cc9bdf88684698ee47f', '2019-01-09 12:24:31', 'admin_test', '2019-01-09 12:24:40', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('50226e046cab4cc9bdf88684698ee47f', 'Menu', '26c28c672b764157a29c2fc0ebde4522', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:27:14', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('52623385f20e4df795f010572512c0e3', 'Menu', 'bfffe4060ec747b38ac9bd311ac16756', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-03 13:29:47', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('52623385f20e4df795f010572512c0e3', 'Menu', 'bfffe4060ec747b38ac9bd311ac16756', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-03 13:29:47', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('55910164c8fc4dd28a889059697b5b32', 'Button', '95ea2fa6656d439382f8e42e6a926ced', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:54', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('6730994d67ea410f84028abda4f6f99c', 'Menu', '02409078479444c6967baa22b31a7199', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-07 20:49:32', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('732f59a4c0df4aa2b2c2e3f952c283f4', 'Menu', '94d4b3ba3991445eb928206730af8be6', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:49:22', 'ieg', '2019-03-27 09:49:35', 'ieg', null, 'Used');
-INSERT INTO `sys_resource` VALUES ('74a2ee6672dc4bcbba6f86c402903660', 'Menu', '2850c181e2664d94a43f0a890af8576d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:26:45', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('76c8fc05ff294ef38b87e6e7a82054d2', 'Button', '0c4fba7e8aba4e27b0e7a6f6599363d9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:48:51', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('6730994d67ea410f84028abda4f6f99c', 'Menu', '02409078479444c6967baa22b31a7199', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-07 20:49:32', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('732f59a4c0df4aa2b2c2e3f952c283f4', 'Menu', '94d4b3ba3991445eb928206730af8be6', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:49:22', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('74a2ee6672dc4bcbba6f86c402903660', 'Menu', '2850c181e2664d94a43f0a890af8576d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:26:45', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('76c8fc05ff294ef38b87e6e7a82054d2', 'Button', '0c4fba7e8aba4e27b0e7a6f6599363d9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:48:51', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('7a684d1e725e4864a4d12b347ef97ce2', 'Menu', '319b072a4f044442876ee65211f8aa78', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:25:45', 'admin_test', '2019-01-10 13:09:05', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('7d3065f62b184acba8be3323c40723ab', 'System', 'd7065f3eba94409397f4d21f2692a8fa', null, '2019-01-10 13:24:35', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('812368028df247a69bc974adb44cd0b4', 'Menu', 'f986c3db2cbf46fdbd5c0c057fd282d9', 'b860f629bd3f4e118fa2b406c1684689', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('88139b0b64ae46a5a70ca1c53f43872b', 'Button', '03aca5c317bc4e19816f95089ae907f3', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:49', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('88290309f0bd45feb1a2e2e5592b7d9d', 'Menu', '85ae17e4044a4471b873a48a191ad980', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-10 19:14:00', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('8895ba596a104bdc80b719efaf6162b1', 'Menu', 'a8d89cd7a359497c802345d6b1a7892b', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-04 12:21:21', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('88290309f0bd45feb1a2e2e5592b7d9d', 'Menu', '85ae17e4044a4471b873a48a191ad980', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-10 19:14:00', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('8895ba596a104bdc80b719efaf6162b1', 'Menu', 'a8d89cd7a359497c802345d6b1a7892b', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-04 12:21:21', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('8b181665db794069b476f02f42e1a8f8', 'Button', 'ade005be6b4e420d9e899284b3869dc2', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:51:04', 'admin_test', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('8eb4b26f990d414285e330fed2292e20', 'Menu', 'b47334e1f63246edbdfde420f204cd17', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 21:02:07', 'admin', '2019-03-29 21:02:56', 'ieg', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('8eb4b26f990d414285e330fed2292e20', 'Menu', 'b47334e1f63246edbdfde420f204cd17', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 21:02:07', 'admin', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('9004f54f261f4320b05beb2b82dd4c3f', 'Button', 'f14184d9c6b540799385b47b3ba9bb45', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:42', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('95de2c8a8eb54877a9bc3d20dce786f0', 'Menu', '75600c17095547008bd02b6bae423193', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-31 10:15:33', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('95de2c8a8eb54877a9bc3d20dce786f0', 'Menu', '75600c17095547008bd02b6bae423193', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-31 10:15:33', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('9aa69c54984c455daa3be9c574f4209d', 'Menu', '863ea79c022d40f4a57a8ce54954c74d', '50226e046cab4cc9bdf88684698ee47f', '2019-01-09 12:23:37', 'admin_test', '2019-01-10 16:49:31', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('9cf2b9bf83164fb2978c2f434827b2b9', 'Menu', '5a806b8031b64bc88591edb09f487313', '394b434defd74548ab04493b5fee924b', '2019-01-22 17:43:54', null, '2019-01-29 09:41:03', 'admin', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('ade198a8d94d43829fff1ea35fc2bf37', 'Menu', 'b5a6eeea310644e2a25e4e3a10cf0628', '394b434defd74548ab04493b5fee924b', '2019-01-24 13:59:20', null, null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('ae76292783734369a20446e20544a5f0', 'Button', '7cbfce77cbd6422aa81dad33ff91ab9e', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:20', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('ae76292783734369a20446e20544a5f0', 'Button', '7cbfce77cbd6422aa81dad33ff91ab9e', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:20', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('b860f629bd3f4e118fa2b406c1684689', 'System', 'fa904fdc7ce74970a45d731ed3ba2364', null, '2019-01-11 09:01:28', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('b8c745e5a9ff4159ae4ea141db35a0e8', 'Menu', '71684cea9d654584bad93a20fcd52207', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:24:53', 'admin_test', '2019-01-10 13:08:52', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('b98f836b7276467ea18cca3900071c51', 'Menu', '14482180614349c39fe9bb70bd3e0fa9', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:25:15', 'admin_test', '2019-01-10 13:08:57', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('bda4da4b71a942be9e23883e3386479a', 'Menu', '56ed32d56af64758b90734393916db84', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:25:16', 'admin', '2019-01-29 14:29:23', 'admin', null, 'Used');
-INSERT INTO `sys_resource` VALUES ('d676154546b94379b5851ba52a0295f0', 'Menu', '6e4b20a23afe4bf6a4a5d24d3071d550', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 14:30:40', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('d6f4624a49a54b1a8c45385f5af42786', 'Menu', '35e5441365f84896a91777b7880ab10d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 16:45:05', 'ieg', '2019-03-29 16:45:13', 'ieg', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('d676154546b94379b5851ba52a0295f0', 'Menu', '6e4b20a23afe4bf6a4a5d24d3071d550', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 14:30:40', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('d6f4624a49a54b1a8c45385f5af42786', 'Menu', '35e5441365f84896a91777b7880ab10d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 16:45:05', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('d8ba380d157846d691f0eb3ec5902130', 'Menu', '73450906179349219f2821c8e9c2fee9', '394b434defd74548ab04493b5fee924b', '2019-01-29 09:40:40', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('d93c6b60ebc8495aa9596ca78f074e26', 'Menu', '786a7fd7783e4bc6bb9f880aecd058a5', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 16:11:33', 'ieg', '2019-04-01 16:12:46', 'ieg', null, 'Used');
-INSERT INTO `sys_resource` VALUES ('dd06238dfa334787a1cba25619d0bbc0', 'System', 'e2c1a10b8799418f80b99545d7b83296', null, '2019-01-11 09:01:56', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('d93c6b60ebc8495aa9596ca78f074e26', 'Menu', '786a7fd7783e4bc6bb9f880aecd058a5', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 16:11:33', 'ieg', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('dd06238dfa334787a1cba25619d0bbc0', 'System', 'e2c1a10b8799418f80b99545d7b83296', null, '2019-01-11 09:01:56', 'admin_test', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('ec624a3e7cad4f5ea107902df3390ba3', 'Menu', '4f565e58e7be42c2ab7726494a1a9d1a', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:23:47', 'admin_test', '2019-01-16 10:56:30', 'admin_test', null, 'Used');
-INSERT INTO `sys_resource` VALUES ('ef1bbf18e5b54c63a0d5c2ec4183c7ff', 'Button', '1bfbac06c98e45d8bfffb40f7b4aae28', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:48', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_resource` VALUES ('f3a8a2607e7e4d689565ac596cfbc3b4', 'Button', 'cf800ae3d06c4723966963f7c7fd4ea9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:36', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('ef1bbf18e5b54c63a0d5c2ec4183c7ff', 'Button', '1bfbac06c98e45d8bfffb40f7b4aae28', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:48', 'ieg', '2019-04-23 15:53:42', null, null, 'Delete');
+INSERT INTO `sys_resource` VALUES ('f3a8a2607e7e4d689565ac596cfbc3b4', 'Button', 'cf800ae3d06c4723966963f7c7fd4ea9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:36', 'admin', '2019-04-23 15:53:42', null, null, 'Delete');
 INSERT INTO `sys_resource` VALUES ('f3bb0d693a124fdfbfff1fca745fa160', 'Button', '241846af380e4cc0bd6b4817565c5a9a', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:42', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('f5224801941644bdad7a0ea7fe6f863e', 'Menu', 'f564547f036e4631967ed4ba0c165d38', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:25:53', 'admin', '2019-01-29 14:29:27', 'admin', null, 'Used');
 
@@ -2029,8 +2030,8 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES ('1', '超级管理员', 'admin', '2019-01-09 11:05:56', 'admin', '2019-01-09 11:06:12', null, '超级管理员', 'Used');
-INSERT INTO `sys_role` VALUES ('4501a9f26d654722b4877a559c18751a', '报考顾问', 'ieg_common', '2019-04-10 15:59:44', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ieg', 'ieg', '2019-03-24 11:20:26', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role` VALUES ('4501a9f26d654722b4877a559c18751a', '报考顾问', 'ieg_common', '2019-04-10 15:59:44', 'ieg', '2019-04-23 15:53:56', null, null, 'Delete');
+INSERT INTO `sys_role` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ieg', 'ieg', '2019-03-24 11:20:26', 'admin', '2019-04-23 15:53:54', null, null, 'Delete');
 INSERT INTO `sys_role` VALUES ('b5270709547143e5afb16c1f5c61ce95', '普通用户', 'common', '2019-01-17 10:19:20', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_role` VALUES ('d68fd78cb816477ea948734124de9eb6', '普通用户2', 'common2', '2019-01-28 17:02:08', null, null, null, null, 'Used');
 
@@ -2105,73 +2106,6 @@ INSERT INTO `sys_role_resource` VALUES ('1', 'd8ba380d157846d691f0eb3ec5902130',
 INSERT INTO `sys_role_resource` VALUES ('1', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('1', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('1', 'f5224801941644bdad7a0ea7fe6f863e', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '0254a06c10bb4cc783d7e62cf55ac9c0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '101c7ef15cd8474da7586316eb3289c3', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '195da5c9121b40c4b06fba72585f5fe5', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '21e01b2da75c42e39968d514c25a1f56', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '408099690e724f70bd655be2ee00dccd', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '4196bc3de8254b2a95d03a79d40279bf', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '52623385f20e4df795f010572512c0e3', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '55910164c8fc4dd28a889059697b5b32', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '6730994d67ea410f84028abda4f6f99c', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '732f59a4c0df4aa2b2c2e3f952c283f4', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '76c8fc05ff294ef38b87e6e7a82054d2', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '88139b0b64ae46a5a70ca1c53f43872b', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '8b181665db794069b476f02f42e1a8f8', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '8eb4b26f990d414285e330fed2292e20', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '9004f54f261f4320b05beb2b82dd4c3f', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '95de2c8a8eb54877a9bc3d20dce786f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'ae76292783734369a20446e20544a5f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd676154546b94379b5851ba52a0295f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd6f4624a49a54b1a8c45385f5af42786', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd93c6b60ebc8495aa9596ca78f074e26', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'f3a8a2607e7e4d689565ac596cfbc3b4', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '0254a06c10bb4cc783d7e62cf55ac9c0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '101c7ef15cd8474da7586316eb3289c3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '13704bf763904cfbb4ecd4395a7c7745', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '195da5c9121b40c4b06fba72585f5fe5', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '21e01b2da75c42e39968d514c25a1f56', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '2a63aec9db604fa898c11380e8893dd2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '2d481065ccf440a8b45d3acb637eed5e', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '394b434defd74548ab04493b5fee924b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '3ef924c74b324a92aee904190a29b318', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '408099690e724f70bd655be2ee00dccd', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4196bc3de8254b2a95d03a79d40279bf', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4e1f90aad6594c4d81f232ef28e7d40f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4f3355f7ae6c4156ac320f9691e91a4b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '50226e046cab4cc9bdf88684698ee47f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '52623385f20e4df795f010572512c0e3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '55910164c8fc4dd28a889059697b5b32', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '6730994d67ea410f84028abda4f6f99c', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '732f59a4c0df4aa2b2c2e3f952c283f4', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '76c8fc05ff294ef38b87e6e7a82054d2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '7a684d1e725e4864a4d12b347ef97ce2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '88139b0b64ae46a5a70ca1c53f43872b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '88290309f0bd45feb1a2e2e5592b7d9d', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8895ba596a104bdc80b719efaf6162b1', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8b181665db794069b476f02f42e1a8f8', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8eb4b26f990d414285e330fed2292e20', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9004f54f261f4320b05beb2b82dd4c3f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '95de2c8a8eb54877a9bc3d20dce786f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9aa69c54984c455daa3be9c574f4209d', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ae76292783734369a20446e20544a5f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b98f836b7276467ea18cca3900071c51', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd676154546b94379b5851ba52a0295f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd6f4624a49a54b1a8c45385f5af42786', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd8ba380d157846d691f0eb3ec5902130', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd93c6b60ebc8495aa9596ca78f074e26', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ef1bbf18e5b54c63a0d5c2ec4183c7ff', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3a8a2607e7e4d689565ac596cfbc3b4', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '101c7ef15cd8474da7586316eb3289c3', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '1419331c93f949fda927aa562363f0c9', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '21e01b2da75c42e39968d514c25a1f56', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
@@ -2224,7 +2158,7 @@ CREATE TABLE `sys_system` (
 -- ----------------------------
 INSERT INTO `sys_system` VALUES ('c63493fc99c8489294cbe839ce2071ac', '系统设置', 'md-cog', 'Yes', 'Yes', 'Yes', 'Breadcrumb', '1', '2019-01-09 11:19:50', '', '2019-01-25 14:10:19', 'admin', null, 'Used');
 INSERT INTO `sys_system` VALUES ('d7065f3eba94409397f4d21f2692a8fa', '全屏系统', 'logo-angular', 'Yes', 'No', 'Yes', 'Breadcrumb', '2', '2019-01-10 13:24:35', '', '2019-01-25 14:10:19', '', null, 'Used');
-INSERT INTO `sys_system` VALUES ('e2c1a10b8799418f80b99545d7b83296', '无权小的', 'ios-briefcase', 'Yes', 'No', 'Yes', 'Breadcrumb', '4', '2019-01-11 09:01:56', '', '2019-01-25 14:10:20', 'ieg', null, 'Used');
+INSERT INTO `sys_system` VALUES ('e2c1a10b8799418f80b99545d7b83296', '无权小的', 'ios-briefcase', 'Yes', 'No', 'Yes', 'Breadcrumb', '4', '2019-01-11 09:01:56', '', '2019-04-23 15:53:42', 'ieg', null, 'Delete');
 INSERT INTO `sys_system` VALUES ('fa904fdc7ce74970a45d731ed3ba2364', '消息中心', 'logo-playstation', 'Yes', 'No', 'Yes', 'Tabs', '3', '2019-01-11 09:01:28', '', '2019-01-25 14:10:21', 'admin', null, 'Used');
 
 -- ----------------------------
@@ -2290,10 +2224,10 @@ INSERT INTO `sys_user` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'common', '$2
 INSERT INTO `sys_user` VALUES ('514122a8c3944f10b245399aafc8978d', 'common6', '$2a$10$JjB8SExZ/T3vFMVkjBRsQuP/ga2pOP9ldcDXaiE3x4e3dQqg/sGC2', '13333333333', 'common6', '2019-02-06', 'Man', null, '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'common3', '$2a$10$fXIqrzrSenIm.dCk3zSdaeFGQ0AMkC1IkEP8v0DrmReLA6ahfq5fq', '13888889999', 'common3', '2019-02-13', 'Man', '/assets/user/photo/3ed0cc1f191640e9bb18f81804e823a5_a2.jpg', '2019-02-01 14:35:03', 'admin', '2019-02-01 14:35:24', 'admin', null, 'Used');
 INSERT INTO `sys_user` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', 'common8', '$2a$10$QcRSLD49p3avg67OGvlSK.jOY1iZIVRHYeskvCp5eI0Mr2C9u85ve', '13333333333', 'common8', '2019-02-13', 'Man', null, '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user` VALUES ('732a403df9364ceb9b0203210339eb44', 'ieg_common', '$2a$10$ygVTWSro2J2V0ZB7Kj65k.oogAmdXMa7gxsILPJWZNOFT0qkkfBQ.', '13888888888', '报考顾问', '2019-04-11', 'Man', null, '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_user` VALUES ('732a403df9364ceb9b0203210339eb44', 'ieg_common', '$2a$10$ygVTWSro2J2V0ZB7Kj65k.oogAmdXMa7gxsILPJWZNOFT0qkkfBQ.', '13888888888', '报考顾问', '2019-04-11', 'Man', null, '2019-04-11 20:03:47', 'ieg', '2019-04-23 15:54:08', null, null, 'Delete');
 INSERT INTO `sys_user` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', 'common1', '$2a$10$1Y.BV0PuHPyz06FRxOE1J.AfZmZcso9MswvP7AUlOWyBaZwuFnc16', '13333333333', 'common1', '2019-01-25', 'Man', '/assets/user/photo/e4e0cad0e81449dda2ff343478f8f02f_2.jpg', '2019-01-22 13:32:51', null, '2019-03-28 13:48:39', 'ieg', null, 'Used');
 INSERT INTO `sys_user` VALUES ('94d8f27841bf40fb942c8d865ba0e002', 'common4', '$2a$10$OVoglXKNQzkQLwI8CCdpAu3WFH8m353e2A36ncHaVx4OD7GJ90bcm', '13555555555', 'common4', '2019-02-06', 'Man', null, '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user` VALUES ('b55e207f09334fe98a1047fa87d802f6', 'ieg', '$2a$10$c6FyBQIab4RhWbj1EhbBgurvR5pf7SxMGybxMDU39.af.PWheaxeS', '13333333333', 'ieg', '2019-03-05', 'Man', '/assets/user/photo/0b7207e97bb246489d3f55bf27828260_2.jpg', '2019-03-24 11:25:47', 'admin', '2019-03-28 13:49:05', 'ieg', null, 'Used');
+INSERT INTO `sys_user` VALUES ('b55e207f09334fe98a1047fa87d802f6', 'ieg', '$2a$10$c6FyBQIab4RhWbj1EhbBgurvR5pf7SxMGybxMDU39.af.PWheaxeS', '13333333333', 'ieg', '2019-03-05', 'Man', '/assets/user/photo/0b7207e97bb246489d3f55bf27828260_2.jpg', '2019-03-24 11:25:47', 'admin', '2019-04-23 15:54:04', 'ieg', null, 'Delete');
 INSERT INTO `sys_user` VALUES ('d78b19eecc524d5a8ee39126471a92dd', 'common9', '$2a$10$6dyAm/ue2A2MTJ2tp6MxJOjRq.hYAvNsOhDfEAdXCpH3KIlyP0hKC', '13333333333', 'common9', '2019-02-22', 'Man', null, '2019-02-01 14:37:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'common2', '$2a$10$9D9Mq5nj7ssoytVNJJrB.OvZZuM.xIqwPC64D6fFwQpvK78phhtsS', '13888888888', 'common2', '2019-01-28', 'Man', null, '2019-01-28 17:06:22', null, null, null, null, 'Used');
 
@@ -2324,10 +2258,8 @@ INSERT INTO `sys_user_dept` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'cfdfef6
 INSERT INTO `sys_user_dept` VALUES ('514122a8c3944f10b245399aafc8978d', '5020de4a820c4be1bef0144836b26544', '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('5b0048391d5e497398d363cbad1a21eb', '212b1467fb53491a9b80f7f689d4f435', '2019-04-10 19:22:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', '212b1467fb53491a9b80f7f689d4f435', '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_dept` VALUES ('732a403df9364ceb9b0203210339eb44', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-03-28 13:48:39', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('94d8f27841bf40fb942c8d865ba0e002', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_dept` VALUES ('b55e207f09334fe98a1047fa87d802f6', '50f2a61a8321423aa6534d36aa2dafb6', '2019-03-28 13:49:05', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('d78b19eecc524d5a8ee39126471a92dd', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-02-01 14:37:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'cfdfef67079e45139125c91c7e016e8a', '2019-01-28 17:06:22', null, null, null, null, 'Used');
 
@@ -2358,10 +2290,8 @@ INSERT INTO `sys_user_role` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'b527070
 INSERT INTO `sys_user_role` VALUES ('514122a8c3944f10b245399aafc8978d', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'b5270709547143e5afb16c1f5c61ce95', '2019-04-10 19:22:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_role` VALUES ('732a403df9364ceb9b0203210339eb44', '4501a9f26d654722b4877a559c18751a', '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', 'b5270709547143e5afb16c1f5c61ce95', '2019-03-28 13:48:39', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('94d8f27841bf40fb942c8d865ba0e002', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_role` VALUES ('b55e207f09334fe98a1047fa87d802f6', '74c618cacb7344b58dab4fdb8601bccc', '2019-03-28 13:49:05', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('d78b19eecc524d5a8ee39126471a92dd', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:37:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('d78b19eecc524d5a8ee39126471a92dd', 'd68fd78cb816477ea948734124de9eb6', '2019-02-01 14:37:00', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'd68fd78cb816477ea948734124de9eb6', '2019-01-28 17:06:22', null, null, null, null, 'Used');
