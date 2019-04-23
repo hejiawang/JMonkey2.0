@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50721
 File Encoding         : 65001
 
-Date: 2019-03-31 11:34:29
+Date: 2019-04-23 15:48:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -82,7 +82,7 @@ CREATE TABLE `act_ge_property` (
 -- Records of act_ge_property
 -- ----------------------------
 INSERT INTO `act_ge_property` VALUES ('cfg.execution-related-entities-count', 'false', '1');
-INSERT INTO `act_ge_property` VALUES ('next.dbid', '70001', '29');
+INSERT INTO `act_ge_property` VALUES ('next.dbid', '72501', '30');
 INSERT INTO `act_ge_property` VALUES ('schema.history', 'create(6.0.0.4)', '1');
 INSERT INTO `act_ge_property` VALUES ('schema.version', '6.0.0.4', '1');
 
@@ -191,6 +191,11 @@ INSERT INTO `act_hi_actinst` VALUES ('67503', 'messagePublish:4:52504', '62553',
 INSERT INTO `act_hi_actinst` VALUES ('67512', 'messagePublish:4:52504', '67505', '67511', 'startPublish', null, null, '开始发布', 'startEvent', null, '2019-02-20 09:02:09.288', '2019-02-20 09:02:09.288', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('67513', 'messagePublish:4:52504', '67505', '67511', 'isAudit', null, null, '是否需要审核', 'exclusiveGateway', null, '2019-02-20 09:02:09.288', '2019-02-20 09:02:09.288', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('67514', 'messagePublish:4:52504', '67505', '67511', 'auditMessage', '67515', null, '正在审核', 'userTask', '1', '2019-02-20 09:02:09.288', null, null, null, '');
+INSERT INTO `act_hi_actinst` VALUES ('70008', 'messagePublish:4:52504', '70001', '70007', 'startPublish', null, null, '开始发布', 'startEvent', null, '2019-04-10 16:36:44.122', '2019-04-10 16:36:44.125', '3', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('70009', 'messagePublish:4:52504', '70001', '70007', 'isAudit', null, null, '是否需要审核', 'exclusiveGateway', null, '2019-04-10 16:36:44.128', '2019-04-10 16:36:44.162', '34', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('70010', 'messagePublish:4:52504', '70001', '70007', 'auditMessage', '70011', null, '正在审核', 'userTask', '1', '2019-04-10 16:36:44.162', '2019-04-10 16:36:50.624', '6462', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('70013', 'messagePublish:4:52504', '70001', '70007', 'auditState', null, null, '是否审核通过', 'exclusiveGateway', null, '2019-04-10 16:36:50.624', '2019-04-10 16:36:50.625', '1', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('70014', 'messagePublish:4:52504', '70001', '70007', 'publish', '70015', null, '重新发布', 'userTask', null, '2019-04-10 16:36:50.625', null, null, null, '');
 
 -- ----------------------------
 -- Table structure for act_hi_attachment
@@ -306,6 +311,7 @@ INSERT INTO `act_hi_identitylink` VALUES ('62555', null, 'starter', '1', null, '
 INSERT INTO `act_hi_identitylink` VALUES ('65010', null, 'starter', '36f8103bf41c4098b72d28734c5fb2ed', null, '65008');
 INSERT INTO `act_hi_identitylink` VALUES ('65020', null, 'starter', '36f8103bf41c4098b72d28734c5fb2ed', null, '65018');
 INSERT INTO `act_hi_identitylink` VALUES ('67507', null, 'starter', '1', null, '67505');
+INSERT INTO `act_hi_identitylink` VALUES ('70003', null, 'starter', '1', null, '70001');
 
 -- ----------------------------
 -- Table structure for act_hi_procinst
@@ -350,6 +356,7 @@ INSERT INTO `act_hi_procinst` VALUES ('62553', '62553', 'e494cc6f8923415daea1eac
 INSERT INTO `act_hi_procinst` VALUES ('65008', '65008', '557a8e5224bf43bfb95fec82c819bb07', 'messagePublish:4:52504', '2019-02-15 13:53:48.857', '2019-02-15 13:53:48.864', '7', '36f8103bf41c4098b72d28734c5fb2ed', 'startPublish', 'endPublish', null, null, '', null);
 INSERT INTO `act_hi_procinst` VALUES ('65018', '65018', 'b7f5455267f14a569698084625f311f3', 'messagePublish:4:52504', '2019-02-15 13:53:56.567', '2019-02-15 13:53:56.575', '8', '36f8103bf41c4098b72d28734c5fb2ed', 'startPublish', 'endPublish', null, null, '', null);
 INSERT INTO `act_hi_procinst` VALUES ('67505', '67505', '71d19dfd6da145149a4514b2ea27eb5b', 'messagePublish:4:52504', '2019-02-20 09:02:09.285', null, null, '1', 'startPublish', null, null, null, '', null);
+INSERT INTO `act_hi_procinst` VALUES ('70001', '70001', '0ba3fdd7afa3442b922d6fae0328596d', 'messagePublish:4:52504', '2019-04-10 16:36:44.073', null, null, '1', 'startPublish', null, null, null, '', null);
 
 -- ----------------------------
 -- Table structure for act_hi_taskinst
@@ -402,6 +409,8 @@ INSERT INTO `act_hi_taskinst` VALUES ('62551', 'messagePublish:4:52504', 'auditM
 INSERT INTO `act_hi_taskinst` VALUES ('62563', 'messagePublish:4:52504', 'auditMessage', '62553', '62559', '正在审核', null, null, null, '1', '2019-02-15 13:34:57.105', null, '2019-02-18 13:50:12.090', '260114985', null, '50', null, null, null, '');
 INSERT INTO `act_hi_taskinst` VALUES ('67504', 'messagePublish:4:52504', 'publish', '62553', '62559', '重新发布', null, null, null, null, '2019-02-18 13:50:12.164', null, null, null, null, '50', null, null, null, '');
 INSERT INTO `act_hi_taskinst` VALUES ('67515', 'messagePublish:4:52504', 'auditMessage', '67505', '67511', '正在审核', null, null, null, '1', '2019-02-20 09:02:09.288', null, null, null, null, '50', null, null, null, '');
+INSERT INTO `act_hi_taskinst` VALUES ('70011', 'messagePublish:4:52504', 'auditMessage', '70001', '70007', '正在审核', null, null, null, '1', '2019-04-10 16:36:44.164', null, '2019-04-10 16:36:50.622', '6458', null, '50', null, null, null, '');
+INSERT INTO `act_hi_taskinst` VALUES ('70015', 'messagePublish:4:52504', 'publish', '70001', '70007', '重新发布', null, null, null, null, '2019-04-10 16:36:50.625', null, null, null, null, '50', null, null, null, '');
 
 -- ----------------------------
 -- Table structure for act_hi_varinst
@@ -499,6 +508,11 @@ INSERT INTO `act_hi_varinst` VALUES ('67506', '67505', '67505', null, '${publish
 INSERT INTO `act_hi_varinst` VALUES ('67508', '67505', '67505', null, 'auditUserId', 'string', '0', null, null, null, '1', null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
 INSERT INTO `act_hi_varinst` VALUES ('67509', '67505', '67505', null, 'isAudit', 'boolean', '0', null, null, '1', null, null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
 INSERT INTO `act_hi_varinst` VALUES ('67510', '67505', '67505', null, 'publishUserId', 'string', '0', null, null, null, '1', null, '2019-02-20 09:02:09.286', '2019-02-20 09:02:09.286');
+INSERT INTO `act_hi_varinst` VALUES ('70002', '70001', '70001', null, '${publishUserId}', 'string', '0', null, null, null, '1', null, '2019-04-10 16:36:44.117', '2019-04-10 16:36:44.117');
+INSERT INTO `act_hi_varinst` VALUES ('70004', '70001', '70001', null, 'auditUserId', 'string', '0', null, null, null, '1', null, '2019-04-10 16:36:44.119', '2019-04-10 16:36:44.119');
+INSERT INTO `act_hi_varinst` VALUES ('70005', '70001', '70001', null, 'isAudit', 'boolean', '0', null, null, '1', null, null, '2019-04-10 16:36:44.119', '2019-04-10 16:36:44.119');
+INSERT INTO `act_hi_varinst` VALUES ('70006', '70001', '70001', null, 'publishUserId', 'string', '0', null, null, null, '1', null, '2019-04-10 16:36:44.119', '2019-04-10 16:36:44.119');
+INSERT INTO `act_hi_varinst` VALUES ('70012', '70001', '70001', null, 'state', 'boolean', '0', null, null, '0', null, null, '2019-04-10 16:36:50.620', '2019-04-10 16:36:50.620');
 
 -- ----------------------------
 -- Table structure for act_id_group
@@ -798,6 +812,8 @@ INSERT INTO `act_ru_execution` VALUES ('62553', '1', '62553', 'e494cc6f8923415da
 INSERT INTO `act_ru_execution` VALUES ('62559', '2', '62553', null, '62553', 'messagePublish:4:52504', null, '62553', 'publish', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-15 13:34:57.104', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `act_ru_execution` VALUES ('67505', '1', '67505', '71d19dfd6da145149a4514b2ea27eb5b', null, 'messagePublish:4:52504', null, '67505', null, '1', '0', '1', '0', '0', '1', null, '', null, '2019-02-20 09:02:09.285', '1', null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `act_ru_execution` VALUES ('67511', '1', '67505', null, '67505', 'messagePublish:4:52504', null, '67505', 'auditMessage', '1', '0', '0', '0', '0', '1', null, '', null, '2019-02-20 09:02:09.286', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `act_ru_execution` VALUES ('70001', '1', '70001', '0ba3fdd7afa3442b922d6fae0328596d', null, 'messagePublish:4:52504', null, '70001', null, '1', '0', '1', '0', '0', '1', null, '', null, '2019-04-10 16:36:44.073', '1', null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
+INSERT INTO `act_ru_execution` VALUES ('70007', '2', '70001', null, '70001', 'messagePublish:4:52504', null, '70001', 'publish', '1', '0', '0', '0', '0', '1', null, '', null, '2019-04-10 16:36:44.120', null, null, '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for act_ru_identitylink
@@ -830,6 +846,7 @@ INSERT INTO `act_ru_identitylink` VALUES ('35014', '1', null, 'starter', '1', nu
 INSERT INTO `act_ru_identitylink` VALUES ('35023', '1', null, 'participant', '36f8103bf41c4098b72d28734c5fb2ed', null, '35012', null);
 INSERT INTO `act_ru_identitylink` VALUES ('62555', '1', null, 'starter', '1', null, '62553', null);
 INSERT INTO `act_ru_identitylink` VALUES ('67507', '1', null, 'starter', '1', null, '67505', null);
+INSERT INTO `act_ru_identitylink` VALUES ('70003', '1', null, 'starter', '1', null, '70001', null);
 
 -- ----------------------------
 -- Table structure for act_ru_job
@@ -944,6 +961,7 @@ CREATE TABLE `act_ru_task` (
 INSERT INTO `act_ru_task` VALUES ('35022', '1', '35018', '35012', 'messagePublish:1:22504', '正在审核', null, null, 'auditMessage', null, '36f8103bf41c4098b72d28734c5fb2ed', null, '50', '2019-02-14 09:46:22.854', null, null, '1', '', null, null);
 INSERT INTO `act_ru_task` VALUES ('67504', '1', '62559', '62553', 'messagePublish:4:52504', '重新发布', null, null, 'publish', null, null, null, '50', '2019-02-18 13:50:12.163', null, null, '1', '', null, null);
 INSERT INTO `act_ru_task` VALUES ('67515', '1', '67511', '67505', 'messagePublish:4:52504', '正在审核', null, null, 'auditMessage', null, '1', null, '50', '2019-02-20 09:02:09.288', null, null, '1', '', null, null);
+INSERT INTO `act_ru_task` VALUES ('70015', '1', '70007', '70001', 'messagePublish:4:52504', '重新发布', null, null, 'publish', null, null, null, '50', '2019-04-10 16:36:50.625', null, null, '1', '', null, null);
 
 -- ----------------------------
 -- Table structure for act_ru_timer_job
@@ -1025,341 +1043,11 @@ INSERT INTO `act_ru_variable` VALUES ('67506', '1', 'string', '${publishUserId}'
 INSERT INTO `act_ru_variable` VALUES ('67508', '1', 'string', 'auditUserId', '67505', '67505', null, null, null, null, '1', null);
 INSERT INTO `act_ru_variable` VALUES ('67509', '1', 'boolean', 'isAudit', '67505', '67505', null, null, null, '1', null, null);
 INSERT INTO `act_ru_variable` VALUES ('67510', '1', 'string', 'publishUserId', '67505', '67505', null, null, null, null, '1', null);
-
--- ----------------------------
--- Table structure for ieg_major
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_major`;
-CREATE TABLE `ieg_major` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `parent_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '上级专业ID',
-  `degree_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学历层次 B本科 Z专科',
-  `level_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '层级分类 One门类 Two学科 Three专业',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '专业名称',
-  `code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '专业编码',
-  `sort` int(11) DEFAULT NULL COMMENT '排序值',
-  `describe` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '专业简介',
-  `work_direction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '从业方向',
-  `course` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '专业课程',
-  `student_scope` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '全国普通高校毕业生规模',
-  `ratio_sex_man` double(5,0) DEFAULT NULL COMMENT '男女比例——男生比例',
-  `ratio_sex_woman` double(5,0) DEFAULT NULL COMMENT '男女比例——女生比例',
-  `ratio_course_arts` double(5,0) DEFAULT NULL COMMENT '高考文理科比例——文科比例',
-  `ratio_course_sci` double(5,0) DEFAULT NULL COMMENT '高考文理科比例——理科比例',
-  `ratio_assess_whole` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——综合满意度',
-  `ratio_assess_work` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——就业满意度',
-  `ratio_assess_study` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——教学质量满意度',
-  `ratio_assess_shool` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——办学条件满意度',
-  `ratio_assess_difficulty` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——难易程度',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——专业定义';
-
--- ----------------------------
--- Records of ieg_major
--- ----------------------------
-INSERT INTO `ieg_major` VALUES ('05f2f010d98947f1bf527ff8249637c4', '956fe8cc5df14569aa9b6e2d77893702', 'B', 'Two', '人文科学实验班类', '0102', '2', '人文科学实验类 专业简介', null, null, null, '50', '50', '50', '50', '5', '5', '5', '3', '5', '2019-03-24 20:30:00', 'ieg', '2019-03-24 21:47:11', 'ieg', null, 'Used');
-INSERT INTO `ieg_major` VALUES ('13a7b04eb83046479d968d66d98a5fc6', '9173193844ad42ac928a5c4248454afc', 'B', 'Three', '逻辑学', '010102', '3', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-31 11:05:08', 'ieg', '2019-03-31 11:06:40', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('1b3138117d8843a7a7e1887eb74336f3', null, 'B', 'One', '经济学', '02', '2', '经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介经济学专业简介', '经济学从业方向阿萨德', '经济学专业课程', '700  ——  800  人', '40', '60', '30', '70', '2', '3', '5', '3', '4', '2019-03-24 19:57:59', 'ieg', '2019-03-24 22:42:51', 'ieg', null, 'Used');
-INSERT INTO `ieg_major` VALUES ('6dbd461779ad43a1a801460727d44354', '9173193844ad42ac928a5c4248454afc', 'B', 'Three', '哲学类', '010100', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 20:30:49', 'ieg', '2019-03-24 20:30:57', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('9173193844ad42ac928a5c4248454afc', '956fe8cc5df14569aa9b6e2d77893702', 'B', 'Two', '哲学类', '0101', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 20:28:53', 'ieg', '2019-03-24 20:29:13', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('94caaae7704c466e9959e02197161e10', null, 'Z', 'One', '农林牧渔', '51', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 20:32:17', 'ieg', '2019-03-24 21:51:10', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('956fe8cc5df14569aa9b6e2d77893702', null, 'B', 'One', '哲学', '01', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 19:56:36', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('9b21d721b7114ce9917fd190035c3938', 'ecd1ff875244448f83668ddc7ab01c88', 'Z', 'Three', '农业类', '510100', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 20:33:18', 'ieg', '2019-03-24 21:51:08', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('d674eecf30684e54a1e972d9a92be3b6', '9173193844ad42ac928a5c4248454afc', 'B', 'Three', '宗教学', '010103', '5', '阿道夫', '阿萨德发', '阿萨德发', '阿萨德发', '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-31 11:32:11', 'ieg', '2019-03-31 11:32:24', 'ieg', null, 'Used');
-INSERT INTO `ieg_major` VALUES ('ecd1ff875244448f83668ddc7ab01c88', '94caaae7704c466e9959e02197161e10', 'Z', 'Two', '农业类', '5101', '1', null, null, null, null, '50', '50', '50', '50', '5', '5', '5', '5', '5', '2019-03-24 20:32:41', 'ieg', '2019-03-24 21:51:05', null, null, 'Used');
-INSERT INTO `ieg_major` VALUES ('fb4ceb3e971d4949b531597e6c7251d8', '9173193844ad42ac928a5c4248454afc', 'B', 'Three', '哲学', '010101', '2', '这是哲学专业的简介，能够写好多东西', '哲学的就业方向是啥，出牛逼吗', '心里学、没有计算机、更没有仅供学', '80 —— 120 万人', '30', '70', '40', '60', '4', '1', '4', '2', '2', '2019-03-24 20:31:21', 'ieg', '2019-03-24 20:31:42', 'ieg', null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school`;
-CREATE TABLE `ieg_school` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学校logo',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学校名称',
-  `area_province` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校所在地——省',
-  `area_city` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校所在地——市',
-  `area_area` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校所在地——区',
-  `area_detail` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校所在地详细地址',
-  `website` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校网址',
-  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '联系方式',
-  `major_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校类型 字典——ieg-school-major-type',
-  `sort` int(11) DEFAULT NULL COMMENT '排名',
-  `attach_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校归属类型 字典——ieg-school-attach-type',
-  `attach_info` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '院校归属详细信息',
-  `degree_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学历层次 B本科 Z专科 A全部',
-  `satisfy` double(10,0) DEFAULT NULL COMMENT '满意度',
-  `ratio_satisfy_environment` double(5,0) DEFAULT NULL COMMENT '满意度——环境',
-  `ratio_satisfy_life` double(5,0) DEFAULT NULL COMMENT '满意度——生活',
-  `ratio_satisfy_edu` double(5,0) DEFAULT NULL COMMENT '满意度——教育',
-  `ratio_satisfy_work` double(5,0) DEFAULT NULL COMMENT '满意度——就业',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校基本信息';
-
--- ----------------------------
--- Records of ieg_school
--- ----------------------------
-INSERT INTO `ieg_school` VALUES ('4234659bbf34448b8625f97747b7cc8c', '/assets/ieg/school/logo/833f3d4fc8d840beaf7ea46e331e496e_1234567890.jpg', '12', '120000', '120100', '120102', '1', '12', '12', 'nongye', '2', 'difang', '2', 'Z', '4', '4', '3', '3', '5', '2019-03-28 17:37:30', 'ieg', '2019-03-29 08:36:25', 'ieg', null, 'Used');
-INSERT INTO `ieg_school` VALUES ('b69c754f2a63471a909a329612598c6b', '/assets/ieg/school/logo/3c0149a345e9495187c78f37ba670edc_1234567890.jpg', '沈阳理工大学', '210000', '210100', '210112', '音频中古', 'www.ligong.com', '13889259444', 'gongke', '5', 'difang', '辽宁教育局', 'A', '5', '5', '5', '5', '5', '2019-03-28 21:58:02', 'ieg', null, null, null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school_detail
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_detail`;
-CREATE TABLE `ieg_school_detail` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `describe` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '学校简介',
-  `faculty` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '学院简介',
-  `life` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '食宿条件',
-  `environment` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '当地气候饮食情况',
-  `scholarship` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '奖学金设置',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校详细信息';
-
--- ----------------------------
--- Records of ieg_school_detail
--- ----------------------------
-INSERT INTO `ieg_school_detail` VALUES ('8ff7aadd3b4b4261b535003259d2f492', '4234659bbf34448b8625f97747b7cc8c', 0x3C703E31323C2F703E3C703E3C62723E3C2F703E3C703E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6965672F7363686F6F6C2F64657363726962652F33306461346638306433366634383039616365336331323964316232333236375F313233343536373839302E6A7067223E3C2F703E, 0x3C703E31323C2F703E, 0x3C703E31323C2F703E, 0x3C703E31323C2F703E, 0x3C703E31323C2F703E, '2019-03-29 21:21:13', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_detail` VALUES ('d81d6e25d3134171abaaaab809e8b271', 'b69c754f2a63471a909a329612598c6b', '', '', '', '', '', '2019-03-28 21:58:02', 'ieg', null, null, null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school_enroll_record
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_enroll_record`;
-CREATE TABLE `ieg_school_enroll_record` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `year` int(4) DEFAULT NULL COMMENT '年',
-  `enroll_info` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '招生简章',
-  `enroll_rule` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '录入规则',
-  `all_score_min` int(4) DEFAULT NULL COMMENT '全国最低分',
-  `all_score_max` int(4) DEFAULT NULL COMMENT '全国最高分',
-  `all_number` int(4) DEFAULT NULL COMMENT '全国录取人数',
-  `local_score_min` int(4) DEFAULT NULL COMMENT '本地最低分',
-  `local_score_max` int(4) DEFAULT NULL COMMENT '本地最高分',
-  `local_number` int(4) DEFAULT NULL COMMENT '本地录取人数',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校历年录取信息';
-
--- ----------------------------
--- Records of ieg_school_enroll_record
--- ----------------------------
-INSERT INTO `ieg_school_enroll_record` VALUES ('2d62a70a1f754cf386d0eb467dce96c9', 'b69c754f2a63471a909a329612598c6b', '2013', '', '', '1', '750', '1', '1', '750', '1', '2019-03-29 22:13:37', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_enroll_record` VALUES ('a7b99504ffd24830a178c63f0e57fc1c', 'b69c754f2a63471a909a329612598c6b', '2015', 0x3C703E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6965672F7363686F6F6C2F656E726F6C6C2F62363963373534663261363334373161393039613332393631323539386336625C656E726F6C6C496E666F5C30626339643235346337303734383466623938363964363162616562383131355F313233343536373839302E6A7067223E3232323232323C2F703E, 0x3C703E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6965672F7363686F6F6C2F656E726F6C6C2F62363963373534663261363334373161393039613332393631323539386336625C656E726F6C6C52756C655C62353638333237326339626234383961626336306535336235353161376162335F332E6A7067223E3232323C2F703E, '2', '2', '2', '2', '20', '2', '2019-03-29 22:20:37', 'ieg', '2019-03-30 07:53:55', 'ieg', null, 'Delete');
-INSERT INTO `ieg_school_enroll_record` VALUES ('b7a8d8d82021493ba0f6a55f01b4e6c2', 'b69c754f2a63471a909a329612598c6b', '2014', 0x3C703E65727465723C2F703E, 0x3C703E7765727477206572743C2F703E, '10', '650', '6', '15', '620', '4', '2019-03-29 22:15:40', 'ieg', null, null, null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school_faculty
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_faculty`;
-CREATE TABLE `ieg_school_faculty` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学院名称',
-  `website` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学院网址',
-  `sort` int(11) DEFAULT NULL COMMENT '排名',
-  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学院联系方式',
-  `describe` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '学校院系简介',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校院系信息';
-
--- ----------------------------
--- Records of ieg_school_faculty
--- ----------------------------
-INSERT INTO `ieg_school_faculty` VALUES ('deed802bcb464e81a6e544199b823c9f', 'b69c754f2a63471a909a329612598c6b', '经管学院', 'asdf', '1', 'adsfadf', 0x3C70726520636C6173733D22716C2D73796E74617822207370656C6C636865636B3D2266616C7365223E0A3C2F7072653E3C703E3C62723E3C2F703E3C70726520636C6173733D22716C2D73796E74617822207370656C6C636865636B3D2266616C7365223E0A3C2F7072653E3C703E3C62723E3C2F703E3C703E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6965672F666163756C74792F62363963373534663261363334373161393039613332393631323539386336625C32363837383764346634323834393864613664376362343731646631653931385F313233343536373839302E6A7067223E3C2F703E3C703E3C62723E3C2F703E3C703EE6898BE58AA8E998803C2F703E, '2019-03-29 14:32:37', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_faculty` VALUES ('eb39d005a51d441d9f3f1f8f810e078e', 'b69c754f2a63471a909a329612598c6b', '计算机学院', null, '3', null, '', '2019-03-29 15:08:04', 'ieg', '2019-03-29 15:17:56', null, null, 'Used');
-INSERT INTO `ieg_school_faculty` VALUES ('f52685ec01954580b614340764d97222', 'b69c754f2a63471a909a329612598c6b', '机械学院1', 'sdf1', '2', 'sadf1', 0x3C703EE999A2E58685E4B893E4B89AEFBC9A3C2F703E3C703E09E4B893E4B89A6120E4B893E4B89A423C2F703E3C703E3C62723E3C2F703E3C703EE999A2E995BFE7AE80E4BB8BEFBC9A3C2F703E3C703E09E4B880E4B8AAE582BBE980BC3C2F703E3C703E3C62723E3C2F703E3C703E313C2F703E, '2019-03-29 15:05:58', 'ieg', '2019-03-29 16:11:00', 'ieg', null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school_features
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_features`;
-CREATE TABLE `ieg_school_features` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学校特性类型 字典——ieg-school-features-type',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校特性';
-
--- ----------------------------
--- Records of ieg_school_features
--- ----------------------------
-INSERT INTO `ieg_school_features` VALUES ('4378f4d20afa409e8c54ecd3548b97f0', '4234659bbf34448b8625f97747b7cc8c', '985gaoxiao', '2019-03-29 21:21:13', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_features` VALUES ('967bbd89281640708a0820aeefcf98d6', '4234659bbf34448b8625f97747b7cc8c', 'dulixueyuan', '2019-03-29 21:21:13', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_features` VALUES ('ed95ed7f918647f9950552c188440737', '4234659bbf34448b8625f97747b7cc8c', '211gaoxiao', '2019-03-29 21:21:13', 'ieg', null, null, null, 'Used');
-
--- ----------------------------
--- Table structure for ieg_school_major
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_major`;
-CREATE TABLE `ieg_school_major` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `faculty_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '所属院校ID',
-  `major_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '专业信息ID',
-  `major_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '专业名称',
-  `degree_type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学历层次 B本科 Z专科',
-  `record_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '专业记录类型 common通用专业 other其他类型专业',
-  `sort` int(11) DEFAULT NULL COMMENT '排序值',
-  `describe` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '专业简介',
-  `work_direction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '从业方向',
-  `course` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '专业课程',
-  `student_scope` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学校学生规模',
-  `money` int(11) DEFAULT NULL COMMENT '学费',
-  `study_length` int(11) DEFAULT NULL COMMENT '学制',
-  `ratio_sex_man` double(5,0) DEFAULT NULL COMMENT '男女比例——男生比例',
-  `ratio_sex_woman` double(5,0) DEFAULT NULL COMMENT '男女比例——女生比例',
-  `ratio_course_arts` double(5,0) DEFAULT NULL COMMENT '高考文理科比例——文科比例',
-  `ratio_course_sci` double(5,0) DEFAULT NULL COMMENT '高考文理科比例——理科比例',
-  `ratio_assess_whole` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——综合满意度',
-  `ratio_assess_work` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——就业满意度',
-  `ratio_assess_study` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——教学质量满意度',
-  `ratio_assess_shool` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——办学条件满意度',
-  `ratio_assess_difficulty` double(5,0) DEFAULT NULL COMMENT '专业满意度评价——难易程度',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校历年录取信息';
-
--- ----------------------------
--- Records of ieg_school_major
--- ----------------------------
-
--- ----------------------------
--- Table structure for ieg_school_major_enroll_record
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_major_enroll_record`;
-CREATE TABLE `ieg_school_major_enroll_record` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_major_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `year` int(4) DEFAULT NULL COMMENT '年',
-  `all_score_min` int(4) DEFAULT NULL COMMENT '全国最低分',
-  `all_score_max` int(4) DEFAULT NULL COMMENT '全国最高分',
-  `all_number` int(4) DEFAULT NULL COMMENT '全国录取人数',
-  `local_score_min` int(4) DEFAULT NULL COMMENT '本地最低分',
-  `local_score_max` int(4) DEFAULT NULL COMMENT '本地最高分',
-  `local_number` int(4) DEFAULT NULL COMMENT '本地录取人数',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校专业历年录取信息';
-
--- ----------------------------
--- Records of ieg_school_major_enroll_record
--- ----------------------------
-
--- ----------------------------
--- Table structure for ieg_school_major_features
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_major_features`;
-CREATE TABLE `ieg_school_major_features` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_major_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '学校特性类型 字典——ieg-school-major-features-type',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校专业特性';
-
--- ----------------------------
--- Records of ieg_school_major_features
--- ----------------------------
-
--- ----------------------------
--- Table structure for ieg_school_major_problem
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_major_problem`;
-CREATE TABLE `ieg_school_major_problem` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_major_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `problem` varchar(55) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '问题',
-  `answer` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '回答',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——学校专业问题汇总';
-
--- ----------------------------
--- Records of ieg_school_major_problem
--- ----------------------------
-
--- ----------------------------
--- Table structure for ieg_school_problem
--- ----------------------------
-DROP TABLE IF EXISTS `ieg_school_problem`;
-CREATE TABLE `ieg_school_problem` (
-  `id` varchar(64) NOT NULL COMMENT '主键ID',
-  `school_id` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '学校基本信息ID',
-  `problem` varchar(55) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '问题',
-  `answer` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin COMMENT '回答',
-  `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '创建人',
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '修改人',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
-  `delete_flag` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'Used' COMMENT 'used启用 disable禁用 delete删除',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报考指南——考生对学校的常见问题以及回答';
-
--- ----------------------------
--- Records of ieg_school_problem
--- ----------------------------
-INSERT INTO `ieg_school_problem` VALUES ('08165dd73bcc43bdbb55439fe54f77eb', 'b69c754f2a63471a909a329612598c6b', '按时大大', 0x3C703EE998BFE696AFE9A1BFE58F91E98081E588B03C2F703E3C703EE998BFE696AFE9A1BFE58F91E998BFE98193E5A4AB3C2F703E3C703EE998BFE696AFE9A1BFE58F9161643C2F703E3C68323EE998BFE696AFE9A1BFE58F913C2F68323E, '2019-03-29 17:42:29', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_problem` VALUES ('3dffe2105fc945ad807431a3b07b402c', 'b69c754f2a63471a909a329612598c6b', '1', 0x3C703E313C2F703E, '2019-03-29 20:00:16', 'ieg', null, null, null, 'Used');
-INSERT INTO `ieg_school_problem` VALUES ('aefac8bfc7c747fab30fea104125d21e', 'b69c754f2a63471a909a329612598c6b', '12312发的规划的股份', 0x3C703E3C696D67207372633D22687474703A2F2F34392E342E35342E3234353A383038302F6173736574732F6965672F7363686F6F6C2F70726F626C656D2F62363963373534663261363334373161393039613332393631323539386336625C37623033386539313833386534653839383462616233646438313439623635305F313233343536373839302E6A7067223E3C2F703E3C703EE5958AE5AE9EE68993E5AE9EE79A843C2F703E, '2019-03-29 17:30:49', 'ieg', '2019-03-29 19:56:46', 'ieg', null, 'Delete');
+INSERT INTO `act_ru_variable` VALUES ('70002', '1', 'string', '${publishUserId}', '70001', '70001', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('70004', '1', 'string', 'auditUserId', '70001', '70001', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('70005', '1', 'boolean', 'isAudit', '70001', '70001', null, null, null, '1', null, null);
+INSERT INTO `act_ru_variable` VALUES ('70006', '1', 'string', 'publishUserId', '70001', '70001', null, null, null, null, '1', null);
+INSERT INTO `act_ru_variable` VALUES ('70012', '1', 'boolean', 'state', '70001', '70001', null, null, null, '0', null, null);
 
 -- ----------------------------
 -- Table structure for ms_chat_group
@@ -1547,8 +1235,10 @@ CREATE TABLE `ms_file` (
 -- ----------------------------
 -- Records of ms_file
 -- ----------------------------
+INSERT INTO `ms_file` VALUES ('02bd2c9e07c049ed905fbe4d90f0673e', '0ba3fdd7afa3442b922d6fae0328596d', '干部软件日志.log', '/assets/message/file/07f994ec392d44fdb724e9bc91157155_干部软件日志.log', '2019-04-10 16:36:43', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_file` VALUES ('50064945b9ed4ed49c36ca1e1cf06c32', 'b1ddbdc193e44978b27c132f4e04e1df', 'kms10.log', '/assets/message/file/3f2724d6d82b45ff98abc83ef47dde2f_kms10.log', '2019-02-15 11:02:08', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_file` VALUES ('930cacc237884c22beeef72d8643b450', 'b1ddbdc193e44978b27c132f4e04e1df', '干部软件日志.log', '/assets/message/file/b2284280fb3d4570859a709f3a491c9e_干部软件日志.log', '2019-02-15 11:02:08', 'admin', null, null, null, 'Used');
+INSERT INTO `ms_file` VALUES ('f288473836684e85a67ab361176f8555', '0ba3fdd7afa3442b922d6fae0328596d', 'webofficedbg.txt', '/assets/message/file/8218b8debb4543f7bb989f79cb2ff87a_webofficedbg.txt', '2019-04-10 16:36:43', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_file` VALUES ('f2ccc749ded24261bbe19073ce4a3eb9', '8bc33626d1514cb3a1b3970f1527934f', 'kms10.log', '/assets/message/file/64542a44236a4a2da19f8fdbe094beaf_kms10.log', '2019-02-13 16:43:04', 'admin', '2019-02-14 08:43:02', null, null, 'Delete');
 INSERT INTO `ms_file` VALUES ('f838f07be02d47ea828d22828d8de8fe', '8bc33626d1514cb3a1b3970f1527934f', '干部软件日志.log', '/assets/message/file/35c23ebe30af4bc4b3a308cd2d38b504_干部软件日志.log', '2019-02-13 16:43:04', 'admin', '2019-02-14 08:43:02', null, null, 'Delete');
 
@@ -1577,6 +1267,7 @@ CREATE TABLE `ms_message` (
 INSERT INTO `ms_message` VALUES ('008b8e7efa204062b8774ecea91dca93', '5', '', '5', '52505', '2019-02-14 13:27:48', 'admin', '2019-02-14 13:27:48', 'admin', null, 'Used');
 INSERT INTO `ms_message` VALUES ('07cbe5cba0314f0ab8915ad37d54e8f4', '2', '', '5', '35001', '2019-02-14 09:46:16', 'admin', '2019-02-15 08:38:54', 'admin', null, 'Delete');
 INSERT INTO `ms_message` VALUES ('0b2f565a4d6b444d888b7edc440a1864', 'yes-1-admin', '', '5', '22505', '2019-02-13 14:23:42', 'admin', '2019-02-14 08:40:45', 'admin', null, 'Delete');
+INSERT INTO `ms_message` VALUES ('0ba3fdd7afa3442b922d6fae0328596d', '文件测试', 0x3C703EE69687E4BBB6E6B58BE8AF95E69687E4BBB6E6B58BE8AF95E69687E4BBB6E6B58BE8AF95E69687E4BBB6E6B58BE8AF953C2F703E, '5', '70001', '2019-04-10 16:36:43', 'admin', '2019-04-10 16:36:44', 'admin', null, 'Used');
 INSERT INTO `ms_message` VALUES ('0ca7d88b06e1410e84eb007d1ee0046e', '2', '', '5', '30012', '2019-02-14 08:47:56', 'admin', '2019-02-14 08:50:21', 'admin', null, 'Delete');
 INSERT INTO `ms_message` VALUES ('13f41f641de94090bc36ec2afe8bf5c4', '12', '', '5', '32501', '2019-02-14 08:55:12', 'admin', '2019-02-15 13:32:19', 'admin', null, 'Delete');
 INSERT INTO `ms_message` VALUES ('16806956b23a4df0b3f5281afd6dced0', '1289', 0x3C703E313238393C2F703E, '5', '62541', '2019-02-15 13:34:42', 'admin', '2019-02-15 13:34:42', 'admin', null, 'Used');
@@ -1733,7 +1424,6 @@ INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', '350324b80fdb4
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', '557a8e5224bf43bfb95fec82c819bb07', 'No', '2019-02-15 13:53:48', 'common', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', '68e230780301454fb505e2f31e454d9a', 'No', '2019-02-15 13:32:37', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'b1ddbdc193e44978b27c132f4e04e1df', 'No', '2019-02-15 11:02:21', 'admin', null, null, null, 'Used');
-INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'b7f5455267f14a569698084625f311f3', 'No', '2019-02-15 13:53:56', 'common', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'c1712691fb964f319449f3a5df16b7cc', 'No', '2019-02-15 13:53:15', 'common', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'c2e6f96e6c9e426f872cb2c98162245e', 'No', '2019-02-14 16:39:46', 'admin', null, null, null, 'Used');
 INSERT INTO `ms_read` VALUES ('d8c3368d55d8414cab00bafb5d733aca', 'ccca754fc88540ad98049eb8d81ec1aa', 'No', '2019-02-15 13:34:33', 'admin', null, null, null, 'Used');
@@ -1763,7 +1453,9 @@ CREATE TABLE `sys_button` (
 -- ----------------------------
 INSERT INTO `sys_button` VALUES ('03aca5c317bc4e19816f95089ae907f3', 'Delete', '', '/ms/**', 'Delete', '2019-01-29 14:26:49', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_button` VALUES ('0c4fba7e8aba4e27b0e7a6f6599363d9', 'ieg-post', '', '/ieg/**', 'Post', '2019-03-24 11:48:51', 'admin', '2019-03-24 11:49:06', 'admin', null, 'Used');
+INSERT INTO `sys_button` VALUES ('1bfbac06c98e45d8bfffb40f7b4aae28', '删除院校', 'ieg_school_delete', '/ieg/**', 'Get', '2019-04-11 20:08:48', 'ieg', '2019-04-11 20:08:58', 'ieg', null, 'Used');
 INSERT INTO `sys_button` VALUES ('241846af380e4cc0bd6b4817565c5a9a', 'sys_get', 'sys_user_get', '/sys/**', 'Get', '2019-01-09 13:50:42', 'admin_test', '2019-01-17 11:31:17', 'admin_test', null, 'Used');
+INSERT INTO `sys_button` VALUES ('39444f220fcd414184901a6354775e60', '新增院校', 'ieg_school_raise', '/ieg/**', 'Get', '2019-04-11 20:08:04', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_button` VALUES ('5af77dfa167645e4a31faaf501532fdc', 'sys_post', 'sys_user_post', '/sys/**', 'Post', '2019-01-09 13:50:29', 'admin_test', '2019-01-17 11:31:19', 'admin_test', null, 'Used');
 INSERT INTO `sys_button` VALUES ('73fb308d5eda4614b36333e0723cad0c', 'Get', '', '/ms/**', 'Get', '2019-01-29 14:26:30', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_button` VALUES ('7cbfce77cbd6422aa81dad33ff91ab9e', 'ieg-get', '', '/ieg/**', 'Get', '2019-03-24 11:49:20', 'admin', '2019-03-24 11:49:59', 'admin', null, 'Used');
@@ -1902,20 +1594,27 @@ INSERT INTO `sys_dict` VALUES ('5e95fc7c56b143b0a0e3a7742cc58d03', 'b34fd313cd77
 INSERT INTO `sys_dict` VALUES ('6b7143e5765840bc8a8507089497a942', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '政法', 'zhengfa', '9', '2019-03-27 08:09:18', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('70943c7f196e4fdf84b9a19ce28522ef', null, '报考指导——院校归属类型', 'ieg-school-attach-type', '3', '2019-03-27 08:11:12', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('71edc0494e6749f19807bef485efb6f6', 'fb9696a946654a7bb7420b576fc3bd4a', '独立学院', 'dulixueyuan', '4', '2019-03-27 08:14:52', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('7bbebd37027f4c178b7ab1aedaec5a7e', '9fb335d5b59944c19f9b4854db92798f', '国家级特色专业', 'gjjtszy', '5', '2019-03-31 21:00:02', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('80abb6cc906c45ae9f27426f49895b0b', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '艺术', 'yishu', '11', '2019-03-27 08:09:40', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('8241dd7d1c604ec180891f427a857f3a', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '医药', 'yiyao', '5', '2019-03-27 08:08:28', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('897cf96df70a4d3fa598d020f31273a5', '70943c7f196e4fdf84b9a19ce28522ef', '地方', 'difang', '3', '2019-03-27 08:12:08', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('8d8aeee9c0744033a2740a257c94e65d', '9fb335d5b59944c19f9b4854db92798f', '一级国家重点学科', 'yjgjzdxk', '2', '2019-03-31 20:59:05', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('920b9f897dc94bc892da71dc25c861f1', '9fb335d5b59944c19f9b4854db92798f', '二级国家重点学科', 'ejgjzdxk', '3', '2019-03-31 20:59:16', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('9434c660f0724f00a91a3a4a01f4810d', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '语言', 'yuyan', '7', '2019-03-27 08:08:57', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('9fb335d5b59944c19f9b4854db92798f', null, '报考指导——院校专业特性', 'ieg-school-major-features-type', '5', '2019-03-31 20:58:06', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('a7156ad680da4e779596d563abde3120', null, '定时任务分组', 'sys_task', '1', '2019-01-24 08:58:23', null, null, null, '定时任务分组sys_task表的group字段', 'Used');
 INSERT INTO `sys_dict` VALUES ('b34fd313cd7749cfbc0d7f3ddc5a5294', null, '报考指导——院校类型', 'ieg-school-major-type', '2', '2019-03-27 08:06:21', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('b7c15967ab45435e9af9d36658afcd15', 'fb9696a946654a7bb7420b576fc3bd4a', '研究生院', 'yanjiushengyuan', '3', '2019-03-27 08:14:36', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('be16ab7c27ca423c9b2a4042dd844602', 'fb9696a946654a7bb7420b576fc3bd4a', '985高校', '985gaoxiao', '1', '2019-03-27 08:13:57', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('c4664d6048ff4ffca028472f8150ad87', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '综合', 'zonghe', '1', '2019-03-27 08:07:32', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('c4acc695ed6c45b9b695880bae6cf999', '9fb335d5b59944c19f9b4854db92798f', '国家重点（培育学科）', 'gjzdpyxk', '4', '2019-03-31 20:59:44', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('d83da9778b6a46a38109642f2b09b65b', '9fb335d5b59944c19f9b4854db92798f', '第四轮学科评估结果', 'dslxkpgjg', '6', '2019-03-31 21:00:26', 'ieg', '2019-04-15 20:09:46', null, null, 'Delete');
 INSERT INTO `sys_dict` VALUES ('ddc398ace11a47d69e64d6cf71390027', 'a7156ad680da4e779596d563abde3120', '测试', 'sys_task_test', '2', '2019-01-24 13:56:55', null, null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('e08d53393e3d415e84fd0016eeb9f595', 'fb9696a946654a7bb7420b576fc3bd4a', '民办高校', 'minbangaoxiao', '5', '2019-03-27 08:15:06', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('eec9789dbac442d2800baac168b792d6', 'b34fd313cd7749cfbc0d7f3ddc5a5294', '工科', 'gongke', '2', '2019-03-27 08:07:48', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('f2f9131c356f4df8ae02630b09844661', '70943c7f196e4fdf84b9a19ce28522ef', '教育部', 'jiaoyubu', '1', '2019-03-27 08:11:36', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_dict` VALUES ('fb9696a946654a7bb7420b576fc3bd4a', null, '报考指导——学校特性', 'ieg-school-features-type', '4', '2019-03-27 08:13:18', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_dict` VALUES ('fedd4a9f658e41309d10bcd34d2b25c6', '9fb335d5b59944c19f9b4854db92798f', '双一流建设学科', 'syljsxk', '1', '2019-03-31 20:58:39', 'ieg', null, null, null, 'Used');
 
 -- ----------------------------
 -- Table structure for sys_log_0
@@ -2204,6 +1903,7 @@ CREATE TABLE `sys_menu` (
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
+INSERT INTO `sys_menu` VALUES ('02409078479444c6967baa22b31a7199', '投档单位', null, '/ieg/schoolSubmit', '/ieg/schoolSubmit', 'No', 'No', 'No', 'Home', '13', '2019-04-07 20:49:32', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('14482180614349c39fe9bb70bd3e0fa9', '部门管理', 'logo-xbox', '/sys/dept', '/sys/dept', 'Yes', 'Yes', 'No', 'Home', '4', '2019-01-09 11:25:15', 'admin_test', '2019-01-10 13:08:57', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('258dcbbefef04bf19ad39b3bcacfd022', '按钮管理', null, '/sys/button', '/sys/button', 'Yes', 'No', 'No', 'Home', '3', '2019-01-09 12:24:31', 'admin_test', '2019-01-09 12:24:40', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('26c28c672b764157a29c2fc0ebde4522', '资源管理', 'ios-navigate', null, null, 'Yes', 'No', 'No', 'Home', '70', '2019-01-09 11:27:14', 'admin_test', '2019-01-22 17:42:27', null, null, 'Used');
@@ -2213,20 +1913,26 @@ INSERT INTO `sys_menu` VALUES ('35e5441365f84896a91777b7880ab10d', '院校问题
 INSERT INTO `sys_menu` VALUES ('44d8b4106ec7428c880bff606de532fb', '菜单管理', null, '/sys/menu', '/sys/menu', 'Yes', 'No', 'No', 'Home', '2', '2019-01-09 12:24:09', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('4f565e58e7be42c2ab7726494a1a9d1a', '系统首页', 'md-home', '/sys/home', '/sys/home', 'Yes', 'No', 'Yes', 'Home', '1', '2019-01-09 11:23:47', 'admin_test', '2019-01-16 10:56:30', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('54941a1a74174d3ead1e003f37429fcb', '院系维护_', null, '/ieg/faculty', '/ieg/faculty', 'No', 'No', 'No', 'Home', '4', '2019-03-29 09:18:03', 'ieg', '2019-03-29 09:18:09', 'ieg', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('5596a332e87742f59a6ff064401b01e4', '一分一段', 'ios-expand', '/ieg/grade', '/ieg/grade', 'Yes', 'No', 'No', 'Home', '10', '2019-04-02 09:42:25', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('56ed32d56af64758b90734393916db84', '消息发布', 'ios-chatbubbles-outline', '/message/publish', '/message/publish', 'Yes', 'No', 'Yes', 'Home', '1', '2019-01-29 14:25:16', 'admin', '2019-01-29 14:29:23', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('5a806b8031b64bc88591edb09f487313', '日志台账', 'logo-sass', '/sys/log', '/sys/log', 'Yes', 'No', 'No', 'Home', '6', '2019-01-22 17:43:54', null, '2019-01-29 09:41:03', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('5c689421c2e0452bbcd5536661dca3be', '数据规则', 'md-analytics', '/sys/dataScope', '/sys/dataScope', 'Yes', 'No', 'No', 'Home', '9', '2019-03-19 23:08:46', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('60a8ff23bb0048289ec9739223a914ed', '_消息发布', null, '/message/publish/form', '/message/publish/form', 'No', 'No', 'No', 'Home', '2', '2019-01-29 16:19:28', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('6e4b20a23afe4bf6a4a5d24d3071d550', '专业问题_', null, '/ieg/schoolMajorProblem', '/ieg/schoolMajorProblem', 'No', 'No', 'No', 'Home', '8', '2019-04-01 14:30:40', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('71684cea9d654584bad93a20fcd52207', '角色管理', 'md-globe', '/sys/role', '/sys/role', 'Yes', 'Yes', 'No', 'Home', '3', '2019-01-09 11:24:53', 'admin_test', '2019-01-10 13:08:52', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('73450906179349219f2821c8e9c2fee9', '代码生成', 'ios-bug', '/sys/code', '/sys/code', 'Yes', 'No', 'No', 'Home', '8', '2019-01-29 09:40:40', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('75600c17095547008bd02b6bae423193', '院校专业_', null, '/ieg/schoolMajor', '/ieg/schoolMajor', 'No', 'No', 'No', 'Home', '7', '2019-03-31 10:15:33', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('786a7fd7783e4bc6bb9f880aecd058a5', '专业录取_', null, '/ieg/schoolMajorEnrollRecord', '/ieg/schoolMajorEnrollRecord', 'No', 'No', 'No', 'Home', '9', '2019-04-01 16:11:33', 'ieg', '2019-04-01 16:12:46', 'ieg', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('7afcc5eb00c246d78d92e673b9679640', '全屏菜单', null, '/home', '/home', 'Yes', 'No', 'Yes', 'Screen', '1', '2019-01-10 13:29:01', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_menu` VALUES ('85ae17e4044a4471b873a48a191ad980', '维护权限', 'logo-codepen', '/ieg/auth', '/ieg/auth', 'Yes', 'No', 'No', 'Home', '14', '2019-04-10 19:14:00', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('863ea79c022d40f4a57a8ce54954c74d', '系统管理', null, '/sys/system', '/sys/system', 'Yes', 'No', 'No', 'Home', '1', '2019-01-09 12:23:37', 'admin_test', '2019-01-10 16:49:31', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('94d4b3ba3991445eb928206730af8be6', '院校维护_', null, '/ieg/school/form', '/ieg/school/form', 'No', 'No', 'No', 'Home', '3', '2019-03-27 09:49:22', 'ieg', '2019-03-27 09:49:35', 'ieg', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('a8d89cd7a359497c802345d6b1a7892b', '投档分数', 'ios-color-filter', '/ieg/enroll', '/ieg/enroll', 'Yes', 'No', 'No', 'Home', '12', '2019-04-04 12:21:21', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('ada820e2bd6345a2a882dd2526f16725', '用户管理', 'ios-contact', '/sys/user', '/sys/user', 'Yes', 'Yes', 'No', 'Home', '2', '2019-01-09 11:24:16', 'admin_test', '2019-01-16 16:10:46', 'admin_test', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('b47334e1f63246edbdfde420f204cd17', '院校录取_', null, '/ieg/schoolEnrollRecord', '/ieg/schoolEnrollRecord', 'No', 'No', 'No', 'Home', '6', '2019-03-29 21:02:07', 'admin', '2019-03-29 21:02:56', 'ieg', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('b5a6eeea310644e2a25e4e3a10cf0628', '定时任务', 'md-clock', '/sys/task', '/sys/task', 'Yes', 'No', 'No', 'Home', '7', '2019-01-24 13:59:20', null, null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('b6620f37c1b247a586ae5414663299bc', '专业台账', 'md-book', '/ieg/major', '/ieg/major', 'Yes', 'Yes', 'Yes', 'Home', '1', '2019-01-11 09:03:17', 'admin_test', '2019-03-24 11:21:56', 'admin', null, 'Used');
+INSERT INTO `sys_menu` VALUES ('bfffe4060ec747b38ac9bd311ac16756', '气候饮食', 'md-beer', '/ieg/environment', '/ieg/environment', 'Yes', 'No', 'No', 'Home', '11', '2019-04-03 13:29:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_menu` VALUES ('f564547f036e4631967ed4ba0c165d38', '消息审核', 'logo-css3', '/message/audit', '/message/audit', 'Yes', 'No', 'No', 'Home', '3', '2019-01-29 14:25:53', 'admin', '2019-01-29 14:29:27', 'admin', null, 'Used');
 INSERT INTO `sys_menu` VALUES ('f986c3db2cbf46fdbd5c0c057fd282d9', '群组台账', 'md-contacts', '/message/chat/group', '/message/chat/group', 'Yes', 'No', 'No', 'Home', '4', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 
@@ -2258,14 +1964,18 @@ INSERT INTO `sys_resource` VALUES ('1419331c93f949fda927aa562363f0c9', 'Menu', '
 INSERT INTO `sys_resource` VALUES ('195da5c9121b40c4b06fba72585f5fe5', 'Button', 'abee88b1a8ee4427a2b377ab63f75d8f', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('21e01b2da75c42e39968d514c25a1f56', 'Button', '5af77dfa167645e4a31faaf501532fdc', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:29', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('2a63aec9db604fa898c11380e8893dd2', 'Menu', '44d8b4106ec7428c880bff606de532fb', '50226e046cab4cc9bdf88684698ee47f', '2019-01-09 12:24:09', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('2d481065ccf440a8b45d3acb637eed5e', 'Button', '39444f220fcd414184901a6354775e60', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:04', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('328672b0736b4e57ba1803571ef418d1', 'Menu', '60a8ff23bb0048289ec9739223a914ed', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 16:19:28', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('394b434defd74548ab04493b5fee924b', 'System', 'c63493fc99c8489294cbe839ce2071ac', null, '2019-01-09 11:19:50', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('3ef924c74b324a92aee904190a29b318', 'Menu', '5596a332e87742f59a6ff064401b01e4', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-02 09:42:25', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('408099690e724f70bd655be2ee00dccd', 'Button', '73fb308d5eda4614b36333e0723cad0c', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:30', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('4196bc3de8254b2a95d03a79d40279bf', 'Menu', 'b6620f37c1b247a586ae5414663299bc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-01-11 09:03:17', 'admin_test', '2019-03-24 11:21:56', 'admin', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('4e1f90aad6594c4d81f232ef28e7d40f', 'Menu', '5c689421c2e0452bbcd5536661dca3be', '394b434defd74548ab04493b5fee924b', '2019-03-19 23:08:46', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('4f3355f7ae6c4156ac320f9691e91a4b', 'Menu', '258dcbbefef04bf19ad39b3bcacfd022', '50226e046cab4cc9bdf88684698ee47f', '2019-01-09 12:24:31', 'admin_test', '2019-01-09 12:24:40', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('50226e046cab4cc9bdf88684698ee47f', 'Menu', '26c28c672b764157a29c2fc0ebde4522', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:27:14', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('52623385f20e4df795f010572512c0e3', 'Menu', 'bfffe4060ec747b38ac9bd311ac16756', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-03 13:29:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('55910164c8fc4dd28a889059697b5b32', 'Button', '95ea2fa6656d439382f8e42e6a926ced', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:54', 'admin_test', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('6730994d67ea410f84028abda4f6f99c', 'Menu', '02409078479444c6967baa22b31a7199', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-07 20:49:32', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('732f59a4c0df4aa2b2c2e3f952c283f4', 'Menu', '94d4b3ba3991445eb928206730af8be6', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:49:22', 'ieg', '2019-03-27 09:49:35', 'ieg', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('74a2ee6672dc4bcbba6f86c402903660', 'Menu', '2850c181e2664d94a43f0a890af8576d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-27 09:26:45', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('76c8fc05ff294ef38b87e6e7a82054d2', 'Button', '0c4fba7e8aba4e27b0e7a6f6599363d9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:48:51', 'admin', null, null, null, 'Used');
@@ -2273,6 +1983,8 @@ INSERT INTO `sys_resource` VALUES ('7a684d1e725e4864a4d12b347ef97ce2', 'Menu', '
 INSERT INTO `sys_resource` VALUES ('7d3065f62b184acba8be3323c40723ab', 'System', 'd7065f3eba94409397f4d21f2692a8fa', null, '2019-01-10 13:24:35', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('812368028df247a69bc974adb44cd0b4', 'Menu', 'f986c3db2cbf46fdbd5c0c057fd282d9', 'b860f629bd3f4e118fa2b406c1684689', '2019-02-24 12:14:12', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('88139b0b64ae46a5a70ca1c53f43872b', 'Button', '03aca5c317bc4e19816f95089ae907f3', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:49', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('88290309f0bd45feb1a2e2e5592b7d9d', 'Menu', '85ae17e4044a4471b873a48a191ad980', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-10 19:14:00', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('8895ba596a104bdc80b719efaf6162b1', 'Menu', 'a8d89cd7a359497c802345d6b1a7892b', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-04 12:21:21', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('8b181665db794069b476f02f42e1a8f8', 'Button', 'ade005be6b4e420d9e899284b3869dc2', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:51:04', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('8eb4b26f990d414285e330fed2292e20', 'Menu', 'b47334e1f63246edbdfde420f204cd17', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 21:02:07', 'admin', '2019-03-29 21:02:56', 'ieg', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('9004f54f261f4320b05beb2b82dd4c3f', 'Button', 'f14184d9c6b540799385b47b3ba9bb45', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:26:42', 'admin', null, null, null, 'Used');
@@ -2285,10 +1997,13 @@ INSERT INTO `sys_resource` VALUES ('b860f629bd3f4e118fa2b406c1684689', 'System',
 INSERT INTO `sys_resource` VALUES ('b8c745e5a9ff4159ae4ea141db35a0e8', 'Menu', '71684cea9d654584bad93a20fcd52207', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:24:53', 'admin_test', '2019-01-10 13:08:52', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('b98f836b7276467ea18cca3900071c51', 'Menu', '14482180614349c39fe9bb70bd3e0fa9', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:25:15', 'admin_test', '2019-01-10 13:08:57', 'admin_test', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('bda4da4b71a942be9e23883e3386479a', 'Menu', '56ed32d56af64758b90734393916db84', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:25:16', 'admin', '2019-01-29 14:29:23', 'admin', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('d676154546b94379b5851ba52a0295f0', 'Menu', '6e4b20a23afe4bf6a4a5d24d3071d550', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 14:30:40', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('d6f4624a49a54b1a8c45385f5af42786', 'Menu', '35e5441365f84896a91777b7880ab10d', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-29 16:45:05', 'ieg', '2019-03-29 16:45:13', 'ieg', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('d8ba380d157846d691f0eb3ec5902130', 'Menu', '73450906179349219f2821c8e9c2fee9', '394b434defd74548ab04493b5fee924b', '2019-01-29 09:40:40', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_resource` VALUES ('d93c6b60ebc8495aa9596ca78f074e26', 'Menu', '786a7fd7783e4bc6bb9f880aecd058a5', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-01 16:11:33', 'ieg', '2019-04-01 16:12:46', 'ieg', null, 'Used');
 INSERT INTO `sys_resource` VALUES ('dd06238dfa334787a1cba25619d0bbc0', 'System', 'e2c1a10b8799418f80b99545d7b83296', null, '2019-01-11 09:01:56', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('ec624a3e7cad4f5ea107902df3390ba3', 'Menu', '4f565e58e7be42c2ab7726494a1a9d1a', '394b434defd74548ab04493b5fee924b', '2019-01-09 11:23:47', 'admin_test', '2019-01-16 10:56:30', 'admin_test', null, 'Used');
+INSERT INTO `sys_resource` VALUES ('ef1bbf18e5b54c63a0d5c2ec4183c7ff', 'Button', '1bfbac06c98e45d8bfffb40f7b4aae28', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:08:48', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('f3a8a2607e7e4d689565ac596cfbc3b4', 'Button', 'cf800ae3d06c4723966963f7c7fd4ea9', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-24 11:49:36', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('f3bb0d693a124fdfbfff1fca745fa160', 'Button', '241846af380e4cc0bd6b4817565c5a9a', '13704bf763904cfbb4ecd4395a7c7745', '2019-01-09 13:50:42', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_resource` VALUES ('f5224801941644bdad7a0ea7fe6f863e', 'Menu', 'f564547f036e4631967ed4ba0c165d38', 'b860f629bd3f4e118fa2b406c1684689', '2019-01-29 14:25:53', 'admin', '2019-01-29 14:29:27', 'admin', null, 'Used');
@@ -2314,6 +2029,7 @@ CREATE TABLE `sys_role` (
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES ('1', '超级管理员', 'admin', '2019-01-09 11:05:56', 'admin', '2019-01-09 11:06:12', null, '超级管理员', 'Used');
+INSERT INTO `sys_role` VALUES ('4501a9f26d654722b4877a559c18751a', '报考顾问', 'ieg_common', '2019-04-10 15:59:44', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_role` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ieg', 'ieg', '2019-03-24 11:20:26', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role` VALUES ('b5270709547143e5afb16c1f5c61ce95', '普通用户', 'common', '2019-01-17 10:19:20', 'admin_test', null, null, null, 'Used');
 INSERT INTO `sys_role` VALUES ('d68fd78cb816477ea948734124de9eb6', '普通用户2', 'common2', '2019-01-28 17:02:08', null, null, null, null, 'Used');
@@ -2389,40 +2105,73 @@ INSERT INTO `sys_role_resource` VALUES ('1', 'd8ba380d157846d691f0eb3ec5902130',
 INSERT INTO `sys_role_resource` VALUES ('1', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('1', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('1', 'f5224801941644bdad7a0ea7fe6f863e', '2019-03-19 23:10:09', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '0254a06c10bb4cc783d7e62cf55ac9c0', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '101c7ef15cd8474da7586316eb3289c3', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '13704bf763904cfbb4ecd4395a7c7745', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '195da5c9121b40c4b06fba72585f5fe5', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '21e01b2da75c42e39968d514c25a1f56', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '2a63aec9db604fa898c11380e8893dd2', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '394b434defd74548ab04493b5fee924b', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '408099690e724f70bd655be2ee00dccd', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4196bc3de8254b2a95d03a79d40279bf', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4e1f90aad6594c4d81f232ef28e7d40f', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4f3355f7ae6c4156ac320f9691e91a4b', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '50226e046cab4cc9bdf88684698ee47f', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '55910164c8fc4dd28a889059697b5b32', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '732f59a4c0df4aa2b2c2e3f952c283f4', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '74a2ee6672dc4bcbba6f86c402903660', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '76c8fc05ff294ef38b87e6e7a82054d2', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '7a684d1e725e4864a4d12b347ef97ce2', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '88139b0b64ae46a5a70ca1c53f43872b', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8b181665db794069b476f02f42e1a8f8', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8eb4b26f990d414285e330fed2292e20', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9004f54f261f4320b05beb2b82dd4c3f', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '95de2c8a8eb54877a9bc3d20dce786f0', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9aa69c54984c455daa3be9c574f4209d', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ae76292783734369a20446e20544a5f0', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b98f836b7276467ea18cca3900071c51', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd6f4624a49a54b1a8c45385f5af42786', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd8ba380d157846d691f0eb3ec5902130', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3a8a2607e7e4d689565ac596cfbc3b4', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-03-31 10:15:46', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '0254a06c10bb4cc783d7e62cf55ac9c0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '101c7ef15cd8474da7586316eb3289c3', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '195da5c9121b40c4b06fba72585f5fe5', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '21e01b2da75c42e39968d514c25a1f56', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '408099690e724f70bd655be2ee00dccd', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '4196bc3de8254b2a95d03a79d40279bf', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '52623385f20e4df795f010572512c0e3', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '55910164c8fc4dd28a889059697b5b32', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '6730994d67ea410f84028abda4f6f99c', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '732f59a4c0df4aa2b2c2e3f952c283f4', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '76c8fc05ff294ef38b87e6e7a82054d2', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '88139b0b64ae46a5a70ca1c53f43872b', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '8b181665db794069b476f02f42e1a8f8', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '8eb4b26f990d414285e330fed2292e20', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '9004f54f261f4320b05beb2b82dd4c3f', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', '95de2c8a8eb54877a9bc3d20dce786f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'ae76292783734369a20446e20544a5f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd676154546b94379b5851ba52a0295f0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd6f4624a49a54b1a8c45385f5af42786', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'd93c6b60ebc8495aa9596ca78f074e26', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'f3a8a2607e7e4d689565ac596cfbc3b4', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('4501a9f26d654722b4877a559c18751a', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-04-11 20:05:54', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '0254a06c10bb4cc783d7e62cf55ac9c0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '101c7ef15cd8474da7586316eb3289c3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '13704bf763904cfbb4ecd4395a7c7745', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '195da5c9121b40c4b06fba72585f5fe5', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '21e01b2da75c42e39968d514c25a1f56', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '2a63aec9db604fa898c11380e8893dd2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '2d481065ccf440a8b45d3acb637eed5e', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '394b434defd74548ab04493b5fee924b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '3ef924c74b324a92aee904190a29b318', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '408099690e724f70bd655be2ee00dccd', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4196bc3de8254b2a95d03a79d40279bf', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4e1f90aad6594c4d81f232ef28e7d40f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '4f3355f7ae6c4156ac320f9691e91a4b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '50226e046cab4cc9bdf88684698ee47f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '52623385f20e4df795f010572512c0e3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '55910164c8fc4dd28a889059697b5b32', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '6730994d67ea410f84028abda4f6f99c', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '732f59a4c0df4aa2b2c2e3f952c283f4', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '74a2ee6672dc4bcbba6f86c402903660', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '76c8fc05ff294ef38b87e6e7a82054d2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '7a684d1e725e4864a4d12b347ef97ce2', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '88139b0b64ae46a5a70ca1c53f43872b', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '88290309f0bd45feb1a2e2e5592b7d9d', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8895ba596a104bdc80b719efaf6162b1', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8b181665db794069b476f02f42e1a8f8', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '8eb4b26f990d414285e330fed2292e20', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9004f54f261f4320b05beb2b82dd4c3f', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '95de2c8a8eb54877a9bc3d20dce786f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9aa69c54984c455daa3be9c574f4209d', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ae76292783734369a20446e20544a5f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'b98f836b7276467ea18cca3900071c51', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd676154546b94379b5851ba52a0295f0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd6f4624a49a54b1a8c45385f5af42786', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd8ba380d157846d691f0eb3ec5902130', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'd93c6b60ebc8495aa9596ca78f074e26', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'dd06238dfa334787a1cba25619d0bbc0', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'ef1bbf18e5b54c63a0d5c2ec4183c7ff', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3a8a2607e7e4d689565ac596cfbc3b4', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('74c618cacb7344b58dab4fdb8601bccc', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-04-11 20:09:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '101c7ef15cd8474da7586316eb3289c3', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '1419331c93f949fda927aa562363f0c9', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', '21e01b2da75c42e39968d514c25a1f56', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
@@ -2437,26 +2186,16 @@ INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', 'b86
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', 'bda4da4b71a942be9e23883e3386479a', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_role_resource` VALUES ('b5270709547143e5afb16c1f5c61ce95', 'f5224801941644bdad7a0ea7fe6f863e', '2019-02-15 13:52:47', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '101c7ef15cd8474da7586316eb3289c3', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '13704bf763904cfbb4ecd4395a7c7745', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '1419331c93f949fda927aa562363f0c9', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '21e01b2da75c42e39968d514c25a1f56', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '394b434defd74548ab04493b5fee924b', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '408099690e724f70bd655be2ee00dccd', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '4e1f90aad6594c4d81f232ef28e7d40f', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '55910164c8fc4dd28a889059697b5b32', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '7a684d1e725e4864a4d12b347ef97ce2', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '7d3065f62b184acba8be3323c40723ab', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '88139b0b64ae46a5a70ca1c53f43872b', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '8b181665db794069b476f02f42e1a8f8', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '9004f54f261f4320b05beb2b82dd4c3f', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '9cf2b9bf83164fb2978c2f434827b2b9', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'ade198a8d94d43829fff1ea35fc2bf37', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'b8c745e5a9ff4159ae4ea141db35a0e8', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'b98f836b7276467ea18cca3900071c51', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'd8ba380d157846d691f0eb3ec5902130', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'ec624a3e7cad4f5ea107902df3390ba3', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-03-22 21:35:56', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '101c7ef15cd8474da7586316eb3289c3', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '1419331c93f949fda927aa562363f0c9', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '21e01b2da75c42e39968d514c25a1f56', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '408099690e724f70bd655be2ee00dccd', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '55910164c8fc4dd28a889059697b5b32', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '7d3065f62b184acba8be3323c40723ab', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '88139b0b64ae46a5a70ca1c53f43872b', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '8b181665db794069b476f02f42e1a8f8', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', '9004f54f261f4320b05beb2b82dd4c3f', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
+INSERT INTO `sys_role_resource` VALUES ('d68fd78cb816477ea948734124de9eb6', 'f3bb0d693a124fdfbfff1fca745fa160', '2019-04-04 14:32:06', 'ieg', null, null, null, 'Used');
 
 -- ----------------------------
 -- Table structure for sys_system
@@ -2549,8 +2288,9 @@ INSERT INTO `sys_user` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'common5', '$
 INSERT INTO `sys_user` VALUES ('2a635f6c3875401497c9953e311faeff', 'common10', '$2a$10$z.pbmc7L/5RUWegLkROCP.L.ms6TAEyTrQPDahxBUkUSYS2pktjni', '13888888888', '张三李四', '2019-03-11', 'Woman', '/assets/user/photo/fc8a3d23cd75496f80f589afba39d4a9_头像.jpg', '2019-03-17 11:46:29', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'common', '$2a$10$7y1IOxvikqw3RmYTsRkDA.lBcp9sPWvvG8zHkLDIFAd7h3qMRHqia', '13555555555', '普通用户', '2019-01-18', 'Man', '/assets/user/photo/d42fc8a314164c49808dc848e654139b_1234567890.jpg', '2019-01-17 10:20:25', 'admin_test', '2019-01-30 14:48:58', 'admin', null, 'Used');
 INSERT INTO `sys_user` VALUES ('514122a8c3944f10b245399aafc8978d', 'common6', '$2a$10$JjB8SExZ/T3vFMVkjBRsQuP/ga2pOP9ldcDXaiE3x4e3dQqg/sGC2', '13333333333', 'common6', '2019-02-06', 'Man', null, '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'common3', '$2a$10$fXIqrzrSenIm.dCk3zSdaeFGQ0AMkC1IkEP8v0DrmReLA6ahfq5fq', '13888889999', 'common3', '2019-02-13', 'Man', null, '2019-02-01 14:35:03', 'admin', '2019-02-01 14:35:24', 'admin', null, 'Used');
+INSERT INTO `sys_user` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'common3', '$2a$10$fXIqrzrSenIm.dCk3zSdaeFGQ0AMkC1IkEP8v0DrmReLA6ahfq5fq', '13888889999', 'common3', '2019-02-13', 'Man', '/assets/user/photo/3ed0cc1f191640e9bb18f81804e823a5_a2.jpg', '2019-02-01 14:35:03', 'admin', '2019-02-01 14:35:24', 'admin', null, 'Used');
 INSERT INTO `sys_user` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', 'common8', '$2a$10$QcRSLD49p3avg67OGvlSK.jOY1iZIVRHYeskvCp5eI0Mr2C9u85ve', '13333333333', 'common8', '2019-02-13', 'Man', null, '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_user` VALUES ('732a403df9364ceb9b0203210339eb44', 'ieg_common', '$2a$10$ygVTWSro2J2V0ZB7Kj65k.oogAmdXMa7gxsILPJWZNOFT0qkkfBQ.', '13888888888', '报考顾问', '2019-04-11', 'Man', null, '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', 'common1', '$2a$10$1Y.BV0PuHPyz06FRxOE1J.AfZmZcso9MswvP7AUlOWyBaZwuFnc16', '13333333333', 'common1', '2019-01-25', 'Man', '/assets/user/photo/e4e0cad0e81449dda2ff343478f8f02f_2.jpg', '2019-01-22 13:32:51', null, '2019-03-28 13:48:39', 'ieg', null, 'Used');
 INSERT INTO `sys_user` VALUES ('94d8f27841bf40fb942c8d865ba0e002', 'common4', '$2a$10$OVoglXKNQzkQLwI8CCdpAu3WFH8m353e2A36ncHaVx4OD7GJ90bcm', '13555555555', 'common4', '2019-02-06', 'Man', null, '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user` VALUES ('b55e207f09334fe98a1047fa87d802f6', 'ieg', '$2a$10$c6FyBQIab4RhWbj1EhbBgurvR5pf7SxMGybxMDU39.af.PWheaxeS', '13333333333', 'ieg', '2019-03-05', 'Man', '/assets/user/photo/0b7207e97bb246489d3f55bf27828260_2.jpg', '2019-03-24 11:25:47', 'admin', '2019-03-28 13:49:05', 'ieg', null, 'Used');
@@ -2582,8 +2322,9 @@ INSERT INTO `sys_user_dept` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'a35e508
 INSERT INTO `sys_user_dept` VALUES ('2a635f6c3875401497c9953e311faeff', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-03-17 11:46:29', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'cfdfef67079e45139125c91c7e016e8a', '2019-01-30 14:48:58', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('514122a8c3944f10b245399aafc8978d', '5020de4a820c4be1bef0144836b26544', '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_dept` VALUES ('5b0048391d5e497398d363cbad1a21eb', '212b1467fb53491a9b80f7f689d4f435', '2019-02-01 14:35:24', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_user_dept` VALUES ('5b0048391d5e497398d363cbad1a21eb', '212b1467fb53491a9b80f7f689d4f435', '2019-04-10 19:22:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', '212b1467fb53491a9b80f7f689d4f435', '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_user_dept` VALUES ('732a403df9364ceb9b0203210339eb44', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-03-28 13:48:39', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('94d8f27841bf40fb942c8d865ba0e002', '7b5b0cc6c5b8467891c46dc945b0ef12', '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_dept` VALUES ('b55e207f09334fe98a1047fa87d802f6', '50f2a61a8321423aa6534d36aa2dafb6', '2019-03-28 13:49:05', 'ieg', null, null, null, 'Used');
@@ -2615,8 +2356,9 @@ INSERT INTO `sys_user_role` VALUES ('23bae2f290a947ae86e1731dcd2d7988', 'b527070
 INSERT INTO `sys_user_role` VALUES ('2a635f6c3875401497c9953e311faeff', 'b5270709547143e5afb16c1f5c61ce95', '2019-03-17 11:46:29', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('36f8103bf41c4098b72d28734c5fb2ed', 'b5270709547143e5afb16c1f5c61ce95', '2019-01-30 14:48:58', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('514122a8c3944f10b245399aafc8978d', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:36:03', 'admin', null, null, null, 'Used');
-INSERT INTO `sys_user_role` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:35:24', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_user_role` VALUES ('5b0048391d5e497398d363cbad1a21eb', 'b5270709547143e5afb16c1f5c61ce95', '2019-04-10 19:22:26', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('6e2d55ca9b604e01b17b03c4fd7821d0', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:36:38', 'admin', null, null, null, 'Used');
+INSERT INTO `sys_user_role` VALUES ('732a403df9364ceb9b0203210339eb44', '4501a9f26d654722b4877a559c18751a', '2019-04-11 20:03:47', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('94492b8bd0d74afb9c1af5c8fc36d57e', 'b5270709547143e5afb16c1f5c61ce95', '2019-03-28 13:48:39', 'ieg', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('94d8f27841bf40fb942c8d865ba0e002', 'b5270709547143e5afb16c1f5c61ce95', '2019-02-01 14:35:19', 'admin', null, null, null, 'Used');
 INSERT INTO `sys_user_role` VALUES ('b55e207f09334fe98a1047fa87d802f6', '74c618cacb7344b58dab4fdb8601bccc', '2019-03-28 13:49:05', 'ieg', null, null, null, 'Used');
