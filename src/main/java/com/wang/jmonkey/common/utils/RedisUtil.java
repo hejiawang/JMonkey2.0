@@ -523,4 +523,8 @@ public class RedisUtil {
             return 0;
         }
     }
+
+    public Set<String> keys(String prefix) {
+        return redisTemplate.keys(prefix);
+    }
 }
